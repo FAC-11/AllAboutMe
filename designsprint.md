@@ -61,6 +61,8 @@ __Desired outcome: 'To make transitioning easiest and the most efficient and str
 #### Crazy 8's
 A chance to get design ideas down on paper and finalise a user journey!
 
+![](assets/Crazy8s.jpg)
+
 ### Prototyping 
 Following our ideation phase we began prototyping the idea on Figma. 
 
