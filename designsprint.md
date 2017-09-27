@@ -63,6 +63,9 @@ A chance to get design ideas down on paper and finalise a user journey!
 
 ### Prototyping 
 Following our ideation phase we began prototyping the idea on Figma. 
+
+
+
 ![](AllAboutMe-prototype2.gif)
 
 
