@@ -1,5 +1,7 @@
 # All About Me
 
+Made by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero)
+
 ## What? 
 An app to help young people at Anna Freud centre to easily transition to adult care. 
 The App will allow young people to write their own introdution to their new Adult Mental Health worker, giving them the information that is important to them. 
