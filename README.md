@@ -10,14 +10,22 @@ The current solution to this problem is a paper based form which the young peopl
 
 ## How? 
 __Design Sprint__
+
 -> Ideation 
+
 -> Prototyping
+
 -> User Testing
+
 __Build Sprint__
+
 -> Sprint Planning
+
 -> Technical spiked
   * PWA
+  
 -> Build! 
+
 
 ## Technologies 
 
