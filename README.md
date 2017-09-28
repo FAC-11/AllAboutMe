@@ -1,6 +1,8 @@
 # All About Me :muscle:
 
-A Founders & Coders project in collaboration with the Anna Freud Center. Made by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero)
+A Founders & Coders project in collaboration with the Anna Freud Center. 
+
+Made by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero) :octocat:
 
 ## What? 
 An app to help young people at Anna Freud centre to easily transition to adult care. 
@@ -23,7 +25,7 @@ __Build Sprint :wrench:__
 
 - [ ] Sprint Planning
 
-- [ ] Technical spiked
+- [ ] Technical spike
   * PWA
   
 - [ ] Build! 
