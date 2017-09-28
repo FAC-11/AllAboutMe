@@ -7,7 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape ./tests/test.js | tap-spec",
+      "start": "node src/index.js",
+      "devStart": "nodemon src/index.js",
+      "coverage": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
@@ -25,7 +28,6 @@
     "env2": "^2.2.0",
     "express": "^4.15.5",
     "express-handlebars": "^3.0.0",
-    "path": "^0.12.7",
     "pg": "^7.3.0",
     "tachyons-custom": "^4.6.0"
   },
