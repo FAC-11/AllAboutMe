@@ -62,4 +62,5 @@ _*"As a user I want to be able to...:"*_
 
 :white_check_mark: Tachyons
 
-## Learnings 
+## Rescources 
+* [@oliverjam's guide to a minimal PWAs](https://github.com/oliverjam/minimal-pwa)
