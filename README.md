@@ -1,4 +1,4 @@
-# All About Me
+# All About Me :muscle:
 
 A Founders & Coders project in collaboration with the Anna Freud Center. Made by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero)
 
@@ -13,21 +13,37 @@ The current solution to this problem is a paper based form which the young peopl
 ## How? 
 __Design Sprint__: See a detailed process [here](https://github.com/FAC-11/AllAboutMe/blob/master/designsprint.md)
 
--> Ideation 
+- [x] Ideation 
 
--> Prototyping
+- [x] Prototyping
 
--> User Testing
+- [ ] User Testing
 
 __Build Sprint__
 
--> Sprint Planning
+- [ ] Sprint Planning
 
--> Technical spiked
+- [ ] Technical spiked
   * PWA
   
--> Build! 
+- [ ] Build! 
 
+### User Stories :books:
+In order to create a realistic MVP we focused on specific user stories we wanted to achieve. 
+
+_*"As a user I want to be able to...:"*_
+- [ ] Login securely
+- [ ] Sign up to the app
+- [ ] Select a personal colour
+- [ ] Answer the questionnaire 
+- [ ] Send answers to questions 
+- [ ] Edit answers once saved 
+- [ ] See my progress within the questionnaire 
+- [ ] Access the app offline 
+- [ ] Be able to use the form on mobile and desktop 
+- [ ] See ideas to difficult questions
+- [ ] Enjoy using the app 
 
 ## Technologies 
 
+## Learnings 
