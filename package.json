@@ -25,6 +25,7 @@
     "env2": "^2.2.0",
     "express": "^4.15.5",
     "express-handlebars": "^3.0.0",
+    "path": "^0.12.7",
     "pg": "^7.3.0",
     "tachyons-custom": "^4.6.0"
   },
