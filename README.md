@@ -11,7 +11,7 @@ Currently it can be a very stressful process for young people at Anna Freud to t
 The current solution to this problem is a paper based form which the young people feel is sub-optimum. An app will allow them to fill in the form at their convenience and in a more engaging way. Helping to make difficult conversations smoother.  
 
 ## How? 
-__Design Sprint__ :art:: See a detailed process [here](https://github.com/FAC-11/AllAboutMe/blob/master/designsprint.md)
+__Design Sprint__ :art: (See a detailed process [here](https://github.com/FAC-11/AllAboutMe/blob/master/designsprint.md))
 
 - [x] Ideation 
 
