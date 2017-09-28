@@ -45,5 +45,20 @@ _*"As a user I want to be able to...:"*_
 - [ ] Enjoy using the app 
 
 ## Technologies 
+:white_check_mark: Javascript 
+
+:white_check_mark: Node
+
+:white_check_mark: Express 
+
+:white_check_mark: Handlebars
+
+:white_check_mark: Postgresql
+
+:white_check_mark: HTML
+
+:white_check_mark: CSS
+
+:white_check_mark: Tachyons
 
 ## Learnings 
