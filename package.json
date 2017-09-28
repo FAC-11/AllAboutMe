@@ -7,9 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/index.js",
-    "start:watch": "nodemon ./src/index.js"
+    "test": "tape ./tests/test.js | tap-spec",
+      "start": "node src/index.js",
+      "devStart": "nodemon src/index.js",
+      "coverage": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
