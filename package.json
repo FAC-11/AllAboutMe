@@ -21,6 +21,7 @@
   "homepage": "https://github.com/FAC-11/AllAboutMe#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "crypto": "^1.0.1",
     "env2": "^2.2.0",
     "express": "^4.15.5",
     "express-handlebars": "^3.0.0",
