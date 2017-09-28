@@ -38,7 +38,8 @@ _*"As a user I want to be able to...:"*_
 - [ ] Answer the questionnaire 
 - [ ] Send answers to questions 
 - [ ] Edit answers once saved 
-- [ ] See my progress within the questionnaire 
+- [ ] See my progress within the questionnaire via a progress bar 
+- [ ] See completed/incomplete sections on screen
 - [ ] Access the app offline 
 - [ ] Be able to use the form on mobile and desktop 
 - [ ] See ideas to difficult questions
