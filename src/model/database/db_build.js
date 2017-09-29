@@ -17,6 +17,7 @@ const build = () => {
     })
     .catch((error) => {
       console.log('Database build error.');
+      return error;
     });
 }
 
@@ -25,5 +26,4 @@ if (require === module) {
   build();
 }
 
-build();
 module.exports = build;

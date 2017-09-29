@@ -1,7 +1,7 @@
 const url = require('url');
 const pgp = require('pg-promise')();
 
-require('env2')('../../../config.env');
+require('env2')('config.env');
 
 if (!process.env.DATABASE_URL) {
   throw new Error('DATABASE_URL environment variable not set.');
