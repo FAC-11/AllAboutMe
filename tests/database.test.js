@@ -14,3 +14,24 @@ test('Insert user into database', (t) => {
       t.end();
     });
 });
+
+test('Get user based on email', (t) => {
+  dbReset()
+    .then(() => {
+      return addUser('jam', 'jam@gmail.com', 'password');
+    })
+    .then(() => {
+      return getUser('jam@gmail.com');
+    })
+    .then(userObj => {
+      const expected = {
+        name: 'jam',
+        email: 'jam@gmail.com',
+        password: 'password',
+      };
+      Object.keys(expected).forEach(key => {
+        t.equal(userObj[key], expected[key], `Returns object with same ${key}`);
+      });
+      t.end();
+    });
+});
