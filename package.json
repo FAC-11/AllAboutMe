@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "tape ./tests/test.js | tap-spec",
+    "test-validator": "tape ./tests/validator.test.js",
       "start": "node src/index.js",
       "devStart": "nodemon src/index.js",
       "coverage": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"

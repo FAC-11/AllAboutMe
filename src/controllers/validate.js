@@ -23,7 +23,7 @@ const validateEmail = (email) => {
   if (typeof email !== 'string') {
     throw new TypeError('This is not a valid email');
   }
-  if(!email.includes('@') {
+  if(!email.includes('@')){
     throw new TypeError('This is not a valid email');
   }
 }
@@ -40,16 +40,16 @@ const validatePassword = (password) => {
   }
 }
 
-const validateConfirmPassword = (confirmPassword, password) = {
+const validateConfirmPassword = (confirmPassword, password) => {
   if(!confirmPassword){
     throw new TypeError('this field is required');
   }
-  if(password !== confirmPassword) {
+  if(confirmPassword !== password) {
     throw new TypeError ("passwords don't match");
   }
 }
 
-const validateRegistration (input) = {
+const validateRegistration = (input) => {
   try {
     validateName(input.name);
     validateEmail(input.email);
@@ -73,8 +73,8 @@ const validateLogin = (input) => {
   }
 }
 
-module.exports {
-validateName,
+module.exports = {
+  validateName,
 validateEmail,
 validatePassword,
 validateConfirmPassword,
