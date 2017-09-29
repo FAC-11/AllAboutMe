@@ -12,7 +12,7 @@ const validateName = (name) => {
     throw new TypeError('Please enter your fullname');
   }
   if (name.length > 20) {
-    throw new TypeError('You have exceeded our maximum amount of characters');
+    throw new TypeError('Name can be no longer than 20 characters');
   }
 };
 
@@ -36,11 +36,7 @@ const validatePassword = (password) => {
     throw new TypeError('This is not a valid password');
   }
   if (password.length < 8) {
-    throw new TypeError('Your password is too short');
-  }
-  const passwordStrengthRegex = ('^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&*])');
-  if(!passwordStrengthRegex.test(password)){
-    throw new TypeError('Your password needs to contain at least one uppercase, one lowercase, one special character and one number');
+    throw new TypeError('Minimum password length is 8 characters');
   }
 }
 
