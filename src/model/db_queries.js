@@ -5,7 +5,10 @@ const userQueries = {
 };
 
 const addUser = (name, email, password) => {
-  return dbConnection.one(userQueries.insert, [name, email, password]);
+  return dbConnection.one(userQueries.insert, [name, email, password])
+    .then((obj) => {
+      return obj.id;
+    });
 };
 
 module.exports = { addUser };
