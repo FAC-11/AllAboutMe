@@ -25,4 +25,5 @@ if (require === module) {
   build();
 }
 
+build();
 module.exports = build;
