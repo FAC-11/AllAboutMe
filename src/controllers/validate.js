@@ -23,6 +23,7 @@ const validateEmail = (email) => {
   if (typeof email !== 'string') {
     throw new TypeError('This is not a valid email');
   }
+
   if (!email.includes('@')) {
     throw new TypeError('This is not a valid email');
   }
@@ -48,6 +49,7 @@ const validateConfirmPassword = (confirmPassword, password) => {
     throw new TypeError("passwords don't match");
   }
 };
+
 
 const validateSignUp = (input) => {
   try {
