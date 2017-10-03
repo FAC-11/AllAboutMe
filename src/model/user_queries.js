@@ -14,8 +14,8 @@ const addUser = (name, email, password) => {
   return dbConnection.one(userQueries.insert, [name, email, password])
     .then( obj =>  {
       const queryPromises = tables.map( table => {
-        const query = `INSERT INTO ${table} (user_id) VALUES ($1)`;
-        return dbConnection.none(query, [obj.id]);
+        const query = `INSERT INTO ${table} (user_id) VALUES ($1) RETURNING user_id`;
+        return dbConnection.one(query, [obj.id]);
       })
       return Promise.all(queryPromises);
     })
