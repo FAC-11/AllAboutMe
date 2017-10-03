@@ -1,6 +1,9 @@
 # Custom
-config.env
 coverage.lcov
+.eslintrc.js
+.DS_Store
+config.env
+
 
 # Logs
 logs
