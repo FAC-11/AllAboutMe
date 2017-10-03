@@ -35,3 +35,23 @@ test('Get user based on email', (t) => {
       t.end();
     });
 });
+
+test('Insert about_me section into database', (t) => {
+  const aboutMe = {
+    user_id: ,
+    likes,
+    dislikes,
+    strengths,
+    weaknesses,
+    uncomfortable,
+    safe
+  }
+  dbReset()
+    .then(() => {
+      return addUser(aboutMe);
+    })
+    .then(id => {
+      t.equal(typeof id, 'number', 'Returns an object containing user\'s id');
+      t.end();
+    });
+});
