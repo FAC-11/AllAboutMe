@@ -16,4 +16,5 @@ const getUser = (email) => {
   return dbConnection.one(userQueries.get, email)
 };
 
+
 module.exports = { addUser, getUser };
