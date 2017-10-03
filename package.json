@@ -10,7 +10,7 @@
     "test": "tape ./tests/*.test.js | tap-spec",
     "start": "node src/index.js",
     "devStart": "nodemon src/index.js",
-    "coverage": "nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov"
+    "coverage": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
