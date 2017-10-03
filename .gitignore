@@ -1,5 +1,8 @@
 # Custom
 config.env
+coverage.lcov
+.eslintrc.js
+
 
 # Logs
 logs

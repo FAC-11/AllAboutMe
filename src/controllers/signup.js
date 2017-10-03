@@ -31,7 +31,7 @@ exports.post = (req, res) => {
           const hashedPassword = sign(userData.password);
           databaseQuery.addUser(userData.nam, userData.email, hashedPassword)
             .then(() => {
-              res.redirect('welcome_back');
+              res.redirect('home');
             })
             .catch((err) => {
               res.status(500).render('error', {
