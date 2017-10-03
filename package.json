@@ -7,8 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "tape ./tests/test.js | tap-spec",
-    "test-validator": "tape ./tests/validator.test.js",
+    "test": "tape ./tests/*.test.js | tap-spec",
       "start": "node src/index.js",
       "devStart": "nodemon src/index.js",
       "coverage": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
@@ -30,6 +29,7 @@
     "express": "^4.15.5",
     "express-handlebars": "^3.0.0",
     "pg": "^7.3.0",
+    "pg-promise": "^6.10.1",
     "tachyons-custom": "^4.6.0"
   },
   "devDependencies": {
