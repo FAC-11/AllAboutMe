@@ -33,3 +33,29 @@ t.throws(()=>validate.validateConfirmPassword(''), 'this field is required', "Fa
 t.throws(()=>validate.validateConfirmPassword('hello1234', 'differentpassword'), "passwords don't match", "Password that don't match have correct error message");
 t.end()
 })
+
+// testing registration function
+test('validateSignUp', (t)=>{
+  let input = {name:'jen', email:'jen@gmail.com', password:'mynameisjen', confirmPassword: 'mynameisjen'};
+  let actual = validate.validateSignUp(input).isValid;
+  t.ok(actual, 'returns object with isValid set to true if input is valid')
+  // checks if inputs are wrong
+  input = {name:'jen', email:'jen@gmail.com', password:'mynameisjen', confirmPassword: 'mynameisjohn'};
+  actual = validate.validateSignUp(input).message;
+  t.ok(actual, "passwords don't match", 'returns error message when isValid set to false')
+  t.end();
+})
+
+test('validateLogin', (t)=>{
+  let input = {email:'jen@gmail.com', password:'mynameisjen'};
+  let actual = validate.validateLogin(input).isValid;
+  t.ok(actual, 'returns object with isValid set to true if input is valid')
+  // checks if inputs are wrong
+  input = {email:'jen', password:'mynameisjen'};
+  actual = validate.validateLogin(input).message;
+  t.ok(actual, 'returns correct error message when isValid set to false')
+  t.end();
+})
+
+
+test.onFinish(()=>process.exit());
