@@ -16,7 +16,7 @@ const build = () => {
       console.log('Database build successful.');
     })
     .catch((error) => {
-      console.log('Database build error.');
+      console.log(error);
     });
 }
 
