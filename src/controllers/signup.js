@@ -27,15 +27,14 @@ exports.post = (req, res) => {
       userData,
     });
   } else {
+    /// PROBLEM
     databaseQuery.getUser(userData.email)
       .then((existingUser) => {
-        console.log('existingUser: ', existingUser);
-        if (!existingUser) {
+        if (existingUser.length==0) {
           const hashedPassword = sign(userData.password);
           databaseQuery.addUser(userData.name, userData.email, hashedPassword)
             .then(() => {
               req.session.user = userData.name;
-              console.log('req.session.user', req.session.user);
               res.redirect('/home');
             })
             .catch((err) => {
