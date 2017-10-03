@@ -19,11 +19,11 @@ __Design Sprint__ :art: (See a detailed process [here](https://github.com/FAC-11
 
 - [x] Prototyping
 
-- [ ] User Testing
+- [x] User Testing
 
 __Build Sprint :wrench:__
 
-- [ ] Sprint Planning
+- [x] Sprint Planning
 
 - [ ] Technical spike
   * PWA
