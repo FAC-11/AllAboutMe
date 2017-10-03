@@ -49,7 +49,7 @@ const validateConfirmPassword = (confirmPassword, password) = {
   }
 }
 
-const validateRegistration (input) = {
+const validateSignUp (input) = {
   try {
     validateName(input.name);
     validateEmail(input.email);
@@ -78,6 +78,6 @@ validateName,
 validateEmail,
 validatePassword,
 validateConfirmPassword,
-validateRegistration,
+validateSignUp,
 validateLogin
 };
