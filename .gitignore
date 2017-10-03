@@ -1,5 +1,6 @@
 # Custom
 config.env
+coverage.lcov
 
 # Logs
 logs
