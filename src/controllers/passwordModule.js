@@ -2,6 +2,7 @@
 const crypto = require('crypto');
 const env = require('env2')('config.env');
 
+
 module.exports = () => {
   const secret = process.env.SECRET;
   if (!secret || typeof secret !== 'string') {
