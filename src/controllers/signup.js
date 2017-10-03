@@ -2,12 +2,13 @@ const { sign } = require('./passwordModule')();
 const databaseQuery = require('../model/db_queries');
 const { validateSignUp } = require('./validate');
 
+
 exports.get = (req, res) => {
   res.render('signup', {
     activePage: {
       signup: true,
     },
-    pageTitle: 'sign-up',
+    pageTitle: 'Signup',
   });
 };
 
@@ -15,6 +16,7 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   const userData = req.body;
   const validatedUser = validateSignUp(userData);
+  console.log('validatedUser: ', validatedUser);
   if (!validatedUser.isValid) {
     res.status(400).render('signup', {
       pageTitle: 'Signup',
@@ -27,13 +29,17 @@ exports.post = (req, res) => {
   } else {
     databaseQuery.getUser(userData.email)
       .then((existingUser) => {
+        console.log('existingUser: ', existingUser);
         if (!existingUser) {
           const hashedPassword = sign(userData.password);
-          databaseQuery.addUser(userData.nam, userData.email, hashedPassword)
+          databaseQuery.addUser(userData.name, userData.email, hashedPassword)
             .then(() => {
-              res.redirect('home');
+              req.session.user = userData.name;
+              console.log('req.session.user', req.session.user);
+              res.redirect('/home');
             })
             .catch((err) => {
+              console.log('err', err);
               res.status(500).render('error', {
                 layout: 'error',
                 statusCode: 500,
@@ -53,6 +59,7 @@ exports.post = (req, res) => {
         }
       })
       .catch((err) => {
+        console.log('err: ', err);
         res.status(500).render('error', {
           layout: 'error',
           statusCode: 500,
