@@ -1,4 +1,4 @@
-# All About Me :muscle:
+# All About Me :muscle: [![Build Status](https://travis-ci.org/FAC-11/AllAboutMe.svg?branch=master)](https://travis-ci.org/FAC-11/AllAboutMe)
 
 A Founders & Coders project in collaboration with the Anna Freud Center. 
 
