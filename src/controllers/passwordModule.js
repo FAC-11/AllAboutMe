@@ -1,6 +1,6 @@
 'use strict';
 const crypto = require('crypto');
-const env2 = require('./config.env');
+const env2 = require('env2')('config.env');
 
 module.exports = () => {
   const secret = process.env.SECRET;
