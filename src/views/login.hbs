@@ -1,4 +1,10 @@
-<h1>Hello fac </h1>
+{{> header }}
 
-email
-password
+<section>
+<form class="" action="/login" method="POST">
+<input id="email" name="email" type="email" placeholder="email" value="email" required>
+<input id="password" name="password" type="password" placeholder="password" value="password" required>
+<button type="submit" name="submit"> Submit </button>
+</form>
+</section>
+<p> Don't have an account? <a href="/signup">Sign up!</a>
