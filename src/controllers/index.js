@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+
 const router = express.Router();
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -8,6 +9,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const home = require('./home');
 const signup = require('./signup');
 const login = require('./login');
+
 const info_page = require('./info_page');
 const colour_scheme = require('./colour_scheme');
 const progress = require('./progress');
@@ -30,6 +32,7 @@ router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
 router.get('/finish', finish.get);
+
 
 router.post('/signup', signup.post);
 router.post('/', login.post);
