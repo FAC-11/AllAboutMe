@@ -41,8 +41,8 @@ exports.post = (req, res) => {
             userData,
           });
         } else {
-          req.session.user_id = data.id;
-          res.redirect(req.session.destination || 'home');
+          req.session.user = data.name;
+          res.redirect(req.session.destination || '/home');
         }
       })
       .catch((err) => {
