@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+
 const router = express.Router();
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +19,7 @@ const background = require('./background');
 const send = require('./send');
 const finish = require('./finish');
 
-router.get('/', login.get)
+router.get('/', login.get);
 router.get('/signup', signup.get);
 router.get('/home', home.get);
 router.get('/colour_scheme', colour_scheme.get);

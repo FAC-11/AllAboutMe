@@ -13,7 +13,7 @@ const addUser = (name, email, password) => {
 };
 
 const getUser = (email) => {
-  return dbConnection.one(userQueries.get, email)
+  return dbConnection.query(userQueries.get, email)
 };
 
 module.exports = { addUser, getUser };
