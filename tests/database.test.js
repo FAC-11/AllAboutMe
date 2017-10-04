@@ -12,6 +12,14 @@ test('Insert user into database', (t) => {
     })
     .then((id) => {
       t.equal(typeof id, 'number', 'Returns a number (the user id)');
+      return addUser('jon', 'jam1@gmail.com', 'password');
+    })
+    .then(() => {
+      t.fail('Returns rejected promise if user already exists');
+      t.end();
+    })
+    .catch(() => {
+      t.pass('Returns rejected promise if user already exists');
       t.end();
     });
 });
