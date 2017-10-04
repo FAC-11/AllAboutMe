@@ -1,1 +1,40 @@
 {{> header }}
+
+<form class="" action="">
+
+  <ol>
+    <li> What's your contact number?
+      <input type="text" name="" value="Your number">
+    </li>
+    <li> How would you like us to contact you?
+      <input type="radio" name="contact" aria-label="whatsapp" value='Whatsapp'> Whatsapp</input>
+      <input type="radio" name="contact" aria-label="email" value='Email'> Email</input>
+      <input type="radio" name="contact" aria-label="call" value='Call'> Call</input>
+      <input type="radio" name="contact" aria-label="Post" value='post'> Post</input>
+    </li>
+    <li>
+      Do you have a preference on your new support worker?
+      <input type="radio" name="sex" value="male" aria-label='male worker'> Male </input>
+      <input type="radio" name="sex" value="female" aria-label='female worker'> female </input>
+    </li>
+    <li>
+      Do you have a preferred appointment time?
+      <input type="radio" name="time" value="am" aria-label='morning appointment'> AM </input>
+      <input type="radio" name="time" value="pm" aria-label='afternoon appointment'> PM </input>
+    </li>
+    <li>
+      Would you like a parent/guardian at the appointments?
+      <input type="radio" name="parent" value="yes"> Yes </input>
+      <input type="radio" name="parent" value="no"> No </input>
+    </li>
+    <li>
+      Do you have any concerns about moving to a different service  and if so, what are they?
+      <input type="text" name="concerns" value="Write here please" aria-label='please let us know your concerns'>
+    </li>
+    <li>
+      I hope that when I leave I am...
+      <input type="text" name="leaving" value="Write here please" aria-label='please let us know your wishes for when you leave'>
+    </li>
+  </ol>
+  <a href='/symptoms'><button type="button" name="butto" value="OK">OK</button></a>
+</form>

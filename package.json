@@ -30,7 +30,8 @@
     "express-handlebars": "^3.0.0",
     "pg": "^7.3.0",
     "pg-promise": "^6.10.1",
-    "tachyons-custom": "^4.6.0"
+    "tachyons-custom": "^4.6.0",
+    "typeform": "^1.0.0"
   },
   "devDependencies": {
     "codecov": "^2.3.0",
