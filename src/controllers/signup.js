@@ -27,7 +27,6 @@ exports.post = (req, res) => {
       userData,
     });
   } else {
-    /// PROBLEM
     databaseQuery.getUser(userData.email)
       .then((existingUser) => {
         if (existingUser.length==0) {
@@ -46,7 +45,7 @@ exports.post = (req, res) => {
               });
             });
         } else {
-          // email already in databse
+          // email already in database
           res.status(400).render('signup', {
             pageTitle: 'Signup',
             messages: [{
