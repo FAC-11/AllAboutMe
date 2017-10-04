@@ -30,7 +30,7 @@ test('Get user based on email', (t) => {
         password: 'password',
       };
       Object.keys(expected).forEach(key => {
-        t.equal(userObj[key], expected[key], `Returns object with same ${key}`);
+        t.equal(userObj[0][key], expected[key], `Returns object with same ${key}`);
       });
       t.end();
     });
