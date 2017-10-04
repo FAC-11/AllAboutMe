@@ -13,7 +13,7 @@ BEGIN;
 
     CREATE TABLE about_me (
         id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id),
+        user_id INTEGER REFERENCES users(id) UNIQUE,
         likes TEXT,
         dislikes TEXT,
         strengths TEXT,

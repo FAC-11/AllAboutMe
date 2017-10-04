@@ -9,14 +9,10 @@ test('Insert user into database', (t) => {
     .then(() => {
       return addUser('jam', 'jam@gmail.com', 'password');
     })
-    .then( arr => {
-      const success = arr.every( (table) => {
-        return table.user_id;
-      });
-      t.ok(success, 'it should insert user_id into each table');
+    .then((id) => {
+      t.equal(typeof id, 'number', 'Returns a number (the user id)');
       t.end();
-    })
-    .catch(error => console.log(error));
+    });
 });
 
 test('Get user based on email', (t) => {
