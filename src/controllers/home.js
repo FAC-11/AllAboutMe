@@ -4,3 +4,4 @@ exports.get = (req, res) => {
     pageTitle: 'Home',
   });
 };
+

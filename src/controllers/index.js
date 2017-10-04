@@ -20,6 +20,7 @@ const send = require('./send');
 const finish = require('./finish');
 
 router.get('/', login.get);
+
 router.get('/signup', signup.get);
 router.get('/home', home.get);
 router.get('/colour_scheme', colour_scheme.get);
@@ -31,6 +32,7 @@ router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
 router.get('/finish', finish.get);
+
 
 router.post('/signup', signup.post);
 router.post('/', login.post);
