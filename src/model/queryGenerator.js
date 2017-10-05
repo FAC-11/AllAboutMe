@@ -19,7 +19,7 @@ const insertGenerator = (sectionName) => {
 };
 
 const getGenerator = (sectionName) => {
-  return 'SELECT * FROM '+ sectionName +'WHERE user_id = $1';
+  return 'SELECT * FROM '+ sectionName +' WHERE user_id = $1';
 }
 
 module.exports = { insertGenerator, getGenerator };

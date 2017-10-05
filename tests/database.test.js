@@ -3,7 +3,7 @@ const dbReset = require('../src/model/database/db_seed');
 const dbConnection = require('../src/model/database/db_connection');
 
 const { addUser, getUser } = require('../src/model/user_queries');
-const { saveAboutMe, saveSymptoms, saveBackgrounds,
+const { getSection, saveAboutMe, saveSymptoms, saveBackgrounds,
   saveAppointments, saveClosing } = require('../src/model/form_queries');
 
 const { getGenerator, insertGenerator } = require('../src/model/queryGenerator');
@@ -95,5 +95,27 @@ test( 'queryGenerator', (t) => {
   t.end();
 });
 
-
+test( 'getSection of the form', (t) => {
+  dbReset()
+    .then( () => {
+      return getUser('jam@gmail.com');
+    })
+    .then((userObj) => {
+      return getSection(userObj.id, 'about_me');
+    })
+    .then((aboutMeObj) => {
+      const expected = {
+        likes: 'choccies',
+        dislikes: 'spinach',
+        strengths: 'jam making',
+        weaknesses: 'eating too much jam',
+        uncomfortable: 'running out of jam',
+        safe: 'bathing in jam',
+      };
+      Object.keys(expected).forEach(key => {
+        t.equal(aboutMeObj[key], expected[key], `Returns object with same ${key}`);
+      });
+      t.end();
+    });
+});
 test.onFinish( () => process.exit());
