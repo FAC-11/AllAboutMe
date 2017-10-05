@@ -85,13 +85,13 @@ test('Get user based on email', (t) => {
 //});
 
 test( 'queryGenerator', (t) => {
-  const array = ['user_id', 'likes', 'dislikes',
-    'strengths', 'weaknesses', 'uncomfortable', 'safe'];
 
- const expected ='INSERT INTO about_me (user_id, likes, dislikes, strengths, weaknesses, uncomfortable, safe) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (user_id) DO UPDATE SET (likes, dislikes, strengths, weaknesses, uncomfortable, safe) = ($2, $3, $4, $5, $6, $7)';
+  const expected ='INSERT INTO about_me (user_id, likes, dislikes, strengths, weaknesses, uncomfortable, safe) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (user_id) DO UPDATE SET (likes, dislikes, strengths, weaknesses, uncomfortable, safe) = ($2, $3, $4, $5, $6, $7)';
 
- const actual = queryGenerator(array);
+  const actual = queryGenerator('aboutMe');
 
   t.equal (actual, expected, 'should return correct sql query');
   t.end();
-})
+});
+
+test.onFinish( () => process.exit());
