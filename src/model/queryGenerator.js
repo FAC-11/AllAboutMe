@@ -1,6 +1,6 @@
 const insertGenerator = (sectionName) => {
   const sections = {
-    aboutMe: ['user_id', 'likes', 'dislikes',
+    about_me: ['user_id', 'likes', 'dislikes',
       'strengths', 'weaknesses', 'uncomfortable', 'safe'],
     symptoms: ['user_id', 'diagnosis', 'diagnosis_agreement',
       'current_medication', 'therapies_helpful', 'keep_well'],
@@ -13,8 +13,8 @@ const insertGenerator = (sectionName) => {
     return '$'+(index+1);
   });
 
-  return 'INSERT INTO about_me (' + sections[sectionName].join(', ')+') VALUES ('+
-    dollars.join(', ')+') ON CONFLICT (user_id) DO UPDATE SET ('+
+  return 'INSERT INTO ' + sectionName + ' (' + sections[sectionName].join(', ')+') VALUES ('+
+    dollars.join(', ') + ') ON CONFLICT (user_id) DO UPDATE SET ('+
     sections[sectionName].slice(1).join(', ')+') = ('+ dollars.slice(1).join(', ')+')';
 };
 

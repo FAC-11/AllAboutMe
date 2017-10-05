@@ -23,7 +23,7 @@ const saveAboutMe = (userId, aboutMeData) => {
     uncomfortable,
     safe
   ];
-  return dbConnection.none(insertGenerator('aboutMe'), aboutMeArr);
+  return dbConnection.none(insertGenerator('about_me'), aboutMeArr);
 };
 
 const saveSymptoms = (userId, symptomsData) => {
