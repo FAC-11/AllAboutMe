@@ -5,6 +5,8 @@ const dbConnection = require('../src/model/database/db_connection');
 const { addUser, getUser } = require('../src/model/user_queries');
 const { saveAboutMe } = require('../src/model/form_queries');
 
+const queryGenerator = require('../src/model/queryGenerator');
+
 test('Insert user into database', (t) => {
   dbReset()
     .then(() => {
@@ -66,7 +68,7 @@ test('Get user based on email', (t) => {
       //return saveAboutMe(aboutMeData);
     //})
     //.then(() => {
-      
+
     //})
     //.then((actual) => {
       //const expected = {
@@ -81,3 +83,15 @@ test('Get user based on email', (t) => {
       //t.end();
     //});
 //});
+
+test( 'queryGenerator', (t) => {
+  const array = ['user_id', 'likes', 'dislikes',
+    'strengths', 'weaknesses', 'uncomfortable', 'safe'];
+
+ const expected ='INSERT INTO about_me (user_id, likes, dislikes, strengths, weaknesses, uncomfortable, safe) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (user_id) DO UPDATE SET (likes, dislikes, strengths, weaknesses, uncomfortable, safe) = ($2, $3, $4, $5, $6, $7)';
+
+ const actual = queryGenerator(array);
+
+  t.equal (actual, expected, 'should return correct sql query');
+  t.end();
+})
