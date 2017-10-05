@@ -28,7 +28,7 @@ BEGIN;
         id SERIAL PRIMARY KEY,
         user_id INTEGER REFERENCES users(id),
         diagnosis TEXT,
-        dianosis_agreement TEXT,
+        diagnosis_agreement TEXT,
         current_medication TEXT,
         therapies TEXT,
         therapies_helpful TEXT,
@@ -70,8 +70,20 @@ BEGIN;
         ('jam', 'jam@gmail.com', 'password'),
         ('ben', 'affleck@gmail.com', 'password');
 
-    INSERT INTO about_me (likes, dislikes, strengths, weaknesses, uncomfortable, safe) VALUES
-        ('choccies', 'spinach', 'jam making', 'eating too much jam', 'running out of jam', 'bathing in jam'),
-        ('walks at sunset on the beach', NULL, NULL, NULL, NULL, NULL);
+    INSERT INTO about_me (user_id, likes, dislikes, strengths, weaknesses, uncomfortable, safe) VALUES
+        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'choccies', 'spinach', 'jam making', 'eating too much jam', 'running out of jam', 'bathing in jam'),
+        ((SELECT id FROM users WHERE email = 'affleck@gmail.com'), 'walks at sunset on the beach', NULL, NULL, NULL, NULL, NULL);
+
+    INSERT INTO symptoms (user_id, diagnosis, diagnosis_agreement, current_medication, therapies, therapies_helpful, keep_well) VALUES
+        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'not sure', 'yes i guess so', 'im not sure', 'i see a therapist', 'not really', 'running');
+
+    INSERT INTO backgrounds (user_id, background) VALUES
+        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'i went for a walk and ate a sandwich and that was good.');
+
+    INSERT INTO appointments (user_id, worker_preferences, appointment_preferences, parent_involved, email, mobile, telephone, contact_preference) VALUES
+        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'male', 'dont mind', false, 'you already have it', '123456789', '1234567891011', 'text message');
+
+    INSERT INTO closing (user_id, concerns, hope) VALUES
+        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'i dont have any', 'i hope i get better');
 
 COMMIT;

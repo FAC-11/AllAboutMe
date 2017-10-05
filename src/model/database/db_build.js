@@ -18,4 +18,5 @@ const build = () => {
 };
 
 
+build();
 module.exports = build;

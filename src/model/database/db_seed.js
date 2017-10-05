@@ -17,9 +17,5 @@ const build = () => {
     });
 };
 
-/* instanbul ignore if */
-if (require === module) {
-  build();
-}
-
+build();
 module.exports = build;
