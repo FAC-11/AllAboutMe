@@ -118,4 +118,36 @@ test( 'getSection of the form', (t) => {
       t.end();
     });
 });
+
+test( 'saveAboutMe query', (t) => {
+  let userId;
+  const data = {
+    likes: 'choccies and bicycles',
+    dislikes: 'spinach but more kale',
+    strengths: 'jam making and cycling',
+    weaknesses: 'eating too much jam and getting fat',
+    uncomfortable: 'running out of jam, when people talk to me',
+    safe: 'bathing in jam, rainbows',
+  }
+  dbReset()
+    .then( () => {
+      return getUser('jam@gmail.com');
+    })
+    .then((userObj) => {
+      userId = userObj.id;
+      return saveAboutMe(userId, data);
+    })
+    .then(() => {
+      return getSection(userId, 'about_me');
+    })
+    .then((aboutMeObj) => {
+      const expected = data;
+      const actual = aboutMeObj;
+      Object.keys(expected).forEach(key => {
+        t.equal(aboutMeObj[key], expected[key], `Inserts correct value for ${key}`);
+      });
+      t.end();
+    });
+});
+
 test.onFinish( () => process.exit());
