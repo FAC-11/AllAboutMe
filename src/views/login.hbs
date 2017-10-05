@@ -1,12 +1,19 @@
-{{> header }}
-{{> messages }}
 
+<div class="login-background-image cover aspect-ratio--object">
+  <div class="login-background-overlay cover aspect-ratio--object ">
 
-<section>
-<form class="" action="/login" method="POST">
-<input id="email" type="email" placeholder="email" name="email"{{#if userData}}value={{userData.email}}{{/if}} required>
-<input id="password" name="password" type="password" placeholder="password" value="password" required>
-<button type="submit" name="submit"> Submit </button>
-</form>
-</section>
-<p> Don't have an account? <a href="/signup">Sign up!</a>
+    <header class="white f-5 mb5 tc tracked mt4"> ALL ABOUT ME </header>
+ 
+
+    <section>
+      <form class="login-form" action="/login" method="POST">
+        <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db center" id="email" type="email" placeholder="email" name="email"{{#if userData}}value={{userData.email}}{{/if}} required>
+        <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db center"id="password" name="password" type="password" placeholder="password" required>
+        <button class="white purple-background w-100 h3 pa1 bn mb2 mw6 db center" type="submit" name="submit"> Login </button>
+         {{> messages }}
+      </form>
+    </section>
+    <p class="white tc"> Don't have an account? <a href="/signup">Sign up!</a>
+  </div>
+</div>
+
