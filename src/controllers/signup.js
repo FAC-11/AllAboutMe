@@ -29,7 +29,7 @@ exports.post = (req, res) => {
   } else {
     databaseQuery.getUser(userData.email)
       .then((existingUser) => {
-        if (existingUser.length==0) {
+        if (existingUser.length == 0) {
           const hashedPassword = sign(userData.password);
           databaseQuery.addUser(userData.name, userData.email, hashedPassword)
             .then(() => {
