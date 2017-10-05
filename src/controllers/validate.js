@@ -17,19 +17,20 @@ const validateName = (name) => {
 };
 
 const validateEmail = (email) => {
-  if(!email) {
+  if (!email) {
     throw new TypeError('Email is required');
   }
   if (typeof email !== 'string') {
     throw new TypeError('This is not a valid email');
   }
-  if(!email.includes('@') {
+
+  if (!email.includes('@')) {
     throw new TypeError('This is not a valid email');
   }
-}
+};
 
 const validatePassword = (password) => {
-  if(!password) {
+  if (!password) {
     throw new TypeError('Please insert a password');
   }
   if (typeof password !== 'string') {
@@ -38,27 +39,27 @@ const validatePassword = (password) => {
   if (password.length < 8) {
     throw new TypeError('Minimum password length is 8 characters');
   }
-}
+};
 
-const validateConfirmPassword = (confirmPassword, password) = {
-  if(!confirmPassword){
+const validateConfirmPassword = (confirmPassword, password) => {
+  if (!confirmPassword) {
     throw new TypeError('this field is required');
   }
-  if(password !== confirmPassword) {
-    throw new TypeError ("passwords don't match");
+  if (confirmPassword !== password) {
+    throw new TypeError("passwords don't match");
   }
-}
+};
 
-const validateRegistration (input) = {
+
+const validateSignUp = (input) => {
   try {
     validateName(input.name);
     validateEmail(input.email);
     validatePassword(input.password);
     validateConfirmPassword(input.confirmPassword, input.password);
-    return {isValid: true};
-  }
-  catch(e) {
-    return {isValid: false, message: e.message};
+    return { isValid: true };
+  } catch (e) {
+    return { isValid: false, message: e.message };
   }
 };
 
@@ -66,18 +67,17 @@ const validateLogin = (input) => {
   try {
     validateEmail(input.email);
     validatePassword(input.password);
-    return {isValid: true};
+    return { isValid: true };
+  } catch (e) {
+    return { isValid: false, message: e.message };
   }
-  catch(e) {
-    return {isValid: false, message: e.message};
-  }
-}
+};
 
-module.exports {
-validateName,
-validateEmail,
-validatePassword,
-validateConfirmPassword,
-validateRegistration,
-validateLogin
+module.exports = {
+  validateName,
+  validateEmail,
+  validatePassword,
+  validateConfirmPassword,
+  validateSignUp,
+  validateLogin,
 };

@@ -1,21 +1,22 @@
-# All About Me :muscle:
+# All About Me :muscle: [![Build Status](https://travis-ci.org/FAC-11/AllAboutMe.svg?branch=master)](https://travis-ci.org/FAC-11/AllAboutMe) [![codecov](https://codecov.io/gh/FAC-11/AllAboutMe/branch/master/graph/badge.svg)](https://codecov.io/gh/FAC-11/AllAboutMe)
 
-A Founders & Coders project in collaboration with the Anna Freud Center. 
+
+A Founders & Coders project in collaboration with the Anna Freud Center.
 
 Made by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero) :octocat:
 
-## What? 
-An app to help young people at Anna Freud centre to easily transition to adult care. 
-The App will allow young people to write their own introdution to their new Adult Mental Health worker, giving them the information that is important to them. 
+## What?
+An app to help young people at Anna Freud centre to easily transition to adult care.
+The App will allow young people to write their own introdution to their new Adult Mental Health worker, giving them the information that is important to them.
 
-## Why? 
-Currently it can be a very stressful process for young people at Anna Freud to transition to Adult care as they have to repeat stories that can be very distressing for them. 
+## Why?
+Currently it can be a very stressful process for young people at Anna Freud to transition to Adult care as they have to repeat stories that can be very distressing for them.
 The current solution to this problem is a paper based form which the young people feel is sub-optimum. An app will allow them to fill in the form at their convenience and in a more engaging way. Helping to make difficult conversations smoother.  
 
-## How? 
+## How?
 __Design Sprint__ :art: (See a detailed process [here](https://github.com/FAC-11/AllAboutMe/blob/master/designsprint.md))
 
-- [x] Ideation 
+- [x] Ideation
 
 - [x] Prototyping
 
@@ -27,32 +28,32 @@ __Build Sprint :wrench:__
 
 - [ ] Technical spike
   * PWA
-  
-- [ ] Build! 
+
+- [ ] Build!
 
 ### User Stories :books:
-In order to create a realistic MVP we focused on specific user stories we wanted to achieve. 
+In order to create a realistic MVP we focused on specific user stories we wanted to achieve.
 
 _*"As a user I want to be able to...:"*_
 - [ ] Login securely
 - [ ] Sign up to the app
 - [ ] Select a personal colour
-- [ ] Answer the questionnaire 
-- [ ] Send answers to questions 
-- [ ] Edit answers once saved 
-- [ ] See my progress within the questionnaire via a progress bar 
+- [ ] Answer the questionnaire
+- [ ] Send answers to questions
+- [ ] Edit answers once saved
+- [ ] See my progress within the questionnaire via a progress bar
 - [ ] See completed/incomplete sections on screen
-- [ ] Access the app offline 
-- [ ] Be able to use the form on mobile and desktop 
+- [ ] Access the app offline
+- [ ] Be able to use the form on mobile and desktop
 - [ ] See ideas to difficult questions
-- [ ] Enjoy using the app 
+- [ ] Enjoy using the app
 
-## Technologies 
-:white_check_mark: Javascript 
+## Technologies
+:white_check_mark: Javascript
 
 :white_check_mark: Node
 
-:white_check_mark: Express 
+:white_check_mark: Express
 
 :white_check_mark: Handlebars
 
@@ -64,5 +65,19 @@ _*"As a user I want to be able to...:"*_
 
 :white_check_mark: Tachyons
 
-## Rescources 
+## Rescources
 * [@oliverjam's guide to a minimal PWAs](https://github.com/oliverjam/minimal-pwa)
+
+## Setup local database
+
+In order to run our tests, you will need to set up a local database as follows.
+
+In terminal type psql or pgcli if installed. Within psql/pcli enter the following commands each followed by an enter. Things in square brackets are for your desired values (without square brackets). Note that password is a string inside '' (NOT double ""):
+
+CREATE DATABASE [db_name];
+CREATE USER [user_name] WITH PASSWORD ['password'];
+Now you can set the database url in your config.env as follows (setting the values in square brackets to the values you defined in the steps above):
+
+postgres://[user_name]:[password]@localhost:5432/[db_name]
+
+Next run the db_build.js file in terminal: node src/database/db_build.js This will create the schema and populate it with a small amount of data.

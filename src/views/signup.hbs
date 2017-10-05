@@ -1,12 +1,13 @@
+{{> header }}
+{{> messages }}
+
 
 <section>
-  <form class="" action="/sign-up" method="post">
-    <input id="name" name="name" type="name" placeholder="name" value="name" required>
-    <input id="email" name="email" type="email" placeholder="email" value="email" required>
+  <form class="" action="/signup" method="POST">
+    <input id="name" type="name" placeholder="name" name="name" {{#if userData}}value="{{userData.name}}"{{/if}} required>
+    <input id="email"  type="email" placeholder="email" name="email" {{#if userData}}value="{{userData.email}}"{{/if}} required>
     <input id="password" name="password" type="password" placeholder="password" value="password" required>
     <input id="confirmPassword" name="confirmPassword" type="password" placeholder="confirmPassword" value="confirmPassword" required>
-    <button type="submit" name="submit"> Submit </button>   
+    <button type="submit" name="submit"> Submit </button>
   </form>
 </section>
-
-<script src="signUpFormScript"></script>
