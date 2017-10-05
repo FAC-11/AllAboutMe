@@ -12,7 +12,7 @@ const saveAboutMe = (userId, aboutMeData) => {
     strengths,
     weaknesses,
     uncomfortable,
-    safe
+    safe,
   } = aboutMeData;
   const aboutMeArr = [
     userId,
@@ -33,8 +33,9 @@ const saveSymptoms = (userId, symptomsData) => {
     current_medication,
     therapies,
     therapies_helpful,
-    keep_well
+    keep_well,
   } = symptomsData;
+
   const symptomsArr = [
     userId,
     diagnosis,
@@ -61,8 +62,9 @@ const saveAppointments = (userId, appointmentsData) => {
     email,
     mobile,
     telephone,
-    contact_preference
+    contact_preference,
   } = appointmentsData;
+
   const appointmentsArr = [
     userId,
     worker_preferences,

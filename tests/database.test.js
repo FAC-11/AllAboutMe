@@ -3,7 +3,8 @@ const dbReset = require('../src/model/database/db_seed');
 const dbConnection = require('../src/model/database/db_connection');
 
 const { addUser, getUser } = require('../src/model/user_queries');
-const { saveAboutMe } = require('../src/model/form_queries');
+const { saveAboutMe, saveSymptoms, saveBackgrounds,
+  saveAppointments, saveClosing } = require('../src/model/form_queries');
 
 const { getGenerator, insertGenerator } = require('../src/model/queryGenerator');
 
@@ -93,5 +94,6 @@ test( 'queryGenerator', (t) => {
   t.equal (actual, expected, 'should return correct sql query');
   t.end();
 });
+
 
 test.onFinish( () => process.exit());
