@@ -45,46 +45,6 @@ test('Get user based on email', (t) => {
     });
 });
 
-//test('Insert about_me section into database', (t) => {
-  //dbReset('db_build.sql')
-    //.then(() => {
-      //dbReset('db_seed.sql');
-    //})
-    //.then(() => {
-      //const userData = {
-        //name: 'bob',
-        //email: 'bobdylan@gmail.com',
-        //password: 'supersecurepassword',
-      //};
-      //return addUser(userData);
-    //})
-    //.then(userId => {
-      //const aboutMeData = {
-        //user_id: userId,
-        //likes: 'bananas',
-        //dislikes: 'dogs',
-        //strengths: 'harmonica',
-        //weaknesses: 'swimming',
-      //};
-      //return saveAboutMe(aboutMeData);
-    //})
-    //.then(() => {
-
-    //})
-    //.then((actual) => {
-      //const expected = {
-        //likes: 'bananas',
-        //dislikes: 'dogs',
-        //strengths: 'harmonica',
-        //weaknesses: 'swimming',
-      //};
-      //Object.keys(expected).forEach(key => {
-        //t.equal(actual[key], expected[key], `
-      //});
-      //t.end();
-    //});
-//});
-
 test( 'queryGenerator', (t) => {
 
   const expected ='INSERT INTO about_me (user_id, likes, dislikes, strengths, weaknesses, uncomfortable, safe) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (user_id) DO UPDATE SET (likes, dislikes, strengths, weaknesses, uncomfortable, safe) = ($2, $3, $4, $5, $6, $7)';
