@@ -2,18 +2,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.login-background-image{
+.background-image{
   background-image: url("https://images.unsplash.com/46/iYvDeqVGRbebiQv2PIJi_DSC_8407.JPG?dpr=1&auto=compress,format&fit=crop&w=2553&h=&q=80&cs=tinysrgb&crop=");
 }
 
-.login-background-overlay{
+.background-overlay{
   background-color: rgba(18, 192, 191, 0.67)
 }
 
 .purple-background{
   background-color: rgba(165, 84, 236, 0.67)
 }
-
-/*.login-form{
-  margin: 0 auto;
-}*/
