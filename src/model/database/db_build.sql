@@ -26,7 +26,7 @@ BEGIN;
 
     CREATE TABLE symptoms (
         id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id),
+        user_id INTEGER REFERENCES users(id) UNIQUE,
         diagnosis TEXT,
         dianosis_agreement TEXT,
         current_medication TEXT,
@@ -39,7 +39,7 @@ BEGIN;
 
     CREATE TABLE backgrounds (
         id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id),
+        user_id INTEGER REFERENCES users(id) UNIQUE,
         background TEXT
     );
 
@@ -47,7 +47,7 @@ BEGIN;
 
     CREATE TABLE appointments (
         id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id),
+        user_id INTEGER REFERENCES users(id) UNIQUE,
         worker_preferences TEXT,
         appointment_preferences TEXT,
         parent_involved BOOLEAN,
@@ -61,7 +61,7 @@ BEGIN;
 
     CREATE TABLE closing (
         id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id),
+        user_id INTEGER REFERENCES users(id) UNIQUE,
         concerns TEXT,
         hope TEXT
     );
