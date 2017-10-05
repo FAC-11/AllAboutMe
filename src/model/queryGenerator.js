@@ -1,4 +1,4 @@
-const queryGenerator = (sectionName) => {
+const insertGenerator = (sectionName) => {
   const sections = {
     aboutMe: ['user_id', 'likes', 'dislikes',
       'strengths', 'weaknesses', 'uncomfortable', 'safe'],
@@ -15,7 +15,11 @@ const queryGenerator = (sectionName) => {
 
   return 'INSERT INTO about_me (' + sections[sectionName].join(', ')+') VALUES ('+
     dollars.join(', ')+') ON CONFLICT (user_id) DO UPDATE SET ('+
-    sections[sectionName].slice(1).join(', ')+') = ('+dollars.slice(1).join(', ')+')';
+    sections[sectionName].slice(1).join(', ')+') = ('+ dollars.slice(1).join(', ')+')';
 };
 
-module.exports = queryGenerator;
+const getGenerator = (sectionName) => {
+  return 'SELECT * FROM '+ sectionName +'WHERE user_id = $1';
+}
+
+module.exports = { insertGenerator, getGenerator };
