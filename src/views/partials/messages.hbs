@@ -1,0 +1,5 @@
+<ul>
+    {{#each messages}}
+        <li class="message {{#if this.error}}message--error"{{/if}}>{{this.content}}</li>
+    {{/each}}
+</ul>

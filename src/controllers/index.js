@@ -9,7 +9,6 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const home = require('./home');
 const signup = require('./signup');
 const login = require('./login');
-
 const info_page = require('./info_page');
 const colour_scheme = require('./colour_scheme');
 const progress = require('./progress');
@@ -20,7 +19,8 @@ const background = require('./background');
 const send = require('./send');
 const finish = require('./finish');
 
-router.get('/', login.get)
+router.get('/', login.get);
+
 router.get('/signup', signup.get);
 router.get('/home', home.get);
 router.get('/colour_scheme', colour_scheme.get);
