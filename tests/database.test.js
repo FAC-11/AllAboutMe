@@ -45,7 +45,7 @@ test('Get user based on email', (t) => {
     });
 });
 
-test( 'queryGenerator', (t) => {
+test('queryGenerator', (t) => {
 
   const expected ='INSERT INTO about_me (user_id, likes, dislikes, strengths, weaknesses, uncomfortable, safe) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (user_id) DO UPDATE SET (likes, dislikes, strengths, weaknesses, uncomfortable, safe) = ($2, $3, $4, $5, $6, $7)';
 
@@ -55,7 +55,7 @@ test( 'queryGenerator', (t) => {
   t.end();
 });
 
-test( 'getSection of the form', (t) => {
+test('getSection of the form', (t) => {
   dbReset()
     .then( () => {
       return getUser('jam@gmail.com');
@@ -73,7 +73,7 @@ test( 'getSection of the form', (t) => {
         safe: 'bathing in jam',
       };
       Object.keys(expected).forEach(key => {
-        t.equal(aboutMeObj[key], expected[key], `Returns object with same ${key}`);
+        t.equal(aboutMeObj[key], expected[key], `Returns object with same value for ${key}`);
       });
       t.end();
     });
@@ -88,9 +88,9 @@ test( 'saveAboutMe query', (t) => {
     weaknesses: 'eating too much jam and getting fat',
     uncomfortable: 'running out of jam, when people talk to me',
     safe: 'bathing in jam, rainbows',
-  }
+  };
   dbReset()
-    .then( () => {
+    .then(() => {
       return getUser('jam@gmail.com');
     })
     .then((userObj) => {
@@ -102,7 +102,6 @@ test( 'saveAboutMe query', (t) => {
     })
     .then((aboutMeObj) => {
       const expected = data;
-      const actual = aboutMeObj;
       Object.keys(expected).forEach(key => {
         t.equal(aboutMeObj[key], expected[key], `Inserts correct value for ${key}`);
       });
@@ -110,4 +109,4 @@ test( 'saveAboutMe query', (t) => {
     });
 });
 
-test.onFinish( () => process.exit());
+test.onFinish(() => process.exit());
