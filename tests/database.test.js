@@ -8,25 +8,6 @@ const { getSection, saveAboutMe, saveSymptoms, saveBackgrounds,
 
 const { getGenerator, insertGenerator } = require('../src/model/queryGenerator');
 
-test('Insert user into database', (t) => {
-  dbReset()
-    .then(() => {
-      return addUser('jam', 'jam1@gmail.com', 'password');
-    })
-    .then((id) => {
-      t.equal(typeof id, 'number', 'Returns a number (the user id)');
-      return addUser('jon', 'jam1@gmail.com', 'password');
-    })
-    .then(() => {
-      t.fail('Returns rejected promise if user already exists');
-      t.end();
-    })
-    .catch(() => {
-      t.pass('Returns rejected promise if user already exists');
-      t.end();
-    });
-});
-
 test('Get user based on email', (t) => {
   dbReset()
     .then(() => {
