@@ -57,7 +57,7 @@ test('getSection of the form', (t) => {
       Object.keys(expected).forEach(key => {
         t.equal(aboutMeObj[key], expected[key], `Returns object with same value for ${key}`);
       });
-    });
+    })
     .then(() => {
       t.fail('getSection failed');
       t.end();
