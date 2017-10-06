@@ -13,9 +13,10 @@ const insertGenerator = (sectionName) => {
     return '$'+(index+1);
   });
 
-  return 'INSERT INTO ' + sectionName + ' (' + sections[sectionName].join(', ')+') VALUES ('+
+  const query = 'INSERT INTO ' + sectionName + ' (' + sections[sectionName].join(', ')+') VALUES ('+
     dollars.join(', ') + ') ON CONFLICT (user_id) DO UPDATE SET ('+
     sections[sectionName].slice(1).join(', ')+') = ('+ dollars.slice(1).join(', ')+')';
+    return query;
 };
 
 const getGenerator = (sectionName) => {
