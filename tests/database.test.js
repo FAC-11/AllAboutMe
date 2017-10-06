@@ -8,20 +8,21 @@ const { getSection, saveAboutMe, saveSymptoms, saveBackgrounds,
 
 const { getGenerator, insertGenerator } = require('../src/model/queryGenerator');
 
-test('Get user based on email', (t) => {
+test('Insert user into database', (t) => {
   dbReset()
     .then(() => {
-      return getUser('jam@gmail.com');
+      return addUser('jam', 'jam1@gmail.com', 'password');
     })
-    .then(userObj => {
-      const expected = {
-        name: 'jam',
-        email: 'jam@gmail.com',
-        password: 'password',
-      };
-      Object.keys(expected).forEach(key => {
-        t.equal(userObj[key], expected[key], `Returns object with same ${key}`);
-      });
+    .then((id) => {
+      t.equal(typeof id, 'number', 'Returns a number (the user id)');
+      return addUser('jon', 'jam1@gmail.com', 'password');
+    })
+    .then(() => {
+      t.fail('Returns rejected promise if user already exists');
+      t.end();
+    })
+    .catch(() => {
+      t.pass('Returns rejected promise if user already exists');
       t.end();
     });
 });
