@@ -17,5 +17,7 @@ const build = () => {
     });
 };
 
-build();
+if (require.main === module) {
+  build();
+}
 module.exports = build;
