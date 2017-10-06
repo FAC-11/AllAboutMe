@@ -99,7 +99,8 @@ test( 'saveAboutMe query', (t) => {
       t.pass('saveAboutMe success');
       t.end();
     })
-    .catch(() => {
+    .catch((error) => {
+      console.log('error saveAboutMe', error);
       t.fail('saveAboutMe failed and the error is caught here');
       t.end();
     });
