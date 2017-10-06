@@ -13,10 +13,11 @@ const build = () => {
     console.log('Database build successful.');
   }).catch((error) => {
     console.log('Database build error.');
-    return error;
   });
 };
 
-build();
+if (require.main === module) {
+  build();
+};
 
 module.exports = build;
