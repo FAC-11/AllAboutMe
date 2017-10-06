@@ -68,41 +68,41 @@ test('getSection of the form', (t) => {
     });
 });
 
-// test( 'saveAboutMe query', (t) => {
-//   let userId;
-//   const data = {
-//     likes: 'choccies and bicycles',
-//     dislikes: 'spinach but more kale',
-//     strengths: 'jam making and cycling',
-//     weaknesses: 'eating too much jam and getting fat',
-//     uncomfortable: 'running out of jam, when people talk to me',
-//     safe: 'bathing in jam, rainbows',
-//   };
-//   dbReset()
-//     .then(() => {
-//       return getUser('jam@gmail.com');
-//     })
-//     .then((userObj) => {
-//       userId = userObj.id;
-//       return saveAboutMe(userId, data);
-//     })
-//     .then(() => {
-//       return getSection(userId, 'about_me');
-//     })
-//     .then((aboutMeObj) => {
-//       const expected = data;
-//       Object.keys(expected).forEach(key => {
-//         t.equal(aboutMeObj[key], expected[key], `Inserts correct value for ${key}`);
-//       });
-//     })
-//     .then(() => {
-//       t.pass('saveAboutMe success');
-//       t.end();
-//     })
-//     .catch((error) => {
-//       t.fail('saveAboutMe failed and the error is caught here');
-//       t.end();
-//     });
-// });
+test( 'saveAboutMe query', (t) => {
+  let userId;
+  const data = {
+    likes: 'choccies and bicycles',
+    dislikes: 'spinach but more kale',
+    strengths: 'jam making and cycling',
+    weaknesses: 'eating too much jam and getting fat',
+    uncomfortable: 'running out of jam, when people talk to me',
+    safe: 'bathing in jam, rainbows',
+  };
+  dbReset()
+    .then(() => {
+      return getUser('jam@gmail.com');
+    })
+    .then((userObj) => {
+      userId = userObj.id;
+      return saveAboutMe(userId, data);
+    })
+    .then(() => {
+      return getSection(userId, 'about_me');
+    })
+    .then((aboutMeObj) => {
+      const expected = data;
+      Object.keys(expected).forEach(key => {
+        t.equal(aboutMeObj[key], expected[key], `Inserts correct value for ${key}`);
+      });
+    })
+    .then(() => {
+      t.pass('saveAboutMe success');
+      t.end();
+    })
+    .catch(() => {
+      t.fail('saveAboutMe failed and the error is caught here');
+      t.end();
+    });
+});
 
 test.onFinish(() => process.exit());
