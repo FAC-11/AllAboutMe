@@ -59,11 +59,11 @@ test('getSection of the form', (t) => {
       });
     })
     .then(() => {
-      t.fail('getSection failed');
+      t.pass('getSection success');
       t.end();
     })
     .catch(() => {
-      t.pass('getSection failed and the error is caught here');
+      t.fail('getSection failed and the error is caught here');
       t.end();
     });
 });
@@ -94,6 +94,13 @@ test( 'saveAboutMe query', (t) => {
       Object.keys(expected).forEach(key => {
         t.equal(aboutMeObj[key], expected[key], `Inserts correct value for ${key}`);
       });
+    })
+    .then(() => {
+      t.pass('saveAboutMe success');
+      t.end();
+    })
+    .catch(() => {
+      t.fail('saveAboutMe failed and the error is caught here');
       t.end();
     });
 });
