@@ -1,13 +1,18 @@
-{{> header }}
-{{> messages }}
+{{> header }} {{> messages }}
 
-
-<section>
-  <form class="" action="/signup" method="POST">
-    <input id="name" type="name" placeholder="name" name="name" {{#if userData}}value="{{userData.name}}"{{/if}} required>
-    <input id="email"  type="email" placeholder="email" name="email" {{#if userData}}value="{{userData.email}}"{{/if}} required>
-    <input id="password" name="password" type="password" placeholder="password" value="password" required>
-    <input id="confirmPassword" name="confirmPassword" type="password" placeholder="confirmPassword" value="confirmPassword" required>
-    <button type="submit" name="submit"> Submit </button>
-  </form>
-</section>
+<div class="background-image cover aspect-ratio--object">
+  <div class="background-overlay cover aspect-ratio--object ">
+    <section class="white">
+      <header class="tracked f1 tc pa3"> Create Account</header>
+      <form class="" action="/signup" method="POST">
+        <br>
+        <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db pl2 center" id="email" type="text" placeholder="name" name="name" {{#if userData}} value="{{userData.name}}" {{/if}} required>
+        <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db pl2 center" id="email" type="email" placeholder="email" name="email" {{#if userData}} value="{{userData.email}}" {{/if}} required>
+        <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db pl2 center" id="password" name="password" type="password" placeholder="password" required>
+        <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db pl2 center" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password"  required>
+        <button class="white purple-background w-100 h3 pa1 bn mb2 mw6 db center" type="submit" name="submit"> Submit </button>
+      </form>
+        <p class="white tc"> Already have an account? <a class="no-underline" href="/">Login!</a>
+    </section>
+  </div>
+</div>
