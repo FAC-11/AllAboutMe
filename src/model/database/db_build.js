@@ -9,7 +9,7 @@ const getSqlFile = filePath => new QueryFile(filePath, { minify: true });
 const buildFile = getSqlFile(path.join(__dirname, 'db_build.sql'));
 
 const build = () => {
-  dbConnection.any(buildFile).then(() => {
+  return dbConnection.any(buildFile).then(() => {
     console.log('Database build successful.');
   }).catch((error) => {
     console.log('Database build error.');
@@ -18,6 +18,5 @@ const build = () => {
 };
 
 build();
-
 
 module.exports = build;
