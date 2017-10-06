@@ -11,11 +11,36 @@
 }
 
 .purple-background{
-  background-color: rgba(165, 84, 236, 0.67)
+  background-color: rgba(165, 84, 236, 0.67);
 }
 
 
+.header-background-colour{
+  background-color: rgba(18, 192, 191, 1);
+}
+
+.grey-font{
+  color: #4f4f4f;
+}
+
+.margin-0-auto{
+  margin: 0 auto;
+}
+
+.edit-icon{
+  background-image: : url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-pencil-8.png&r=79&g=79&b=79");
+}
+
 .finish-page-image{
   background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-paper-plane-8.png&r=255&g=255&b=255");
+}
+
+.tick-image{
+  background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=255&g=255&b=255");
+}
+
+.top-20-margin-auto{
+margin: 0 auto;
+top: 20%;
 }
 
