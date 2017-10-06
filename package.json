@@ -44,6 +44,7 @@
     "nodemon": "^1.12.1",
     "nyc": "^11.2.1",
     "supertest": "^3.0.0",
+    "tachyons-box-sizing": "^3.2.1",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
   }
