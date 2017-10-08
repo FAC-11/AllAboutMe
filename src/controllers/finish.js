@@ -17,6 +17,7 @@ exports.post = (req, res) => {
   email('Hello', person, (error, result) => {
     console.log(' - - - - - - - - - - - - - - - - - - - - -> email sent: ');
     console.log(result);
+    console.log('error: ', error);
     console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
   });
   res.render('finish', {
