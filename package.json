@@ -36,6 +36,7 @@
     "nodemailer-mailgun-transport": "^1.3.5",
     "pg": "^7.3.0",
     "pg-promise": "^6.10.1",
+    "sendemail": "^3.3.0",
     "tachyons-custom": "^4.6.0",
     "typeform": "^1.0.0"
   },
