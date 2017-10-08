@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const controllers = require('./controllers/index');
+const bodyParser = require('body-parser');
 require('env2')('config.env');
 
 const app = express();

@@ -7,12 +7,12 @@
         <p class="test white ma4 pt2 pb2 f2 tl dib">Thank you for completing your profile. <br> We really hope this will make your transition easier</p>
       </div>
         <a class="no-underline" href="/progress"><button class="white bg-white-40 w-90 h3 pa1 bn mb2 mw6 db center tracked grow" type="button" name="continue editing" aria-label="continue editing">CONTINUE EDITING</button></a>
-        <form class="" action="index.html" method="post">
+        <form class="" action="/finish" method="post">
           <div class="tc">
             <p class="test white ma4 pt2 pb2 f3 tl dib">To whom would you like to send the form?</p>
           </div>
           <input class="white bg-white-40 w-90 h3 pa1 bn mb2 mw6 db center tracked grow" type="text" name="email" aria-label="please write your clinician's email" id="emailAddress" value="Clinician's email"></input>
-          <a class="no-underline" href="/finish"><button class="white purple-background w-90 h3 pa1 bn mb2 mw6 db center tracked grow" type="button" name="send the information" aria-label="send the information">SEND</button></a>
+          <span class="no-underline" href="/finish"><input class="white purple-background w-90 h3 pa1 bn mb2 mw6 db center tracked grow" type="submit" name="send the information" aria-label="send the information" value="SEND"></input></span>
         </form>
       </section>
       {{> messages}}
