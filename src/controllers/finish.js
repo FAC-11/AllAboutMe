@@ -10,7 +10,7 @@ exports.post = (req, res) => {
   const person = {
     name: 'Clinician',
     email: req.body.email,
-    subject: 'Hello :)',
+    subject: 'All about me questionnaire',
   };
   // get the data from the database
   console.log('req.body: ', req.body);
