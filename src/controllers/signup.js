@@ -1,5 +1,5 @@
 const { sign } = require('./passwordModule')();
-const databaseQuery = require('../model/db_queries');
+const databaseQuery = require('../model/user_queries');
 const { validateSignUp } = require('./validate');
 
 
@@ -34,7 +34,7 @@ exports.post = (req, res) => {
           databaseQuery.addUser(userData.name, userData.email, hashedPassword)
             .then(() => {
               req.session.user = userData.name;
-              res.redirect('/home');
+              res.redirect('home');
             })
             .catch((err) => {
               console.log('err', err);
@@ -57,7 +57,6 @@ exports.post = (req, res) => {
         }
       })
       .catch((err) => {
-        console.log('err: ', err);
         res.status(500).render('error', {
           layout: 'error',
           statusCode: 500,

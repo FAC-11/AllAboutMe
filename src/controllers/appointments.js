@@ -1,6 +1,7 @@
 exports.get = (req, res) => {
   res.render('appointments', {
-    activePage: {appointments: true},
+    activePage: { appointments: true },
     pageTitle: 'Your appointment',
+    percentage: '15%',
   });
-}
+};
