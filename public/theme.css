@@ -13,6 +13,20 @@
 .purple-background{
   background-color: rgba(165, 84, 236, 0.67);
 }
+.purple-background-solid{
+  background-color: rgba(165, 84, 236, 1)
+}
+
+.solid-green-background{
+    background-color: rgba(18, 192, 191, 1);
+}
+
+
+
+/*.login-form{
+  margin: 0 auto;
+}*/
+
 
 
 .solid-purple-background{
@@ -22,6 +36,15 @@
 .purple-font{
   color: rgba(165, 84, 236, 1);
 }
+
+
+#myBar {
+    width: 10%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px; /* To center it vertically */
+    color: white;
 
 
 .header-background-colour{
@@ -47,6 +70,11 @@
   background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-paper-plane-8.png&r=255&g=255&b=255");
 }
 
+
+.margin-0-auto{
+  margin: 0 auto;
+}
+
 .tick-image{
   background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=255&g=255&b=255");
 }
@@ -55,6 +83,7 @@
 margin: 0 auto;
 top: 20%;
 }
+
 
 ol {
   list-style: none;

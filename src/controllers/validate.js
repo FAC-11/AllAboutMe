@@ -6,7 +6,7 @@ const validateName = (name) => {
     throw new TypeError('This is not a name');
   }
   if (/\W/.test(name)) {
-    throw new TypeError('Name must contain alphanumeric characters');
+    throw new TypeError("Name can't contain alphanumeric characters");
   }
   if (name.length <= 1) {
     throw new TypeError('Please enter your fullname');

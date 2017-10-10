@@ -3,6 +3,7 @@ coverage.lcov
 .eslintrc.js
 .DS_Store
 config.env
+coverage.lcov
 
 
 # Logs

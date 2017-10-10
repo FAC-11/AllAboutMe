@@ -1,6 +1,6 @@
-const { sign, validate } = require('./passwordModule');
+const { sign, validate } = require('./passwordModule')();
 // validate not used, we could delete it
-const databaseQuery = require('../model/db_queries');
+const databaseQuery = require('../model/user_queries');
 const { validateLogin } = require('./validate');
 
 exports.get = (req, res) => {
@@ -41,11 +41,13 @@ exports.post = (req, res) => {
             userData,
           });
         } else {
-          req.session.user = data.name;
-          res.redirect(req.session.destination || '/home');
+          // if the login is successful
+          req.session.user_id = userData.id;
+          res.redirect(req.session.destination || 'home');
         }
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).render('error', {
           layout: 'error',
           statusCode: 500,
