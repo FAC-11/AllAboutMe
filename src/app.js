@@ -31,7 +31,7 @@ app.use(cookieSession({
 app.use(cookieParser());
 app.use('/home', requireLogin);
 app.use('/info_page', requireLogin);
-// app.use('/about', requireLogin);
+app.use('/about', requireLogin);
 app.use('/symptoms', requireLogin);
 app.use('/appointments', requireLogin);
 app.use('/background', requireLogin);
