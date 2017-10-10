@@ -7,13 +7,16 @@ const userQueries = {
 
 const addUser = (name, email, password) => {
   return dbConnection.one(userQueries.insert, [name, email, password])
-    .then((obj) => {
+    .then(obj => {
       return obj.id;
     });
 };
 
 const getUser = (email) => {
-  return dbConnection.query(userQueries.get, email)
+  return dbConnection.any(userQueries.get, [email])
+    .then((result) => {
+      return result[0];
+    });
 };
 
 module.exports = { addUser, getUser };
