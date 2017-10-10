@@ -77,6 +77,10 @@ bottom navbar{
 
 .iconsContainer{
   justify-content: space-around;
+  position: fixed;
+  top: 20%;
+  background-color: #F2F2F2;
+  visibility: 83%;
 }
 
 .figure{
