@@ -15,6 +15,15 @@
 }
 
 
+.solid-purple-background{
+  background-color: rgba(165, 84, 236, 1);
+}
+
+.purple-font{
+  color: rgba(165, 84, 236, 1);
+}
+
+
 .header-background-colour{
   background-color: rgba(18, 192, 191, 1);
 }
@@ -23,6 +32,9 @@
   color: #4f4f4f;
 }
 
+.grey-background{
+  background-color:#F2F2F2;
+}
 .margin-0-auto{
   margin: 0 auto;
 }
@@ -44,3 +56,25 @@ margin: 0 auto;
 top: 20%;
 }
 
+ol {
+  list-style: none;
+}
+li {
+  counter-increment: item;
+  margin-bottom: 5px;
+}
+li:before, .li {
+  content: counter(item);
+  color: #15C26B;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+label:hover {
+	background-color: #E0E0E0;
+}
+
+input:checked + label{
+  background-color: rgba(165, 84, 236, 0.7);
+}
