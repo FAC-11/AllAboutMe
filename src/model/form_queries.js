@@ -45,13 +45,13 @@ const saveSymptoms = (userId, symptomsData) => {
     therapies_helpful,
     keep_well,
   ];
-  return dbConnection.one(insertGenerator('symptoms'), symptomsArr);
+  return dbConnection.none(insertGenerator('symptoms'), symptomsArr);
 };
 
 const saveBackgrounds = (userId, backgroundsData) => {
   const { background } = backgroundsData;
   const backgroundsArr = [userId, background];
-  return dbConnection.one(insertGenerator('backgrounds'), backgroundsArr);
+  return dbConnection.none(insertGenerator('backgrounds'), backgroundsArr);
 };
 
 const saveAppointments = (userId, appointmentsData) => {
@@ -75,13 +75,13 @@ const saveAppointments = (userId, appointmentsData) => {
     telephone,
     contact_preference,
   ];
-  return dbConnection.one(insertGenerator('appointments'), appointmentsArr);
+  return dbConnection.none(insertGenerator('appointments'), appointmentsArr);
 };
 
 const saveClosing = (userId, closingData) => {
   const { concerns, hope } = closingData;
   const closingArr = [userId, concerns, hope];
-  return dbConnection.one(insertGenerator('closing'), closingArr);
+  return dbConnection.none(insertGenerator('closing'), closingArr);
 };
 
 module.exports = {
