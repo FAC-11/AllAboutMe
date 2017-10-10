@@ -7,7 +7,7 @@
       <form class="login-form" action="/" method="POST">
         <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db pl2 center" id="email" type="email" placeholder="email" name="email"{{#if userData}}value={{userData.email}}{{/if}} required>
         <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db pl2 center"id="password" name="password" type="password" placeholder="password" required>
-        <button class="white purple-background w-100 h3 pa1 bn mb2 mw6 db center" type="submit" name="submit"> Login </button>
+        <a href="/home"><button class="white purple-background w-100 h3 pa1 bn mb2 mw6 db center" type="submit" name="submit"> Login </button></a>
          {{> messages }}
       </form>
     </section>
