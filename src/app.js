@@ -4,6 +4,8 @@ const exphbs = require('express-handlebars');
 const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const controllers = require('./controllers/index');
+const requireLogin = require('./controllers/requireLogin');
+const bodyParser = require('body-parser');
 require('env2')('config.env');
 
 const app = express();
@@ -26,7 +28,19 @@ app.use(cookieSession({
   // the session will last for three days
   maxAge: 24 * 60 * 60 * 1000 * 3,
 }));
+
 app.use(cookieParser());
+app.use('/home', requireLogin);
+app.use('/info_page', requireLogin);
+app.use('/about', requireLogin);
+app.use('/symptoms', requireLogin);
+app.use('/appointments', requireLogin);
+app.use('/background', requireLogin);
+app.use('/colour_scheme', requireLogin);
+app.use('/send', requireLogin);
+app.use('/progress', requireLogin);
+app.use('/finish', requireLogin);
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(controllers);
 
