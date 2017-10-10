@@ -71,3 +71,6 @@ top: 20%;
 }
 
 
+.navbar list {
+  overflow: hidden;
+}
