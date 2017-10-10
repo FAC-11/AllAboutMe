@@ -1,4 +1,4 @@
-const { saveAppointments } = require('../model/form_queries');
+const { saveAppointments, saveClosing } = require('../model/form_queries');
 
 exports.get = (req, res) => {
   res.render('appointments', {
@@ -9,6 +9,8 @@ exports.get = (req, res) => {
 
 exports.post = (req, res) => {
   saveAppointments(req.session.id, req.body).then(() => {
+    return saveClosing(req.session.id, req.body);
+  }).then(() => {
     res.render('symptoms', {
       activePage: { symptoms: true },
       pageTitle: 'Symptoms & Difficulties',
