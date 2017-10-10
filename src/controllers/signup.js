@@ -56,7 +56,6 @@ exports.post = (req, res) => {
         }
       })
       .catch((err) => {
-        console.log('err: ', err);
         res.status(500).render('error', {
           layout: 'error',
           statusCode: 500,

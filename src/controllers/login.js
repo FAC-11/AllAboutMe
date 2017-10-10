@@ -36,8 +36,7 @@ exports.post = (req, res) => {
         } else {
           req.session.user = data.name;
           req.session.id = data.id;
-          console.log(req.session.id);
-          res.redirect(req.session.destination || '/home');
+          res.redirect(req.session.destination || 'home');
         }
       })
       .catch((err) => {
