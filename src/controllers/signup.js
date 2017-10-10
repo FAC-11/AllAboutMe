@@ -8,7 +8,7 @@ exports.get = (req, res) => {
     activePage: {
       signup: true,
     },
-    pageTitle: 'Signup',
+    pageTitle: 'Create an Account',
   });
 };
 
@@ -18,7 +18,7 @@ exports.post = (req, res) => {
   const validatedUser = validateSignUp(userData);
   if (!validatedUser.isValid) {
     res.status(400).render('signup', {
-      pageTitle: 'Signup',
+      pageTitle: 'Create an Account',
       messages: [{
         content: validatedUser.message,
         error: true,
@@ -45,17 +45,17 @@ exports.post = (req, res) => {
             });
         } else {
           // email already in database
-          res.status(400).render('signup', {
-            pageTitle: 'Signup',
+          res.status(200).render('signup', {
+            pageTitle: 'Create an Account',
             messages: [{
               content: `Account already exists for ${userData.email}`,
               error: true,
             }],
-            userData,
           });
         }
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).render('error', {
           layout: 'error',
           statusCode: 500,

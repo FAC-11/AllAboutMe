@@ -1,9 +1,10 @@
-{{> header }} {{> messages }}
+{{> header }} 
 
 <div class="background-image cover aspect-ratio--object">
   <div class="background-overlay cover aspect-ratio--object ">
     <section class="white">
-      <header class="tracked f1 tc pa3"> Create Account</header>
+      <header class="tracked f1 tc pa3">{{ pageTitle }}</header>
+      {{> messages }}
       <form class="" action="/signup" method="POST">
         <br>
         <input class="white bg-white-40 w-100 h3 pa1 bn mb2 mw6 db pl2 center" id="email" type="text" placeholder="name" name="name" {{#if userData}} value="{{userData.name}}" {{/if}} required>
