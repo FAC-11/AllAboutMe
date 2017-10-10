@@ -1,11 +1,13 @@
 var modal = document.getElementById('modal');
-var lightbulb = document.getElementById('lightbulb');
 var span = document.getElementsByClassName('close')[0];
+var lightbulb = document.querySelectorAll('.lightbulb');
 
-
-lightbulb.onclick = function() {
-  modal.style.display = "inline-flex";
-};
+for(var i=0; i<lightbulb.length; i++){
+  var selectedButton = lightbulb[i];
+  selectedButton.addEventListener('click', function () {
+    modal.style.display = "inline-flex";
+  });
+}
 
 span.onclick = function() {
   modal.style.display = 'none';
