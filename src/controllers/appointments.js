@@ -5,9 +5,10 @@ const {
 } = require('../model/form_queries');
 
 exports.get = (req, res) => {
+
   Promise.all([
     getSection(req.session.id, 'appointments'),
-    getSection(req.session.id, 'closing')
+    getSection(req.session.id, 'closing'),
   ]).then((dataArr) => {
     const data = Object.assign(dataArr[0], dataArr[1]);
     // for ticking correct checkbox based on previously saved answer
