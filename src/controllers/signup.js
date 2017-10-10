@@ -1,5 +1,5 @@
 const { sign } = require('./passwordModule')();
-const databaseQuery = require('../model/db_queries');
+const databaseQuery = require('../model/user_queries');
 const { validateSignUp } = require('./validate');
 
 
