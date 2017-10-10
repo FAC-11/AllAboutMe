@@ -1,6 +1,5 @@
-const { sign, validate } = require('./passwordModule');
-// validate not used, we could delete it
-const databaseQuery = require('../model/db_queries');
+const { validatePassword } = require('./passwordModule');
+const { getUser } = require('../model/user_queries');
 const { validateLogin } = require('./validate');
 
 exports.get = (req, res) => {
@@ -18,34 +17,31 @@ exports.post = (req, res) => {
   if (!validatedLogin.isValid) {
     res.status(400).render('login', {
       pageTitle: 'Login',
-      messages: [
-        {
-          content: validatedLogin.message,
-          error: true,
-        },
-      ],
-      userData,
+      messages: [{
+        content: validatedLogin.message,
+        error: true,
+      }],
     });
   } else {
-    databaseQuery.getUser(userData.email)
+    getUser(userData.email)
       .then((data) => {
-        if (!data || sign(userData.password) !== data.password) {
+        if (!data || !validatePassword(userData.password, data.password)) {
           res.status(400).render('login', {
             pageTitle: 'Login',
-            messages: [
-              {
-                content: 'Incorrect email or password',
-                error: true,
-              },
-            ],
-            userData,
+            messages: [{
+              content: 'Incorrect email or password',
+              error: true,
+            }],
           });
         } else {
           req.session.user = data.name;
+          req.session.id = data.id;
+          console.log(req.session.id);
           res.redirect(req.session.destination || '/home');
         }
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).render('error', {
           layout: 'error',
           statusCode: 500,

@@ -1,5 +1,5 @@
 const { sign } = require('./passwordModule')();
-const databaseQuery = require('../model/db_queries');
+const { getUser, addUser } = require('../model/user_queries');
 const { validateSignUp } = require('./validate');
 
 
@@ -16,7 +16,6 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   const userData = req.body;
   const validatedUser = validateSignUp(userData);
-  console.log('validatedUser: ', validatedUser);
   if (!validatedUser.isValid) {
     res.status(400).render('signup', {
       pageTitle: 'Signup',
@@ -24,20 +23,20 @@ exports.post = (req, res) => {
         content: validatedUser.message,
         error: true,
       }],
-      userData,
     });
   } else {
-    databaseQuery.getUser(userData.email)
+    getUser(userData.email)
       .then((existingUser) => {
-        if (existingUser.length == 0) {
+        if (!existingUser) {
           const hashedPassword = sign(userData.password);
-          databaseQuery.addUser(userData.name, userData.email, hashedPassword)
-            .then(() => {
+          addUser(userData.name, userData.email, hashedPassword)
+            .then((id) => {
               req.session.user = userData.name;
+              req.session.id = id;
               res.redirect('/home');
             })
             .catch((err) => {
-              console.log('err', err);
+              console.log(err);
               res.status(500).render('error', {
                 layout: 'error',
                 statusCode: 500,
