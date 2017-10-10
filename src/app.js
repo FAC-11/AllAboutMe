@@ -3,6 +3,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
+const favicon = require('serve-favicon');
 const controllers = require('./controllers/index');
 require('env2')('config.env');
 
@@ -27,6 +28,7 @@ app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000 * 3,
 }));
 app.use(cookieParser());
+app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(controllers);
 
