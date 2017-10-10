@@ -2,27 +2,35 @@
 {{> progress_bar }}
 
 <section>
-  <form>
+  <form class=''>
   <ol>
-    <li>
+
+    <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       Do you have a mental health diagnosis and if so what is it?
-      Depression <input type="checkbox" name="depression" value="depression" aria-label="do you suffer from depression?">
-      Bipolar <input type="checkbox" name="Bipolar" value="Bipolar" aria-label="Do you suffer from Bipolar disorder?">
-      Anorexia <input type="checkbox" name="Anorexia" value="Anorexia" aria-label="do you suffer from anorexia?">
-      Anxiety Disorder <input type="checkbox" name="Anxiety Disorde" value="Anxiety Disorder" aria-label="do you suffer from anxiety disorder?">
-      Fatigue <input type="checkbox" name="Fatigue" value="Fatigue" aria-label="do you suffer from fatigue?">
-      Schizophrenia <input type="checkbox" name="Schizophrenia" value="Schizophrenia" aria-label="do you suffer from schizophrenia?">
-      Other <input type="text" name="Other" value="Please State" aria-label="do you suffer from any other disorder?">
+      <div class='black-60 mb2'>
+      <br>
+      <label class='h3' for="depression_checkbox"></label><input class="bn mr2 mb3 blue" id='depression_checkbox' type="checkbox" name="depression" value="depression" aria-label="do you suffer from depression?">Depression
+    </label>
+      <br><input class="mr2 mb3 blue" type="checkbox" name="Bipolar" value="Bipolar" aria-label="Do you suffer from Bipolar disorder?">Bipolar
+      <br><input class="mr2 mb3 blue" type="checkbox" name="Anorexia" value="Anorexia" aria-label="do you suffer from anorexia?">Anorexia
+      <br><input class="mr2 mb3 blue" type="checkbox" name="Anxiety Disorde" value="Anxiety Disorder" aria-label="do you suffer from anxiety disorder?">Anxiety Disorder
+      <br> <input class="mr2 mb3 blue" type="checkbox" name="Fatigue" value="Fatigue" aria-label="do you suffer from fatigue?">Fatigue
+      <br> <input class="mr2 mb3 blue" type="checkbox" name="Schizophrenia" value="Schizophrenia" aria-label="do you suffer from schizophrenia?">Schizophrenia
+      <br> Other <input class="mr2 mb3 blue br3" type="text" name="Other" placeholder="Please State" aria-label="do you suffer from any other disorder?">
+    </div>
     </li>
+
     <li>
       Do you agree with your diagnosis?
       yes <input type="radio" name="agree" value="yes" aria-label='yes'>
       no <input type="radio" name="agree" value="no" aria-label='no'>
     </li>
+
     <li>
       Current mediation (if any)
       <input type="text" name="medication" value="Current medication" aria-label='list your current medication'>
     </li>
+
     <li>
       What therapies have you used?
       Talking Therapies <input type="checkbox" name="talking therapies" value="talking therapies" aria-label='talking therapies'>
@@ -31,21 +39,25 @@
       Phsychotherapy <input type="checkbox" name="Phsychotherapy" value="Phsychotherapy" aria-label='Phsychotherapy'>
       Other <input type="text" name="other therapies" value="Other therapies" aria-label='Other therapies tried'>
     </li>
+
     <li>
       Did you find this helpful?
       Yes <input type="radio" name="helpful" value="Yes" aria-label='yes'>
       No<input type="radio" name="helpful" value="No" aria-label='no'>
     </li>
+
     <li>
       Why?
       <input type="text" name="why" value="Why" aria-label='Please write your answer here'>
     </li>
+
     <li>
       What helps to keep you well? (e.g friends, support from family?)
       <input type="text" name="keeping well" value="Please write your answer here" aria-label='Please write your answer here'>
     </li>
   </ol>
-  <a href='/about'><button type="button" name="butto" value="OK">OK</button></a>
+
+  <a href='/about'><button class='f3 pl3 pr3 pt2 pb2 ml5 mb5 bn solid-purple-background white br3' type="button" name="button" value="OK">OK</button></a><span class="black-60"> Press for next question </span>
 </form>
 
 </section>
