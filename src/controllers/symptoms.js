@@ -1,6 +1,7 @@
 exports.get = (req, res) => {
   res.render('symptoms', {
-    activePage: {symptoms: true},
+    activePage: { symptoms: true },
     pageTitle: 'Symptoms & Difficulties',
+    percentage: '40%',
   });
-}
+};
