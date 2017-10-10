@@ -1,4 +1,4 @@
-const { sign } = require('./passwordModule')();
+const { sign } = require('./passwordModule');
 const { getUser, addUser } = require('../model/user_queries');
 const { validateSignUp } = require('./validate');
 
