@@ -1,15 +1,17 @@
 var modal = document.getElementById('modal');
-var span = document.getElementsByClassName('close')[0];
-var lightbulb = document.querySelectorAll('.lightbulb');
+var close = document.getElementsByClassName('close')[0];
 
-for(var i=0; i<lightbulb.length; i++){
-  var selectedButton = lightbulb[i];
-  selectedButton.addEventListener('click', function () {
+var lightbulbs = [].slice.call(
+  document.querySelectorAll('.lightbulb')
+);
+
+lightbulbs.forEach(function(lightbulb){
+  lightbulb.addEventListener('click', function () {
     modal.style.display = "inline-flex";
   });
-}
+});
 
-span.onclick = function() {
+close.onclick = function() {
   modal.style.display = 'none';
 };
 
