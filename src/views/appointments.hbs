@@ -1,22 +1,27 @@
 {{> header }}
-{{> progress_bar }}
 
-<form class="" action="">
+<form class="" action="/appointments" method="post">
 
   <ol>
-    <li> What's your contact number?
-      <input type="text" name="" value="Your number">
+    <li> What's your home number?
+      <input type="text" name="telephone" placeholder="Your number">
+    </li>
+    <li> What's your mobile number?
+      <input type="text" name="mobile" placeholder="Your number">
+    </li>
+    <li> What's your email address?
+      <input type="text" name="email" placeholder="Your email">
     </li>
     <li> How would you like us to contact you?
-      <input type="checkbox" name="contact" aria-label="whatsapp" value='Whatsapp'>Whatsapp</input>
-      <input type="checkbox" name="contact" aria-label="email" value='Email'>Email</input>
-      <input type="checkbox" name="contact" aria-label="call" value='Call'>Call</input>
-      <input type="checkbox" name="contact" aria-label="Post" value='post'>Post</input>
+      <input type="checkbox" name="contact_preference" value="whatsapp" aria-label="whatsapp" placeholder='Whatsapp'>Whatsapp</input>
+      <input type="checkbox" name="contact_preference" aria-label="email" value="email" placeholder='Email'>Email</input>
+      <input type="checkbox" name="contact_preference" aria-label="call" value="call" placeholder='Call'>Call</input>
+      <input type="checkbox" name="contact_preference" aria-label="Post" value="post" placeholder='post'>Post</input>
     </li>
     <li>
       Do you have a preference on your new support worker?
-      <input type="checkbox" name="sex" value="male" aria-label='male worker'> Male </input>
-      <input type="checkbox" name="sex" value="female" aria-label='female worker'> female </input>
+      <input type="checkbox" name="gender" value="male" aria-label='male worker'> Male </input>
+      <input type="checkbox" name="gender" value="female" aria-label='female worker'> female </input>
     </li>
     <li>
       Do you have a preferred appointment time?
@@ -30,13 +35,13 @@
     </li>
     <li>
       Do you have any concerns about moving to a different service  and if so, what are they?
-      <input type="text" name="concerns" value="Write here please" aria-label='please let us know your concerns'>
+      <input type="text" name="concerns" placeholder="Write here please" aria-label='please let us know your concerns'>
     </li>
     <li>
       I hope that when I leave I am...
-      <input type="text" name="leaving" value="Write here please" aria-label='please let us know your wishes for when you leave'>
+      <input type="text" name="leaving" placeholder="Write here please" aria-label='please let us know your wishes for when you leave'>
     </li>
   </ol>
-  <a href='/symptoms'><button type="button" name="button" value="OK">OK</button></a>
+  <button type="submit">OK</button>
 
 </form>
