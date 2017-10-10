@@ -29,16 +29,16 @@ app.use(cookieSession({
 }));
 
 app.use(cookieParser());
-app.use('/home', requireLogin);
-app.use('/info_page', requireLogin);
-app.use('/about', requireLogin);
-app.use('/symptoms', requireLogin);
-app.use('/appointments', requireLogin);
-app.use('/background', requireLogin);
-app.use('/colour_scheme', requireLogin);
-app.use('/send', requireLogin);
-app.use('/progress', requireLogin);
-app.use('/finish', requireLogin);
+// app.use('/home', requireLogin);
+// app.use('/info_page', requireLogin);
+// app.use('/about', requireLogin);
+// app.use('/symptoms', requireLogin);
+// app.use('/appointments', requireLogin);
+// app.use('/background', requireLogin);
+// app.use('/colour_scheme', requireLogin);
+// app.use('/send', requireLogin);
+// app.use('/progress', requireLogin);
+// app.use('/finish', requireLogin);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(controllers);
