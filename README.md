@@ -67,7 +67,7 @@ _*"As a user I want to be able to...:"*_
 
 ## Rescources
 * [@oliverjam's guide to a minimal PWAs](https://github.com/oliverjam/minimal-pwa)
-* [Send email Dwyl library] (https://github.com/dwyl/sendemail)
+* [Send email Dwyl library](https://github.com/dwyl/sendemail)
 
 ## Setup local database
 
