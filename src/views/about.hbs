@@ -2,40 +2,59 @@
 
 <section>
   <form>
-      {{>modal}}
+    {{>modal}}
     <ol>
-      <li> What are some things you like? (including hobbies and interests)?
-        <input type="text" name="hobbies" aria-label="your hobbies" value='Please write your answer here'></input>
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What are some things you like? (including hobbies and interests)?
+        <br>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="hobbies" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your hobbies'></textarea>
       </li>
-      <li> Tell us what you don't like!
-        <input type="text" name="dislikes" aria-label="your dislikes" value='Please write your answer here'></input>
+
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> Tell us what you don't like!
+        <br>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="dislikes" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your dislikes'></textarea>
       </li>
+
       <div class="ideasbutton">
-        <button type="button" name="ideas" class="lightbulb">Click for ideas</button>
+        <button class='lightbulb  bn solid-purple-background white f3 ma2 h-auto w5 br3 pa3 ' type="button" name="ideas" class="lightbulb">Click for ideas
+        <img class="h2 w2 db center mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2017/png/iconmonstr-idea-2.png&r=255&g=255&b=255" alt="lightbulb">
+        </button>
       </div>
-      <li> What are some of your strengths?
-        <input type="text" name="strengths" aria-label="your strengths" value='Please write your answer here'></input>
+
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What are some of your strengths?
+        <br>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="stengths" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your strengths'></textarea>
       </li>
-      <li> What would you like to be better at?
-        <input type="text" name="improvement" aria-label="your areas of improvement" value='Please write your answer here'></input>
+
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What would you like to be better at?
+        <br>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="weaknesses" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know where you want to improve'></textarea>
       </li>
+
       <div class="ideasbutton">
-        <button type="button" name="ideas" class="lightbulb">Click for ideas</button>
+        <button class='lightbulb  bn solid-purple-background white f3 ma2 h-auto w5 br3 pa3 ' type="button" name="ideas" class="lightbulb">Click for ideas
+        <img class="h2 w2 db center mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2017/png/iconmonstr-idea-2.png&r=255&g=255&b=255" alt="lightbulb">
+        </button>
       </div>
-      <li> What makes you feel uncomfortable or anxious?
-        <input type="text" name="uncomfortable" aria-label="What makes you feel uncomfortable or anxious" value='Please write your answer here'></input>
+
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What makes you feel uncomfortable or anxious?
+        <br>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="uncomfortable" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what makes you uncomfortable'></textarea>
       </li>
-      <li> What helps you feel safe and calm?
-        <input type="text" name="safe" aria-label="What helps you feel safe and calm" value='Please write your answer here'></input>
+
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What helps you feel safe and calm?
+        <br>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="safe" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what makes you feel safe'></textarea>
       </li>
-      <div class="ideasbutton">
-        <button type="button" name="ideas" class="lightbulb">Click for ideas</button>
-      </div>
-      <li> Tell us about your aspirations and dreams
-        <input type="text" name="dreams" aria-label="aspirations and dreams" value='Please write your answer here'></input>
+
+
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> Tell us about your aspirations and dreams
+        <br>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="aspirations" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your aspirations'></textarea>
       </li>
     </ol>
-    <a href='/background'><button type="button" name="button" value="OK">OK</button></a>
+
+
+    <a href='/background'><button class='f3 pl3 pr3 pt2 pb2 ml5 mb5 bn solid-purple-background white br3' type="submit" name="button" value="OK">OK</button></a><span class="black-60"> Press for next question </span>
   </form>
 </section>
 
