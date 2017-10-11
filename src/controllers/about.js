@@ -6,7 +6,7 @@ exports.get = (req, res) => {
       res.render('about', {
         activePage: { about: true },
         pageTitle: 'About Me',
-        progressBar: '60%',
+        progressPercentage: '60',
         previousPage: '/symptoms',
         nextPage: '/background',
         data,

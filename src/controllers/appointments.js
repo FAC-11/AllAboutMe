@@ -26,7 +26,7 @@ exports.get = (req, res) => {
       pageTitle: 'Your appointment',
       data,
       checked,
-      progressPercentage: '20%',
+      progressPercentage: '20',
       previousPage: '/progress',
       nextPage: '/symptoms',
     });
