@@ -9,9 +9,10 @@ const mergeObj = require('./helpers.js');
 
 exports.post = (req, res) => {
 
-  getForm(1)
+  getForm(3)
   //getForm(req.session.id)
     .then((results) => {
+      console.log('results', results);
       const person = {
         name: 'Clinician',
         email: req.body.email,
@@ -21,9 +22,6 @@ exports.post = (req, res) => {
     person['text'] = JSON.stringify(mergeObj(results));
       console.log('person', person);
       return person;
-    })
-    .catch((error) => {
-      console.log('error', error);
     })
     // .then(sections => {
     //

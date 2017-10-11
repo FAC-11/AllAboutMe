@@ -7,9 +7,14 @@ const getSection = (userId, sectionName) => {
 
 const getForm = (userId) => {
   const sections = ['about_me', 'symptoms', 'backgrounds', 'appointments', 'closing'];
-
   const promises = sections.map((sectionName) => {
-    return getSection(userId, sectionName);
+    return getSection(userId, sectionName)
+          .then( (result) => {
+            return result;
+          })
+          .catch( (error) => {
+              return { message: sectionName +': This section has not been completed'};
+          });
   });
   return Promise.all(promises);
 };
