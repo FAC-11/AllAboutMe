@@ -45,7 +45,7 @@ exports.post = (req, res) => {
     res.render('symptoms', {
       activePage: { symptoms: true },
       pageTitle: 'Symptoms & Difficulties',
-      messages: [{ error: true, message: 'Sorry - the appointments section couldn\'t be saved' }],
+      messages: [{ error: true, content: 'Sorry - the appointments section couldn\'t be saved' }],
     });
   });
 };

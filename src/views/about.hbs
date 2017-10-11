@@ -1,14 +1,15 @@
 {{> header }} {{> progress_bar }}
 
 <section>
+{{> messages }}
 
-  <form class="db tl margin-0-auto mb5">
+  <form class="db tl margin-0-auto mb5" action="/about" method="post">
       {{>modal}}
 
     <ol>
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What are some things you like? (including hobbies and interests)?
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="hobbies" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your hobbies'></textarea>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="likes" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your hobbies'></textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> Tell us what you don't like!
@@ -47,16 +48,9 @@
         <br>
         <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="safe" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what makes you feel safe'></textarea>
       </li>
-
-
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> Tell us about your aspirations and dreams
-        <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="aspirations" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your aspirations'></textarea>
-      </li>
     </ol>
 
-
-    <a href='/background'><button class='f3 pl3 pr3 pt2 pb2 ml5 mb5 bn solid-purple-background white br3' type="submit" name="button" value="OK">OK</button></a><span class="black-60"> Press for next question </span>
+    <button class='f3 pl3 pr3 pt2 pb2 ml5 mb5 bn solid-purple-background white br3' type="submit" >OK</button><span class="black-60"> Press for next question </span>
   </form>
 </section>
 
