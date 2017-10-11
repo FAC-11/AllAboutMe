@@ -7,12 +7,18 @@
 }
 
 .background-overlay{
-  background-color: rgba(18, 192, 191, 0.67)
+  background-color: rgba(18, 192, 191, 0.67);
 }
 
 .purple-background{
   background-color: rgba(165, 84, 236, 0.67);
 }
+
+
+.solid-green-background{
+    background-color: rgba(18, 192, 191, 1);
+}
+
 
 
 .solid-purple-background{
@@ -23,8 +29,13 @@
   color: rgba(165, 84, 236, 1);
 }
 
-.solid-purple-background {
-  background-color: rgba(165, 84, 236, 1)
+#myBar {
+    width: 10%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px; /* To center it vertically */
+    color: white;
 }
 
 .header-background-colour{
@@ -58,6 +69,7 @@
 margin: 0 auto;
 top: 20%;
 }
+
 
 ol {
   list-style: none;
@@ -101,4 +113,41 @@ input:checked + label{
 .top-20-margin-auto{
 margin: 0 auto;
 top: 20%;
+  }
+
+bottom navbar{
+  border-raidus: 10px solid black;
+}
+
+.iconsContainer{
+  justify-content: space-around;
+  position: fixed;
+  top: 20%;
+  background-color: #F2F2F2;
+  visibility: 83%;
+}
+
+.figure{
+  overflow: hidden;
+  text-align: center;
+}
+
+.navbar list{
+  overflow: hidden;
+  display: inline;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
 }

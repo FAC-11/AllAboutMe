@@ -3,5 +3,7 @@ exports.get = (req, res) => {
     activePage: { background: true },
     pageTitle: 'Your background',
     percentage: '85%',
+    previousPage: '/about',
+    nextPage: '/send',
   });
 };
