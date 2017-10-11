@@ -169,3 +169,17 @@ input:checked + label{
 .purple {
   background-color: rgba(165, 84, 236, 1);
 }
+.orangeYellow{
+  background-color: #EA5015;
+}
+
+.orangePink{
+  background-color: #F70062;
+}
+
+.pink{
+  background-color: #F73F8E;
+}
+.blue{
+  background-color: #0062A4;
+}
