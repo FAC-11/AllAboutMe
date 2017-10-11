@@ -179,6 +179,7 @@ input:checked + label{
 
 .colourHeader{
   text-align: center;
+  color: black;
 }
 .switcher{
   text-align: center;
