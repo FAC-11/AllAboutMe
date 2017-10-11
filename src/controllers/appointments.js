@@ -12,7 +12,7 @@ exports.get = (req, res) => {
   ]).then((dataArr) => {
     const data = Object.assign(dataArr[0], dataArr[1]);
     // for ticking correct checkbox based on previously saved answer
-    const contactMethods = data.contact_preference.replace(/\{|\}/g, '').split(',');
+    const contactMethods = data.contact_preference ? data.contact_preference.replace(/\{|\}/g, '').split(',') : [];
     let checked = {
       contactBy: {},
       worker: { [data.worker_preferences]: true },

@@ -37,6 +37,7 @@ router.get('/finish', finish.get);
 router.post('/signup', signup.post);
 router.post('/login', login.post);
 router.post('/appointments', appointments.post);
+router.post('/background', background.post);
 
 
 module.exports = router;
