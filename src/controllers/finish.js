@@ -1,4 +1,4 @@
-// const checkEmail = require('./check_email');
+const checkEmail = require('./check_email');
 const sendemail = require('sendemail');
 const env = require('env2')('config.env');
 
@@ -9,8 +9,7 @@ const mergeObj = require('./helpers.js');
 
 exports.post = (req, res) => {
 
-  getForm(3)
-  //getForm(req.session.id)
+  getForm(req.session.id)
     .then((results) => {
       console.log('results', results);
       const person = {
@@ -19,20 +18,9 @@ exports.post = (req, res) => {
         subject: 'All about me questionnaire',
         text: '',
       };
-    person['text'] = JSON.stringify(mergeObj(results));
-      console.log('person', person);
+      person['text'] = JSON.stringify(mergeObj(results));
       return person;
     })
-    // .then(sections => {
-    //
-    //   const person =
-    //   //  person['text'] +=
-    //   //  return person;
-    // })
-    // .catch( error => {
-    //   person['text'] += JSON.stringify('error', error);
-    //   return person;
-    // })
     .then( person => {
       email('Hello', person, (error, result) => {
         console.log(' - - - - - - - - - - - - - - - - - - - - -> email sent: ');
