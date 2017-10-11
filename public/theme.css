@@ -15,16 +15,14 @@
 }
 
 
+.solid-purple-background{
+  background-color: rgba(165, 84, 236, 1);
+}
+
 .solid-green-background{
     background-color: rgba(18, 192, 191, 1);
 }
 
-
-
-
-.solid-purple-background{
-  background-color: rgba(165, 84, 236, 1);
-}
 
 .purple-font{
   color: rgba(165, 84, 236, 1);
@@ -177,3 +175,5 @@ input:checked + label{
     cursor: pointer;
 
 }
+
+
