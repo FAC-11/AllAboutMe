@@ -1,6 +1,11 @@
 exports.get = (req, res) => {
+  console.log(res.payload);
   res.render('send', {
-    activePage: { send: true },
+
+    activePage: {
+      send: true,
+    },
+
     pageTitle: 'Send',
     percentage: '95%',
   });

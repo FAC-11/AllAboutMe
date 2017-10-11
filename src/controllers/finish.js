@@ -1,5 +1,38 @@
-exports.get = (req, res) => {
+// const checkEmail = require('./check_email');
+const sendemail = require('sendemail');
+const env = require('env2')('config.env');
+
+const email = sendemail.email;
+sendemail.set_template_directory('src/email_templates');
+const { getSection } = require('../model/form_queries');
+
+
+exports.post = (req, res) => {
+
+  const person = {
+    name: 'Noone',
+    email: req.body.email,
+    subject: 'All about me questionnaire',
+    text: 'nothing',
+  };
+  const aboutme = getSection(1, 'about_me')
+        .then(result => {
+          person['text'] = JSON.stringify(result);
+          return person;
+        })
+        .then( person => {
+          email('Hello', person, (error, result) => {
+            console.log(' - - - - - - - - - - - - - - - - - - - - -> email sent: ');
+            console.log(result);
+            console.log('error: ', error);
+            console.log('person', person);
+            console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
+          });
+        });
   res.render('finish', {
-    activePage: { finish: true },
+
+    activePage: {
+      finish: true,
+    },
   });
 };

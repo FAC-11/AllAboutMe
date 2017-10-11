@@ -4,7 +4,9 @@ const exphbs = require('express-handlebars');
 const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const controllers = require('./controllers/index');
+
 const requireLogin = require('./controllers/requireLogin');
+
 const bodyParser = require('body-parser');
 require('env2')('config.env');
 
@@ -36,9 +38,9 @@ app.use('/symptoms', requireLogin);
 app.use('/appointments', requireLogin);
 app.use('/background', requireLogin);
 app.use('/colour_scheme', requireLogin);
-app.use('/send', requireLogin);
+// app.use('/send', requireLogin);
 app.use('/progress', requireLogin);
-app.use('/finish', requireLogin);
+// app.use('/finish', requireLogin);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(controllers);
