@@ -3,14 +3,17 @@
 {{> messages }}
 
 <section>
-  <form action="/background" method="post">
+  <form class="mb5" action="/background" method="post">
   <ol>
-    <li>
+    <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       Are there any significant life events that you feel may have contributed to your current difficulties? (eg bereavement, family break ups, trauma, bullying, criminal activity)
-      <textarea name="background" placeholder="Please write your answer here" aria-label="significant life events that you feel may have contributed to your current difficulties">{{background}}</textarea>
+
+      <br>
+      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" name="background" placeholder="Please write your answer here" aria-label="significant life events that you feel may have contributed to your current difficulties">{{background}}</textarea>
     </li>
   </ol>
-  <button type="submit">OK</button>
+   <a href='/send'><button class='f3 pl3 pr3 pt2 pb2 ml5 mb5 bn solid-purple-background white br3' type="submit">OK</button></a><span class="black-60"> Press for next question </span>
+
 </form>
 </section>
 
