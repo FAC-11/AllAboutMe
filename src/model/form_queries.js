@@ -61,9 +61,9 @@ const saveBackgrounds = (userId, backgroundsData) => {
 
 const saveAppointments = (userId, appointmentsData) => {
   const {
-    worker_preferences,
-    appointment_preferences,
-    parent_involved,
+    gender,
+    time,
+    parent,
     email,
     mobile,
     telephone,
@@ -72,9 +72,9 @@ const saveAppointments = (userId, appointmentsData) => {
 
   const appointmentsArr = [
     userId,
-    worker_preferences,
-    appointment_preferences,
-    parent_involved,
+    gender,
+    time,
+    parent,
     email,
     mobile,
     telephone,

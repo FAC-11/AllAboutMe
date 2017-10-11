@@ -10,12 +10,12 @@ const { getForm } = require('../model/form_queries');
 exports.post = (req, res) => {
 
   const person = {
-    name: 'Noone',
+    name: 'Clinician',
     email: req.body.email,
     subject: 'All about me questionnaire',
     text: 'nothing',
   };
-  const aboutme = getForm(1)
+  const aboutme = getForm(req.session.id)
         .then(result => {
           person['text'] = JSON.stringify(result);
           return person;

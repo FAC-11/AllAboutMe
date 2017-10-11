@@ -38,6 +38,7 @@
     "pg": "^7.3.0",
     "pg-promise": "^6.10.1",
     "sendemail": "^3.3.0",
+    "serve-favicon": "^2.4.5",
     "tachyons-custom": "^4.6.0",
     "typeform": "^1.0.0"
   },
