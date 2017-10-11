@@ -63,21 +63,10 @@ const validateSignUp = (input) => {
   }
 };
 
-const validateLogin = (input) => {
-  try {
-    validateEmail(input.email);
-    validatePassword(input.password);
-    return { isValid: true };
-  } catch (e) {
-    return { isValid: false, message: e.message };
-  }
-};
-
 module.exports = {
   validateName,
   validateEmail,
   validatePassword,
   validateConfirmPassword,
   validateSignUp,
-  validateLogin,
 };
