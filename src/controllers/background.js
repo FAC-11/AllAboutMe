@@ -9,7 +9,7 @@ exports.get = (req, res) => {
         percentage: '85%',
         previousPage: '/about',
         nextPage: '/send',
-        background: data.background,
+        data,
       });
     })
     .catch((err) => {

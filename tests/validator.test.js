@@ -46,16 +46,4 @@ test('validateSignUp', (t)=>{
   t.end();
 })
 
-test('validateLogin', (t)=>{
-  let input = {email:'jen@gmail.com', password:'mynameisjen'};
-  let actual = validate.validateLogin(input).isValid;
-  t.ok(actual, 'returns object with isValid set to true if input is valid')
-  // checks if inputs are wrong
-  input = {email:'jen', password:'mynameisjen'};
-  actual = validate.validateLogin(input).message;
-  t.ok(actual, 'returns correct error message when isValid set to false')
-  t.end();
-})
-
-
 test.onFinish(()=>process.exit());

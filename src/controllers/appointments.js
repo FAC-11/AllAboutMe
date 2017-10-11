@@ -37,15 +37,15 @@ exports.post = (req, res) => {
   saveAppointments(req.session.id, req.body).then(() => {
     return saveClosing(req.session.id, req.body);
   }).then(() => {
-    res.render('symptoms', {
-      activePage: { symptoms: true },
-      pageTitle: 'Symptoms & Difficulties',
-    });
+    res.redirect('symptoms');
   }).catch((err) => {
-    res.render('symptoms', {
-      activePage: { symptoms: true },
-      pageTitle: 'Symptoms & Difficulties',
-      messages: [{ error: true, message: 'Sorry - the appointments section couldn\'t be saved' }],
+    res.render('appointments', {
+      activePage: { appointments: true },
+      pageTitle: 'Your appointment',
+      percentage: '15%',
+      previousPage: '/progress',
+      nextPage: '/symptoms',
+      messages: [{ error: true, content: 'Sorry - the appointments section couldn\'t be saved' }],
     });
   });
 };
