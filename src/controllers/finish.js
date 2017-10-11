@@ -4,7 +4,7 @@ const env = require('env2')('config.env');
 
 const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
-const { getSection } = require('../model/form_queries');
+const { getForm } = require('../model/form_queries');
 
 
 exports.post = (req, res) => {
@@ -15,7 +15,7 @@ exports.post = (req, res) => {
     subject: 'All about me questionnaire',
     text: 'nothing',
   };
-  const aboutme = getSection(1, 'about_me')
+  const aboutme = getForm(1)
         .then(result => {
           person['text'] = JSON.stringify(result);
           return person;
@@ -29,6 +29,7 @@ exports.post = (req, res) => {
             console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
           });
         });
+
   res.render('finish', {
 
     activePage: {

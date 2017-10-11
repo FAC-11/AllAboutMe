@@ -5,6 +5,11 @@ const getSection = (userId, sectionName) => {
   return dbConnection.one(getGenerator(sectionName), [userId]);
 };
 
+const getForm = (userId) => {
+  const getFormQuery = 'SELECT * FROM (((about_me INNER JOIN symptoms ON about_me.user_id=symptoms.user_id) INNER JOIN backgrounds ON about_me.user_id= backgrounds.user_id) INNER JOIN appointments ON about_me.user_id=appointments.user_id) WHERE about_me.user_id=$1';
+  return dbConnection.one(getFormQuery, [userId]);
+}
+
 const saveAboutMe = (userId, aboutMeData) => {
   const {
     likes,
@@ -91,4 +96,5 @@ module.exports = {
   saveBackgrounds,
   saveAppointments,
   saveClosing,
+  getForm,
 };
