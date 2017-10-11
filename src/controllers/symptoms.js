@@ -3,5 +3,7 @@ exports.get = (req, res) => {
     activePage: { symptoms: true },
     pageTitle: 'Symptoms & Difficulties',
     percentage: '40%',
+    previousPage: '/appointments',
+    nextPage: '/about',
   });
 };

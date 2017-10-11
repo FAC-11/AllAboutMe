@@ -5,9 +5,11 @@ const {
 } = require('../model/form_queries');
 
 exports.get = (req, res) => {
+
   Promise.all([
     getSection(req.session.id, 'appointments'),
-    getSection(req.session.id, 'closing')]).then((dataArr) => {
+    getSection(req.session.id, 'closing'),
+  ]).then((dataArr) => {
     const data = Object.assign(dataArr[0], dataArr[1]);
     // for ticking correct checkbox based on previously saved answer
     const contactMethods = data.contact_preference.replace(/\{|\}/g, '').split(',');
@@ -24,6 +26,9 @@ exports.get = (req, res) => {
       pageTitle: 'Your appointment',
       data,
       checked,
+      percentage: '15%',
+      previousPage: '/progress',
+      nextPage: '/symptoms',
     });
   });
 };
@@ -37,7 +42,6 @@ exports.post = (req, res) => {
       pageTitle: 'Symptoms & Difficulties',
     });
   }).catch((err) => {
-    console.log(err);
     res.render('symptoms', {
       activePage: { symptoms: true },
       pageTitle: 'Symptoms & Difficulties',
