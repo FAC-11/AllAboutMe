@@ -2,7 +2,7 @@ var modal = document.getElementById('modal');
 var close = document.getElementsByClassName('close')[0];
 
 var lightbulbs = [].slice.call(
-  document.querySelectorAll('.lightbulb')
+  document.querySelectorAll('.lightbulb');
 );
 
 lightbulbs.forEach(function(lightbulb){

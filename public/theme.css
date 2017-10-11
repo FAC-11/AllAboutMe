@@ -173,7 +173,55 @@ input:checked + label{
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
 
+.colourHeader{
+  text-align: center;
+  color: black;
+}
+.switcher{
+  text-align: center;
+}
+
+/* styling the colours of the colour palette*/
+.yellowRed, .blueGreen, .turquoisePurple, .redPink, .pinkBlue {
+  display: inline-flex;
+}
+
+.yellow {
+  background-color: #FFBC0A;
+}
+
+.red {
+  background-color: #EC0868;
+}
+.darkBlue {
+  background-color: #2E294E;
+}
+.darkGreen {
+  background-color: #04A777;
+}
+
+.turquoise {
+  background-color: rgba(18, 192, 191, 0.67);
+}
+
+.purple {
+  background-color: rgba(165, 84, 236, 1);
+}
+.orangeYellow{
+  background-color: #EA5015;
+}
+
+.orangePink{
+  background-color: #F70062;
+}
+
+.pink{
+  background-color: #F73F8E;
+}
+.blue{
+  background-color: #0062A4;
 }
 
 
