@@ -2,19 +2,14 @@
 {{> progress_bar }}
 
 <section class="tc">
-  <form class='db tl margin-0-auto mb5'>
+{{> messages }}
+  <form class='db tl margin-0-auto' action="/symptoms" method="post">
   <ol>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       Do you have a mental health diagnosis and if so what is it?
       <div class='black-60 mb2'>
-      <br><input class="mr2 mb3" type="checkbox" name="depression" value="depression" aria-label="do you suffer from depression?">Depression
-      <br><input class="mr2 mb3" type="checkbox" name="Bipolar" value="Bipolar" aria-label="Do you suffer from Bipolar disorder?">Bipolar
-      <br><input class="mr2 mb3" type="checkbox" name="Anorexia" value="Anorexia" aria-label="do you suffer from anorexia?">Anorexia
-      <br><input class="mr2 mb3" type="checkbox" name="Anxiety Disorde" value="Anxiety Disorder" aria-label="do you suffer from anxiety disorder?">Anxiety Disorder
-      <br> <input class="mr2 mb3" type="checkbox" name="Fatigue" value="Fatigue" aria-label="do you suffer from fatigue?">Fatigue
-      <br> <input class="mr2 mb3" type="checkbox" name="Schizophrenia" value="Schizophrenia" aria-label="do you suffer from schizophrenia?">Schizophrenia
-      <br> Other: <input class="ml2 mr2 br3 ba b--black-30 br3 pa2" type="text" name="Other" placeholder="Please State" aria-label="do you suffer from any other disorder?">
+      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="diagnosis" rows="8" cols="80" placeholder="Write here please" aria-label='do you suffer from any other disorder?'>{{data.diagnosis}}</textarea>
     </div>
     </li>
 
@@ -22,14 +17,14 @@
       Do you agree with your diagnosis?
       <br>
       <div class="dib">
-           <input id='Yes_agree' class="o-0 flex flex-auto-l" class="dib" type="radio" name="diagnosis_agreement" aria-label="Yes" value='Yes' >
+           <input id='Yes_agree' class="o-0 flex flex-auto-l" class="dib" type="radio" name="diagnosis_agreement" aria-label="Yes" value='yes' {{#if checked.agreement.yes}}checked{{/if}}>
            <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="Yes_agree">
            <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=51&g=51&b=51" alt="Yes">
                <div class="tc">Yes</div>
            </label>
            </input>
 
-           <input id='No_disagree' class="o-0" class="dib" type="radio" name="diagnosis_agreement" aria-label="no" value='No'>
+           <input id='No_disagree' class="o-0" class="dib" type="radio" name="diagnosis_agreement" aria-label="no" value='no' {{#if checked.agreement.no}}checked{{/if}}>
            <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="No_disagree">
        <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-25.png&r=51&g=51&b=51" alt="No">
            <div class="tc">No</div>
@@ -39,55 +34,30 @@
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
-      Current mediation (if any)
+      Current medication (if any)
       <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="medication" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your current medication'></textarea>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="current_medication" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your current medication'>{{data.current_medication}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       What therapies have you used?
-          <div class='black-60 mb2'>
-      <br><input class="mr2 mb3" type="checkbox" name="talking therapies" value="talking therapies" aria-label='talking therapies'> Talking Therapies
-      <br><input class="mr2 mb3" type="checkbox" name="Cognative Behavioural Therapies" value="Cognative Behavioural Therapies" aria-label='Cognative Behavioural Therapies'>Talking Therapies
-      <br><input class="mr2 mb3" type="checkbox" name="Creative Therapy" value="Creative Therapy" aria-label='Creative Therapy'>Creative Therapy
-    <br><input class="mr2 mb3" type="checkbox" name="Phsychotherapy" value="Phsychotherapy" aria-label='Phsychotherapy'>Pshychotherapy
-    <br>Other:<input class="ml2 mr2 mb3 ba b--black-30 br3 pa2" type="text" name="other therapies" placeholder="Please state" aria-label='Other therapies tried'>
-  </div>
+      <br>
+        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="therapies" rows="8" cols="80" placeholder="e.g. talking therapies, cognitive behavioural therapy, pyschotherapy..." aria-label='therapies you have used'>{{data.therapies}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
-      Did you find this helpful?
+      Did you find these therapies helpful? Why?
       <br>
-      <div class="dib">
-           <input id='yes_helpful' class="o-0 flex flex-auto-l" class="dib" type="radio" name="helpful_treatment" aria-label="Yes" value='Yes' >
-           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="yes_helpful">
-           <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=51&g=51&b=51" alt="Yes">
-               <div class="tc">Yes</div>
-           </label>
-           </input>
-
-           <input id='no_unhelpful' class="o-0" class="dib" type="radio" name="helpful_treatment" aria-label="no" value='No'>
-           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="no_unhelpful">
-       <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-25.png&r=51&g=51&b=51" alt="No">
-           <div class="tc">No</div>
-       </label>
-           </input>
-         </div>
-    </li>
-
-    <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
-      Why?
-      <br>
-      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="why" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your therapy was helpful'></textarea>
+      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="therapies_helpful" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your therapy was helpful'>{{data.therapies_helpful}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       What helps to keep you well? (e.g friends, support from family?)
-      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="keeping well" rows="8" cols="80" placeholder="Write here please" aria-label='what helps keep you well'></textarea>
+      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="keep_well" rows="8" cols="80" placeholder="Write here please" aria-label='what helps keep you well'>{{data.keep_well}}</textarea>
     </li>
   </ol>
 
-  <a href='/about'><button class='f3 pl3 pr3 pt2 pb2 ml5 mb5 bn solid-purple-background white br3' type="button" name="button" value="OK">OK</button></a><span class="black-60"> Press for next question </span>
+  <button class='f3 pl3 pr3 pt2 pb2 ml5 mb5 bn solid-purple-background white br3' type="submit">OK</button><span class="black-60"> Press for next question </span>
   </form>
 </section>
 
