@@ -161,3 +161,11 @@ input:checked + label{
 .darkGreen {
   background-color: #04A777;
 }
+
+.turquoise {
+  background-color: rgba(18, 192, 191, 0.67);
+}
+
+.purple {
+  background-color: rgba(165, 84, 236, 1);
+}
