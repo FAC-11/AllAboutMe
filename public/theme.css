@@ -142,6 +142,12 @@ input:checked + label{
     text-decoration: none;
     cursor: pointer;
 }
+.colourHeader{
+  text-align: center;
+}
+.switcher{
+  text-align: center;
+}
 
 /* styling the colours of the colour palette*/
 .yellowRed, .blueGreen, .turquoisePurple, .redPink, .pinkBlue {
