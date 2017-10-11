@@ -26,7 +26,7 @@ exports.get = (req, res) => {
       pageTitle: 'Your appointment',
       data,
       checked,
-      percentage: '15%',
+      progressPercentage: '20%',
       previousPage: '/progress',
       nextPage: '/symptoms',
     });
@@ -42,7 +42,7 @@ exports.post = (req, res) => {
     res.render('appointments', {
       activePage: { appointments: true },
       pageTitle: 'Your appointment',
-      percentage: '15%',
+      progressPercentage: '15%',
       previousPage: '/progress',
       nextPage: '/symptoms',
       messages: [{ error: true, content: 'Sorry - the appointments section couldn\'t be saved' }],

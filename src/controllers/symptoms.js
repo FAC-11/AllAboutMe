@@ -12,7 +12,7 @@ exports.get = (req, res) => {
       res.render('symptoms', {
         activePage: { symptoms: true },
         pageTitle: 'Symptoms & Difficulties',
-        percentage: '40%',
+        progressPercentage: '40%',
         previousPage: '/appointments',
         nextPage: '/about',
         data,
@@ -30,7 +30,7 @@ exports.post = (req, res) => {
       res.render('symptoms', {
         activePage: { symptoms: true },
         pageTitle: 'Symptoms & Difficulties',
-        percentage: '40%',
+        progressPercentage: '40%',
         previousPage: '/appointments',
         nextPage: '/about',
         messages: [{ error: true, content: 'Sorry - the symptoms section couldn\'t be saved' }],
