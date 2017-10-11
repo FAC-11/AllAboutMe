@@ -101,6 +101,7 @@ input:checked + label{
     text-align: center; /* To center it horizontally (if you want) */
     line-height: 30px; /* To center it vertically */
     color: white;
+}
 
 .header-background-colour{
   background-color: rgba(18, 192, 191, 1);
