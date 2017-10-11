@@ -80,10 +80,6 @@ margin: 0 auto;
 top: 20%;
 }
 
-bottom navbar{
-  border-raidus: 10px solid black;
-}
-
 .iconsContainer{
   justify-content: space-around;
   position: fixed;
