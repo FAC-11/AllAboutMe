@@ -2,7 +2,7 @@ const dbConnection = require('./database/db_connection');
 const {insertGenerator, getGenerator} = require('./queryGenerator');
 
 const getSection = (userId, sectionName) => {
-  return dbConnection.one(getGenerator(sectionName), [userId]);
+  return dbConnection.query(getGenerator(sectionName), [userId]);
 };
 
 const saveAboutMe = (userId, aboutMeData) => {

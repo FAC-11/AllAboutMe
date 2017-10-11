@@ -7,27 +7,23 @@
 }
 
 .background-overlay{
-  background-color: rgba(18, 192, 191, 0.67)
+  background-color: rgba(18, 192, 191, 0.67);
 }
 
 .purple-background{
   background-color: rgba(165, 84, 236, 0.67);
 }
 .purple-background-solid{
-  background-color: rgba(165, 84, 236, 1)
+  background-color: rgba(165, 84, 236, 1);
 }
 
 .solid-green-background{
     background-color: rgba(18, 192, 191, 1);
 }
 
-
-
 /*.login-form{
   margin: 0 auto;
 }*/
-
-
 
 .solid-purple-background{
   background-color: rgba(165, 84, 236, 1);
@@ -46,7 +42,6 @@
     line-height: 30px; /* To center it vertically */
     color: white;
 }
-
 
 .header-background-colour{
   background-color: rgba(18, 192, 191, 1);
@@ -85,6 +80,22 @@ margin: 0 auto;
 top: 20%;
 }
 
+bottom navbar{
+  border-raidus: 10px solid black;
+}
+
+.iconsContainer{
+  justify-content: space-around;
+  position: fixed;
+  top: 20%;
+  background-color: #F2F2F2;
+  visibility: 83%;
+}
+
+.figure{
+  overflow: hidden;
+  text-align: center;
+}
 
 ol {
   list-style: none;
@@ -107,4 +118,23 @@ label:hover {
 
 input:checked + label{
   background-color: rgba(165, 84, 236, 0.7);
+}
+
+.navbar list{
+  overflow: hidden;
+  display: inline;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
