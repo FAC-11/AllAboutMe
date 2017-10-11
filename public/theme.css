@@ -17,15 +17,14 @@
   background-color: rgba(165, 84, 236, 1);
 }
 
+.solid-purple-background{
+    background-color: rgba(165, 84, 236, 1);
+}
+
 .solid-green-background{
     background-color: rgba(18, 192, 191, 1);
 }
 
-
-
-/*.login-form{
-  margin: 0 auto;
-}*/
 
 
 #myBar {
@@ -106,3 +105,26 @@ bottom navbar{
     text-decoration: none;
     cursor: pointer;
 }
+
+ol {
+   list-style: none;
+ }
+ li {
+   counter-increment: item;
+   margin-bottom: 5px;
+ }
+ li:before, .li {
+   content: counter(item);
+   color: #15C26B;
+   text-align: center;
+   display: inline-block;
+   font-size: 1.5rem;
+ }
+
+ label:hover {
+ 	background-color: #E0E0E0;
+ }
+
+ input:checked + label{
+   background-color: rgba(165, 84, 236, 0.7);
+ }
