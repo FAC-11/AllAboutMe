@@ -45,7 +45,7 @@ exports.post = (req, res) => {
       percentage: '15%',
       previousPage: '/progress',
       nextPage: '/symptoms',
-      messages: [{ error: true, message: 'Sorry - the appointments section couldn\'t be saved' }],
+      messages: [{ error: true, content: 'Sorry - the appointments section couldn\'t be saved' }],
     });
   });
 };
