@@ -13,9 +13,7 @@
 .purple-background{
   background-color: rgba(165, 84, 236, 0.67);
 }
-.purple-background-solid{
-  background-color: rgba(165, 84, 236, 1);
-}
+
 
 .solid-purple-background{
     background-color: rgba(165, 84, 236, 1);
@@ -26,6 +24,15 @@
 }
 
 
+
+<
+.solid-purple-background{
+  background-color: rgba(165, 84, 236, 1);
+}
+
+.purple-font{
+  color: rgba(165, 84, 236, 1);
+}
 
 #myBar {
     width: 10%;
@@ -44,6 +51,9 @@
   color: #4f4f4f;
 }
 
+.grey-background{
+  background-color:#F2F2F2;
+}
 .margin-0-auto{
   margin: 0 auto;
 }
@@ -56,11 +66,6 @@
   background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-paper-plane-8.png&r=255&g=255&b=255");
 }
 
-
-.margin-0-auto{
-  margin: 0 auto;
-}
-
 .tick-image{
   background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=255&g=255&b=255");
 }
@@ -69,6 +74,52 @@
 margin: 0 auto;
 top: 20%;
 }
+
+
+ol {
+  list-style: none;
+}
+li {
+  counter-increment: item;
+  margin-bottom: 5px;
+}
+li:before, .li {
+  content: counter(item);
+  color: #15C26B;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+label:hover {
+	background-color: #E0E0E0;
+}
+
+input:checked + label{
+  background-color: rgba(165, 84, 236, 0.7);
+}
+
+#myBar {
+    width: 10%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px; /* To center it vertically */
+    color: white;
+}
+
+.header-background-colour{
+  background-color: rgba(18, 192, 191, 1);
+}
+
+.grey-font{
+  color: #4f4f4f;
+}
+
+.top-20-margin-auto{
+margin: 0 auto;
+top: 20%;
+  }
 
 bottom navbar{
   border-raidus: 10px solid black;
@@ -104,6 +155,7 @@ bottom navbar{
     color: black;
     text-decoration: none;
     cursor: pointer;
+
 }
 
 ol {
