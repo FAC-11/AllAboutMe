@@ -14,13 +14,9 @@
   background-color: rgba(165, 84, 236, 0.67);
 }
 
-
 .solid-green-background{
     background-color: rgba(18, 192, 191, 1);
 }
-
-
-
 
 .solid-purple-background{
   background-color: rgba(165, 84, 236, 1);
@@ -96,15 +92,6 @@ input:checked + label{
   background-color: rgba(165, 84, 236, 0.7);
 }
 
-#myBar {
-    width: 10%;
-    height: 30px;
-    background-color: #4CAF50;
-    text-align: center; /* To center it horizontally (if you want) */
-    line-height: 30px; /* To center it vertically */
-    color: white;
-}
-
 .header-background-colour{
   background-color: rgba(18, 192, 191, 1);
 }
@@ -118,62 +105,9 @@ margin: 0 auto;
 top: 20%;
   }
 
-bottom navbar{
-  border-raidus: 10px solid black;
-}
-
-.iconsContainer{
-  justify-content: space-around;
-  position: fixed;
-  top: 20%;
-  background-color: #F2F2F2;
-  visibility: 83%;
-}
-
-.figure{
-  overflow: hidden;
-  text-align: center;
-}
-
-ol {
-  list-style: none;
-}
-li {
-  counter-increment: item;
-  margin-bottom: 5px;
-}
-li:before, .li {
-  content: counter(item);
-  color: #15C26B;
-  text-align: center;
-  display: inline-block;
-  font-size: 1.5rem;
-}
-
-label:hover {
-	background-color: #E0E0E0;
-}
-
-input:checked + label{
-  background-color: rgba(165, 84, 236, 0.7);
-}
-
-.navbar list{
-  overflow: hidden;
-  display: inline;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
 .close:hover,
 .close:focus {
-    color: black;
+    color: #333333;
     text-decoration: none;
     cursor: pointer;
-
 }
