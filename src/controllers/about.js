@@ -1,12 +1,16 @@
-const { saveAboutMe } = require('../model/form_queries');
+const { saveAboutMe, getSection } = require('../model/form_queries');
 
 exports.get = (req, res) => {
-  res.render('about', {
-    activePage: { about: true },
-    pageTitle: 'About Me',
-    previousPage: '/symptoms',
-    nextPage: '/background',
-  });
+  getSection(req.session.id, 'about_me')
+    .then((data) => {
+      res.render('about', {
+        activePage: { about: true },
+        pageTitle: 'About Me',
+        previousPage: '/symptoms',
+        nextPage: '/background',
+        data,
+      });
+    });
 };
 
 exports.post = (req, res) => {
