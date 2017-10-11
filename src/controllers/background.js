@@ -27,20 +27,16 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveBackgrounds(req.session.id, req.body)
     .then(() => {
-      res.render('send', {
-        activePage: { send: true },
-        pageTitle: 'Send',
-        percentage: '85%',
-        previousPage: '/background',
-      });
+      res.redirect('send');
     })
     .catch((err) => {
       console.log(err);
-      res.render('send', {
-        activePage: { send: true },
-        pageTitle: 'Send',
+      res.render('background', {
+        activePage: { background: true },
+        pageTitle: 'Your background',
         percentage: '85%',
-        previousPage: '/background',
+        previousPage: '/about',
+        nextPage: '/send',
         messages: [{ error: true, message: 'Sorry - the background section couldn\'t be saved' }],
       });
     });
