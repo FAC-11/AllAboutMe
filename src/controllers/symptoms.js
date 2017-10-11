@@ -6,12 +6,17 @@ const {
 exports.get = (req, res) => {
   getSection(req.session.id, 'symptoms')
     .then((data) => {
+      let checked = {
+        agreement: { [data.diagnosis_agreement]: true },
+      };
       res.render('symptoms', {
         activePage: { symptoms: true },
         pageTitle: 'Symptoms & Difficulties',
         percentage: '40%',
         previousPage: '/appointments',
         nextPage: '/about',
+        data,
+        checked,
       });
     });
 };
