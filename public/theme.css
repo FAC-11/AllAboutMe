@@ -142,3 +142,22 @@ input:checked + label{
     text-decoration: none;
     cursor: pointer;
 }
+
+/* styling the colours of the colour palette*/
+.yellowRed, .blueGreen, .turquoisePurple, .redPink, .pinkBlue {
+  display: inline-flex;
+}
+
+.yellow {
+  background-color: #FFBC0A;
+}
+
+.red {
+  background-color: #EC0868;
+}
+.darkBlue {
+  background-color: #2E294E;
+}
+.darkGreen {
+  background-color: #04A777;
+}
