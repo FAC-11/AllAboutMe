@@ -1,9 +1,7 @@
 var modal = document.getElementById('modal');
 var close = document.getElementsByClassName('close')[0];
 
-var lightbulbs = [].slice.call(
-  document.querySelectorAll('.lightbulb')
-);
+var lightbulbs = [].slice.call(document.querySelectorAll('.lightbulb'));
 
 lightbulbs.forEach(function(lightbulb){
   lightbulb.addEventListener('click', function () {

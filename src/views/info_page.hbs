@@ -2,15 +2,20 @@
 <div class="background-image cover aspect-ratio--object">
   <div class="background-overlay cover aspect-ratio--object tv">
     <div class="tc">
-      <h2 class="white tracked f2 pa2 ml3 mr3 mt3 ma0 tl dib"> Hey! Nice to meet you</h2>
     </div>
-    <section class='db center mw6 w-90 ma3 bottom-0 left-0 right-0 top-20-margin-auto absolute'>
-      <article class="pa3 white purple-background br3">
+    <section class=' inline-flex align-center flex-wrap dib center mw6 w-90 ma3 bottom-0 left-0 right-0 margin-0-auto top-2 mt5 vh-75 absolute'>
+      <article class="pa3 white purple-background br3 self-center">
+      <h2 class="white tracked f4 pa2 ma0 tl dib"> Hey{{#if name}} {{name}}{{/if}}! Nice to meet you</h2>
 
-        <p class="f5">This app gives you the chance to write your own introduction to your new Adult Mental Health worker. <br> You don’t have to answer every question if you feel uncomfortable doing so and you can give as much or as little information as you like. If
-          you would like to skip a question press the forward arrow at anytime. The tick will save your answer! <br> It may be helpful to get family or friends views to help you complete some answers.</p>
+        <p class="f6">This app gives you the chance to tell your new Mental Health Worker about yourself.</p>
+        <p class="f6">You don’t have to answer every question if you feel uncomfortable doing so and you can give as much or as little information as you like.</p>
+        <p class="f6">If you would like to skip a question press the forward arrow at anytime. Pressing OK will save your answer!</p>
+        <p class="f6">It may be helpful to get family or friends views to help you complete some answers.</p>
       </article>
-        <a href="/progress"><img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=255&g=255&b=255" alt="tick for next page" class='db center h3 w3 grow fr pt2'></a>
+      <div class="w-100">
+        <a class=' h3 w3 grow fr pt2' href="/progress"><img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=255&g=255&b=255" alt="tick for next page"></a>
+
+      </div>
     </section>
 
   </div>

@@ -3,7 +3,7 @@ const insertGenerator = (sectionName) => {
     about_me: ['user_id', 'likes', 'dislikes',
       'strengths', 'weaknesses', 'uncomfortable', 'safe'],
     symptoms: ['user_id', 'diagnosis', 'diagnosis_agreement',
-      'current_medication', 'therapies_helpful', 'keep_well'],
+      'current_medication', 'therapies', 'therapies_helpful', 'keep_well'],
     backgrounds: ['user_id', 'background'],
     appointments: ['user_id', 'worker_preferences',
       'appointment_preferences', 'parent_involved', 'email',

@@ -13,8 +13,9 @@
 .purple-background{
   background-color: rgba(165, 84, 236, 0.67);
 }
-.purple-background-solid{
-  background-color: rgba(165, 84, 236, 1);
+
+.very-light-purple-background{
+  background-color: rgba(165, 84, 236, 0.2);
 }
 
 .solid-green-background{
@@ -22,19 +23,12 @@
 }
 
 
+.solid-purple-background{
+  background-color: rgba(165, 84, 236, 1);
+}
 
-/*.login-form{
-  margin: 0 auto;
-}*/
-
-
-#myBar {
-    width: 10%;
-    height: 30px;
-    background-color: #4CAF50;
-    text-align: center; /* To center it horizontally (if you want) */
-    line-height: 30px; /* To center it vertically */
-    color: white;
+.purple-font{
+  color: rgba(165, 84, 236, 1);
 }
 
 .header-background-colour{
@@ -45,6 +39,9 @@
   color: #4f4f4f;
 }
 
+.grey-background{
+  background-color:#F2F2F2;
+}
 .margin-0-auto{
   margin: 0 auto;
 }
@@ -57,11 +54,6 @@
   background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-paper-plane-8.png&r=255&g=255&b=255");
 }
 
-
-.margin-0-auto{
-  margin: 0 auto;
-}
-
 .tick-image{
   background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=255&g=255&b=255");
 }
@@ -71,38 +63,102 @@ margin: 0 auto;
 top: 20%;
 }
 
-bottom navbar{
-  border-raidus: 10px solid black;
+.right-side-radius{
+
 }
 
-.iconsContainer{
-  justify-content: space-around;
-  position: fixed;
-  top: 20%;
-  background-color: #F2F2F2;
-  visibility: 83%;
+.left-side-radius{
+  border-radius:3rem 0 0 3rem  ;
 }
 
-.figure{
-  overflow: hidden;
+ol {
+  list-style: none;
+}
+li {
+  counter-increment: item;
+  margin-bottom: 5px;
+}
+li:before, .li {
+  content: counter(item);
+  color: #15C26B;
   text-align: center;
+  display: inline-block;
+  font-size: 1.5rem;
 }
 
-.navbar list{
-  overflow: hidden;
-  display: inline;
+label:hover {
+	background-color: #E0E0E0;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+input:checked + label{
+  background-color: rgba(165, 84, 236, 0.7);
 }
+
+.header-background-colour{
+  background-color: rgba(18, 192, 191, 1);
+}
+
+.grey-font{
+  color: #4f4f4f;
+}
+
+.top-20-margin-auto{
+margin: 0 auto;
+top: 20%;
+  }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #333333;
     text-decoration: none;
     cursor: pointer;
+}
+
+.colourHeader{
+  text-align: center;
+  color: black;
+}
+.switcher{
+  text-align: center;
+}
+
+/* styling the colours of the colour palette*/
+.yellowRed, .blueGreen, .turquoisePurple, .redPink, .pinkBlue {
+  display: inline-flex;
+}
+
+.yellow {
+  background-color: #FFBC0A;
+}
+
+.red {
+  background-color: #EC0868;
+}
+.darkBlue {
+  background-color: #2E294E;
+}
+.darkGreen {
+  background-color: #04A777;
+}
+
+.turquoise {
+  background-color: rgba(18, 192, 191, 0.67);
+}
+
+.purple {
+  background-color: rgba(165, 84, 236, 1);
+}
+.orangeYellow{
+  background-color: #EA5015;
+}
+
+.orangePink{
+  background-color: #F70062;
+}
+
+.pink{
+  background-color: #F73F8E;
+}
+.blue{
+  background-color: #0062A4;
 }

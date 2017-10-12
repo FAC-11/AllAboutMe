@@ -36,16 +36,16 @@ In order to create a realistic MVP we focused on specific user stories we wanted
 
 _*"As a user I want to be able to...:"*_
 - [ ] Login securely
-- [ ] Sign up to the app
+- [x] Sign up to the app
 - [ ] Select a personal colour
-- [ ] Answer the questionnaire
+- [x] Answer the questionnaire
 - [ ] Send answers to questions
 - [ ] Edit answers once saved
-- [ ] See my progress within the questionnaire via a progress bar
+- [x] See my progress within the questionnaire via a progress bar
 - [ ] See completed/incomplete sections on screen
 - [ ] Access the app offline
-- [ ] Be able to use the form on mobile and desktop
-- [ ] See ideas to difficult questions
+- [x] Be able to use the form on mobile and desktop
+- [x] See ideas to difficult questions
 - [ ] Enjoy using the app
 
 ## Technologies
@@ -67,6 +67,7 @@ _*"As a user I want to be able to...:"*_
 
 ## Rescources
 * [@oliverjam's guide to a minimal PWAs](https://github.com/oliverjam/minimal-pwa)
+* [Send email Dwyl library](https://github.com/dwyl/sendemail)
 
 ## Setup local database
 

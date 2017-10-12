@@ -7,6 +7,5 @@ exports.get = (req, res) => {
     },
 
     pageTitle: 'Send',
-    percentage: '95%',
   });
 };
