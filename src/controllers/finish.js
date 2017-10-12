@@ -9,7 +9,8 @@ const {mergeObj, addData} = require('./helpers.js');
 
 exports.post = (req, res) => {
 
-  getForm(req.session.id).then((data) => {
+  getForm(req.session.id)
+    .then((data) => {
 
     const person = {
       name: req.session.user,
