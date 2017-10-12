@@ -31,7 +31,7 @@ router.get('/symptoms', symptoms.get);
 router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
-router.get('/finish', finish.get);
+router.post('/finish', finish.post);
 
 
 router.post('/signup', signup.post);

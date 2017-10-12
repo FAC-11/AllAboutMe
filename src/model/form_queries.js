@@ -5,6 +5,19 @@ const getSection = (userId, sectionName) => {
   return dbConnection.oneOrNone(getGenerator(sectionName), [userId]);
 };
 
+const getForm = (userId) => {
+  const sections = ['about_me', 'symptoms', 'backgrounds', 'appointments', 'closing'];
+  const promises = sections.map((sectionName) => {
+    return getSection(userId, sectionName)
+            .catch((error) => {
+              return {
+                message: sectionName + ': This section has not been completed'
+              };
+            });
+          });
+  return Promise.all(promises);
+};
+
 const saveAboutMe = (userId, aboutMeData) => {
   const {
     likes,
@@ -12,7 +25,7 @@ const saveAboutMe = (userId, aboutMeData) => {
     strengths,
     weaknesses,
     uncomfortable,
-    safe,
+    safe
   } = aboutMeData;
   const aboutMeArr = [
     userId,
@@ -21,7 +34,7 @@ const saveAboutMe = (userId, aboutMeData) => {
     strengths,
     weaknesses,
     uncomfortable,
-    safe,
+    safe
   ];
   return dbConnection.none(insertGenerator('about_me'), aboutMeArr);
 };
@@ -33,7 +46,7 @@ const saveSymptoms = (userId, symptomsData) => {
     current_medication,
     therapies,
     therapies_helpful,
-    keep_well,
+    keep_well
   } = symptomsData;
 
   const symptomsArr = [
@@ -43,13 +56,13 @@ const saveSymptoms = (userId, symptomsData) => {
     current_medication,
     therapies,
     therapies_helpful,
-    keep_well,
+    keep_well
   ];
   return dbConnection.none(insertGenerator('symptoms'), symptomsArr);
 };
 
 const saveBackgrounds = (userId, backgroundsData) => {
-  const { background } = backgroundsData;
+  const {background} = backgroundsData;
   const backgroundsArr = [userId, background];
   return dbConnection.none(insertGenerator('backgrounds'), backgroundsArr);
 };
@@ -62,7 +75,7 @@ const saveAppointments = (userId, appointmentsData) => {
     email,
     mobile,
     telephone,
-    contact_preference,
+    contact_preference
   } = appointmentsData;
 
   const appointmentsArr = [
@@ -73,13 +86,13 @@ const saveAppointments = (userId, appointmentsData) => {
     email,
     mobile,
     telephone,
-    contact_preference,
+    contact_preference
   ];
   return dbConnection.none(insertGenerator('appointments'), appointmentsArr);
 };
 
 const saveClosing = (userId, closingData) => {
-  const { concerns, hope } = closingData;
+  const {concerns, hope} = closingData;
   const closingArr = [userId, concerns, hope];
   return dbConnection.none(insertGenerator('closing'), closingArr);
 };
@@ -91,4 +104,5 @@ module.exports = {
   saveBackgrounds,
   saveAppointments,
   saveClosing,
+  getForm
 };
