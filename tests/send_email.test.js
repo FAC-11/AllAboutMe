@@ -11,10 +11,5 @@ test('checkEmail tests', (t) => {
   t.end();
 });
 
-// testing the finish endpoint
-
-// test('check the email is sent', (t) => {
-//
-// });
 
 test.onFinish(() => process.exit());
