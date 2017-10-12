@@ -11,7 +11,6 @@ exports.get = (req, res) => {
     getSection(req.session.id, 'closing'),
   ]).then((dataArr) => {
     const data = Object.assign(dataArr[0] || {}, dataArr[1] || {});
-    console.log(data);
     // for ticking correct checkbox based on previously saved answer
     const contactMethods = data.contact_preference ? data.contact_preference.replace(/\{|\}/g, '').split(',') : [];
     let checked = {
