@@ -5,11 +5,11 @@ const validateName = (name) => {
   if (typeof name !== 'string') {
     throw new TypeError('This is not a name');
   }
-  if (/\W/.test(name)) {
-    throw new TypeError("Name can't contain alphanumeric characters");
+  if (/[^a-zA-Z\s]/.test(name)) {
+    throw new TypeError('Name can only contain letters');
   }
   if (name.length <= 1) {
-    throw new TypeError('Please enter your fullname');
+    throw new TypeError('Please enter your full name');
   }
   if (name.length > 20) {
     throw new TypeError('Name can be no longer than 20 characters');
