@@ -7,7 +7,7 @@ exports.get = (req, res) => {
   getSection(req.session.id, 'symptoms')
     .then((data) => {
       let checked = {
-        agreement: { [data.diagnosis_agreement]: true },
+        agreement: { [data ? data.diagnosis_agreement : '']: true },
       };
       res.render('symptoms', {
         activePage: { symptoms: true },
