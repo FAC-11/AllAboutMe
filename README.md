@@ -57,13 +57,13 @@ In order to create a realistic MVP we focused on specific user stories we wanted
 _*"As a user I want to be able to...:"*_
 - [x] Login securely
 - [x] Sign up to the app
-- [ ] Select a personal colour 
+- [ ] Select a personal colour - started, majority set as issue for spring 2
 - [x] Answer the questionnaire
 - [x] Send answers to questions
 - [x] Edit answers once saved
 - [x] See my progress within the questionnaire via a progress bar
-- [ ] See completed/incomplete sections on screen
-- [ ] Access the app offline
+- [ ] See completed/incomplete sections on screen - sprint 2 
+- [ ] Access the app offline - spring 2
 - [x] Be able to use the form on mobile and desktop
 - [x] See ideas to difficult questions
 - [x] Enjoy using the app
@@ -77,7 +77,7 @@ Or look at this short video that shows basic functionality of the app:
 
 ![app walkthrough gif](https://i.imgur.com/Ibg2ykx.gif)  
 
-
+![](https://files.gitter.im/foundersandcoders/AllAboutMe/3bB8/image.png)
 ## Set up the app locally :computer: 
 
 First clone this repo:
