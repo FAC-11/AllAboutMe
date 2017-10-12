@@ -1,3 +1,7 @@
-<div id="myProgress">
-  <progress id="myBar" value="{{progressPercentage}}" max="100" class="progressBar w-100 bg-light-green">{{progressPercentage}}</progress>
+<div class="mt4 tc f5 black-60 tracked">
+  Your progress: {{progressPercentage}}%
+  <div class="mt2 br3 w-75 mw6 center very-light-purple-background" id="myProgress">
+    <div class="left-side-radius progressBar solid-purple-background w-{{progressPercentage}} h1" id="myBar">
+    </div>
+  </div>
 </div>

@@ -14,6 +14,9 @@
   background-color: rgba(165, 84, 236, 0.67);
 }
 
+.very-light-purple-background{
+  background-color: rgba(165, 84, 236, 0.2);
+}
 
 .solid-green-background{
     background-color: rgba(18, 192, 191, 1);
@@ -60,6 +63,13 @@ margin: 0 auto;
 top: 20%;
 }
 
+.right-side-radius{
+
+}
+
+.left-side-radius{
+  border-radius:3rem 0 0 3rem  ;
+}
 
 ol {
   list-style: none;
