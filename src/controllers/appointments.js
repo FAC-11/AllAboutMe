@@ -17,10 +17,16 @@ exports.get = (req, res) => {
       contactBy: {},
       worker: { [data.worker_preferences]: true },
       time: { [data.appointment_preferences]: true },
+      parent_involved: {},
     };
     contactMethods.forEach((method) => {
       checked.contactBy[method] = true;
     });
+    if (data.parent_involved) {
+      checked.parent_involved.yes = true;
+    } else if (data.parent_involved !== undefined) {
+      checked.parent_involved.no = true;
+    }
     res.render('appointments', {
       activePage: { appointments: true },
       pageTitle: 'Your appointment',
