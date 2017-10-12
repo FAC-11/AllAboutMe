@@ -86,4 +86,5 @@ BEGIN;
     INSERT INTO closing (user_id, concerns, hope) VALUES
         ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'i dont have any', 'i hope i get better');
 
+
 COMMIT;

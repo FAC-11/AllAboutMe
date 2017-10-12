@@ -19,10 +19,6 @@ const getForm = (userId) => {
   return Promise.all(promises);
 };
 
-// const getForm = (userId) => {
-//   const getFormQuery = 'SELECT * FROM ((((about_me INNER JOIN symptoms ON about_me.user_id=symptoms.user_id) INNER JOIN backgrounds ON about_me.user_id= backgrounds.user_id) INNER JOIN appointments ON about_me.user_id=appointments.user_id) INNER JOIN closing ON about_me.user_id=closing.user_id) WHERE about_me.user_id=$1';
-//   return dbConnection.one(getFormQuery, [userId]);
-// }
 
 const saveAboutMe = (userId, aboutMeData) => {
   const {

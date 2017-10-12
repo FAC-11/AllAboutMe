@@ -9,18 +9,18 @@ const { mergeObj, addData } = require('./helpers.js');
 
 exports.post = (req, res) => {
 
-  getForm(3)
+  getForm(1)
   //getForm(req.session.id)
     .then((data) => {
 
       const person1 = {
-        name: 'Clinician',
+        name: 'person',
         email: req.body.email,
         subject: 'All about me questionnaire',
       };
 
       const cleanData = mergeObj(data);
-      
+
       console.log(cleanData);
       addData(person1, cleanData);
       console.log('person', person1);
