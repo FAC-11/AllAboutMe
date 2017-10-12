@@ -1,3 +1,49 @@
 Hello {{name}}!
 Please see below my answers for the 'All about me' questionnaire:
   {{text}}
+
+
+   About Me
+   Name
+   Things you like (including hobbies and interests){{likes}}
+   Things you dislike {{dislikes}}
+   Strengths (what you are good at) {{strengths}}
+   Weaknesses (what you are good at) {{weaknesses}}
+   What makes you feel uncomfortable or anxious?{{uncomfortable}}
+   What helps you feel safe and calm {{safe}}
+
+   Symptoms and Difficulties
+    Do you have a mental health diagnosis and if so what is it?{{diagnosis}}
+    Do you agree with your diagnosis? Y/N/Not Applicable {{diagnosis_agreement}}
+    Current medication (if any) {{current_medication}}
+    What therapies have you used?eg Cognitive Behavioural Therapy, Group Therapy {{therapies}}
+    Did you find these helpful? Why do you think this was? {{therapies_helpful}}
+    What helps you to keep well?(eg friends, support from family){{keep_well}}
+
+   Your Background
+   Are there any significant life events that you feel may have contributed to your current difficulties? (eg bereavement, family break ups, trauma, bullying, criminal activity){{background}}
+
+
+   Your Appointments
+   Do you have a preference on your new support worker? (eg male/female){{worker_preferences}}
+
+   Do you have a preferred appointment time? (eg am or pm){{appointment_preferences}}
+
+   Would you like a parent/guardian at the appointments? {{parent_involved}}
+   What's your home number? {{telephone}}
+
+   What's your mobile number? {{mobile}}
+
+   What's your email address? {{useremail}}
+
+   How would you like us to contact you? {{contact_preference}}
+   Do you have any concerns about moving to a different service and if so, what are they? {{concerns}}
+
+   I hope that when I leave I am... {{hope}}
+
+   {{message}}
+   {{message1}}
+   {{message2}}
+   {{message3}}
+   {{message4}}
+   {{message5}}

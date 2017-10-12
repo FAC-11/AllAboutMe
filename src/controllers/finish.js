@@ -5,21 +5,29 @@ const env = require('env2')('config.env');
 const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
 const { getForm } = require('../model/form_queries');
-const mergeObj = require('./helpers.js');
+const { mergeObj, addData } = require('./helpers.js');
 
 exports.post = (req, res) => {
 
-  getForm(req.session.id)
-    .then((results) => {
-      console.log('results', results);
-      const person = {
+  getForm(3)
+  //getForm(req.session.id)
+    .then((data) => {
+
+      const person1 = {
         name: 'Clinician',
         email: req.body.email,
         subject: 'All about me questionnaire',
-        text: '',
       };
-      person['text'] = JSON.stringify(mergeObj(results));
-      return person;
+
+      const cleanData = mergeObj(data);
+      
+      console.log(cleanData);
+      addData(person1, cleanData);
+      console.log('person', person1);
+      return person1;
+    })
+    .catch( (error) => {
+      console.log('error', error);
     })
     .then( person => {
       email('Hello', person, (error, result) => {
