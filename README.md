@@ -73,7 +73,8 @@ _*"As a user I want to be able to...:"*_
 
 Check it out [here](https://allaboutme-annafreud.herokuapp.com/) :eyes: 
 
-Or look at this short video that shows basic functionality of the app:
+Or look at this short video that shows basic functionality of the app:  
+
 ![app walkthrough gif](https://i.imgur.com/Ibg2ykx.gif)  
 
 
