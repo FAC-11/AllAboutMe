@@ -157,3 +157,6 @@ In the next sprint, we aim to:
 ## Rescources
 * [@oliverjam's guide to a minimal PWAs](https://github.com/oliverjam/minimal-pwa)
 * [Send email Dwyl library](https://github.com/dwyl/sendemail)
+
+
+:dancer::dancer::dancer::dancer:
