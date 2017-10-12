@@ -10,23 +10,29 @@ exports.get = (req, res) => {
     getSection(req.session.id, 'appointments'),
     getSection(req.session.id, 'closing'),
   ]).then((dataArr) => {
-    const data = Object.assign(dataArr[0], dataArr[1]);
+    const data = Object.assign(dataArr[0] || {}, dataArr[1] || {});
     // for ticking correct checkbox based on previously saved answer
     const contactMethods = data.contact_preference ? data.contact_preference.replace(/\{|\}/g, '').split(',') : [];
     let checked = {
       contactBy: {},
       worker: { [data.worker_preferences]: true },
       time: { [data.appointment_preferences]: true },
+      parent_involved: {},
     };
     contactMethods.forEach((method) => {
       checked.contactBy[method] = true;
     });
+    if (data.parent_involved) {
+      checked.parent_involved.yes = true;
+    } else if (data.parent_involved !== undefined) {
+      checked.parent_involved.no = true;
+    }
     res.render('appointments', {
       activePage: { appointments: true },
       pageTitle: 'Your appointment',
       data,
       checked,
-      percentage: '15%',
+      progressPercentage: '20',
       previousPage: '/progress',
       nextPage: '/symptoms',
     });
@@ -42,7 +48,7 @@ exports.post = (req, res) => {
     res.render('appointments', {
       activePage: { appointments: true },
       pageTitle: 'Your appointment',
-      percentage: '15%',
+      progressPercentage: '15%',
       previousPage: '/progress',
       nextPage: '/symptoms',
       messages: [{ error: true, content: 'Sorry - the appointments section couldn\'t be saved' }],

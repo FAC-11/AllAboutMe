@@ -6,7 +6,7 @@ exports.get = (req, res) => {
       res.render('background', {
         activePage: { background: true },
         pageTitle: 'Your background',
-        percentage: '85%',
+        progressPercentage: '80',
         previousPage: '/about',
         nextPage: '/send',
         data,
@@ -17,7 +17,7 @@ exports.get = (req, res) => {
       res.render('background', {
         activePage: { background: true },
         pageTitle: 'Your background',
-        percentage: '85%',
+        progressPercentage: '60%',
         previousPage: '/about',
         nextPage: '/send',
       });
