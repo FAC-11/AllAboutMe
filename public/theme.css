@@ -7,15 +7,158 @@
 }
 
 .background-overlay{
-  background-color: rgba(18, 192, 191, 0.67)
+  background-color: rgba(18, 192, 191, 0.67);
 }
 
 .purple-background{
-  background-color: rgba(165, 84, 236, 0.67)
+  background-color: rgba(165, 84, 236, 0.67);
 }
 
+.very-light-purple-background{
+  background-color: rgba(165, 84, 236, 0.2);
+}
+
+.solid-green-background{
+    background-color: rgba(18, 192, 191, 1);
+}
+
+
+.solid-purple-background{
+  background-color: rgba(165, 84, 236, 1);
+}
+
+.purple-font{
+  color: rgba(165, 84, 236, 1);
+}
+
+.header-background-colour{
+  background-color: rgba(18, 192, 191, 1);
+}
+
+.grey-font{
+  color: #4f4f4f;
+}
+
+.grey-background{
+  background-color:#F2F2F2;
+}
+.margin-0-auto{
+  margin: 0 auto;
+}
+
+.edit-icon{
+  background-image: : url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-pencil-8.png&r=79&g=79&b=79");
+}
 
 .finish-page-image{
   background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-paper-plane-8.png&r=255&g=255&b=255");
 }
 
+.tick-image{
+  background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=255&g=255&b=255");
+}
+
+.top-20-margin-auto{
+margin: 0 auto;
+top: 20%;
+}
+
+.right-side-radius{
+
+}
+
+.left-side-radius{
+  border-radius:3rem 0 0 3rem  ;
+}
+
+ol {
+  list-style: none;
+}
+li {
+  counter-increment: item;
+  margin-bottom: 5px;
+}
+li:before, .li {
+  content: counter(item);
+  color: #15C26B;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+label:hover {
+	background-color: #E0E0E0;
+}
+
+input:checked + label{
+  background-color: rgba(165, 84, 236, 0.7);
+}
+
+.header-background-colour{
+  background-color: rgba(18, 192, 191, 1);
+}
+
+.grey-font{
+  color: #4f4f4f;
+}
+
+.top-20-margin-auto{
+margin: 0 auto;
+top: 20%;
+  }
+
+.close:hover,
+.close:focus {
+    color: #333333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.colourHeader{
+  text-align: center;
+  color: black;
+}
+.switcher{
+  text-align: center;
+}
+
+/* styling the colours of the colour palette*/
+.yellowRed, .blueGreen, .turquoisePurple, .redPink, .pinkBlue {
+  display: inline-flex;
+}
+
+.yellow {
+  background-color: #FFBC0A;
+}
+
+.red {
+  background-color: #EC0868;
+}
+.darkBlue {
+  background-color: #2E294E;
+}
+.darkGreen {
+  background-color: #04A777;
+}
+
+.turquoise {
+  background-color: rgba(18, 192, 191, 0.67);
+}
+
+.purple {
+  background-color: rgba(165, 84, 236, 1);
+}
+.orangeYellow{
+  background-color: #EA5015;
+}
+
+.orangePink{
+  background-color: #F70062;
+}
+
+.pink{
+  background-color: #F73F8E;
+}
+.blue{
+  background-color: #0062A4;
+}

@@ -24,7 +24,7 @@ router.get('/', login.get);
 router.get('/signup', signup.get);
 router.get('/home', home.get);
 router.get('/colour_scheme', colour_scheme.get);
-router.get('/info_page', info_page.get);
+router.get('/info-page', info_page.get);
 router.get('/progress', progress.get);
 router.get('/appointments', appointments.get);
 router.get('/symptoms', symptoms.get);
@@ -35,7 +35,11 @@ router.post('/finish', finish.post);
 
 
 router.post('/signup', signup.post);
-router.post('/', login.post);
+router.post('/login', login.post);
+router.post('/appointments', appointments.post);
+router.post('/background', background.post);
+router.post('/about', about.post);
+router.post('/symptoms', symptoms.post);
 
 
 module.exports = router;
