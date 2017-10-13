@@ -8,10 +8,10 @@ const {getForm} = require('../model/form_queries');
 const {mergeObj, addData} = require('./helpers.js');
 
 exports.post = (req, res) => {
-  console.log('id', req.session.id);
+ 
   getForm(req.session.id)
     .then((data) => {
-    console.log('data', data);
+   
     const person = {
       name: req.session.user,
       email: req.body.email,
