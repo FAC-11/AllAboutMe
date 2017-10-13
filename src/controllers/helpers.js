@@ -3,14 +3,18 @@ const mergeObj = array => {
   let newKey = 'message';
   let number = 1;
   array.forEach(object => {
-    (Object.keys(object)).map((key) => {
-      if (!obj[key]) {
-        obj[key] = object[key];
-      } else if (key.indexOf('message') !==-1 && typeof object[key] !== number){
-        number += 1;
-        obj[newKey + number] = object[key];
-      }
-    });
+    if (object) {
+      (Object.keys(object)).map((key) => {
+        if (!obj[key]) {
+          obj[key] = object[key];
+        } else if (key.indexOf('message') !== -1 && typeof object[key] !== number) {
+          number += 1;
+          obj[newKey + number] = object[key];
+        }
+      });
+    } else {
+      obj = {};
+    }
   });
   return obj;
 };
@@ -28,6 +32,6 @@ const addData = (object1, object2) => {
 };
 
 module.exports = {
-mergeObj,
-addData
+  mergeObj,
+  addData
 };
