@@ -23,7 +23,7 @@ BEGIN;
         diagnosis_options TEXT,
         diagnosis_other TEXT,
         dianosis_agreement varchar(10),
-        current_medication TEXT,
+        medication TEXT,
         therapies_options TEXT,
         therapies_other TEXT,
         therapies_helpful TEXT,

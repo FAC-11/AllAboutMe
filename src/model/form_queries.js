@@ -1,8 +1,43 @@
 const dbConnection = require('./database/db_connection');
 const {insertGenerator, getGenerator} = require('./queryGenerator');
 
-const getSection = (userId, sectionName) => {
-  return dbConnection.oneOrNone(getGenerator(sectionName), [userId]);
+const getSection = (userId, section) => {
+  const fields = {
+    about: [
+      'likes',
+      'dislikes',
+      'strengths',
+      'weaknesses',
+      'uncomfortable',
+      'safe',
+    ],
+    appointment: [
+      'gender_preference',
+      'time_preference',
+      'parent_involvement',
+      'email',
+      'mobile',
+      'telephone',
+      'contact_preference',
+      'concerns',
+      'hope',
+    ],
+    background: [
+      'background',
+    ],
+    symptoms: [
+      'diagnosis_options',
+      'diagnosis_other',
+      'diagnosis_agreement',
+      'medication',
+      'therapies_options',
+      'therapies_other',
+      'therapies_helpful',
+      'keep_well',
+    ],
+  };
+  const query = `SELECT ${fields[section].join(', ')} FROM forms WHERE user_id = $1`;
+  return dbConnection.oneOrNone(query, [userId]);
 };
 
 const getForm = (userId) => {

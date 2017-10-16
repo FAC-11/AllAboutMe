@@ -22,8 +22,8 @@ BEGIN;
         safe TEXT,
         diagnosis_options TEXT,
         diagnosis_other TEXT,
-        dianosis_agreement varchar(10),
-        current_medication TEXT,
+        diagnosis_agreement varchar(10),
+        medication TEXT,
         therapies_options TEXT,
         therapies_other TEXT,
         therapies_helpful TEXT,
@@ -55,11 +55,11 @@ BEGIN;
         'nothing!',
         'uncertainty',
         'bathing in jam',
-        'schizophrenia depression',
+        '{schizophrenia,depression}',
         null,
         'no',
         'none',
-        'talking therapies',
+        '{talking therapies}',
         null,
         null,
         'running',
@@ -68,7 +68,9 @@ BEGIN;
         'am',
         'no',
         '',
-        '091290382904'
+        '091290382904',
+        null,
+        '{text,email}'
     );
 
 COMMIT;
