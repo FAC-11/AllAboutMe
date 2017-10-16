@@ -9,9 +9,9 @@ BEGIN;
         password VARCHAR(64) NOT NULL
     );
 
-    DROP TABLE IF EXISTS about_me CASCADE;
+    DROP TABLE IF EXISTS forms CASCADE;
 
-    CREATE TABLE about_me (
+    CREATE TABLE forms (
         id SERIAL PRIMARY KEY,
         user_id INTEGER REFERENCES users(id) UNIQUE,
         likes TEXT,
@@ -19,49 +19,23 @@ BEGIN;
         strengths TEXT,
         weaknesses TEXT,
         uncomfortable TEXT,
-        safe TEXT
-    );
-
-    DROP TABLE IF EXISTS symptoms CASCADE;
-
-    CREATE TABLE symptoms (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) UNIQUE,
-        diagnosis TEXT,
-        dianosis_agreement TEXT,
+        safe TEXT,
+        diagnosis_options TEXT,
+        diagnosis_other TEXT,
+        dianosis_agreement varchar(10),
         current_medication TEXT,
-        therapies TEXT,
+        therapies_options TEXT,
+        therapies_other TEXT,
         therapies_helpful TEXT,
-        keep_well TEXT
-    );
-
-    DROP TABLE IF EXISTS backgrounds CASCADE;
-
-    CREATE TABLE backgrounds (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) UNIQUE,
-        background TEXT
-    );
-
-    DROP TABLE IF EXISTS appointments CASCADE;
-
-    CREATE TABLE appointments (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) UNIQUE,
-        worker_preferences TEXT,
-        appointment_preferences TEXT,
-        parent_involved BOOLEAN,
-        email TEXT,
-        mobile TEXT,
-        telephone TEXT,
-        contact_preference TEXT
-    );
-
-    DROP TABLE IF EXISTS closing CASCADE;
-
-    CREATE TABLE closing (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) UNIQUE,
+        keep_well TEXT,
+        background TEXT,
+        gender_preference varchar(10),
+        time_preference varchar(10),
+        parent_involvement varchar(10),
+        email varchar(100),
+        mobile varchar(100),
+        telephone varchar(100),
+        contact_preference varchar(100),
         concerns TEXT,
         hope TEXT
     );
