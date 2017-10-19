@@ -39,17 +39,10 @@ const getSection = (userId, section) => {
   return dbConnection.oneOrNone(query, [userId]);
 };
 
-const getSectionValues = (section, data) => {
-  return fields[section].map(field => {
-    return data[field];
-  });
-};
-
+const getSectionValues = (section, data) => fields[section].map(field => data[field]);
 
 const saveSection = (userId, section, data) => {
-  const dollars = fields[section].map((item, index) => {
-    return `$${(index + 1)}`;
-  });
+  const dollars = fields[section].map((item, index) => `$${(index + 1)}`);
 
   const query = `UPDATE forms SET (${fields[section].join(', ')})\
  = (${dollars.join(', ')}) WHERE user_id = $${fields[section].length + 1}`;
@@ -58,15 +51,8 @@ const saveSection = (userId, section, data) => {
 };
 
 const getForm = (userId) => {
-  const sections = ['about_me', 'symptoms', 'backgrounds', 'appointments', 'closing'];
-  const promises = sections.map((sectionName) => {
-    return getSection(userId, sectionName).catch((error) => {
-      return {
-        message: sectionName + ': This section has not been completed'
-      };
-    });
-  });
-  return Promise.all(promises);
+  const query = 'SELECT * FROM forms WHERE user_id = $1';
+  return dbConnection.one(query, [userId]);
 };
 
 module.exports = {

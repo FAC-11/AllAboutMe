@@ -3,7 +3,7 @@ const dbReset = require('../src/model/database/db_seed');
 const dbConnection = require('../src/model/database/db_connection');
 
 const { addUser, getUser } = require('../src/model/user_queries');
-const { getSection, saveSection } = require('../src/model/form_queries');
+const { getSection, saveSection, getForm } = require('../src/model/form_queries');
 
 test('Insert user into database', (t) => {
   dbReset()
@@ -97,9 +97,6 @@ test('Get section from database', (t) => {
     .then((data) => {
       t.deepEqual(data, expectedSymptoms, 'Returns correct data for symptoms section');
     })
-    .catch((err) => {
-      console.error(err);
-    })
     .then(() => {
       t.end();
     });
@@ -145,9 +142,7 @@ test('Save section into database', (t) => {
   let userId;
 
   dbReset()
-    .then(() => {
-      return addUser('billy', 'billy@gmail.com', 'longpassword');
-    })
+    .then(() => addUser('billy', 'billy@gmail.com', 'longpassword'))
     .then((id) => {
       userId = id;
       return saveSection(userId, 'about', inputAbout);
@@ -170,6 +165,45 @@ test('Save section into database', (t) => {
     .then(() => getSection(userId, 'background'))
     .then((data) => {
       t.deepEqual(data, inputBackground, 'Saves background section');
+      t.end();
+    });
+});
+
+test('Get form from database', (t) => {
+  // TODO hardcoding id may be brittle
+  const expected = {
+    id: 1,
+    user_id: 1,
+    likes: 'choccies',
+    dislikes: 'rain and thunder',
+    strengths: 'being super duper',
+    weaknesses: 'nothing!',
+    uncomfortable: 'uncertainty',
+    safe: 'bathing in jam',
+    gender_preference: 'male',
+    time_preference: 'am',
+    parent_involvement: 'no',
+    email: '',
+    mobile: '091290382904',
+    telephone: null,
+    contact_preference: '{text,email}',
+    concerns: null,
+    hope: null,
+    diagnosis_options: '{schizophrenia,depression}',
+    diagnosis_other: null,
+    diagnosis_agreement: 'no',
+    medication: 'none',
+    therapies_options: '{talking therapies}',
+    therapies_other: null,
+    therapies_helpful: null,
+    keep_well: 'running',
+    background: 'i went for a walk when i was born',
+  };
+
+  dbReset()
+    .then(() => getForm(1))
+    .then((formObj) => {
+      t.deepEqual(formObj, expected, 'Returns correct object');
       t.end();
     });
 });
