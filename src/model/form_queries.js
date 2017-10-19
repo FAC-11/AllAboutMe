@@ -1,43 +1,60 @@
 const dbConnection = require('./database/db_connection');
-const {insertGenerator, getGenerator} = require('./queryGenerator');
 
+const fields = {
+  about: [
+    'likes',
+    'dislikes',
+    'strengths',
+    'weaknesses',
+    'uncomfortable',
+    'safe',
+  ],
+  appointment: [
+    'gender_preference',
+    'time_preference',
+    'parent_involvement',
+    'email',
+    'mobile',
+    'telephone',
+    'contact_preference',
+    'concerns',
+    'hope',
+  ],
+  background: [
+    'background',
+  ],
+  symptoms: [
+    'diagnosis_options',
+    'diagnosis_other',
+    'diagnosis_agreement',
+    'medication',
+    'therapies_options',
+    'therapies_other',
+    'therapies_helpful',
+    'keep_well',
+  ],
+};
 const getSection = (userId, section) => {
-  const fields = {
-    about: [
-      'likes',
-      'dislikes',
-      'strengths',
-      'weaknesses',
-      'uncomfortable',
-      'safe',
-    ],
-    appointment: [
-      'gender_preference',
-      'time_preference',
-      'parent_involvement',
-      'email',
-      'mobile',
-      'telephone',
-      'contact_preference',
-      'concerns',
-      'hope',
-    ],
-    background: [
-      'background',
-    ],
-    symptoms: [
-      'diagnosis_options',
-      'diagnosis_other',
-      'diagnosis_agreement',
-      'medication',
-      'therapies_options',
-      'therapies_other',
-      'therapies_helpful',
-      'keep_well',
-    ],
-  };
   const query = `SELECT ${fields[section].join(', ')} FROM forms WHERE user_id = $1`;
   return dbConnection.oneOrNone(query, [userId]);
+};
+
+const getSectionValues = (section, data) => {
+  return fields[section].map(field => {
+    return data[field];
+  });
+};
+
+
+const saveSection = (userId, section, data) => {
+  const dollars = fields[section].map((item, index) => {
+    return `$${(index + 1)}`;
+  });
+
+  const query = `UPDATE forms SET (${fields[section].join(', ')})\
+ = (${dollars.join(', ')}) WHERE user_id = $${fields[section].length + 1}`;
+
+  return dbConnection.none(query, getSectionValues(section, data).concat(userId));
 };
 
 const getForm = (userId) => {
@@ -52,91 +69,8 @@ const getForm = (userId) => {
   return Promise.all(promises);
 };
 
-const saveAboutMe = (userId, aboutMeData) => {
-  const {
-    likes,
-    dislikes,
-    strengths,
-    weaknesses,
-    uncomfortable,
-    safe
-  } = aboutMeData;
-  const aboutMeArr = [
-    userId,
-    likes,
-    dislikes,
-    strengths,
-    weaknesses,
-    uncomfortable,
-    safe
-  ];
-  return dbConnection.none(insertGenerator('about_me'), aboutMeArr);
-};
-
-const saveSymptoms = (userId, symptomsData) => {
-  const {
-    diagnosis,
-    diagnosis_agreement,
-    current_medication,
-    therapies,
-    therapies_helpful,
-    keep_well
-  } = symptomsData;
-
-  const symptomsArr = [
-    userId,
-    diagnosis,
-    diagnosis_agreement,
-    current_medication,
-    therapies,
-    therapies_helpful,
-    keep_well
-  ];
-  return dbConnection.none(insertGenerator('symptoms'), symptomsArr);
-};
-
-const saveBackgrounds = (userId, backgroundsData) => {
-  const {background} = backgroundsData;
-  const backgroundsArr = [userId, background];
-  return dbConnection.none(insertGenerator('backgrounds'), backgroundsArr);
-};
-
-const saveAppointments = (userId, appointmentsData) => {
-  const {
-    gender,
-    time,
-    parent,
-    email,
-    mobile,
-    telephone,
-    contact_preference
-  } = appointmentsData;
-
-  const appointmentsArr = [
-    userId,
-    gender,
-    time,
-    parent,
-    email,
-    mobile,
-    telephone,
-    contact_preference
-  ];
-  return dbConnection.none(insertGenerator('appointments'), appointmentsArr);
-};
-
-const saveClosing = (userId, closingData) => {
-  const {concerns, hope} = closingData;
-  const closingArr = [userId, concerns, hope];
-  return dbConnection.none(insertGenerator('closing'), closingArr);
-};
-
 module.exports = {
   getSection,
-  saveAboutMe,
-  saveSymptoms,
-  saveBackgrounds,
-  saveAppointments,
-  saveClosing,
-  getForm
+  getForm,
+  saveSection,
 };

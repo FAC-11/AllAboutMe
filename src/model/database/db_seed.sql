@@ -42,8 +42,7 @@ BEGIN;
 
 
     INSERT INTO users VALUES
-        (DEFAULT, 'jam', 'jam@gmail.com', 'password'),
-        (DEFAULT, 'ben', 'affleck@gmail.com', 'password');
+        (DEFAULT, 'jam', 'jam@gmail.com', 'password');
 
     INSERT INTO forms VALUES
     (
