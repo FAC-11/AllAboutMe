@@ -6,18 +6,12 @@ const queries = {
   userIdIntoForm: 'INSERT INTO forms (user_id) VALUES ($1) RETURNING user_id',
 };
 
-const addUser = (name, email, password) => {
-  return dbConnection.one(queries.insertUser, [name, email, password])
-    .then(userObj => {
-      return dbConnection.one(queries.userIdIntoForm, [userObj.id]);
-    })
-    .then(obj => {
-      return obj.user_id;
-    });
-};
+const addUser = (name, email, password) =>
+  dbConnection.one(queries.insertUser, [name, email, password])
+    .then(userObj => dbConnection.one(queries.userIdIntoForm, [userObj.id]))
+    .then(obj => obj.user_id);
 
-const getUser = (email) => {
-  return dbConnection.oneOrNone(queries.getUser, [email]);
-};
+const getUser = email =>
+  dbConnection.oneOrNone(queries.getUser, [email]);
 
 module.exports = { addUser, getUser };

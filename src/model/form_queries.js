@@ -39,7 +39,9 @@ const getSection = (userId, section) => {
   return dbConnection.oneOrNone(query, [userId]);
 };
 
-const getSectionValues = (section, data) => fields[section].map(field => data[field]);
+const getSectionValues = (section, data) =>
+  fields[section].map(field =>
+    data[field]);
 
 const saveSection = (userId, section, data) => {
   const dollars = fields[section].map((item, index) => `$${(index + 1)}`);

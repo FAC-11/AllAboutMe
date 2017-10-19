@@ -7,7 +7,8 @@ const { getSection, saveSection, getForm } = require('../src/model/form_queries'
 
 test('Insert user into database', (t) => {
   dbReset()
-    .then(() => addUser('jam', 'jam1@gmail.com', 'password'))
+    .then(() =>
+      addUser('jam', 'jam1@gmail.com', 'password'))
     .then((id) => {
       t.equal(typeof id, 'number', 'Returns a number (the user id)');
       return dbConnection.one('SELECT * FROM forms WHERE user_id = $1', [id]);
@@ -81,7 +82,8 @@ test('Get section from database', (t) => {
   };
 
   dbReset()
-    .then(() => getSection(1, 'about'))
+    .then(() =>
+      getSection(1, 'about'))
     .then((data) => {
       t.deepEqual(data, expectedAbout, 'Returns correct data for about section');
       return getSection(1, 'appointment');
@@ -142,27 +144,32 @@ test('Save section into database', (t) => {
   let userId;
 
   dbReset()
-    .then(() => addUser('billy', 'billy@gmail.com', 'longpassword'))
+    .then(() =>
+      addUser('billy', 'billy@gmail.com', 'longpassword'))
     .then((id) => {
       userId = id;
       return saveSection(userId, 'about', inputAbout);
     })
-    .then(() => getSection(userId, 'about'))
+    .then(() =>
+      getSection(userId, 'about'))
     .then((data) => {
       t.deepEqual(data, inputAbout, 'Saves about section');
+      return saveSection(userId, 'appointment', inputAppointment);
     })
-    .then(() => saveSection(userId, 'appointment', inputAppointment))
-    .then(() => getSection(userId, 'appointment'))
+    .then(() =>
+      getSection(userId, 'appointment'))
     .then((data) => {
       t.deepEqual(data, inputAppointment, 'Saves appointment section');
+      return saveSection(userId, 'symptoms', inputSymptoms);
     })
-    .then(() => saveSection(userId, 'symptoms', inputSymptoms))
-    .then(() => getSection(userId, 'symptoms'))
+    .then(() =>
+      getSection(userId, 'symptoms'))
     .then((data) => {
       t.deepEqual(data, inputSymptoms, 'Saves symptoms section');
+      return saveSection(userId, 'background', inputBackground);
     })
-    .then(() => saveSection(userId, 'background', inputBackground))
-    .then(() => getSection(userId, 'background'))
+    .then(() =>
+      getSection(userId, 'background'))
     .then((data) => {
       t.deepEqual(data, inputBackground, 'Saves background section');
       t.end();
@@ -201,7 +208,8 @@ test('Get form from database', (t) => {
   };
 
   dbReset()
-    .then(() => getForm(1))
+    .then(() =>
+      getForm(1))
     .then((formObj) => {
       t.deepEqual(formObj, expected, 'Returns correct object');
       t.end();
