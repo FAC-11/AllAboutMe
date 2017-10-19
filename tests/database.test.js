@@ -27,6 +27,22 @@ test('Insert user into database', (t) => {
     });
 });
 
+test('Get user from database', (t) => {
+  const expected = {
+    id: 1,
+    name: 'jam',
+    email: 'jam@gmail.com',
+    password: 'password',
+  };
+
+  dbReset()
+    .then(() => getUser('jam@gmail.com'))
+    .then((obj) => {
+      t.deepEqual(obj, expected, 'Returns correct object');
+      t.end();
+    });
+});
+
 test('Get section from database', (t) => {
   const expectedAbout = {
     likes: 'choccies',
