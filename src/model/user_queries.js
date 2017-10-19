@@ -7,8 +7,11 @@ const userQueries = {
 
 const addUser = (name, email, password) => {
   return dbConnection.one(userQueries.insert, [name, email, password])
+    .then(userObj => {
+      return dbConnection.one('INSERT INTO forms (user_id) VALUES ($1) RETURNING user_id', [userObj.id]);
+    })
     .then(obj => {
-      return obj.id;
+      return obj.user_id;
     });
 };
 
