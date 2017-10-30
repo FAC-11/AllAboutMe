@@ -1,4 +1,4 @@
-const { saveBackgrounds, getSection } = require('../model/form_queries');
+const { saveSection, getSection } = require('../model/form_queries');
 
 exports.get = (req, res) => {
   getSection(req.session.id, 'background')
@@ -25,7 +25,7 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  saveBackgrounds(req.session.id, req.body)
+  saveSection(req.session.id, 'background', req.body)
     .then(() => {
       res.redirect('send');
     })
