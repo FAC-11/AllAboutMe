@@ -22,7 +22,7 @@ BEGIN;
         safe TEXT,
         diagnosis_options TEXT,
         diagnosis_other TEXT,
-        dianosis_agreement varchar(10),
+        diagnosis_agreement varchar(10),
         medication TEXT,
         therapies_options TEXT,
         therapies_other TEXT,

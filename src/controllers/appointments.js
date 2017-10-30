@@ -1,6 +1,5 @@
 const {
-  saveAppointments,
-  saveClosing,
+  saveSection,
   getSection,
 } = require('../model/form_queries');
 
@@ -8,7 +7,6 @@ exports.get = (req, res) => {
 
     getSection(req.session.id, 'appointments')
     .then((data) => {
-
     // for ticking correct checkbox based on previously saved answer
     const contactMethods = data.contact_preference ? data.contact_preference.replace(/\{|\}/g, '').split(',') : [];
     let checked = {
@@ -33,9 +31,8 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  saveAppointments(req.session.id, req.body).then(() => {
-    return saveClosing(req.session.id, req.body);
-  }).then(() => {
+  saveSection(req.session.id, 'appointments', req.body)
+    .then(() => {
     res.redirect('symptoms');
   }).catch((err) => {
     res.render('appointments', {
