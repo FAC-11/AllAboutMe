@@ -9,7 +9,7 @@ const fields = {
     'uncomfortable',
     'safe',
   ],
-  appointment: [
+  appointments: [
     'gender_preference',
     'time_preference',
     'parent_involvement',
