@@ -1,7 +1,7 @@
 const { saveBackgrounds, getSection } = require('../model/form_queries');
 
 exports.get = (req, res) => {
-  getSection(req.session.id, 'backgrounds')
+  getSection(req.session.id, 'background')
     .then((data) => {
       res.render('background', {
         activePage: { background: true },
