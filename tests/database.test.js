@@ -86,7 +86,7 @@ test('Get section from database', (t) => {
       getSection(1, 'about'))
     .then((data) => {
       t.deepEqual(data, expectedAbout, 'Returns correct data for about section');
-      return getSection(1, 'appointment');
+      return getSection(1, 'appointments');
     })
     .then((data) => {
       t.deepEqual(data, expectedAppointment, 'Returns correct data for appointment section');
@@ -154,10 +154,10 @@ test('Save section into database', (t) => {
       getSection(userId, 'about'))
     .then((data) => {
       t.deepEqual(data, inputAbout, 'Saves about section');
-      return saveSection(userId, 'appointment', inputAppointment);
+      return saveSection(userId, 'appointments', inputAppointment);
     })
     .then(() =>
-      getSection(userId, 'appointment'))
+      getSection(userId, 'appointments'))
     .then((data) => {
       t.deepEqual(data, inputAppointment, 'Saves appointment section');
       return saveSection(userId, 'symptoms', inputSymptoms);
