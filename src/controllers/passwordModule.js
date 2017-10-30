@@ -1,21 +1,20 @@
 'use strict';
-const crypto = require('crypto');
+const bcrypt = require('bcryptjs');
+
 require('env2')('config.env');
 
-const sign = (value) => {
-  const secret = process.env.SECRET;
-  if (!secret || typeof secret !== 'string') {
-    throw Error('invalid secret!');
-  }
-  const hmac = crypto.createHmac('sha256', secret);
-  return hmac.update(value).digest('hex');
+const hashPassword = (password) => {
+  return bcrypt.genSalt(10)
+    .then((salt) => {
+      return bcrypt.hash(password, salt);
+    });
 };
 
-const validatePassword = (value, hash) => {
-  return sign(value) === hash;
+const comparePasswords = (password, hashedPassword) => {
+  return bcrypt.compare(password, hashedPassword);
 };
 
 module.exports = {
-  sign,
-  validatePassword,
+  hashPassword,
+  comparePasswords,
 };

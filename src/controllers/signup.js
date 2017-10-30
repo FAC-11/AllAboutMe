@@ -1,4 +1,4 @@
-const { sign } = require('./passwordModule');
+const { hashPassword } = require('./passwordModule');
 const { getUser, addUser } = require('../model/user_queries');
 const { validateSignUp } = require('./validate');
 
@@ -28,7 +28,7 @@ exports.post = (req, res) => {
     getUser(userData.email)
       .then((existingUser) => {
         if (!existingUser) {
-          const hashedPassword = sign(userData.password);
+          const hashedPassword = hashPassword(userData.password);
           addUser(userData.name, userData.email, hashedPassword)
             .then((id) => {
               req.session.user = userData.name;

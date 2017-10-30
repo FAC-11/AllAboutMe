@@ -1,4 +1,4 @@
-const { validatePassword } = require('./passwordModule');
+const { comparePasswords } = require('./passwordModule');
 const { getUser } = require('../model/user_queries');
 
 exports.get = (req, res) => {
@@ -14,7 +14,7 @@ exports.post = (req, res) => {
   const userData = req.body;
   getUser(userData.email)
     .then((data) => {
-      if (!data || !validatePassword(userData.password, data.password)) {
+      if (!data || !comparePasswords(userData.password, data.password)) {
         res.status(400).render('login', {
           pageTitle: 'Login',
           messages: [{
