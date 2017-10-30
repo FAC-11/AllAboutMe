@@ -9,9 +9,9 @@ BEGIN;
         password VARCHAR(64) NOT NULL
     );
 
-    DROP TABLE IF EXISTS about_me CASCADE;
+    DROP TABLE IF EXISTS forms CASCADE;
 
-    CREATE TABLE about_me (
+    CREATE TABLE forms (
         id SERIAL PRIMARY KEY,
         user_id INTEGER REFERENCES users(id) UNIQUE,
         likes TEXT,
@@ -19,72 +19,57 @@ BEGIN;
         strengths TEXT,
         weaknesses TEXT,
         uncomfortable TEXT,
-        safe TEXT
-    );
-
-    DROP TABLE IF EXISTS symptoms CASCADE;
-
-    CREATE TABLE symptoms (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) UNIQUE,
-        diagnosis TEXT,
-        diagnosis_agreement TEXT,
-        current_medication TEXT,
-        therapies TEXT,
+        safe TEXT,
+        diagnosis_options TEXT,
+        diagnosis_other TEXT,
+        diagnosis_agreement varchar(10),
+        medication TEXT,
+        therapies_options TEXT,
+        therapies_other TEXT,
         therapies_helpful TEXT,
-        keep_well TEXT
-    );
-
-    DROP TABLE IF EXISTS backgrounds CASCADE;
-
-    CREATE TABLE backgrounds (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) UNIQUE,
-        background TEXT
-    );
-
-    DROP TABLE IF EXISTS appointments CASCADE;
-
-    CREATE TABLE appointments (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) UNIQUE,
-        worker_preferences TEXT,
-        appointment_preferences TEXT,
-        parent_involved BOOLEAN,
-        email TEXT,
-        mobile TEXT,
-        telephone TEXT,
-        contact_preference TEXT
-    );
-
-    DROP TABLE IF EXISTS closing CASCADE;
-
-    CREATE TABLE closing (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) UNIQUE,
+        keep_well TEXT,
+        background TEXT,
+        gender_preference varchar(10),
+        time_preference varchar(10),
+        parent_involvement varchar(10),
+        email varchar(100),
+        mobile varchar(100),
+        telephone varchar(100),
+        contact_preference varchar(100),
         concerns TEXT,
         hope TEXT
     );
 
-    INSERT INTO users (name, email, password) VALUES
-        ('jam', 'jam@gmail.com', 'password'),
-        ('ben', 'affleck@gmail.com', 'password');
 
-    INSERT INTO about_me (user_id, likes, dislikes, strengths, weaknesses, uncomfortable, safe) VALUES
-        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'choccies', 'spinach', 'jam making', 'eating too much jam', 'running out of jam', 'bathing in jam'),
-        ((SELECT id FROM users WHERE email = 'affleck@gmail.com'), 'walks at sunset on the beach', NULL, NULL, NULL, NULL, NULL);
+    INSERT INTO users VALUES
+        (DEFAULT, 'jam', 'jam@gmail.com', 'password');
 
-    INSERT INTO symptoms (user_id, diagnosis, diagnosis_agreement, current_medication, therapies, therapies_helpful, keep_well) VALUES
-        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'not sure', 'yes i guess so', 'im not sure', 'i see a therapist', 'not really', 'running');
-
-    INSERT INTO backgrounds (user_id, background) VALUES
-        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'i went for a walk and ate a sandwich and that was good.');
-
-    INSERT INTO appointments (user_id, worker_preferences, appointment_preferences, parent_involved, email, mobile, telephone, contact_preference) VALUES
-        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'male', 'dont mind', false, 'you already have it', '123456789', '1234567891011', 'text message');
-
-    INSERT INTO closing (user_id, concerns, hope) VALUES
-        ((SELECT id FROM users WHERE email = 'jam@gmail.com'), 'i dont have any', 'i hope i get better');
-
+    INSERT INTO forms VALUES
+    (
+        DEFAULT,
+        (SELECT id FROM users WHERE email = 'jam@gmail.com'),
+        'choccies',
+        'rain and thunder',
+        'being super duper',
+        'nothing!',
+        'uncertainty',
+        'bathing in jam',
+        '{schizophrenia,depression}',
+        null,
+        'no',
+        'none',
+        '{talking therapies}',
+        null,
+        null,
+        'running',
+        'i went for a walk when i was born',
+        'male',
+        'am',
+        'no',
+        '',
+        '091290382904',
+        null,
+        '{text,email}'
+    );
 
 COMMIT;

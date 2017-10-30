@@ -1,7 +1,7 @@
-const { saveAboutMe, getSection } = require('../model/form_queries');
+const { saveSection, getSection } = require('../model/form_queries');
 
 exports.get = (req, res) => {
-  getSection(req.session.id, 'about_me')
+  getSection(req.session.id, 'about')
     .then((data) => {
       res.render('about', {
         activePage: { about: true },
@@ -15,7 +15,7 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  saveAboutMe(req.session.id, req.body)
+  saveSection(req.session.id, 'about', req.body)
     .then(() => {
       res.redirect('background');
     })

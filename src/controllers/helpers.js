@@ -1,8 +1,8 @@
-const mergeObj = array => {
+const mergeObj = object => {
   let obj = {};
   let newKey = 'message';
   let number = 1;
-  array.forEach(object => {
+
     if (object) {
       (Object.keys(object)).map((key) => {
         if (!obj[key]) {
@@ -15,7 +15,6 @@ const mergeObj = array => {
     } else {
       obj = {};
     }
-  });
   return obj;
 };
 

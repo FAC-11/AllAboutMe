@@ -54,14 +54,14 @@
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> Do you have a preference on your new support worker?
         <br>
         <div class="dib">
-          <input id='male' class="o-0 flex flex-auto-l" class="dib" type="radio" name="gender" {{#if checked.worker.male}} checked {{/if}} aria-label="Male worker" value='Male'>
+          <input id='male' class="o-0 flex flex-auto-l" class="dib" type="radio" value="male" name="gender_preference" {{#if checked.worker.male}} checked {{/if}} aria-label="Male worker" value='Male'>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="male">
           <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2016/png/iconmonstr-generation-11.png&r=51&g=51&b=51" alt="Male worker">
               <div class="tc">Male</div>
           </label>
           </input>
 
-          <input id='female' class="o-0" class="dib" type="radio" name="gender" aria-label="female" value='Female' {{#if checked.worker.female}} checked {{/if}}>
+          <input id='female' class="o-0" class="dib" type="radio" name="gender_preference" aria-label="female" value='female' {{#if checked.worker.female}} checked {{/if}}>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="female">
       <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2016/png/iconmonstr-generation-8.png&r=51&g=51&b=51" alt="Female worker">
           <div class="tc">Female</div>
@@ -74,14 +74,14 @@
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> Do you have a preferred appointment time?
         <br>
         <div class="dib">
-          <input id='am' class="o-0 flex flex-auto-l" class="dib" type="radio" name="time" aria-label="am" value='am' {{#if checked.time.am}} checked {{/if}}>
+          <input id='am' class="o-0 flex flex-auto-l" class="dib" type="radio" name="time_preference" aria-label="am" value='am' {{#if checked.time.am}} checked {{/if}}>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="am">
           <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2016/png/iconmonstr-weather-1.png&r=51&g=51&b=51" alt="sun">
               <div class="tc">AM</div>
           </label>
           </input>
 
-          <input id='pm' class="o-0" class="dib" type="radio" name="time" aria-label="email" value='pm' {{#if checked.time.pm}} checked {{/if}}>
+          <input id='pm' class="o-0" class="dib" type="radio" name="time_preference" aria-label="pm" value='pm' {{#if checked.time.pm}} checked {{/if}}>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="pm">
       <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2016/png/iconmonstr-weather-115.png&r=51&g=51&b=51" alt="moon">
           <div class="tc">PM</div>
@@ -93,14 +93,14 @@
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> Would you like a parent/guardian at the appointments?
         <br>
         <div class="dib">
-          <input id='Yes' class="o-0 flex flex-auto-l" class="dib" type="radio" name="parent" aria-label="Yes" value='Yes' {{#if checked.parent_involved.yes}} checked {{/if}}>
+          <input id='Yes' class="o-0 flex flex-auto-l" class="dib" type="radio" name="parent_involvement" aria-label="Yes" value='yes' {{#if checked.parent_involvement.yes}} checked {{/if}}>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="Yes">
           <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=51&g=51&b=51" alt="Yes">
               <div class="tc">Yes</div>
           </label>
           </input>
 
-          <input id='No' class="o-0" class="dib" type="radio" name="parent" aria-label="email" value='No' {{#if checked.parent_involved.no}} checked {{/if}}>
+          <input id='No' class="o-0" class="dib" type="radio" name="parent_involvement" aria-label="no" value='no' {{#if checked.parent_involvement.no}} checked {{/if}}>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="No">
       <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-25.png&r=51&g=51&b=51" alt="No">
           <div class="tc">No</div>

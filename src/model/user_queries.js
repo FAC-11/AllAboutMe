@@ -1,22 +1,17 @@
 const dbConnection = require('./database/db_connection');
 
-const userQueries = {
-  insert: 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id',
-  get: 'SELECT * FROM users WHERE email = $1',
+const queries = {
+  insertUser: 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id',
+  getUser: 'SELECT * FROM users WHERE email = $1',
+  userIdIntoForm: 'INSERT INTO forms (user_id) VALUES ($1) RETURNING user_id',
 };
 
-const addUser = (name, email, password) => {
-  return dbConnection.one(userQueries.insert, [name, email, password])
-    .then(obj => {
-      return obj.id;
-    });
-};
+const addUser = (name, email, password) =>
+  dbConnection.one(queries.insertUser, [name, email, password])
+    .then(userObj => dbConnection.one(queries.userIdIntoForm, [userObj.id]))
+    .then(obj => obj.user_id);
 
-const getUser = (email) => {
-  return dbConnection.any(userQueries.get, [email])
-    .then((result) => {
-      return result[0];
-    });
-};
+const getUser = email =>
+  dbConnection.oneOrNone(queries.getUser, [email]);
 
 module.exports = { addUser, getUser };

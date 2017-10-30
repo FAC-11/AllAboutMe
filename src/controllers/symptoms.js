@@ -1,5 +1,5 @@
 const {
-  saveSymptoms,
+  saveSection,
   getSection,
 } = require('../model/form_queries');
 
@@ -22,7 +22,7 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  saveSymptoms(req.session.id, req.body)
+  saveSection(req.session.id, 'symptoms', req.body)
     .then(() => {
       res.redirect('about');
     })
