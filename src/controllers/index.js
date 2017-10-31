@@ -19,7 +19,7 @@ const background = require('./background');
 const send = require('./send');
 const finish = require('./finish');
 const forgot = require('./forgot');
-
+const reset = require('./reset');
 router.get('/', login.get);
 
 router.get('/signup', signup.get);
@@ -33,9 +33,9 @@ router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
 router.get('/forgot', forgot.get);
+// router.get('/reset/:token', reset);
+
 router.post('/finish', finish.post);
-
-
 router.post('/forgot', forgot.post);
 router.post('/signup', signup.post);
 router.post('/login', login.post);
