@@ -18,6 +18,7 @@ const about = require('./about');
 const background = require('./background');
 const send = require('./send');
 const finish = require('./finish');
+const forgot = require('./forgot');
 
 router.get('/', login.get);
 
@@ -31,9 +32,11 @@ router.get('/symptoms', symptoms.get);
 router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
+router.get('/forgot', forgot.get);
 router.post('/finish', finish.post);
 
 
+router.post('/forgot', forgot.post);
 router.post('/signup', signup.post);
 router.post('/login', login.post);
 router.post('/appointments', appointments.post);
