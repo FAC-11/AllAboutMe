@@ -10,6 +10,7 @@ const requireLogin = require('./controllers/requireLogin');
 const bodyParser = require('body-parser');
 require('env2')('config.env');
 
+const flash = require('connect-flash');
 const app = express();
 
 
@@ -32,7 +33,7 @@ app.use(cookieSession({
 }));
 
 app.use(cookieParser());
-
+app.use(flash());
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 app.use('/home', requireLogin);
 app.use('/info_page', requireLogin);
