@@ -43,6 +43,7 @@ router.post('/appointments', appointments.post);
 router.post('/background', background.post);
 router.post('/about', about.post);
 router.post('/symptoms', symptoms.post);
+router.post('/reset', reset.post);
 
 
 module.exports = router;

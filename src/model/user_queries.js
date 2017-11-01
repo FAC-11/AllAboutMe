@@ -14,4 +14,6 @@ const addUser = (name, email, password) =>
 const getUser = email =>
   dbConnection.oneOrNone(queries.getUser, [email]);
 
-module.exports = { addUser, getUser };
+const updateUser = password => {};
+
+module.exports = { addUser, getUser, updateUser };
