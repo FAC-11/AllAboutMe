@@ -20,8 +20,8 @@ const send = require('./send');
 const finish = require('./finish');
 const forgot = require('./forgot');
 const reset = require('./reset');
-router.get('/', login.get);
 
+router.get('/', login.get);
 router.get('/signup', signup.get);
 router.get('/home', home.get);
 router.get('/colour_scheme', colour_scheme.get);
@@ -33,7 +33,7 @@ router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
 router.get('/forgot', forgot.get);
-// router.get('/reset/:token', reset);
+router.get('/reset/:token', reset.get);
 
 router.post('/finish', finish.post);
 router.post('/forgot', forgot.post);

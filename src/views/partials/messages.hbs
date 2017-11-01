@@ -1,5 +1,3 @@
-<ul>
-    {{#each messages}}
-        <p class="message {{#if this.error}}message--error"{{/if}}>{{this.content}}</p>
-    {{/each}}
-</ul>
+    {{#if messages}}
+        <p class="message">{{messages}}</p>
+    {{/if}}

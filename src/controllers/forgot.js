@@ -15,6 +15,7 @@ function guid() {
 
 exports.get = (req, res) => {
   res.render('forgot', {
+    messages: req.flash('error'),
     activePage: {
       forgot: true
     },
