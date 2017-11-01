@@ -1,3 +1,7 @@
-    {{#if messages}}
-        <p class="message">{{messages}}</p>
+    {{#if errorMessages}}
+        <p class="message">{{errorMessages}}</p>
+    {{/if}}
+
+    {{#if successMessages}}
+        <p class="message">{{successMessages}}</p>
     {{/if}}

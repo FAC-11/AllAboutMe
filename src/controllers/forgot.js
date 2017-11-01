@@ -15,7 +15,8 @@ function guid() {
 
 exports.get = (req, res) => {
   res.render('forgot', {
-    messages: req.flash('error'),
+    errorMessages: req.flash('error'),
+    successMessages: req.flash('success'),
     activePage: {
       forgot: true
     },
@@ -44,34 +45,15 @@ exports.post = (req, res) => {
       email('reset', person, (error, result) => {
         if (error) {
           console.log('error', error);
-          res.render('forgot', {
-            messages: [
-              {
-                content: 'There was an error with sending the password recovery email, please try again.',
-                error: true
-              }
-            ],
-            activePage: {
-              forgot: true
-            },
-            pageTitle: 'Forgotten password'
-          });
+          req.flash('error', 'There was an error with sending the password recovery email, please try again.');
+          res.redirect('/forgot');
         } else {
-          res.render('forgot', {
-            messages: [
-              {
-                content: 'Success! Please check your email and follow the instructions in order to reset your password.',
-                error: true
-              }
-            ],
-            activePage: {
-              forgot: true
-            },
-            pageTitle: 'Forgotten password'
-          });
+          req.flash('success', 'Success! Please check your email and follow the instructions in order to reset your password.');
+          res.redirect('/forgot');
         }
       });
     } else {
+
       res.render('forgot', {
         messages: [
           {
