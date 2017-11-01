@@ -32,13 +32,13 @@ exports.post = (req, res) => {
       client.on('error', (error) => {
         console.log('error', error);
       });
-      client.set(req.body.email, token);
+      client.set(token, req.body.email);
 
       const person = {
         name: userObj.name,
         email: userObj.email,
         subject: 'All about me - reset your password',
-        url: `https://test${token}`
+        url: `localhost:4001/reset/${token}`
       }
       email('reset', person, (error, result) => {
         if (error) {
@@ -84,5 +84,12 @@ exports.post = (req, res) => {
         pageTitle: 'Forgotten password'
       });
     }
+  }).catch((error) => {
+    console.log('error from getUser query in forgot.js', error);
+    res.status(500).render('error', {
+      layout: 'error',
+      statusCode: 500,
+      errorMessage: 'Internal server error'
+    });
   });
 };
