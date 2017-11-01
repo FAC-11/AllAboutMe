@@ -1,7 +1,8 @@
 const redis = require('redis');
 const {URL} = require('url');
-const {validatePassword, validateConfirmPassword} = require('./validate');
+const {validatePasswordUpdate} = require('./validate');
 const {hashPassword} = require('./passwordModule');
+const {updatePassword} = require('../model/user_queries');
 
 exports.get = (req, res) => {
   const client = redis.createClient();
@@ -16,6 +17,8 @@ exports.get = (req, res) => {
       res.redirect('/forgot');
     } else {
       res.render('reset', {
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
         activePage: {
           reset: true
         },
@@ -40,17 +43,34 @@ exports.post = (req, res) => {
     console.log('error', error);
   });
 
-  client.get(token, (error, reply) => {
-    if (error || reply === null) {
+  client.get(token, (error, email) => {
+    if (error || email === null) {
       req.flash('error', 'Link is invalid or has expired, please try again.');
       res.redirect('/forgot');
     } else {
-      const userInput = req.body;
-      if (validatePassword(req.body.password) && validateConfirmPassword(req.body.confirmPassword)) {
-        const hashedPassword = hashPassword(userInput.password);
+      const validator = validatePasswordUpdate(req.body);
+      if (validator.isValid) {
+        hashPassword(req.body.password)
 
+          .then((hashedPassword) => {
+            updatePassword(hashedPassword, email)
+          })
+          .then(() =>{
+            req.flash('success', 'Password is updated successfully.');
+            res.redirect('/login');
+          })
+          .catch((err) => {
+            console.log('error from updatePassword query in reset.js', err);
+            res.status(500).render('error', {
+              layout: 'error',
+              statusCode: 500,
+              errorMessage: 'Internal server error'
+            });
+          });
+      }else{
+        req.flash('error', validator.message);
+        res.redirect(`/reset/${token}`);
       }
     }
-  
   });
 };
