@@ -53,19 +53,8 @@ exports.post = (req, res) => {
         }
       });
     } else {
-
-      res.render('forgot', {
-        messages: [
-          {
-            content: 'There is no registered user with the email address provided.',
-            error: true
-          }
-        ],
-        activePage: {
-          forgot: true
-        },
-        pageTitle: 'Forgotten password'
-      });
+      req.flash('error', 'There is no registered user with the email address provided.');
+      res.redirect('/forgot');
     }
   }).catch((error) => {
     console.log('error from getUser query in forgot.js', error);
