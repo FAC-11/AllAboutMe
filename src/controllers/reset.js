@@ -5,8 +5,7 @@ const {hashPassword} = require('./passwordModule');
 const {updatePassword} = require('../model/user_queries');
 
 exports.get = (req, res) => {
-  const redisUrl = new URL(process.env.REDIS_URL);
-  const client = redis.createClient({ url: process.env.REDIS_URL, port: redisUrl.port });
+  const client = redis.createClient({ url: process.env.REDIS_URL });
 
   client.on('error', (error) => {
     console.log('error', error);
@@ -37,9 +36,7 @@ exports.post = (req, res) => {
 
   const myUrl = new URL(req.headers.referer);
   const token = myUrl.pathname.split('/reset/')[1];
-
-  const redisUrl = new URL(process.env.REDIS_URL)
-  const client = redis.createClient({ url: process.env.REDIS_URL, port: redisUrl.port  });
+  const client = redis.createClient({ url: process.env.REDIS_URL });
 
   client.on('error', (error) => {
     console.log('error', error);
