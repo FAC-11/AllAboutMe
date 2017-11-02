@@ -14,6 +14,7 @@ function guid() {
 }
 
 exports.get = (req, res) => {
+  req.flash('error', 'test error');
   res.render('forgot', {
     errorMessages: req.flash('error'),
     successMessages: req.flash('success'),

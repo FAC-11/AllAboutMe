@@ -10,7 +10,7 @@ const requireLogin = require('./controllers/requireLogin');
 const bodyParser = require('body-parser');
 require('env2')('config.env');
 
-const flash = require('connect-flash');
+const flash = require('express-flash');
 const app = express();
 
 
