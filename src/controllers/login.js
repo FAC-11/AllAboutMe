@@ -18,9 +18,7 @@ exports.post = (req, res) => {
     .then((data) => {
       if (!data || !comparePasswords(userData.password, data.password)) {
         req.flash('error', 'Incorrect email or password');
-        res.status(400).render('login', {
-          pageTitle: 'Login',
-        });
+        res.status(400).redirect('login');
       } else {
         req.session.user = data.name;
         req.session.id = data.id;

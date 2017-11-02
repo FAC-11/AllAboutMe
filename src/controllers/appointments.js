@@ -34,7 +34,6 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'appointments', req.body)
     .then(() => {
-      req.flash('success', 'Appointments section saved');
       res.redirect('symptoms');
     }).catch((err) => {
       console.log(err);
