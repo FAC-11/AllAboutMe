@@ -3,6 +3,8 @@ const { getUser } = require('../model/user_queries');
 
 exports.get = (req, res) => {
   res.render('login', {
+    errorMessages: req.flash('error'),
+    successMessages: req.flash('success'),
     activePage: {
       login: true,
     },
@@ -15,12 +17,9 @@ exports.post = (req, res) => {
   getUser(userData.email)
     .then((data) => {
       if (!data || !comparePasswords(userData.password, data.password)) {
+        req.flash('error', 'Incorrect email or password');
         res.status(400).render('login', {
           pageTitle: 'Login',
-          messages: [{
-            content: 'Incorrect email or password',
-            error: true,
-          }],
         });
       } else {
         req.session.user = data.name;

@@ -5,6 +5,8 @@ const { validateSignUp } = require('./validate');
 
 exports.get = (req, res) => {
   res.render('signup', {
+    errorMessages: req.flash('error'),
+    successMessages: req.flash('success'),
     activePage: {
       signup: true,
     },
@@ -17,12 +19,9 @@ exports.post = (req, res) => {
   const userData = req.body;
   const validatedUser = validateSignUp(userData);
   if (!validatedUser.isValid) {
+    req.flash('error', validatedUser.message);
     res.status(400).render('signup', {
       pageTitle: 'Create an Account',
-      messages: [{
-        content: validatedUser.message,
-        error: true,
-      }],
     });
   } else {
     getUser(userData.email)
@@ -44,13 +43,9 @@ exports.post = (req, res) => {
               });
             });
         } else {
-          // email already in database
+          req.flash('error', `Account already exists for ${userData.email}`);
           res.status(200).render('signup', {
             pageTitle: 'Create an Account',
-            messages: [{
-              content: `Account already exists for ${userData.email}`,
-              error: true,
-            }],
           });
         }
       })

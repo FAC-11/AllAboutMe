@@ -19,7 +19,6 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'about', req.body)
     .then(() => {
-      req.flash('success', 'About me section saved');
       res.redirect('background');
     })
     .catch((err) => {
