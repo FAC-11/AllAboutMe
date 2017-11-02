@@ -20,9 +20,7 @@ exports.post = (req, res) => {
   const validatedUser = validateSignUp(userData);
   if (!validatedUser.isValid) {
     req.flash('error', validatedUser.message);
-    res.status(400).render('signup', {
-      pageTitle: 'Create an Account',
-    });
+    res.redirect('signup');
   } else {
     getUser(userData.email)
       .then((existingUser) => {
