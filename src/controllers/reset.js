@@ -38,8 +38,7 @@ exports.post = (req, res) => {
   const myUrl = new URL(req.headers.referer);
   const token = myUrl.pathname.split('/reset/')[1];
 
-  const redisUrl = new URL(process.env.REDIS_URL);
-  const client = redis.createClient(redisUrl.port, redisUrl.hostname);
+  const client = redis.createClient(redisUrl);
 
   client.on('error', (error) => {
     console.log('error', error);

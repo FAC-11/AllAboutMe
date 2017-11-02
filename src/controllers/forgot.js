@@ -1,4 +1,3 @@
-const { URL } = require('url');
 const {getUser} = require('../model/user_queries');
 const redis = require('redis');
 const sendemail = require('sendemail');
@@ -30,8 +29,7 @@ exports.post = (req, res) => {
   getUser(req.body.email).then((userObj) => {
     if (userObj) {
       const token = guid();
-      const redisUrl = new URL(process.env.REDIS_URL);
-      const client = redis.createClient(redisUrl.port, redisUrl.hostname);
+      const client = redis.createClient(redisUrl);
 
       client.on('error', (error) => {
         console.log('error', error);
