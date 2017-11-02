@@ -163,3 +163,11 @@ top: 20%;
 .blue{
   background-color: #0062A4;
 }
+.error {
+    color: #e8624c;
+    border: 2px solid #e8624c;
+}
+.success {
+    color: #3fbf49;
+    border: 2px solid #3fbf49;
+}
