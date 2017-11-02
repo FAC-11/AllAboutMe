@@ -34,7 +34,7 @@ exports.post = (req, res) => {
       client.on('error', (error) => {
         console.log('error', error);
       });
-      client.set(token, req.body.email);
+      client.set(token, req.body.email, 'EX', 1800);
 
       const person = {
         name: userObj.name,

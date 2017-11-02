@@ -33,7 +33,7 @@ exports.get = (req, res) => {
 // step 3. check passwords to be the same
 //step 4. update entry in database
 exports.post = (req, res) => {
-  console.log(req.headers.referer);
+
   const myUrl = new URL(req.headers.referer);
   const token = myUrl.pathname.split('/reset/')[1];
 
@@ -51,7 +51,6 @@ exports.post = (req, res) => {
       const validator = validatePasswordUpdate(req.body);
       if (validator.isValid) {
         hashPassword(req.body.password)
-
           .then((hashedPassword) => {
             updatePassword(hashedPassword, email)
           })
@@ -67,6 +66,7 @@ exports.post = (req, res) => {
               errorMessage: 'Internal server error'
             });
           });
+        client.del(token, email);
       }else{
         req.flash('error', validator.message);
         res.redirect(`/reset/${token}`);
