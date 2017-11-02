@@ -36,12 +36,14 @@ exports.post = (req, res) => {
       });
       client.set(token, req.body.email, 'EX', 1800);
 
+      const hostname = process.ENV === 'production' ? 'https://allaboutme-af.herokuapp.com' : 'localhost:4001';
+
       const person = {
         name: userObj.name,
         email: userObj.email,
         subject: 'All about me - reset your password',
-        url: `localhost:4001/reset/${token}`
-      }
+        url: `${hostname}/reset/${token}`,
+      };
       email('reset', person, (error, result) => {
         if (error) {
           console.log('error', error);
