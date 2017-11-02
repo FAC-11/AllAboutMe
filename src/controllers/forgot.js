@@ -29,7 +29,7 @@ exports.post = (req, res) => {
   getUser(req.body.email).then((userObj) => {
     if (userObj) {
       const token = guid();
-      const client = redis.createClient();
+      const client = redis.createClient(process.env.REDIS_URL);
 
       client.on('error', (error) => {
         console.log('error', error);
