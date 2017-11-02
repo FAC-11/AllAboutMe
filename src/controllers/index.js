@@ -33,6 +33,7 @@ router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
 router.get('/forgot', forgot.get);
+router.get('/login', login.get);
 router.get('/reset/:token', reset.get);
 
 router.post('/finish', finish.post);
