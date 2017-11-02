@@ -36,7 +36,7 @@ exports.post = (req, res) => {
       });
       client.set(token, req.body.email, 'EX', 1800);
 
-      const hostname = process.ENV === 'production' ? 'https://allaboutme-af.herokuapp.com' : 'localhost:4001';
+      const hostname = process.env.NODE_ENV === 'production' ? 'https://allaboutme-af.herokuapp.com' : 'localhost:4001';
 
       const person = {
         name: userObj.name,
