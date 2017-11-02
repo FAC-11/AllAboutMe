@@ -64,19 +64,20 @@ const validateSignUp = (input) => {
 };
 
 const validatePasswordUpdate = (input) => {
-  try{
+  try {
     validatePassword(input.password);
     validateConfirmPassword(input.confirmPassword, input.password);
     return { isValid: true };
   } catch (e) {
     return { isValid: false, message: e.message };
   }
-}
+};
+
 module.exports = {
   validateName,
   validateEmail,
   validatePassword,
   validateConfirmPassword,
   validateSignUp,
-  validatePasswordUpdate
+  validatePasswordUpdate,
 };
