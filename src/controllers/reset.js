@@ -29,10 +29,6 @@ exports.get = (req, res) => {
   });
 };
 
-// step 1. does user exist in database with that token?
-//step 2. check expiry, is token still valid?
-// step 3. check passwords to be the same
-//step 4. update entry in database
 exports.post = (req, res) => {
 
   const myUrl = new URL(req.headers.referer);

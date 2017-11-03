@@ -1,18 +1,12 @@
 const { URL } = require('url');
-const {getUser} = require('../model/user_queries');
+const { getUser } = require('../model/user_queries');
 const redis = require('redis');
 const sendemail = require('sendemail');
+const { generateToken } = require('./helpers');
 require('env2')('config.env');
 
 const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
-
-function guid() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-  }
-  return `${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
-}
 
 exports.get = (req, res) => {
   res.render('forgot', {
@@ -29,7 +23,7 @@ exports.post = (req, res) => {
 
   getUser(req.body.email).then((userObj) => {
     if (userObj) {
-      const token = guid();
+      const token = generateToken();
       const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';
       const client = redis.createClient({ url: redisUrl });
 
