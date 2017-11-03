@@ -18,6 +18,7 @@ const about = require('./about');
 const background = require('./background');
 const send = require('./send');
 const finish = require('./finish');
+const logout = require('./logout');
 
 router.get('/', login.get);
 
@@ -31,15 +32,14 @@ router.get('/symptoms', symptoms.get);
 router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
+
 router.post('/finish', finish.post);
-
-
 router.post('/signup', signup.post);
 router.post('/login', login.post);
 router.post('/appointments', appointments.post);
 router.post('/background', background.post);
 router.post('/about', about.post);
 router.post('/symptoms', symptoms.post);
-
+router.post('/logout', logout.post);
 
 module.exports = router;
