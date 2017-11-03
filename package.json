@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A Founders & Coders project in collaboration with the Anna Freud Center. Made by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero)",
   "main": "index.js",
+  "engines": {
+      "node": "8.1.4"
+  },
   "directories": {
     "test": "tests"
   },
