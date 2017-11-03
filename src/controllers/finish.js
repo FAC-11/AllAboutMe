@@ -35,6 +35,7 @@ exports.post = (req, res) => {
   res.render('finish', {
     activePage: {
       finish: true
-    }
+    },
+    logoutButton: true,
   });
 };

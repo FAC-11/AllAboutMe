@@ -11,6 +11,7 @@ exports.get = (req, res) => {
       };
       res.render('symptoms', {
         activePage: { symptoms: true },
+        logoutButton: true,
         pageTitle: 'Symptoms & Difficulties',
         progressPercentage: '40',
         previousPage: '/appointments',

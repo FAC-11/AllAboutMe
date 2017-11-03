@@ -7,6 +7,7 @@ exports.get = (req, res) => {
       login: true,
     },
     pageTitle: 'Login',
+    logoutButton: false,
   });
 };
 
@@ -17,6 +18,7 @@ exports.post = (req, res) => {
       if (!data || !comparePasswords(userData.password, data.password)) {
         res.status(400).render('login', {
           pageTitle: 'Login',
+          logoutButton: false,
           messages: [{
             content: 'Incorrect email or password',
             error: true,

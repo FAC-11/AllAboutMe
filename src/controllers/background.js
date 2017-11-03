@@ -6,6 +6,7 @@ exports.get = (req, res) => {
       res.render('background', {
         activePage: { background: true },
         pageTitle: 'Your background',
+        logoutButton: true,
         progressPercentage: '80',
         previousPage: '/about',
         nextPage: '/send',
@@ -17,6 +18,7 @@ exports.get = (req, res) => {
       res.render('background', {
         activePage: { background: true },
         pageTitle: 'Your background',
+        logoutButton: true,
         progressPercentage: '60%',
         previousPage: '/about',
         nextPage: '/send',
@@ -34,6 +36,7 @@ exports.post = (req, res) => {
       res.render('background', {
         activePage: { background: true },
         pageTitle: 'Your background',
+        logoutButton: true,
         percentage: '85%',
         previousPage: '/about',
         nextPage: '/send',

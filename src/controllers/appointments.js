@@ -20,6 +20,7 @@ exports.get = (req, res) => {
     });
     res.render('appointments', {
       activePage: { appointments: true },
+      logoutButton: true,
       pageTitle: 'Your appointment',
       data,
       checked,
@@ -38,6 +39,7 @@ exports.post = (req, res) => {
     res.render('appointments', {
       activePage: { appointments: true },
       pageTitle: 'Your appointment',
+      logoutButton: true,
       progressPercentage: '15%',
       previousPage: '/progress',
       nextPage: '/symptoms',
