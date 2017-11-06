@@ -1,3 +1,14 @@
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
 *{
     font-family: 'Poppins', sans-serif;
 }
@@ -226,10 +237,8 @@ label:hover {
     text-align: center;
     color: black;
 }
-.switcher{
-    text-align: center;
-}
 
+/* styling the colours of the colour palette*/
 .yellow {
     background-color: #FFBC0A;
 }
@@ -264,4 +273,9 @@ label:hover {
 }
 .blue{
     background-color: #0062A4;
+}
+
+.color-themes--selector {
+    background-color: inherit;
+    border: none;
 }
