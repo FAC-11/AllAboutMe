@@ -1,10 +1,11 @@
 {{> header }} {{> progress_bar }}
 
 
-<section class="tc">
+<section class="pl6 mb5">
+{{> messages }}
 
-  <form class="dib tl mb5" action="/appointments" method="post">
-    <ol class="">
+  <form action="/appointments" method="post">
+    <ol>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span>What's your Email Address?
         <input class="input-reset ba b--black-20 pa2 mb2 db w-80 pa3 mt3 mw6 purple-font" value="{{data.email}}" type="text" name="email" placeholder="Your Email">
