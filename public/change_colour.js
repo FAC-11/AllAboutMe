@@ -1,49 +1,22 @@
-var yellowRedButtons = [].slice.call(document.querySelectorAll('.yellowRed'));
+(function() {
+  var themes = [
+    'yellow-red',
+    'blue-green',
+    'green-purple',
+    'orange-yellow',
+    'pink-blue',
+  ];
 
-yellowRedButtons.forEach(function(yellowRedButton){
-  yellowRedButton.addEventListener('click', function () {
+  function changeTheme(themeName) {
     document.body.classList = '';
-    document.body.classList.add('yellow-red');
-    document.cookie = 'theme=yellow-red';
+    document.body.classList.add(themeName);
+    document.cookie = 'theme=' + themeName;
+  }
+
+  themes.forEach(function(themeName) {
+    var button = document.getElementsByClassName('js-' + themeName)[0];
+    button.addEventListener('click', function() {
+      changeTheme(themeName);
+    });
   });
-});
-
-var blueGreenButtons = [].slice.call(document.querySelectorAll('.blueGreen'));
-
-blueGreenButtons.forEach(function(blueGreenButton){
-  blueGreenButton.addEventListener('click', function () {
-    document.body.classList = '';
-    document.body.classList.add('blue-green');
-    document.cookie = 'theme=blue-green';
-  });
-});
-
-var turquoisePurpleButtons = [].slice.call(document.querySelectorAll('.turquoisePurple'));
-
-turquoisePurpleButtons.forEach(function(turquoisePurpleButton){
-  turquoisePurpleButton.addEventListener('click', function () {
-    document.body.classList = '';
-    document.body.classList.add('green-purple');
-    document.cookie = 'theme=green-purple';
-  });
-});
-
-var yellowOrangeButtons = [].slice.call(document.querySelectorAll('.yellowOrange'));
-
-yellowOrangeButtons.forEach(function(yellowOrangeButton){
-  yellowOrangeButton.addEventListener('click', function () {
-    document.body.classList = '';
-    document.body.classList.add('orange-yellow');
-    document.cookie = 'theme=orange-yellow';
-  });
-});
-
-var pinkBlueButtons = [].slice.call(document.querySelectorAll('.pinkBlue'));
-
-pinkBlueButtons.forEach(function(pinkBlueButton){
-  pinkBlueButton.addEventListener('click', function () {
-    document.body.classList = '';
-    document.body.classList.add('pink-blue');
-    document.cookie = 'theme=pink-blue';
-  });
-});
+})();

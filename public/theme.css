@@ -230,11 +230,6 @@ label:hover {
     text-align: center;
 }
 
-/* styling the colours of the colour palette*/
-.yellowRed, .blueGreen, .turquoisePurple, .redPink, .pinkBlue {
-    display: inline-flex;
-}
-
 .yellow {
     background-color: #FFBC0A;
 }
