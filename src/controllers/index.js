@@ -18,6 +18,7 @@ const about = require('./about');
 const background = require('./background');
 const send = require('./send');
 const finish = require('./finish');
+const logout = require('./logout');
 const forgot = require('./forgot');
 const reset = require('./reset');
 
@@ -44,7 +45,7 @@ router.post('/appointments', appointments.post);
 router.post('/background', background.post);
 router.post('/about', about.post);
 router.post('/symptoms', symptoms.post);
+router.post('/logout', logout.post);
 router.post('/reset', reset.post);
-
 
 module.exports = router;

@@ -9,6 +9,7 @@ exports.get = (req, res) => {
       login: true,
     },
     pageTitle: 'Login',
+    logoutButton: false,
   });
 };
 

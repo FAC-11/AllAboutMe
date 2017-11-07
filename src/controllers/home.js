@@ -4,6 +4,6 @@ exports.get = (req, res) => {
     successMessages: req.flash('success'),
     activePage: { home: true },
     pageTitle: 'Home',
+    logoutButton: true,
   });
 };
-

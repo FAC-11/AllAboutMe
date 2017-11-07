@@ -8,6 +8,7 @@ exports.get = (req, res) => {
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
         pageTitle: 'About Me',
+        logoutButton: true,
         progressPercentage: '60',
         previousPage: '/symptoms',
         nextPage: '/background',

@@ -11,6 +11,7 @@ exports.get = (req, res) => {
       signup: true,
     },
     pageTitle: 'Create an Account',
+    logoutButton: false,
   });
 };
 

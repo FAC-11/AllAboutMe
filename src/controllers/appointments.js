@@ -6,6 +6,7 @@ const {
 exports.get = (req, res) => {
   getSection(req.session.id, 'appointments')
     .then((data) => {
+
       // for ticking correct checkbox based on previously saved answer
       const contactMethods = data.contact_preference ? data.contact_preference.replace(/\{|\}/g, '').split(',') : [];
       let checked = {
@@ -21,6 +22,7 @@ exports.get = (req, res) => {
         activePage: { appointments: true },
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
+        logoutButton: true,
         pageTitle: 'Your appointment',
         data,
         checked,
