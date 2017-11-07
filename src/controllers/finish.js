@@ -6,35 +6,46 @@ const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
 const {getForm} = require('../model/form_queries');
 const {mergeObj, addData} = require('./helpers.js');
+const {getUserEmail} = require('../model/user_queries');
 
 exports.post = (req, res) => {
 
-  getForm(req.session.id)
-    .then((data) => {
-
-    const person = {
-      name: req.session.user,
-      email: req.body.email,
-      subject: 'All about me questionnaire'
+  getForm(req.session.id).then((data) => {
+    const context =  {
+      tempalateVariableName: 'Variable Value',
+      name: req.session.user
     };
-
     const cleanData = mergeObj(data);
-    addData(person, cleanData);
-    return person;
+    addData(context, cleanData);
+
+    const options = {
+      templateName: 'Hello',
+      subject: 'All about me questionnaire',
+      toAddresses: [req.body.email],
+      htmlCharset: 'utf16',
+      textCharset: 'utf16',
+      subjectCharset: 'utf8'
+    };
+    options.context = context;
+
+    if (req.body.sendemailcopy) {
+      options.bccAddresses = [data.email];
+    }
+    return options;
   }).catch((error) => {
     console.log('error', error);
-  }).then((person) => {
-    email('Hello', person, (error, result) => {
+  }).then((options) => {
+    sendemail.sendMany(options, (error, result) => {
       console.log(' - - - - - - - - - - - - - - - - - - - - -> email sent: ');
       console.log(result);
       console.log('error: ', error);
-      console.log('person', person);
+      console.log('options', options);
       console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
     });
-  });
-  res.render('finish', {
-    activePage: {
-      finish: true
-    }
+    res.render('finish', {
+      activePage: {
+        finish: true,
+      },
+    });
   });
 };
