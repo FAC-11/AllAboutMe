@@ -11,6 +11,7 @@ exports.get = (req, res) => {
       };
       res.render('symptoms', {
         activePage: { symptoms: true },
+        logoutButton: true,
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
         pageTitle: 'Symptoms & Difficulties',

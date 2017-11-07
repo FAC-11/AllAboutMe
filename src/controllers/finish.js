@@ -37,6 +37,7 @@ exports.post = (req, res) => {
     successMessages: req.flash('success'),
     activePage: {
       finish: true
-    }
+    },
+    logoutButton: true,
   });
 };
