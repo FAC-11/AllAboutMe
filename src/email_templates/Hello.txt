@@ -12,10 +12,10 @@ Please see below my answers for the 'All about me' questionnaire:
    What helps you feel safe and calm: {{safe}}
 
    Symptoms and Difficulties
-    Do you have a mental health diagnosis and if so what is it?: {{diagnosis}}
+    Do you have a mental health diagnosis and if so what is it?: {{diagnosis_other}}
     Do you agree with your diagnosis? Y/N/Not Applicable : {{diagnosis_agreement}}
-    Current medication (if any) : {{current_medication}}
-    What therapies have you used?eg Cognitive Behavioural Therapy, Group Therapy : {{therapies}}
+    Current medication (if any) : {{medication}}
+    What therapies have you used?eg Cognitive Behavioural Therapy, Group Therapy : {{therapies_other}}
     Did you find these helpful? Why do you think this was? : {{therapies_helpful}}
     What helps you to keep well?(eg friends, support from family) : {{keep_well}}
 
@@ -24,11 +24,11 @@ Please see below my answers for the 'All about me' questionnaire:
 
 
    Your Appointments
-   Do you have a preference on your new support worker? (eg male/female) : {{worker_preferences}}
+   Do you have a preference on your new support worker? (eg male/female) : {{gender_preference}}
 
-   Do you have a preferred appointment time? (eg am or pm) : {{appointment_preferences}}
+   Do you have a preferred appointment time? (eg am or pm) : {{time_preference}}
 
-   Would you like a parent/guardian at the appointments? : {{parent_involved}}
+   Would you like a parent/guardian at the appointments? : {{parent_involvement}}
    What's your home number? : {{telephone}}
 
    What's your mobile number? : {{mobile}}
