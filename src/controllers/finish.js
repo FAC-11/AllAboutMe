@@ -10,9 +10,8 @@ const {mergeObj, addData} = require('./helpers.js');
 exports.post = (req, res) => {
 
   getForm(req.session.id).then((data) => {
-    const context =  {
-      tempalateVariableName: 'Variable Value',
-      name: req.session.user
+    const context = {
+      name: req.session.user,
     };
     const cleanData = mergeObj(data);
     addData(context, cleanData);
@@ -32,7 +31,12 @@ exports.post = (req, res) => {
     }
     return options;
   }).catch((error) => {
-    console.log('error', error);
+    console.log('error from send email', error);
+    res.status(500).render('error', {
+      layout: 'error',
+      statusCode: 500,
+      errorMessage: 'Internal server error'
+    });
   }).then((options) => {
     sendemail.sendMany(options, (error, result) => {
       console.log(' - - - - - - - - - - - - - - - - - - - - -> email sent: ');
@@ -48,6 +52,6 @@ exports.post = (req, res) => {
     activePage: {
       finish: true
     },
-    logoutButton: true,
+    logoutButton: true
   });
 };
