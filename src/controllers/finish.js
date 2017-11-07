@@ -6,7 +6,6 @@ const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
 const {getForm} = require('../model/form_queries');
 const {mergeObj, addData} = require('./helpers.js');
-const {getUserEmail} = require('../model/user_queries');
 
 exports.post = (req, res) => {
 
