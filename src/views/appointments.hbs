@@ -1,22 +1,22 @@
 {{> header }} {{> progress_bar }}
 
 
-<section class="pl6 mb5">
+<section class="mb6">
 {{> messages }}
 
-  <form action="/appointments" method="post">
-    <ol>
+  <form class="margin-0-auto w-90 mb5 w-60-ns w-80-m mw7" action="/appointments" method="post">
+    <ol class="pa0">
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span>What's your Email Address?
-        <input class="input-reset ba b--black-20 pa2 mb2 db w-80 pa3 mt3 mw6" value="{{data.email}}" type="text" name="email" placeholder="Your Email">
+        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.email}}" type="text" name="email" placeholder="Your Email">
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span>What's your Mobile number?
-        <input class="input-reset ba b--black-20 pa2 mb2 db w-80 pa3 mt3 mw6" value="{{data.mobile}}" type="text" name="mobile" placeholder="Mobile number">
+        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.mobile}}" type="text" name="mobile" placeholder="Mobile number">
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span>What's your Home number?
-        <input class="input-reset ba b--black-20 pa2 mb2 db w-80 pa3 mt3 mw6" value="{{data.telephone}}" type="text" name="telephone" placeholder="Home number">
+        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.telephone}}" type="text" name="telephone" placeholder="Home number">
       </li>
 
       <li class="f5 black-60 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> How would you like us to contact you?
@@ -28,21 +28,18 @@
               <div class="tc">Text</div>
           </label>
           </input>
-
           <input id='email' class="o-0" class="dib" type="checkbox" name="contact_preference" {{#if checked.contactBy.email}} checked {{/if}} aria-label="email" value='email'>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="email">
       <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-email-12.png&r=51&g=51&b=51" alt="email">
           <div class="tc">Email</div>
       </label>
           </input>
-
           <input id='call' class="o-0" class="dib" type="checkbox" name="contact_preference" {{#if checked.contactBy.call}} checked {{/if}} aria-label="call" value='call'>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="call">
         <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-phone-3.png&r=51&g=51&b=51" alt="call">
             <div class="tc">Call</div>
         </label>
           </input>
-
           <input id='Post' class="o-0" class="dib" type="checkbox" name="contact_preference" {{#if checked.contactBy.post}} checked {{/if}} aria-label="Post" value='Post'>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="Post">
         <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-email-2.png&r=51&g=51&b=51" alt="post">
@@ -112,16 +109,16 @@
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> Do you have any concerns about moving to a different service and if so, what are they?
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="concerns" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your concerns'>{{data.concerns}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="concerns" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your concerns'>{{data.concerns}}</textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> I hope that when I leave I am...
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="hope" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what you hope happens when you leave'>{{data.hope}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="hope" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what you hope happens when you leave'>{{data.hope}}</textarea>
       </li>
     </ol>
 
-    <a href='/symptoms'><button class=' f3 pl3 pr3 pt2 pb2 ml5 mb5 bn secondary-background--solid white br3' type="submit">OK</button> </a><span class="black-60"> Press for next question </span>
+    <button class='f3 pl3 pr3 pt2 pb2 bn secondary-background--solid white br3' type="submit">OK</button><span class="black-60"> Press for next question </span>
   </form>
 </section>
 {{>navbar}}
