@@ -1,9 +1,9 @@
 {{> header }}
 {{> progress_bar }}
 
-<section class="tc">
+<section class="mb5 pl6">
 {{> messages }}
-  <form class='db tl margin-0-auto mb5' action="/symptoms" method="post">
+  <form action="/symptoms" method="post">
   <ol>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
@@ -53,6 +53,7 @@
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       What helps you to keep well? (e.g friends, support from family?)
+      <br>
       <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="keep_well" rows="8" cols="80" placeholder="Write here please" aria-label='what helps keep you well'>{{data.keep_well}}</textarea>
     </li>
   </ol>

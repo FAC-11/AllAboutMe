@@ -1,5 +1,7 @@
-<ul>
-    {{#each messages}}
-        <p class="message {{#if this.error}}message--error"{{/if}}>{{this.content}}</p>
-    {{/each}}
-</ul>
+{{#if errorMessages}}
+    <p class="grey-font error pa1 ph2 mv2 b bg-white-60 dib br1">{{errorMessages}}</p>
+{{/if}}
+
+{{#if successMessages}}
+    <p class="grey-font success pa1 ph2 mv2 b bg-white-60 dib br1">{{successMessages}}</p>
+{{/if}}

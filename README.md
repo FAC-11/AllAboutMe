@@ -125,6 +125,11 @@ AWS_SECRET_ACCESS_KEY
 
 *_(Note: have a look at the [SendEmail](https://www.npmjs.com/package/sendemail) module to set this up and find the values for the variables)_*
 
+
+### Redis
+Our app uses redis to store information used to reset passwords. In order to
+run the app locally you will need to have a redis server running on your machine. The instructions for this will vary depending on your setup: https://redis.io/topics/quickstart
+
 ### Start the Server
 
 You can now start the server! In your terminal write: 
@@ -149,7 +154,7 @@ In the next sprint, we aim to:
 
 
 ## Technologies :floppy_disk: 
- * Database: [PostgreSQL](https://www.postgresql.org/)
+ * Database: [PostgreSQL](https://www.postgresql.org/) and [redis](https://redis.io/).
  * Styling: [Tachyons](http://tachyons.io/) and CSS.
  * [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/) and [Handlebars](http://handlebarsjs.com/).
  * To send the form via email: [SendEmail](https://www.npmjs.com/package/sendemail) with [AWS](https://aws.amazon.com/ses/getting-started/).
