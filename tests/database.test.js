@@ -2,7 +2,7 @@ const test = require('tape');
 const dbReset = require('../src/model/database/db_seed');
 const dbConnection = require('../src/model/database/db_connection');
 
-const { addUser, getUser } = require('../src/model/user_queries');
+const { addUser, getUser, updatePassword } = require('../src/model/user_queries');
 const { getSection, saveSection, getForm } = require('../src/model/form_queries');
 
 test('Insert user into database', (t) => {
@@ -12,6 +12,9 @@ test('Insert user into database', (t) => {
     .then((id) => {
       t.equal(typeof id, 'number', 'Returns a number (the user id)');
       return dbConnection.one('SELECT * FROM forms WHERE user_id = $1', [id]);
+    })
+    .then((formObj) => {
+      t.equal(formObj.email, 'jam1@gmail.com', 'Also inserts email into forms table');
     })
     .then((formObj) => {
       t.equal(typeof formObj.user_id, 'number', 'Also inserts user_id into forms table');
@@ -40,6 +43,17 @@ test('Get user from database', (t) => {
     .then(() => getUser('jam@gmail.com'))
     .then((obj) => {
       t.deepEqual(obj, expected, 'Returns correct object');
+      t.end();
+    });
+});
+
+test('Update password', (t) => {
+  const expected = 'ilovepasswords';
+  dbReset()
+    .then(() => updatePassword('ilovepasswords', 'jam@gmail.com'))
+    .then(() => getUser('jam@gmail.com'))
+    .then((data) => {
+      t.equal(data.password, expected, 'Password should be updated and hashed correctly');
       t.end();
     });
 });
