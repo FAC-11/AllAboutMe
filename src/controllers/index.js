@@ -36,8 +36,8 @@ router.get('/send', send.get);
 router.get('/forgot', forgot.get);
 router.get('/login', login.get);
 router.get('/reset/:token', reset.get);
+router.get('/finish', finish.get);
 
-router.post('/finish', finish.post);
 router.post('/forgot', forgot.post);
 router.post('/signup', signup.post);
 router.post('/login', login.post);
@@ -47,5 +47,6 @@ router.post('/about', about.post);
 router.post('/symptoms', symptoms.post);
 router.post('/logout', logout.post);
 router.post('/reset', reset.post);
+router.post('/send', send.post);
 
 module.exports = router;

@@ -10,7 +10,7 @@
 
       </div>
         <a class="no-underline" href="/progress"><button class="white bg-white-40 w-90 h3 pa1 bn mb2 mw6 db center tracked grow" type="button" name="continue editing" aria-label="continue editing">CONTINUE EDITING</button></a>
-        <form class="" action="/finish" method="post">
+        <form class="" action="/send" method="post">
           <div class="tc">
             <p class="test white mt4 ml4 mr4 mb1 pt2 pb2 f5 tl dib">Where should we send your form?</p>
           </div>
@@ -20,7 +20,7 @@
           <input class="mr2" type="checkbox" name="sendemailcopy" aria-label="checkbox">
           </input>
         </div>
-          <span class="no-underline" href="/finish"><input class="white purple-background w-90 h3 pa1 bn mb2 mw6 db center tracked grow" type="submit" name="send the information" aria-label="send the information" value="SEND"></input></span>
+          <input class="white purple-background w-90 h3 pa1 bn mb2 mw6 db center tracked grow" type="submit" name="send the information" aria-label="send the information" value="SEND"></input>
         </form>
       </section>
       {{> messages}}
