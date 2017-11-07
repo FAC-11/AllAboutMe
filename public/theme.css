@@ -199,7 +199,8 @@ html {
 }
 
 ol {
-    list-style: none;
+  list-style: none;
+  padding-left: 0;
 }
 li {
     counter-increment: item;
@@ -278,4 +279,12 @@ label:hover {
 .color-themes--selector {
     background-color: inherit;
     border: none;
+}
+.error {
+    color: #e8624c;
+    border: 2px solid #e8624c;
+}
+.success {
+    color: #3fbf49;
+    border: 2px solid #3fbf49;
 }

@@ -1,0 +1,15 @@
+{{> header }}
+
+<div class="background-image cover aspect-ratio--object">
+  <div class="background-overlay cover aspect-ratio--object ">
+    <section class="white mt6 mw6 center">
+      {{> messages }}
+      <form class="" action="/forgot" method="POST">
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="email" type="email" placeholder="email" name="email" {{#if userData}} value="{{userData.email}}" {{/if}} required>
+
+        <button class="white purple-background w-100 h3 pa1 bn mb2" type="submit" name="submit"> Submit </button>
+      </form>
+        <p class="white tc"> Or <a class="no-underline" href="/signup">sign up!</a></p>
+    </section>
+  </div>
+</div>

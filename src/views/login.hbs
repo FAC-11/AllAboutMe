@@ -3,14 +3,16 @@
   <div class="main-background-overlay cover aspect-ratio--object ">
 
     <header class="white f1 mb5 tc tracked mt4"> ALL ABOUT ME </header>
-    <section>
-      <form class="login-form" action="/login" method="POST">
-        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 mw6 db pl2 center" id="email" type="email" placeholder="email" name="email"{{#if userData}}value={{userData.email}}{{/if}} required>
-        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 mw6 db pl2 center"id="password" name="password" type="password" placeholder="password" required>
-        <a href="/home"><button class="white secondary-background--overlay w-100 h3 pa1 bn mb2 mw6 db center" type="submit" name="submit"> Login </button></a>
+
+    <section class="center mw6">
+      <form action="/login" method="POST">
          {{> messages }}
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 pl2" id="email" type="email" placeholder="email" name="email"{{#if userData}}value={{userData.email}}{{/if}} required>
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 pl2"id="password" name="password" type="password" placeholder="password" required>
+       <a href="/home"><button class="white secondary-background--overlay w-100 h3 pa1 bn mb2" type="submit" name="submit"> Login </button></a>
       </form>
     </section>
     <p class="white tc"> Don't have an account? <a class="no-underline" href="/signup">Sign up!</a>
+    <p class="white tc"><a class="no-underline" href="/forgot">Forgotten your password?</a>
   </div>
 </div>
