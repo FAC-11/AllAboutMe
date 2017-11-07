@@ -13,8 +13,6 @@ exports.get = (req, res) => {
         activePage: { symptoms: true },
         pageTitle: 'Symptoms & Difficulties',
         progressPercentage: '40',
-        previousPage: '/appointments',
-        nextPage: '/about',
         data,
         checked,
       });
@@ -24,15 +22,21 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'symptoms', req.body)
     .then(() => {
-      res.redirect('about');
+      const buttonPressed = req.body.button;
+      console.log(buttonPressed);
+      if (buttonPressed === 'next') {
+        res.redirect('about');
+      } else if (buttonPressed === 'previous') {
+        res.redirect('appointments');
+      } else {
+        res.redirect('symptoms');
+      }
     })
     .catch((err) => {
       res.render('symptoms', {
         activePage: { symptoms: true },
         pageTitle: 'Symptoms & Difficulties',
         progressPercentage: '40',
-        previousPage: '/appointments',
-        nextPage: '/about',
         messages: [{ error: true, content: 'Sorry - the symptoms section couldn\'t be saved' }],
       });
     });

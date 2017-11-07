@@ -21,11 +21,10 @@ exports.get = (req, res) => {
     res.render('appointments', {
       activePage: { appointments: true },
       pageTitle: 'Your appointment',
+      firstPage: true,
       data,
       checked,
       progressPercentage: '20',
-      previousPage: '/progress',
-      nextPage: '/symptoms',
     });
   });
 };
@@ -33,14 +32,17 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'appointments', req.body)
     .then(() => {
-    res.redirect('symptoms');
+      const buttonPressed = req.body.button;
+      if (buttonPressed === 'next') {
+        res.redirect('symptoms');
+      } else {
+        res.redirect('appointments');
+      }
   }).catch((err) => {
     res.render('appointments', {
       activePage: { appointments: true },
       pageTitle: 'Your appointment',
       progressPercentage: '15%',
-      previousPage: '/progress',
-      nextPage: '/symptoms',
       messages: [{ error: true, content: 'Sorry - the appointments section couldn\'t be saved' }],
     });
   });

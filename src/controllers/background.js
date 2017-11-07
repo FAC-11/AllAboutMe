@@ -7,8 +7,6 @@ exports.get = (req, res) => {
         activePage: { background: true },
         pageTitle: 'Your background',
         progressPercentage: '80',
-        previousPage: '/about',
-        nextPage: '/send',
         data,
       });
     })
@@ -18,8 +16,6 @@ exports.get = (req, res) => {
         activePage: { background: true },
         pageTitle: 'Your background',
         progressPercentage: '60%',
-        previousPage: '/about',
-        nextPage: '/send',
       });
     });
 };
@@ -27,7 +23,14 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'background', req.body)
     .then(() => {
-      res.redirect('send');
+      const buttonPressed = req.body.button;
+      if (buttonPressed === 'next') {
+        res.redirect('send');
+      } else if (buttonPressed === 'previous') {
+        res.redirect('about');
+      } else {
+        res.redirect('background');
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -35,8 +38,6 @@ exports.post = (req, res) => {
         activePage: { background: true },
         pageTitle: 'Your background',
         percentage: '85%',
-        previousPage: '/about',
-        nextPage: '/send',
         messages: [{ error: true, message: 'Sorry - the background section couldn\'t be saved' }],
       });
     });

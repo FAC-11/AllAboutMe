@@ -7,8 +7,6 @@ exports.get = (req, res) => {
         activePage: { about: true },
         pageTitle: 'About Me',
         progressPercentage: '60',
-        previousPage: '/symptoms',
-        nextPage: '/background',
         data,
       });
     });
@@ -17,7 +15,14 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'about', req.body)
     .then(() => {
-      res.redirect('background');
+      const buttonPressed = req.body.button;
+      if (buttonPressed === 'next') {
+        res.redirect('background');
+      } else if (buttonPressed === 'previous') {
+        res.redirect('symptoms');
+      } else {
+        res.redirect('about');
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -27,4 +32,5 @@ exports.post = (req, res) => {
         messages: [{ error: true, content: 'Sorry - the about me section couldn\'t be saved' }],
       });
     });
+
 };
