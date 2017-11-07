@@ -23,7 +23,6 @@ exports.post = (req, res) => {
   saveSection(req.session.id, 'symptoms', req.body)
     .then(() => {
       const buttonPressed = req.body.button;
-      console.log(buttonPressed);
       if (buttonPressed === 'next') {
         res.redirect('about');
       } else if (buttonPressed === 'previous') {
