@@ -41,10 +41,13 @@ exports.post = (req, res) => {
       console.log('options', options);
       console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
     });
-    res.render('finish', {
-      activePage: {
-        finish: true,
-      },
-    });
+  });
+  res.render('finish', {
+    errorMessages: req.flash('error'),
+    successMessages: req.flash('success'),
+    activePage: {
+      finish: true
+    },
+    logoutButton: true,
   });
 };

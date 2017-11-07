@@ -4,6 +4,7 @@ const queries = {
   insertUser: 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id',
   getUser: 'SELECT * FROM users WHERE email = $1',
   userIdIntoForm: 'INSERT INTO forms (user_id, email) VALUES ($1, $2) RETURNING user_id',
+  updatePassword: 'UPDATE users SET password=$1 WHERE email=$2',
 };
 
 const addUser = (name, email, password) =>
@@ -14,4 +15,7 @@ const addUser = (name, email, password) =>
 const getUser = email =>
   dbConnection.oneOrNone(queries.getUser, [email]);
 
-module.exports = { addUser, getUser };
+const updatePassword = (password, email) =>
+  dbConnection.none(queries.updatePassword, [password, email]);
+
+module.exports = { addUser, getUser, updatePassword };

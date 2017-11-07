@@ -11,6 +11,9 @@ exports.get = (req, res) => {
       };
       res.render('symptoms', {
         activePage: { symptoms: true },
+        logoutButton: true,
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
         pageTitle: 'Symptoms & Difficulties',
         progressPercentage: '40',
         previousPage: '/appointments',
@@ -27,13 +30,13 @@ exports.post = (req, res) => {
       res.redirect('about');
     })
     .catch((err) => {
+      req.flash('error', 'Sorry - the symptoms section couldn\'t be saved');
       res.render('symptoms', {
         activePage: { symptoms: true },
         pageTitle: 'Symptoms & Difficulties',
         progressPercentage: '40',
         previousPage: '/appointments',
         nextPage: '/about',
-        messages: [{ error: true, content: 'Sorry - the symptoms section couldn\'t be saved' }],
       });
     });
 };

@@ -5,7 +5,10 @@ exports.get = (req, res) => {
     .then((data) => {
       res.render('about', {
         activePage: { about: true },
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
         pageTitle: 'About Me',
+        logoutButton: true,
         progressPercentage: '60',
         previousPage: '/symptoms',
         nextPage: '/background',
@@ -21,10 +24,7 @@ exports.post = (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.render('about', {
-        activePage: { aboutMe: true },
-        pageTitle: 'About Me',
-        messages: [{ error: true, content: 'Sorry - the about me section couldn\'t be saved' }],
-      });
+      req.flash('error', 'Sorry - the about me section couldn\'t be saved');
+      res.redirect('about');
     });
 };
