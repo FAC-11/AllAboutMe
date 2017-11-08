@@ -73,6 +73,15 @@ const validatePasswordUpdate = (input) => {
   }
 };
 
+const validateSendEmail = (input) => {
+  try {
+    validateEmail(input.email);
+    return { isValid: true };
+  } catch (e) {
+    return { isValid: false, message: e.message };
+  }
+};
+
 module.exports = {
   validateName,
   validateEmail,
@@ -80,4 +89,5 @@ module.exports = {
   validateConfirmPassword,
   validateSignUp,
   validatePasswordUpdate,
+  validateSendEmail,
 };
