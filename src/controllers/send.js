@@ -21,10 +21,7 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
 
   getForm(req.session.id).then((data) => {
-    const context = {
-      name: req.session.user,
-    };
-    addData(context, data);
+    const context = Object.assign(data, { name: req.session.user });
 
     const options = {
       templateName: 'Hello',
@@ -32,9 +29,9 @@ exports.post = (req, res) => {
       toAddresses: [req.body.email],
       htmlCharset: 'utf16',
       textCharset: 'utf16',
-      subjectCharset: 'utf8'
+      subjectCharset: 'utf8',
+      context,
     };
-    options.context = context;
 
     if (req.body.sendemailcopy) {
       options.bccAddresses = [data.email];
