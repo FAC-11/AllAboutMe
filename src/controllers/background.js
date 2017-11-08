@@ -5,17 +5,24 @@ exports.get = (req, res) => {
     .then((data) => {
       res.render('background', {
         activePage: { background: true },
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
         pageTitle: 'Your background',
+        logoutButton: true,
         progressPercentage: '80',
         data,
       });
     })
     .catch((err) => {
       console.log(err);
+      req.flash('error', 'Sorry - we couldn\'t load your saved answers for this section');
       res.render('background', {
         activePage: { background: true },
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
         pageTitle: 'Your background',
-        progressPercentage: '60%',
+        progressPercentage: '80%',
+        logoutButton: true,
       });
     });
 };
@@ -34,11 +41,7 @@ exports.post = (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.render('background', {
-        activePage: { background: true },
-        pageTitle: 'Your background',
-        percentage: '85%',
-        messages: [{ error: true, message: 'Sorry - the background section couldn\'t be saved' }],
-      });
+      req.flash('error', 'Sorry - the background section couldn\'t be saved');
+      res.redirect('background');
     });
 };
