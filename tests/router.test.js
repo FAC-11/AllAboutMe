@@ -46,6 +46,7 @@ test('Reset password route with an expired token', t => {
     .expect('Location', '/forgot')
     .expect('Content-Type', 'text/plain; charset=utf-8')
     .end((err, res) => {
+      t.equal(res.header['location'], '/forgot', 'Should redirect to forgot');
       t.equal(res.statusCode, 302, 'Status code is 302 because it redirects to forgot page');
       t.error(err, 'No error');
       t.end();
