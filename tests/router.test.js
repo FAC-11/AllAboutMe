@@ -71,95 +71,17 @@ test('Login route when logging in is successful', t => {
     });
 });
 test('Restricted routes should respond with 401 when signed out', t => {
+  const routes = ['/home', '/info_page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish'];
   t.plan(30);
-  request(app)
-    .get('/home')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/home');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Home route redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/info_page')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/info_page');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Info page route redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/about')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/about');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'About route redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/symptoms')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/symptoms');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Symptoms route redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/appointments')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/appointments');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Appointments route redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/background')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/background');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Background route redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/colour_scheme')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/colour_scheme');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Colour scheme redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/send')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/send');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Send route redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/progress')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/progress');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Progress route redirects to login page, containing \'Login\' text');
-    });
-  request(app)
-    .get('/finish')
-    .expect(401)
-    .expect('Content-Type', /text\/html/)
-    .end((err, res) => {
-      t.equal(res.statusCode, 401, '/finish');
-      t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Finish route redirects to login page, containing \'Login\' text');
-    });
+  routes.forEach( (route) => {
+    request(app)
+      .get(route)
+      .expect(401)
+      .expect('Content-Type', /text\/html/)
+      .end((err, res) => {
+        t.equal(res.statusCode, 401, `${route} should respond with a 401 status code when not logged in`);
+        t.error(err, 'No error');
+        t.ok(res.text.includes('Login'), `${route} route redirects to login page, containing \'Login\' text`);
+     });
+  });
 });
