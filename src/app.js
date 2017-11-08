@@ -5,13 +5,14 @@ const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const favicon = require('serve-favicon');
 const controllers = require('./controllers/index');
-
 const requireLogin = require('./controllers/requireLogin');
 
 const bodyParser = require('body-parser');
 require('env2')('config.env');
 
+const flash = require('express-flash');
 const app = express();
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -32,7 +33,7 @@ app.use(cookieSession({
 }));
 
 app.use(cookieParser());
-
+app.use(flash());
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 app.use('/home', requireLogin);
 app.use('/info_page', requireLogin);

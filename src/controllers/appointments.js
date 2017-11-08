@@ -4,8 +4,7 @@ const {
 } = require('../model/form_queries');
 
 exports.get = (req, res) => {
-
-    getSection(req.session.id, 'appointments')
+  getSection(req.session.id, 'appointments')
     .then((data) => {
     // for ticking correct checkbox based on previously saved answer
     const contactMethods = data.contact_preference ? data.contact_preference.replace(/\{|\}/g, '').split(',') : [];
@@ -20,8 +19,10 @@ exports.get = (req, res) => {
     });
     res.render('appointments', {
       activePage: { appointments: true },
+      errorMessages: req.flash('error'),
+      successMessages: req.flash('success'),
+      logoutButton: true,
       pageTitle: 'Your appointment',
-      firstPage: true,
       data,
       checked,
       progressPercentage: '20',
@@ -39,11 +40,8 @@ exports.post = (req, res) => {
         res.redirect('appointments');
       }
   }).catch((err) => {
-    res.render('appointments', {
-      activePage: { appointments: true },
-      pageTitle: 'Your appointment',
-      progressPercentage: '15%',
-      messages: [{ error: true, content: 'Sorry - the appointments section couldn\'t be saved' }],
+      console.log(err);
+      req.flash('error', 'Sorry - the appointments section couldn\'t be saved');
+      res.redirect('appointments');
     });
-  });
 };

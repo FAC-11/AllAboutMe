@@ -2,7 +2,7 @@ const test = require('tape');
 const dbReset = require('../src/model/database/db_seed');
 const dbConnection = require('../src/model/database/db_connection');
 
-const { addUser, getUser } = require('../src/model/user_queries');
+const { addUser, getUser, updatePassword } = require('../src/model/user_queries');
 const { getSection, saveSection, getForm } = require('../src/model/form_queries');
 
 test('Insert user into database', (t) => {
@@ -40,6 +40,17 @@ test('Get user from database', (t) => {
     .then(() => getUser('jam@gmail.com'))
     .then((obj) => {
       t.deepEqual(obj, expected, 'Returns correct object');
+      t.end();
+    });
+});
+
+test('Update password', (t) => {
+  const expected = 'ilovepasswords';
+  dbReset()
+    .then(() => updatePassword('ilovepasswords', 'jam@gmail.com'))
+    .then(() => getUser('jam@gmail.com'))
+    .then((data) => {
+      t.equal(data.password, expected, 'Password should be updated and hashed correctly');
       t.end();
     });
 });

@@ -18,9 +18,11 @@ const about = require('./about');
 const background = require('./background');
 const send = require('./send');
 const finish = require('./finish');
+const logout = require('./logout');
+const forgot = require('./forgot');
+const reset = require('./reset');
 
 router.get('/', login.get);
-
 router.get('/signup', signup.get);
 router.get('/home', home.get);
 router.get('/colour_scheme', colour_scheme.get);
@@ -31,15 +33,19 @@ router.get('/symptoms', symptoms.get);
 router.get('/about', about.get);
 router.get('/background', background.get);
 router.get('/send', send.get);
+router.get('/forgot', forgot.get);
+router.get('/login', login.get);
+router.get('/reset/:token', reset.get);
+
 router.post('/finish', finish.post);
-
-
+router.post('/forgot', forgot.post);
 router.post('/signup', signup.post);
 router.post('/login', login.post);
 router.post('/appointments', appointments.post);
 router.post('/background', background.post);
 router.post('/about', about.post);
 router.post('/symptoms', symptoms.post);
-
+router.post('/logout', logout.post);
+router.post('/reset', reset.post);
 
 module.exports = router;
