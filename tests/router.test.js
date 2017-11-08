@@ -1,6 +1,7 @@
 const test = require('tape');
 const request = require('supertest');
 const app = require('../src/app');
+const dbReset = require('../src/model/database/db_seed');
 
 test('Home route (when not signed in)', t => {
   request(app)
@@ -52,6 +53,23 @@ test('Reset password route with an expired token', t => {
       t.end();
     });
 });
+test('Login route when logging in is successful', t => {
+  dbReset()
+    .then(() => {
+      request(app)
+        .post('/login')
+        .type('form')
+        .send({'email': 'jam@gmail.com', 'password': 'password'})
+        .expect('Found. Redirecting to home')
+        .expect(200)
+        .expect('Content-Type', 'text/plain; charset=utf-8')
+        .end((err, res) => {
+          t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
+          t.equal(res.header['location'], 'home', 'Should redirect to home page if successfully logged in');
+          t.end();
+        });
+    });
+});
 test('Restricted routes should respond with 401 when signed out', t => {
   t.plan(30);
   request(app)
@@ -80,7 +98,7 @@ test('Restricted routes should respond with 401 when signed out', t => {
       t.equal(res.statusCode, 401, '/about');
       t.error(err, 'No error');
       t.ok(res.text.includes('Login'), 'About route redirects to login page, containing \'Login\' text');
-        });
+    });
   request(app)
     .get('/symptoms')
     .expect(401)
@@ -122,9 +140,9 @@ test('Restricted routes should respond with 401 when signed out', t => {
     .expect(401)
     .expect('Content-Type', /text\/html/)
     .end((err, res) => {
-       t.equal(res.statusCode, 401, '/send');
-       t.error(err, 'No error');
-       t.ok(res.text.includes('Login'), 'Send route redirects to login page, containing \'Login\' text');
+      t.equal(res.statusCode, 401, '/send');
+      t.error(err, 'No error');
+      t.ok(res.text.includes('Login'), 'Send route redirects to login page, containing \'Login\' text');
     });
   request(app)
     .get('/progress')
