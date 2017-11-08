@@ -61,7 +61,7 @@ test('Login route when logging in is successful', t => {
         .type('form')
         .send({'email': 'jam@gmail.com', 'password': 'password'})
         .expect('Found. Redirecting to home')
-        .expect(200)
+        .expect(302)
         .expect('Content-Type', 'text/plain; charset=utf-8')
         .end((err, res) => {
           t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
@@ -70,6 +70,20 @@ test('Login route when logging in is successful', t => {
         });
     });
 });
+test('Signup route when signup is successful', t => {
+  request(app)
+    .post('/signup')
+    .type('form')
+    .send({'name': 'tom cruise', 'email': 'cruise@gmail.com', 'password': 'topguntopgun', 'confirmPassword': 'topguntopgun' })
+    .expect('Found. Redirecting to info-page')
+    .expect(302)
+    .expect('Content-Type', 'text/plain; charset=utf-8')
+    .end((err, res) => {
+      t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
+      t.equal(res.header['location'], '/info-page', 'Should redirect to home page if successfully logged in');
+      t.end();
+      });
+    });
 test('Restricted routes should respond with 401 when signed out', t => {
   const routes = ['/home', '/info_page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish'];
   t.plan(30);
