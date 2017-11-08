@@ -5,8 +5,8 @@
     <section class="center mw6 white mt6">
       <form action="/signup" method="POST">
       {{> messages }}
-        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="name" type="text" placeholder="name" name="name" {{#if userData}} value="{{userData.name}}" {{/if}} required>
-        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="email" type="email" placeholder="email" name="email" {{#if userData}} value="{{userData.email}}" {{/if}} required>
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="name" type="text" placeholder="Name" name="name" {{#if userData}} value="{{userData.name}}" {{/if}} required>
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="email" type="email" placeholder="Email" name="email" {{#if userData}} value="{{userData.email}}" {{/if}} required>
         <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="password" name="password" type="password" placeholder="Password" required>
         <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password"  required>
 
