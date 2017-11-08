@@ -138,6 +138,9 @@ You can now start the server! In your terminal write:
 
 then you should be able to go to [localhost](http://localhost:4001/) and view the app!
 
+### Database schema
+![schema diagram](schema.png)
+
 ## To be continued... :sunglasses:
 
 In the next sprint, we aim to:
