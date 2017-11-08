@@ -15,6 +15,18 @@ test('Home route (when not signed in)', t => {
       t.end();
     });
 });
+test('Sign Up route (when not signed in)', t => {
+  request(app)
+    .get('/signup')
+    .expect(200)
+    .expect('Content-Type', /text\/html/)
+    .end((err, res) => {
+      t.equal(res.statusCode, 200, 'Status code is 200');
+      t.error(err, 'No error');
+      t.ok(res.text.includes('Create an Account'), 'Signup route responds with page containing title \'Create an Account\' text');
+      t.end();
+    });
+});
 test('Restricted routes should respond with 401 when signed out', t => {
   t.plan(30);
   request(app)
