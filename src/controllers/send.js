@@ -5,7 +5,7 @@ const env = require('env2')('config.env');
 const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
 const {getForm} = require('../model/form_queries');
-const {mergeObj, addData} = require('./helpers.js');
+const { addData } = require('./helpers.js');
 
 exports.get = (req, res) => {
   res.render('send', {
@@ -24,8 +24,7 @@ exports.post = (req, res) => {
     const context = {
       name: req.session.user,
     };
-    const cleanData = mergeObj(data);
-    addData(context, cleanData);
+    addData(context, data);
 
     const options = {
       templateName: 'Hello',

@@ -1,23 +1,3 @@
-const mergeObj = object => {
-  let obj = {};
-  let newKey = 'message';
-  let number = 1;
-
-  if (object) {
-    (Object.keys(object)).map((key) => {
-      if (!obj[key]) {
-        obj[key] = object[key];
-      } else if (key.indexOf('message') !== -1 && typeof object[key] !== number) {
-        number += 1;
-        obj[newKey + number] = object[key];
-      }
-    });
-  } else {
-    obj = {};
-  }
-  return obj;
-};
-
 const addData = (object1, object2) => {
   const array = Object.keys(object2);
   array.forEach((key) => {
@@ -38,7 +18,6 @@ function generateToken() {
 }
 
 module.exports = {
-  mergeObj,
   addData,
-  generateToken
+  generateToken,
 };
