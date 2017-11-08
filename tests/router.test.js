@@ -3,7 +3,7 @@ const request = require('supertest');
 const app = require('../src/app');
 const dbReset = require('../src/model/database/db_seed');
 
-test('Home route (when not signed in)', t => {
+test('Login route loading (when not signed in)', t => {
   request(app)
     .get('/')
     .expect(200)
@@ -11,12 +11,12 @@ test('Home route (when not signed in)', t => {
     .end((err, res) => {
       t.equal(res.statusCode, 200, 'Status code is 200');
       t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Home route responds with page containing \'Login\' text');
-      t.ok(res.text.includes('All about me'), 'Home route responds with page containing title \'All about me\' text');
+      t.ok(res.text.includes('Login'), 'Login route responds with page containing \'Login\' text');
+      t.ok(res.text.includes('All about me'), 'Login route responds with page containing title \'All about me\' text');
       t.end();
     });
 });
-test('Sign Up route (when not signed in)', t => {
+test('Sign Up route loading (when not signed in)', t => {
   request(app)
     .get('/signup')
     .expect(200)
@@ -70,6 +70,21 @@ test('Login route when logging in is successful', t => {
         });
     });
 });
+test('Login route when logging in is NOT successful', t => {
+  request(app)
+    .post('/login')
+    .type('form')
+    .send({'email': 'jonnycash@gmail.com', 'password': 'havenotsignedup'})
+    .expect('Found. Redirecting to login')
+    .expect(302)
+    .expect('Content-Type', 'text/plain; charset=utf-8')
+    .end((err, res) => {
+      t.equal(res.statusCode, 302, 'Status code should be 302 for redirecting');
+      t.error(err, 'No error');
+      t.equal(res.header['location'], 'login', 'Should redirect to login page if successfully logged in');
+      t.end();
+    });
+});
 test('Signup route when signup is successful', t => {
   request(app)
     .post('/signup')
@@ -80,7 +95,7 @@ test('Signup route when signup is successful', t => {
     .expect('Content-Type', 'text/plain; charset=utf-8')
     .end((err, res) => {
       t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
-      t.equal(res.header['location'], '/info-page', 'Should redirect to home page if successfully logged in');
+      t.equal(res.header['location'], '/info-page', 'Should redirect to info-page page if successfully logged in');
       t.end();
       });
     });
