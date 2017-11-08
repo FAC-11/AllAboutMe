@@ -39,6 +39,18 @@ test('Forgot route', t => {
       t.end();
     });
 });
+test('Reset password route', t => {
+  request(app)
+    .get('/reset/509abfd5-0000-8ebb-c52f-afacca822733')
+    .expect(302)
+    .expect('Location', '/forgot')
+    .expect('Content-Type', 'text/plain; charset=utf-8')
+    .end((err, res) => {
+      t.equal(res.statusCode, 302, 'Status code is 302');
+      t.error(err, 'No error');
+      t.end();
+    });
+});
 test('Restricted routes should respond with 401 when signed out', t => {
   t.plan(30);
   request(app)

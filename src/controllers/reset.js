@@ -15,7 +15,7 @@ exports.get = (req, res) => {
   client.get(req.params.token, (error, reply) => {
     if (error || reply === null) {
       req.flash('error', 'Link is invalid or has expired, please try again.');
-      res.redirect('/forgot');
+      res.status(302).redirect('/forgot');
     } else {
       res.render('reset', {
         errorMessages: req.flash('error'),
@@ -43,7 +43,7 @@ exports.post = (req, res) => {
   client.get(token, (error, email) => {
     if (error || email === null) {
       req.flash('error', 'Link is invalid or has expired, please try again.');
-      res.redirect('/forgot');
+      res.status(302).redirect('/forgot');
     } else {
       const validator = validatePasswordUpdate(req.body);
       if (validator.isValid) {
