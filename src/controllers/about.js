@@ -10,8 +10,6 @@ exports.get = (req, res) => {
         pageTitle: 'About Me',
         logoutButton: true,
         progressPercentage: '60',
-        previousPage: '/symptoms',
-        nextPage: '/background',
         data,
       });
     });
@@ -20,11 +18,19 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'about', req.body)
     .then(() => {
-      res.redirect('background');
+      const buttonPressed = req.body.button;
+      if (buttonPressed === 'next') {
+        res.redirect('background');
+      } else if (buttonPressed === 'previous') {
+        res.redirect('symptoms');
+      } else {
+        res.redirect('about');
+      }
     })
     .catch((err) => {
       console.log(err);
       req.flash('error', 'Sorry - the about me section couldn\'t be saved');
       res.redirect('about');
     });
+
 };
