@@ -33,7 +33,7 @@ Please see below my answers for the 'All about me' questionnaire:
 
    What's your mobile number? : {{mobile}}
 
-   What's your email address? : {{useremail}}
+   What's your email address? : {{email}}
 
    How would you like us to contact you? : {{contact_preference}}
    Do you have any concerns about moving to a different service and if so, what are they? : {{concerns}}
