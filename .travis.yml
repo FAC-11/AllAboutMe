@@ -13,3 +13,5 @@ after_success:
     - codecov
 addons:
   postgresql: "9.5"
+services:
+  - redis-server

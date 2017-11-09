@@ -10,8 +10,6 @@ exports.get = (req, res) => {
         pageTitle: 'Your background',
         logoutButton: true,
         progressPercentage: '80',
-        previousPage: '/about',
-        nextPage: '/send',
         data,
       });
     })
@@ -23,10 +21,8 @@ exports.get = (req, res) => {
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
         pageTitle: 'Your background',
-        logoutButton: true,
         progressPercentage: '80%',
-        previousPage: '/about',
-        nextPage: '/send',
+        logoutButton: true,
       });
     });
 };
@@ -34,7 +30,14 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'background', req.body)
     .then(() => {
-      res.redirect('send');
+      const buttonPressed = req.body.button;
+      if (buttonPressed === 'next') {
+        res.redirect('send');
+      } else if (buttonPressed === 'previous') {
+        res.redirect('about');
+      } else {
+        res.redirect('background');
+      }
     })
     .catch((err) => {
       console.log(err);

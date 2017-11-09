@@ -3,18 +3,18 @@ const mergeObj = object => {
   let newKey = 'message';
   let number = 1;
 
-    if (object) {
-      (Object.keys(object)).map((key) => {
-        if (!obj[key]) {
-          obj[key] = object[key];
-        } else if (key.indexOf('message') !== -1 && typeof object[key] !== number) {
-          number += 1;
-          obj[newKey + number] = object[key];
-        }
-      });
-    } else {
-      obj = {};
-    }
+  if (object) {
+    (Object.keys(object)).map((key) => {
+      if (!obj[key]) {
+        obj[key] = object[key];
+      } else if (key.indexOf('message') !== -1 && typeof object[key] !== number) {
+        number += 1;
+        obj[newKey + number] = object[key];
+      }
+    });
+  } else {
+    obj = {};
+  }
   return obj;
 };
 

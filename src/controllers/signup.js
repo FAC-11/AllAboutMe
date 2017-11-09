@@ -26,8 +26,10 @@ exports.post = (req, res) => {
     getUser(userData.email)
       .then((existingUser) => {
         if (!existingUser) {
-          const hashedPassword = hashPassword(userData.password);
-          addUser(userData.name, userData.email, hashedPassword)
+          hashPassword(userData.password)
+            .then( (hashedPassword) => {
+              addUser(userData.name, userData.email, hashedPassword)
+            })
             .then((id) => {
               req.session.user = userData.name;
               req.session.id = id;

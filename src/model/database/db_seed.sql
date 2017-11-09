@@ -42,7 +42,7 @@ BEGIN;
 
 
     INSERT INTO users VALUES
-        (DEFAULT, 'jam', 'jam@gmail.com', 'password');
+        (DEFAULT, 'jam', 'jam@gmail.com', '$2a$10$18rlZExmWYQMnN2nWkd69eMlA/hUDCcj7DcrI./MllCOUYcDYiwlK');
 
     INSERT INTO forms VALUES
     (
