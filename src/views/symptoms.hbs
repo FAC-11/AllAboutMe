@@ -1,15 +1,15 @@
 {{> header }}
 {{> progress_bar }}
 
-<section class="mb5 pl6">
+<section class="mb6">
 {{> messages }}
-  <form action="/symptoms" method="post">
-  <ol>
+  <form class="margin-0-auto w-90 mb5 w-60-ns w-80-m mw7" action="/symptoms" method="post">
+  <ol pa="0">
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       Do you have a mental health diagnosis and if so what is it?
       <div class='black-60 mb2'>
-      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="diagnosis_other" rows="8" cols="80" placeholder="Write here please" aria-label='do you suffer from any other disorder?'>{{data.diagnosis_other}}</textarea>
+      <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="diagnosis_other" rows="8" cols="80" placeholder="Write here please" aria-label='do you suffer from any other disorder?'>{{data.diagnosis_other}}</textarea>
     </div>
     </li>
 
@@ -36,29 +36,27 @@
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       Current medication (if any)
       <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="medication" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your current medication'>{{data.medication}}</textarea>
+        <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="medication" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your current medication'>{{data.medication}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       What therapies have you used?
       <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="therapies_other" rows="8" cols="80" placeholder="e.g. talking therapies, cognitive behavioural therapy, pyschotherapy..." aria-label='therapies you have used'>{{data.therapies_other}}</textarea>
+        <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="therapies_other" rows="8" cols="80" placeholder="e.g. talking therapies, cognitive behavioural therapy, pyschotherapy..." aria-label='therapies you have used'>{{data.therapies_other}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       Did you find these therapies helpful? Why?
       <br>
-      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="therapies_helpful" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your therapy was helpful'>{{data.therapies_helpful}}</textarea>
+      <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="therapies_helpful" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your therapy was helpful'>{{data.therapies_helpful}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
       What helps you to keep well? (e.g friends, support from family?)
       <br>
-      <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="keep_well" rows="8" cols="80" placeholder="Write here please" aria-label='what helps keep you well'>{{data.keep_well}}</textarea>
+      <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="keep_well" rows="8" cols="80" placeholder="Write here please" aria-label='what helps keep you well'>{{data.keep_well}}</textarea>
     </li>
   </ol>
-
-  <button class='f3 pl3 pr3 pt2 pb2 ml5 mb5 bn solid-purple-background white br3' type="submit">OK</button><span class="black-60"> Press for next question </span>
   {{>formnav}}
   </form>
 </section>

@@ -1,55 +1,54 @@
 {{> header }} {{> progress_bar }}
 
-<section class="db tl margin-0-auto mb5 pl6">
+<section class="mb6">
 {{> messages }}
 
-  <form action="/about" method="post">
+  <form class="margin-0-auto w-90 w-60-ns w-80-m mw7" action="/about" method="post">
       {{>modal}}
 
-    <ol>
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What are some things you like? (including hobbies and interests)?
+    <ol class="pa0">
+      <li class="f5 black-60 db mb2 tracked pt3 pb3"><span class='li mr2 w2'>&rarr;</span> What are some things you like? (including hobbies and interests)?
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="likes" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your hobbies'>{{data.likes}}</textarea>
+        <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="likes" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your hobbies'>{{data.likes}}</textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> Tell us what you don't like!
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="dislikes" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your dislikes'>{{data.dislikes}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="dislikes" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your dislikes'>{{data.dislikes}}</textarea>
       </li>
 
       <div class="ideasbutton">
-        <button class='lightbulb  bn solid-purple-background white f3 ma2 h-auto w5 br3 pa3 ' type="button" name="ideas" class="lightbulb">Click for ideas
+        <button class='lightbulb  bn secondary-background--solid white f3 ma2 h-auto w5 br3 pa3 ' type="button" name="ideas" class="lightbulb">Click for ideas
         <img class="h2 w2 db center mt3" src="/img/lightbulb.png" alt="lightbulb">
         </button>
       </div>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What are some of your strengths?
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="strengths" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your strengths'>{{data.strengths}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="strengths" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your strengths'>{{data.strengths}}</textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What would you like to be better at?
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="weaknesses" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know where you want to improve'>{{data.weaknesses}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="weaknesses" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know where you want to improve'>{{data.weaknesses}}</textarea>
       </li>
 
       <div class="ideasbutton">
-        <button class='lightbulb  bn solid-purple-background white f3 ma2 h-auto w5 br3 pa3 ' type="button" name="ideas" class="lightbulb">Click for ideas
+        <button class='lightbulb  bn secondary-background--solid white f3 ma2 h-auto w5 br3 pa3 ' type="button" name="ideas" class="lightbulb">Click for ideas
         <img class="h2 w2 db center mt3" src="/img/lightbulb.png" alt="lightbulb">
         </button>
       </div>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What makes you feel uncomfortable or anxious?
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="uncomfortable" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what makes you uncomfortable'>{{data.uncomfortable}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="uncomfortable" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what makes you uncomfortable'>{{data.uncomfortable}}</textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span> What helps you feel safe and calm?
         <br>
-        <textarea class="mt3 w-80 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="safe" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what makes you feel safe'>{{data.safe}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="safe" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what makes you feel safe'>{{data.safe}}</textarea>
       </li>
     </ol>
-
     {{>formnav}}
   </form>
 </section>
