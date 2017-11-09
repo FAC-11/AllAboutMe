@@ -12,7 +12,7 @@ exports.get = (req, res) => {
         contactBy: {},
         worker: { [data.gender_preference]: true },
         time: { [data.time_preference]: true },
-        parent_involvement: {[data.parent_involvement]: true },
+        parent_involvement: { [data.parent_involvement]: true },
       };
       contactMethods.forEach((method) => {
         checked.contactBy[method] = true;

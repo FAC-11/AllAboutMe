@@ -36,7 +36,7 @@ test('Get user from database', (t) => {
     id: 1,
     name: 'jam',
     email: 'jam@gmail.com',
-    password: 'password',
+    password: '$2a$10$18rlZExmWYQMnN2nWkd69eMlA/hUDCcj7DcrI./MllCOUYcDYiwlK',
   };
 
   dbReset()
