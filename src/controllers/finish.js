@@ -30,6 +30,17 @@ exports.post = (req, res) => {
       options.bccAddresses = [data.email];
     }
     return options;
+  }).then((options) => {
+    sendemail.sendMany(options, (error, result) => {
+      res.status(302).render('finish', {
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
+        activePage: {
+          finish: true
+        },
+        logoutButton: true
+      });
+    });
   }).catch((error) => {
     console.log('error from send email', error);
     res.status(500).render('error', {
@@ -37,21 +48,5 @@ exports.post = (req, res) => {
       statusCode: 500,
       errorMessage: 'Internal server error'
     });
-  }).then((options) => {
-    sendemail.sendMany(options, (error, result) => {
-      console.log(' - - - - - - - - - - - - - - - - - - - - -> email sent: ');
-      console.log(result);
-      console.log('error: ', error);
-      console.log('options', options);
-      console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
-    });
-  });
-  res.render('finish', {
-    errorMessages: req.flash('error'),
-    successMessages: req.flash('success'),
-    activePage: {
-      finish: true
-    },
-    logoutButton: true
   });
 };
