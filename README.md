@@ -1,7 +1,7 @@
 # All About Me :muscle: [![Build Status](https://travis-ci.org/FAC-11/AllAboutMe.svg?branch=master)](https://travis-ci.org/FAC-11/AllAboutMe) [![codecov](https://codecov.io/gh/FAC-11/AllAboutMe/branch/master/graph/badge.svg)](https://codecov.io/gh/FAC-11/AllAboutMe)
 
 _*25.9.17 - 13.10.17 | [Founders & Coders](https://foundersandcoders.com/) Student Project*_ | _*by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero)*_  
-_*Continued for 2 more sprints as a graduate project*_ | _*by [Constantina](https://github.com/polyccon) & [Dak](https://github.com/dangerdak)*_
+_*Continued for 2 more sprints as a Graduate Project*_ | _*by [Constantina](https://github.com/polyccon) & [Dak](https://github.com/dangerdak)*_
 
 <img src="https://i.imgur.com/emJvg9x.jpg" width="600">
 
@@ -161,6 +161,7 @@ then you should be able to go to [localhost](http://localhost:4001/) and view th
 
 ## Technologies :floppy_disk: 
  * Database: [PostgreSQL](https://www.postgresql.org/) and [redis](https://redis.io/).
+ * Authentication: Password hashing using __bcrypt__.
  * Styling: [Tachyons](http://tachyons.io/) and CSS.
  * [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/) and [Handlebars](http://handlebarsjs.com/).
  * To send the form via email: [SendEmail](https://www.npmjs.com/package/sendemail) with [AWS](https://aws.amazon.com/ses/getting-started/).
