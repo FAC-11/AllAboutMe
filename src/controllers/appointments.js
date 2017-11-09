@@ -6,14 +6,13 @@ const {
 exports.get = (req, res) => {
   getSection(req.session.id, 'appointments')
     .then((data) => {
-
       // for ticking correct checkbox based on previously saved answer
       const contactMethods = data.contact_preference ? data.contact_preference.replace(/\{|\}/g, '').split(',') : [];
       let checked = {
         contactBy: {},
         worker: { [data.gender_preference]: true },
         time: { [data.time_preference]: true },
-        parent_involvement: { [data.parent_involvement]: true },
+        parent_involvement: {[data.parent_involvement]: true },
       };
       contactMethods.forEach((method) => {
         checked.contactBy[method] = true;
@@ -27,8 +26,7 @@ exports.get = (req, res) => {
         data,
         checked,
         progressPercentage: '20',
-        previousPage: '/progress',
-        nextPage: '/symptoms',
+        firstPage: true,
       });
     });
 };
@@ -36,7 +34,12 @@ exports.get = (req, res) => {
 exports.post = (req, res) => {
   saveSection(req.session.id, 'appointments', req.body)
     .then(() => {
-      res.redirect('symptoms');
+      const buttonPressed = req.body.button;
+      if (buttonPressed === 'next') {
+        res.redirect('symptoms');
+      } else {
+        res.redirect('appointments');
+      }
     }).catch((err) => {
       console.log(err);
       req.flash('error', 'Sorry - the appointments section couldn\'t be saved');
