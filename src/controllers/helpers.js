@@ -40,5 +40,5 @@ function generateToken() {
 module.exports = {
   mergeObj,
   addData,
-  generateToken
+  generateToken,
 };
