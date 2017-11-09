@@ -53,24 +53,24 @@ test('Reset password route with an expired token', t => {
       t.end();
     });
 });
-test('Login route when logging in is successful', t => {
+test('Login route when logging with wrong password is NOT successful', t => {
   dbReset()
     .then(() => {
       request(app)
         .post('/login')
         .type('form')
-        .send({'email': 'jam@gmail.com', 'password': 'password'})
+        .send({'email': 'jam@gmail.com', 'password': 'passwsord'})
         .expect('Found. Redirecting to home')
         .expect(302)
         .expect('Content-Type', 'text/plain; charset=utf-8')
         .end((err, res) => {
           t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
-          t.equal(res.header['location'], 'home', 'Should redirect to home page if successfully logged in');
+          t.equal(res.header['location'], 'login', 'Should redirect to login page if password is incorrect');
           t.end();
         });
     });
 });
-test('Login route when logging in is NOT successful', t => {
+test('Login route when logging in is NOT successful because user hasn\t signed up', t => {
   request(app)
     .post('/login')
     .type('form')
@@ -81,7 +81,7 @@ test('Login route when logging in is NOT successful', t => {
     .end((err, res) => {
       t.equal(res.statusCode, 302, 'Status code should be 302 for redirecting');
       t.error(err, 'No error');
-      t.equal(res.header['location'], 'login', 'Should redirect to login page if successfully logged in');
+      t.equal(res.header['location'], 'login', 'Should redirect to login page if login is unsuccessful because user hasnt signed up');
       t.end();
     });
 });
