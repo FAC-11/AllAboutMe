@@ -14,7 +14,7 @@ html {
 }
 
 .background-image{
-    background-image: url("https://images.unsplash.com/46/iYvDeqVGRbebiQv2PIJi_DSC_8407.JPG?dpr=1&auto=compress,format&fit=crop&w=2553&h=&q=80&cs=tinysrgb&crop=");
+  background-image: url("/img/mountain-background.jpg");
 }
 
 /*********** GREEN/PURPLE ***************/
@@ -172,19 +172,9 @@ html {
 .margin-0-auto{
     margin: 0 auto;
 }
-
-.edit-icon{
-    background-image: : url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2012/png/iconmonstr-pencil-8.png&r=79&g=79&b=79");
-}
-
 .finish-page-image{
-    background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-paper-plane-8.png&r=255&g=255&b=255");
+  background-image: url("/img/paper-plane-white.png");
 }
-
-.tick-image{
-    background-image: url("https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2013/png/iconmonstr-checkbox-22.png&r=255&g=255&b=255");
-}
-
 .top-20-margin-auto{
     margin: 0 auto;
     top: 20%;
