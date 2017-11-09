@@ -60,12 +60,29 @@ test('Login route when logging with wrong password is NOT successful', t => {
         .post('/login')
         .type('form')
         .send({'email': 'jam@gmail.com', 'password': 'passwsord'})
-        .expect('Found. Redirecting to home')
+        .expect('Found. Redirecting to login')
         .expect(302)
         .expect('Content-Type', 'text/plain; charset=utf-8')
         .end((err, res) => {
           t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
           t.equal(res.header['location'], 'login', 'Should redirect to login page if password is incorrect');
+          t.end();
+        });
+    });
+});
+test('Login route when logging with wrong password is NOT successful', t => {
+  dbReset()
+    .then(() => {
+      request(app)
+        .post('/login')
+        .type('form')
+        .send({'email': 'jam@gmail.com', 'password': '4b358ed84b7940619235a22328c584c7bc4508d4524e75231d6f450521d16a17'})
+        .expect('Found. Redirecting to home')
+        .expect(302)
+        .expect('Content-Type', 'text/plain; charset=utf-8')
+        .end((err, res) => {
+          t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
+          t.equal(res.header['location'], 'home', 'Should redirect to home page if password is correct');
           t.end();
         });
     });
