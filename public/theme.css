@@ -1,56 +1,183 @@
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
 *{
-  font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .background-image{
   background-image: url("/img/mountain-background.jpg");
 }
 
-.background-overlay{
-  background-color: rgba(18, 192, 191, 0.67);
+/*********** GREEN/PURPLE ***************/
+.green-purple .main-background-overlay{
+    background-color: rgba(18, 192, 191, 0.67);
 }
 
-.purple-background{
-  background-color: rgba(165, 84, 236, 0.67);
-}
-
-.very-light-purple-background{
-  background-color: rgba(165, 84, 236, 0.2);
-}
-
-.solid-green-background{
+.green-purple .main-background--solid{
     background-color: rgba(18, 192, 191, 1);
 }
 
-
-.solid-purple-background{
-  background-color: rgba(165, 84, 236, 1);
+.green-purple li:before, .green-purple .li {
+    color: #15C26B;
 }
 
-.purple-font{
-  color: rgba(165, 84, 236, 1);
+.green-purple .secondary-background--overlay {
+    background-color: rgba(165, 84, 236, 0.67);
 }
 
-.header-background-colour{
-  background-color: rgba(18, 192, 191, 1);
+.green-purple .secondary-background--light-overlay {
+    background-color: rgba(165, 84, 236, 0.2);
+}
+
+.green-purple .secondary-background--solid {
+    background-color: rgba(165, 84, 236, 1);
+}
+
+.green-purple input:checked + label{
+    background-color: rgba(165, 84, 236, 0.7);
+}
+
+/*********** YELLOW/RED ***************/
+.yellow-red .main-background-overlay{
+    background-color: rgba(255, 188, 10, 0.67);
+}
+
+.yellow-red .main-background--solid{
+    background-color: rgba(255, 188, 10, 1);
+}
+
+.yellow-red li:before, .yellow-red .li {
+    color: rgb(255, 188, 10);
+}
+
+.yellow-red .secondary-background--overlay {
+    background-color: rgba(236, 8, 104, 0.67);
+}
+
+.yellow-red .secondary-background--light-overlay {
+    background-color: rgba(236, 8, 104, 0.2);
+}
+
+.yellow-red .secondary-background--solid {
+    background-color: rgba(236, 8, 104, 1);
+}
+
+.yellow-red input:checked + label{
+    background-color: rgba(236, 8, 104, 0.7);
+}
+
+/*********** BLUE/GREEN ***************/
+.blue-green .main-background-overlay{
+    background-color: rgba(46, 41, 78, 0.67);
+}
+
+.blue-green .main-background--solid{
+    background-color: rgba(46, 41, 78, 1);
+}
+
+.blue-green li:before, .blue-green .li {
+    color: rgb(46, 41, 78);
+}
+
+.blue-green .secondary-background--overlay {
+    background-color: rgba(4, 167, 119, 0.67);
+}
+
+.blue-green .secondary-background--light-overlay {
+    background-color: rgba(4, 167, 119, 0.2);
+}
+
+.blue-green .secondary-background--solid {
+    background-color: rgba(4, 167, 119, 1);
+}
+
+.blue-green input:checked + label{
+    background-color: rgba(4, 167, 119, 0.7);
+}
+
+/*********** ORANGE/YELLOW ***************/
+.orange-yellow .main-background-overlay{
+    background-color: rgba(234, 80, 21, 0.67);
+}
+
+.orange-yellow .main-background--solid{
+    background-color: rgba(234, 80, 21, 1);
+}
+
+.orange-yellow li:before, .orange-yellow .li {
+    color: rgb(234, 80, 21);
+}
+
+.orange-yellow .secondary-background--overlay {
+    background-color: rgba(255, 188, 10, 0.67);
+}
+
+.orange-yellow .secondary-background--light-overlay {
+    background-color: rgba(255, 188, 10, 0.2);
+}
+
+.orange-yellow .secondary-background--solid {
+    background-color: rgba(255, 188, 10, 1);
+}
+
+.orange-yellow input:checked + label{
+    background-color: rgba(255, 188, 10, 0.7);
+}
+
+/*********** PINK/BLUE ***************/
+.pink-blue .main-background-overlay{
+    background-color: rgba(247, 63, 142, 0.67);
+}
+
+.pink-blue .main-background--solid{
+    background-color: rgba(247, 63, 142, 1);
+}
+
+.pink-blue li:before, .pink-blue .li {
+    color: rgb(247, 63, 142);
+}
+
+.pink-blue .secondary-background--overlay {
+    background-color: rgba(0, 98, 164, 0.67);
+}
+
+.pink-blue .secondary-background--light-overlay {
+    background-color: rgba(0, 98, 164, 0.2);
+}
+
+.pink-blue .secondary-background--solid {
+    background-color: rgba(0, 98, 164, 1);
+}
+
+.pink-blue input:checked + label{
+    background-color: rgba(0, 98, 164, 0.7);
 }
 
 .grey-font{
-  color: #4f4f4f;
+    color: #4f4f4f;
 }
 
 .grey-background{
-  background-color:#F2F2F2;
+    background-color:#F2F2F2;
 }
 .margin-0-auto{
-  margin: 0 auto;
+    margin: 0 auto;
 }
 .finish-page-image{
   background-image: url("/img/paper-plane-white.png");
 }
 .top-20-margin-auto{
-margin: 0 auto;
-top: 20%;
+    margin: 0 auto;
+    top: 20%;
 }
 
 .right-side-radius{
@@ -58,7 +185,7 @@ top: 20%;
 }
 
 .left-side-radius{
-  border-radius:3rem 0 0 3rem  ;
+    border-radius:3rem 0 0 3rem  ;
 }
 
 ol {
@@ -66,37 +193,29 @@ ol {
   padding-left: 0;
 }
 li {
-  counter-increment: item;
-  margin-bottom: 5px;
+    counter-increment: item;
+    margin-bottom: 5px;
 }
 li:before, .li {
-  content: counter(item);
-  color: #15C26B;
-  text-align: center;
-  display: inline-block;
-  font-size: 1.5rem;
+    content: counter(item);
+    text-align: center;
+    display: inline-block;
+    font-size: 1.5rem;
 }
 
 label:hover {
-	background-color: #E0E0E0;
+    background-color: #E0E0E0;
 }
 
-input:checked + label{
-  background-color: rgba(165, 84, 236, 0.7);
-}
-
-.header-background-colour{
-  background-color: rgba(18, 192, 191, 1);
-}
 
 .grey-font{
-  color: #4f4f4f;
+    color: #4f4f4f;
 }
 
 .top-20-margin-auto{
-margin: 0 auto;
-top: 20%;
-  }
+    margin: 0 auto;
+    top: 20%;
+}
 
 .close:hover,
 .close:focus {
@@ -106,52 +225,50 @@ top: 20%;
 }
 
 .colourHeader{
-  text-align: center;
-  color: black;
-}
-.switcher{
-  text-align: center;
+    text-align: center;
+    color: black;
 }
 
 /* styling the colours of the colour palette*/
-.yellowRed, .blueGreen, .turquoisePurple, .redPink, .pinkBlue {
-  display: inline-flex;
-}
-
 .yellow {
-  background-color: #FFBC0A;
+    background-color: #FFBC0A;
 }
 
 .red {
-  background-color: #EC0868;
+    background-color: #EC0868;
 }
 .darkBlue {
-  background-color: #2E294E;
+    background-color: #2E294E;
 }
 .darkGreen {
-  background-color: #04A777;
+    background-color: #04A777;
 }
 
 .turquoise {
-  background-color: rgba(18, 192, 191, 0.67);
+    background-color: rgba(18, 192, 191, 0.67);
 }
 
 .purple {
-  background-color: rgba(165, 84, 236, 1);
+    background-color: rgba(165, 84, 236, 1);
 }
 .orangeYellow{
-  background-color: #EA5015;
+    background-color: #EA5015;
 }
 
 .orangePink{
-  background-color: #F70062;
+    background-color: #F70062;
 }
 
 .pink{
-  background-color: #F73F8E;
+    background-color: #F73F8E;
 }
 .blue{
-  background-color: #0062A4;
+    background-color: #0062A4;
+}
+
+.color-themes--selector {
+    background-color: inherit;
+    border: none;
 }
 .error {
     color: #e8624c;

@@ -1,47 +1,52 @@
-var pageTitle = document.getElementsByClassName('colourHeader')[0];
-var headerColour = document.getElementsByClassName('header-background-colour')[0];
+(function() {
+  // Add theme to current page and store in cookie
+  function applyTheme(themeName) {
+    document.body.classList = '';
+    document.body.classList.add(themeName);
+    document.cookie = 'theme=' + themeName;
+  }
 
-var yellowRedButtons = [].slice.call(document.querySelectorAll('.yellowRed'));
+  // Get value of cookie 'name'
+  function getCookie(name) {
+    var allCookies = document.cookie.split('; ');
+    var myCookie = allCookies.find(function(cookie) {
+      return cookie.includes('theme=');
+    });
+    return myCookie.split('=')[1] || '';
+  }
 
-yellowRedButtons.forEach(function(yellowRedButton){
-  yellowRedButton.addEventListener('click', function () {
-    headerColour.style['background-color'] = "#EC0868";
-    pageTitle.style['color'] = '#FFBC0A';
+  // Check if theme has been set
+  var theme = getCookie('theme');
+  document.body.classList = '';
+  document.body.classList.add(theme);
+
+  var themes = [
+    'yellow-red',
+    'blue-green',
+    'green-purple',
+    'orange-yellow',
+    'pink-blue',
+  ];
+
+
+  themes.forEach(function(themeName) {
+    var tickedCircle = '/img/ticked-circle.png';
+    var untickedCircle = '/img/unticked-circle.png';
+    var button = document.getElementsByClassName('js-' + themeName)[0];
+    // only proceed if on the colour theme selection page
+    if (button) {
+      var allButtons = document.getElementsByClassName('color-themes--selector');
+      // tick correct theme if one is already set
+      if (getCookie('theme') === themeName) {
+        button.getElementsByTagName('img')[0].src = tickedCircle;
+      }
+      button.addEventListener('click', function() {
+        for (var i = 0; i < allButtons.length; i++) {
+          allButtons[i].getElementsByTagName('img')[0].src = untickedCircle;
+        };
+        applyTheme(themeName);
+        button.getElementsByTagName('img')[0].src = tickedCircle;
+      });
+    }
   });
-});
-
-var blueGreenButtons = [].slice.call(document.querySelectorAll('.blueGreen'));
-
-blueGreenButtons.forEach(function(blueGreenButton){
-  blueGreenButton.addEventListener('click', function () {
-    headerColour.style['background-color'] = '#2E294E';
-    pageTitle.style['color'] = '#04A777';
-  });
-});
-
-var turquoisePurpleButtons = [].slice.call(document.querySelectorAll('.turquoisePurple'));
-
-turquoisePurpleButtons.forEach(function(turquoisePurpleButton){
-  turquoisePurpleButton.addEventListener('click', function () {
-    headerColour.style['background-color'] = "rgba(18, 192, 191, 1)";
-    pageTitle.style['color'] = 'rgba(165, 84, 236, 1)';
-  });
-});
-
-var yellowOrangeButtons = [].slice.call(document.querySelectorAll('.yellowOrange'));
-
-yellowOrangeButtons.forEach(function(yellowOrangeButton){
-  yellowOrangeButton.addEventListener('click', function () {
-    headerColour.style['background-color'] = "#EA5015";
-    pageTitle.style['color'] = '#F70062';
-  });
-});
-
-var pinkBlueButtons = [].slice.call(document.querySelectorAll('.pinkBlue'));
-
-pinkBlueButtons.forEach(function(pinkBlueButton){
-  pinkBlueButton.addEventListener('click', function () {
-    headerColour.style['background-color'] = "#F73F8E";
-    pageTitle.style['color'] = '#0062A4';
-  });
-});
+})();
