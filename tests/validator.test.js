@@ -57,4 +57,14 @@ test('validatePasswordUpdate', (t) => {
   t.end();
 });
 
+test('validateSendEmail', (t) => {
+  let input = { email: 'jen@gmail.com' };
+  let actual = validate.validateSendEmail(input).isValid;
+  t.ok(actual, 'Returns object with isValid set to true if input is valid');
+  input = { email: 'jengmail.com' };
+  actual = validate.validateSendEmail(input).message;
+  t.equal(actual, 'This is not a valid email', 'Correct error message for invalid email');
+  t.end();
+});
+
 test.onFinish(()=>process.exit());
