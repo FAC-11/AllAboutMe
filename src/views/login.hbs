@@ -1,14 +1,15 @@
 
 <div class="background-image cover aspect-ratio--object">
-  <div class="background-overlay cover aspect-ratio--object ">
+  <div class="main-background-overlay cover aspect-ratio--object ">
 
     <header class="white f1 mb5 tc tracked mt4"> ALL ABOUT ME </header>
+
     <section class="center mw6">
       <form action="/login" method="POST">
          {{> messages }}
         <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 pl2" id="email" type="email" placeholder="email" name="email"{{#if userData}}value={{userData.email}}{{/if}} required>
         <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 pl2"id="password" name="password" type="password" placeholder="password" required>
-        <a href="/home"><button class="white purple-background w-100 h3 pa1 bn mb2" type="submit" name="submit"> Login </button></a>
+       <a href="/home"><button class="white secondary-background--overlay w-100 h3 pa1 bn mb2" type="submit" name="submit"> Login </button></a>
       </form>
     </section>
     <p class="white tc"> Don't have an account? <a class="no-underline" href="/signup">Sign up!</a>
