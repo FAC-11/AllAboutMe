@@ -50,5 +50,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(controllers);
 
+app.use((req, res) => {
+  res.status(404).render('error', {
+    layout: 'error',
+    statusCode: 404,
+    errorMessage: 'This page couldn\'t be found.',
+  });
+});
 
 module.exports = app;
