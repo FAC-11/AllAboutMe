@@ -42,7 +42,6 @@ exports.post = (req, res) => {
       }
       return options;
     }).catch((error) => {
-      console.log('error from send email', error);
       res.status(500).render('error', {
         layout: 'error',
         statusCode: 500,
@@ -50,13 +49,8 @@ exports.post = (req, res) => {
       });
     }).then((options) => {
       sendemail.sendMany(options, (error, result) => {
-        console.log(' - - - - - - - - - - - - - - - - - - - - -> email sent: ');
-        console.log(result);
-        console.log('error: ', error);
-        console.log('options', options);
-        console.log(' - - - - - - - - - - - - - - - - - - - - - - - - - - - -');
+        res.redirect('finish');
       });
     });
-    res.redirect('finish');
   }
 };
