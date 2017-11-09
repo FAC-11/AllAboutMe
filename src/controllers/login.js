@@ -14,16 +14,24 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  const userData = req.body;
-  getUser(userData.email)
-    .then((data) => {
-      if (!data || !comparePasswords(userData.password, data.password)) {
+  const inputData = req.body;
+  getUser(inputData.email)
+    .then((dbData) => {
+      if (!dbData) {
         req.flash('error', 'Incorrect email or password');
         res.status(400).redirect('login');
       } else {
-        req.session.user = data.name;
-        req.session.id = data.id;
-        res.redirect('home');
+        return comparePasswords(inputData.password, dbData.password)
+          .then((match) => {
+            if (!match) {
+              req.flash('error', 'Incorrect email or password');
+              res.status(400).redirect('login');
+            } else {
+              req.session.user = dbData.name;
+              req.session.id = dbData.id;
+              res.redirect('home');
+            }
+          });
       }
     })
     .catch((err) => {
