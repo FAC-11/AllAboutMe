@@ -161,7 +161,7 @@ then you should be able to go to [localhost](http://localhost:4001/) and view th
 
 ## Technologies :floppy_disk: 
  * Database: [PostgreSQL](https://www.postgresql.org/) and [redis](https://redis.io/).
- * Authentication: Password hashing using __bcrypt__.
+ * Authentication: Password hashing using [bcrypt](https://www.npmjs.com/package/bcryptjs).
  * Styling: [Tachyons](http://tachyons.io/) and CSS.
  * [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/) and [Handlebars](http://handlebarsjs.com/).
  * To send the form via email: [SendEmail](https://www.npmjs.com/package/sendemail) with [AWS](https://aws.amazon.com/ses/getting-started/).
