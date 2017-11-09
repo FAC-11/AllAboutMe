@@ -171,3 +171,20 @@ top: 20%;
     color: #3fbf49;
     border: 2px solid #3fbf49;
 }
+
+.speech-triangle:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 80px;
+  right: auto;
+  top: auto;
+	bottom: 80px;
+	border: 20px solid;
+	border-color: #666 transparent transparent #666;
+}
+
+.speech-box {
+    border: 20px solid #666;
+}
