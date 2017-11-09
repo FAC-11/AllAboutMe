@@ -2,6 +2,15 @@
 <html>
   {{> htmlHeader }}
   <body>
-  {{statusCode}}{{errorMessage}}
+<div class="background-image cover aspect-ratio--object">
+  <div class="background-overlay cover aspect-ratio--object ">
+    <div class="relative mw6 w-80 margin-0-auto mt3">
+      <div class="speech-triangle">
+        <p class="speech-box top-1 br2 pa3 dib dim bg-light-gray">Sorry! {{errorMessage}}</p>
+      </div>
+      <img class="w3 mt4" src="/penguin-icon.png" alt="penguin">
+    </div>
+  </div>
+</div>
   </body>
 </html>
