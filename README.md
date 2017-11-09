@@ -171,6 +171,7 @@ then you should be able to go to [localhost](http://localhost:4001/) and view th
   messages](https://gist.github.com/brianmacarthur/a4e3e0093d368aa8e423)
 * [Password reset flow](https://stormpath.com/blog/the-pain-of-password-reset)
 * [CSS speech bubble :)](https://codepen.io/Founts/pen/gmhcl)
+* [Handling 404s with Express](https://expressjs.com/en/starter/faq.html)
 
 
 :dancer::dancer::dancer::dancer:
