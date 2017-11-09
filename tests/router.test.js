@@ -70,13 +70,13 @@ test('Login route when logging with wrong password is NOT successful', t => {
         });
     });
 });
-test('Login route when logging with wrong password is NOT successful', t => {
+test('Login route when logging with correct password is successful', t => {
   dbReset()
     .then(() => {
       request(app)
         .post('/login')
         .type('form')
-        .send({'email': 'jam@gmail.com', 'password': '4b358ed84b7940619235a22328c584c7bc4508d4524e75231d6f450521d16a17'})
+        .send({'email': 'jam@gmail.com', 'password': 'password'})
         .expect('Found. Redirecting to home')
         .expect(302)
         .expect('Content-Type', 'text/plain; charset=utf-8')
