@@ -16,20 +16,6 @@ test('Login route loading (when not signed in)', t => {
       t.end();
     });
 });
-      request(app)
-        .get('/home')
-        .set('Cookie', cookies)
-        .expect(200)
-        .end((err, res) => {
-          t.equal(res.statusCode, 200, 'Home responds with 200');
-        });
-      request(app)
-        .get('/about')
-        .set('Cookie', cookies)
-        .expect(200)
-        .end((err, res) => {
-          t.equal(res.statusCode, 200, 'About responds with 200');
-        });
 test('Sign Up route loading (when not signed in)', t => {
   request(app)
     .get('/signup')
@@ -131,6 +117,36 @@ test('GET authenticated routes', (t) => {
       });
     });
 });
+
+test('POST authenticated routes (form sections)', (t) => {
+  const authenticatedPages = [
+    'about',
+    'appointments',
+    'background',
+    'symptoms',
+  ];
+  t.plan(authenticatedPages.length);
+  // First login to get cookie
+  request(app)
+    .post('/login')
+    .type('form')
+    .send({ email: 'jam@gmail.com', password: 'password' })
+    .end((getCookieErr, loginRes) => {
+      const cookies = loginRes.headers['set-cookie'];
+      authenticatedPages.forEach((page) => {
+        // Then make requests to each authenticated route
+        // setting cookie for each request
+        request(app)
+          .post(`\\${page}`)
+          .set('Cookie', cookies)
+          .expect(302)
+          .end((err, res) => {
+            t.equal(res.statusCode, 302, `${page} responds with 302 (redirects)`);
+          });
+      });
+    });
+});
+
 test('Login route when logging in is NOT successful because user hasn\t signed up', t => {
   request(app)
     .post('/login')
