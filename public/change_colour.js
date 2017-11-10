@@ -8,17 +8,19 @@
 
   // Get value of cookie 'name'
   function getCookie(name) {
-    var allCookies = document.cookie.split('; ');
+    var allCookies = document.cookie ? document.cookie.split('; ') : [];
     var myCookie = allCookies.find(function(cookie) {
       return cookie.includes('theme=');
     });
-    return myCookie.split('=')[1] || '';
+    return myCookie ? myCookie.split('=')[1] : '';
   }
 
   // Check if theme has been set
   var theme = getCookie('theme');
-  document.body.classList = '';
-  document.body.classList.add(theme);
+  if (theme) {
+    document.body.classList = '';
+    document.body.classList.add(theme);
+  }
 
   var themes = [
     'yellow-red',
