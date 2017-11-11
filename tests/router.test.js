@@ -176,7 +176,7 @@ test('Signup route when signup is successful', t => {
       t.end();
     });
 });
-test('Signup route when signup is NOT successful', t => {
+test('Signup route when signup is NOT successful -passwords dont match', t => {
   request(app)
     .post('/signup')
     .type('form')
@@ -187,7 +187,7 @@ test('Signup route when signup is NOT successful', t => {
     .end((err, res) => {
       t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
       t.error(err, 'No error');
-      t.equal(res.header['location'], 'signup', 'Should redirect to signup page if successfully logged in');
+      t.equal(res.header['location'], 'signup', 'Should redirect to signup page if not successfully logged in');
       t.end();
     });
 });
@@ -205,4 +205,27 @@ test('Restricted routes should respond with 401 when signed out', t => {
         t.ok(res.text.includes('Login'), `${route} route redirects to login page, containing \'Login\' text`);
      });
   });
+});
+test('Signup route when signup is NOT successful - user has already signed up', t => {
+  dbReset()
+    .then(() => {
+      request(app)
+        .post('/signup')
+        .type('form')
+        .expect(500)
+        .send({'name': 'jam', 'email': 'jam@gmail.com', 'password': 'password', 'confirmPassword': 'password' })
+        .expect('Content-Type', /text\/html/)
+        .end((err, res) => {
+          t.equal(res.statusCode, 500, 'Internal server error');
+        });
+    })
+    .then(() => {
+      t.pass('User already exists in database');
+    })
+    .catch(() => {
+      t.fail('Returns rejected promise if user already exists');
+    })
+    .then(() => {
+      t.end();
+    });
 });
