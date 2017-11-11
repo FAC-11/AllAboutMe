@@ -45,7 +45,7 @@ exports.post = (req, res) => {
             });
         } else {
           req.flash('error', `Account already exists for ${userData.email}`);
-          res.status(500).render('signup', {
+          res.status(200).render('signup', {
             pageTitle: 'Create an Account',
           });
         }

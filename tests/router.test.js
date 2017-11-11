@@ -212,18 +212,18 @@ test('Signup route when signup is NOT successful - user has already signed up', 
       request(app)
         .post('/signup')
         .type('form')
-        .expect(500)
+        .expect(200)
         .send({'name': 'jam', 'email': 'jam@gmail.com', 'password': 'password', 'confirmPassword': 'password' })
         .expect('Content-Type', /text\/html/)
         .end((err, res) => {
-          t.equal(res.statusCode, 500, 'Internal server error');
+          t.equal(res.statusCode, 200, 'Account already exists');
         });
     })
     .then(() => {
       t.pass('User already exists in database');
     })
     .catch(() => {
-      t.fail('Returns rejected promise if user already exists');
+      t.fail('Returns error if user already exists');
     })
     .then(() => {
       t.end();
