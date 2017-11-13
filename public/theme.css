@@ -17,13 +17,19 @@ html {
   background-image: url("/img/mountain-background.jpg");
 }
 
+a, button {
+    font-weight: bold;
+}
+
 /*********** GREEN/PURPLE ***************/
 .green-purple .main-background-overlay{
     background-color: rgba(16, 165, 165, 0.67);
+    color: #fff;
 }
 
 .green-purple .main-background--solid{
     background-color: rgba(16, 165, 165, 1);
+    color: #fff;
 }
 
 .green-purple li:before, .green-purple .li {
@@ -32,6 +38,7 @@ html {
 
 .green-purple .secondary-background--overlay {
     background-color: rgba(159, 73, 235, 0.67);
+    color: #fff;
 }
 
 .green-purple .secondary-background--light-overlay {
@@ -40,22 +47,25 @@ html {
 
 .green-purple .secondary-background--solid {
     background-color: rgba(159, 73, 235, 1);
+    color: #fff;
 }
 
 .green-purple input:checked + label{
     background-color: rgba(159, 73, 235, 0.7);
 }
 .green-purple a {
-    color: #090047;
+    color: #fff;
 }
 
 /*********** YELLOW/RED ***************/
 .yellow-red .main-background-overlay{
     background-color: rgba(255, 188, 10, 0.67);
+    color: #7c2727;
 }
 
 .yellow-red .main-background--solid{
     background-color: rgba(255, 188, 10, 1);
+    color: #7c2727;
 }
 
 .yellow-red li:before, .yellow-red .li {
@@ -64,18 +74,25 @@ html {
 
 .yellow-red .secondary-background--overlay {
     background-color: rgba(236, 8, 104, 0.67);
+    color: #fff;
 }
 
 .yellow-red .secondary-background--light-overlay {
     background-color: rgba(236, 8, 104, 0.2);
+    color: #fff;
 }
 
 .yellow-red .secondary-background--solid {
     background-color: rgba(236, 8, 104, 1);
+    color: #fff;
 }
 
 .yellow-red input:checked + label{
     background-color: rgba(236, 8, 104, 0.7);
+}
+
+.yellow-red a {
+    color: #7c2727;
 }
 
 /*********** BLUE/GREEN ***************/
