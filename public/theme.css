@@ -57,6 +57,10 @@ a, button {
     color: #fff;
 }
 
+.green-purple .icon {
+    fill: #fff;
+}
+
 /*********** YELLOW/RED ***************/
 .yellow-red .main-background-overlay{
     background-color: rgba(255, 188, 10, 0.67);
@@ -95,6 +99,11 @@ a, button {
     color: #7c2727;
 }
 
+.yellow-red .icon {
+    fill: #7c2727;
+}
+
+
 /*********** BLUE/GREEN ***************/
 .blue-green .main-background-overlay{
     background-color: rgba(46, 41, 78, 0.67);
@@ -131,6 +140,10 @@ a, button {
 
 .blue-green a {
     color: #fff;
+}
+
+.blue-green .icon {
+    fill: #fff;
 }
 
 /*********** ORANGE/YELLOW ***************/
