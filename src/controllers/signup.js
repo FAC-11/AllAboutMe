@@ -45,9 +45,7 @@ exports.post = (req, res) => {
             });
         } else {
           req.flash('error', `Account already exists for ${userData.email}`);
-          res.status(200).render('signup', {
-            pageTitle: 'Create an Account',
-          });
+          res.redirect('signup');
         }
       })
       .catch((err) => {
