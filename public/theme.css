@@ -98,10 +98,12 @@ a, button {
 /*********** BLUE/GREEN ***************/
 .blue-green .main-background-overlay{
     background-color: rgba(46, 41, 78, 0.67);
+    color: #fff;
 }
 
 .blue-green .main-background--solid{
     background-color: rgba(46, 41, 78, 1);
+    color: #fff;
 }
 
 .blue-green li:before, .blue-green .li {
@@ -110,18 +112,25 @@ a, button {
 
 .blue-green .secondary-background--overlay {
     background-color: rgba(4, 167, 119, 0.67);
+    color: #fff;
 }
 
 .blue-green .secondary-background--light-overlay {
     background-color: rgba(4, 167, 119, 0.2);
+    color: #fff;
 }
 
 .blue-green .secondary-background--solid {
     background-color: rgba(4, 167, 119, 1);
+    color: #fff;
 }
 
 .blue-green input:checked + label{
     background-color: rgba(4, 167, 119, 0.7);
+}
+
+.blue-green a {
+    color: #fff;
 }
 
 /*********** ORANGE/YELLOW ***************/
