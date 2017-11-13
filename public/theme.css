@@ -149,10 +149,12 @@ a, button {
 /*********** ORANGE/YELLOW ***************/
 .orange-yellow .main-background-overlay{
     background-color: rgba(234, 80, 21, 0.67);
+    color: #fff;
 }
 
 .orange-yellow .main-background--solid{
     background-color: rgba(234, 80, 21, 1);
+    color: #fff;
 }
 
 .orange-yellow li:before, .orange-yellow .li {
@@ -161,18 +163,29 @@ a, button {
 
 .orange-yellow .secondary-background--overlay {
     background-color: rgba(255, 188, 10, 0.67);
+    color: #6d3131;
 }
 
 .orange-yellow .secondary-background--light-overlay {
     background-color: rgba(255, 188, 10, 0.2);
+    color: #6d3131;
 }
 
 .orange-yellow .secondary-background--solid {
     background-color: rgba(255, 188, 10, 1);
+    color: #6d3131;
 }
 
 .orange-yellow input:checked + label{
     background-color: rgba(255, 188, 10, 0.7);
+}
+
+.orange-yellow a {
+    color: #fff;
+}
+
+.orange-yellow .icon {
+    fill: #fff;
 }
 
 /*********** PINK/BLUE ***************/
