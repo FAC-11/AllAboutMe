@@ -191,10 +191,12 @@ a, button {
 /*********** PINK/BLUE ***************/
 .pink-blue .main-background-overlay{
     background-color: rgba(247, 63, 142, 0.67);
+    color: #fff;
 }
 
 .pink-blue .main-background--solid{
     background-color: rgba(247, 63, 142, 1);
+    color: #fff;
 }
 
 .pink-blue li:before, .pink-blue .li {
@@ -203,19 +205,32 @@ a, button {
 
 .pink-blue .secondary-background--overlay {
     background-color: rgba(0, 98, 164, 0.67);
+    color: #fff;
 }
 
 .pink-blue .secondary-background--light-overlay {
     background-color: rgba(0, 98, 164, 0.2);
+    color: #fff;
 }
 
 .pink-blue .secondary-background--solid {
     background-color: rgba(0, 98, 164, 1);
+    color: #fff;
 }
 
 .pink-blue input:checked + label{
     background-color: rgba(0, 98, 164, 0.7);
 }
+
+.pink-blue a {
+    color: #fff;
+}
+
+.pink-blue .icon {
+    fill: #fff;
+}
+
+/*************************************/
 
 .grey-font{
     color: #4f4f4f;
