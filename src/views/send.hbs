@@ -3,19 +3,14 @@
 </div>
 <div class="background-image cover aspect-ratio--object">
   <div class="main-background-overlay cover aspect-ratio--object">
-    <section class="send-page-container">
-
-      <div class="tc">
-
-        <p class="test white ma4 pt2 pb2 f3 tl dib">Thank you for completing your profile. <br> We really hope this will make your transition easier</p>
-
-      </div>
-        <a class="no-underline" href="/progress"><button class="white bg-white-40 w-90 h3 pa1 bn mb2 mw6 db center tracked grow" type="button" name="continue editing" aria-label="continue editing">CONTINUE EDITING</button></a>
-        <form class="mw6 margin-0-auto" action="/send" method="post">
+    <section class="send-page-container w-90 mw6 margin-0-auto">
+        <p class="white mt4 mb5 pt2 pb2 f3 tl ">Thank you for completing your profile. <br> We really hope this will make your transition easier</p>
+        <a class="no-underline" href="/progress"><button class="white bg-white-40 w-100 h3 pa1 bn mb2 center tracked grow" type="button" name="continue editing" aria-label="continue editing">CONTINUE EDITING</button></a>
+        <form class="w-100" action="/send" method="post">
           <div class="tc">
             <p class="test white mt4 mb1 pt2 pb2 f5 tl dib">Where should we send your form?</p>
           </div>
-          <input class="dark-gray bg-white-40 w-100 h3 pa1 bn mb2 db center tracked pl3" type="text" name="email" aria-label="please write your clinician's email" id="emailAddress" placeholder="Please enter email"></input>
+          <input class="dark-gray bg-white-40 w-100 h3 pa1 bn mb2 tracked pl3" type="text" name="email" aria-label="please write your clinician's email" id="emailAddress" placeholder="Please enter email"></input>
           {{> messages}}
           <div class="tc">
             <p class="test white mt4 mb1 pt2 pb2 f5 tl dib">Would you like a copy sent to your own email address?</p>
