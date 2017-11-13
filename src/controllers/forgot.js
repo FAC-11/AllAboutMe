@@ -2,7 +2,7 @@ const { URL } = require('url');
 const { getUser } = require('../model/user_queries');
 const redis = require('redis');
 const sendemail = require('sendemail');
-const { generateToken } = require('./helpers');
+const { generateToken } = require('./helpers/helpers');
 require('env2')('config.env');
 
 const email = sendemail.email;
