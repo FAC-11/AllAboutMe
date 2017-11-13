@@ -19,31 +19,34 @@ html {
 
 /*********** GREEN/PURPLE ***************/
 .green-purple .main-background-overlay{
-    background-color: rgba(18, 192, 191, 0.67);
+    background-color: rgba(16, 165, 165, 0.67);
 }
 
 .green-purple .main-background--solid{
-    background-color: rgba(18, 192, 191, 1);
+    background-color: rgba(16, 165, 165, 1);
 }
 
 .green-purple li:before, .green-purple .li {
-    color: #15C26B;
+    color: rgb(16, 165, 165);
 }
 
 .green-purple .secondary-background--overlay {
-    background-color: rgba(165, 84, 236, 0.67);
+    background-color: rgba(159, 73, 235, 0.67);
 }
 
 .green-purple .secondary-background--light-overlay {
-    background-color: rgba(165, 84, 236, 0.2);
+    background-color: rgba(159, 73, 235, 0.2);
 }
 
 .green-purple .secondary-background--solid {
-    background-color: rgba(165, 84, 236, 1);
+    background-color: rgba(159, 73, 235, 1);
 }
 
 .green-purple input:checked + label{
-    background-color: rgba(165, 84, 236, 0.7);
+    background-color: rgba(159, 73, 235, 0.7);
+}
+.green-purple a {
+    color: #090047;
 }
 
 /*********** YELLOW/RED ***************/
@@ -245,11 +248,11 @@ label:hover {
 }
 
 .turquoise {
-    background-color: rgba(18, 192, 191, 0.67);
+    background-color: rgb(16, 165, 165);
 }
 
 .purple {
-    background-color: rgba(165, 84, 236, 1);
+    background-color: rgb(159, 73, 235);
 }
 .orangeYellow{
     background-color: #EA5015;
