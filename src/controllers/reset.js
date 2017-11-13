@@ -1,6 +1,6 @@
 const redis = require('redis');
 const {URL} = require('url');
-const {validatePasswordUpdate} = require('./validate');
+const {validatePasswordUpdate} = require('./helpers/validate');
 const {hashPassword} = require('./helpers/passwordModule');
 const {updatePassword} = require('../model/user_queries');
 
