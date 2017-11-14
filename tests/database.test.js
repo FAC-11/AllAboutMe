@@ -95,6 +95,10 @@ test('Get section from database', (t) => {
     background: 'i went for a walk when i was born',
   };
 
+  const expectedAdditional = {
+    additional_info: null,
+  };
+
   dbReset()
     .then(() =>
       getSection(1, 'about'))
@@ -112,6 +116,10 @@ test('Get section from database', (t) => {
     })
     .then((data) => {
       t.deepEqual(data, expectedSymptoms, 'Returns correct data for symptoms section');
+      return getSection(1, 'additional');
+    })
+    .then((data) => {
+      t.deepEqual(data, expectedAdditional, 'Returns correct data for additional info section');
     })
     .then(() => {
       t.end();
@@ -154,7 +162,6 @@ test('Save section into database', (t) => {
   const inputBackground = {
     background: 'things and things',
   };
-
   let userId;
 
   dbReset()
