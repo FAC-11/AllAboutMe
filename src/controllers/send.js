@@ -6,7 +6,6 @@ const env = require('env2')('config.env');
 const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
 const { getForm } = require('../model/form_queries');
-const { addData } = require('./helpers/helpers');
 const { validateSendEmail } = require('./helpers/validate');
 
 exports.get = (req, res) => {
