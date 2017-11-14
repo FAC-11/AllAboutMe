@@ -1,13 +1,13 @@
 const { saveSection, getSection } = require('../model/form_queries');
 
 exports.get = (req, res) => {
-  getSection(req.session.id, 'background')
+  getSection(req.session.id, 'additional_info')
     .then((data) => {
-      res.render('background', {
-        activePage: { background: true },
+      res.render('additional_info', {
+        activePage: { additional_info: true },
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
-        pageTitle: 'Your background',
+        pageTitle: 'Additional Information',
         logoutButton: true,
         progressPercentage: '80',
         data,
@@ -16,11 +16,11 @@ exports.get = (req, res) => {
     .catch((err) => {
       console.log(err);
       req.flash('error', 'Sorry - we couldn\'t load your saved answers for this section');
-      res.render('background', {
-        activePage: { background: true },
+      res.render('additional_info', {
+        activePage: { additional_info: true },
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
-        pageTitle: 'Your background',
+        pageTitle: 'Additional Information',
         progressPercentage: '80%',
         logoutButton: true,
       });
@@ -28,20 +28,20 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  saveSection(req.session.id, 'background', req.body)
+  saveSection(req.session.id, 'additional_info', req.body)
     .then(() => {
       const buttonPressed = req.body.button;
       if (buttonPressed === 'next') {
-        res.redirect('additional_info');
+        res.redirect('send');
       } else if (buttonPressed === 'previous') {
-        res.redirect('about');
-      } else {
         res.redirect('background');
+      } else {
+        res.redirect('additional_info');
       }
     })
     .catch((err) => {
       console.log(err);
       req.flash('error', 'Sorry - the background section couldn\'t be saved');
-      res.redirect('background');
+      res.redirect('additional_info');
     });
 };
