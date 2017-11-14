@@ -33,6 +33,9 @@ const fields = {
     'therapies_helpful',
     'keep_well',
   ],
+  additional_info: [
+    'additional_info',
+  ],
 };
 const getSection = (userId, section) => {
   const query = `SELECT ${fields[section].join(', ')} FROM forms WHERE user_id = $1`;
