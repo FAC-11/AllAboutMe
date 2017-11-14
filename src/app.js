@@ -45,6 +45,7 @@ app.use('/colour_scheme', requireLogin);
 app.use('/send', requireLogin);
 app.use('/progress', requireLogin);
 app.use('/finish', requireLogin);
+app.use('/additional_info', requireLogin);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
