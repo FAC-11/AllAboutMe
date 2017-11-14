@@ -162,6 +162,10 @@ test('Save section into database', (t) => {
   const inputBackground = {
     background: 'things and things',
   };
+
+  const inputAdditional = {
+    additional_info: null,
+  };
   let userId;
 
   dbReset()
@@ -182,6 +186,12 @@ test('Save section into database', (t) => {
     .then((data) => {
       t.deepEqual(data, inputAppointment, 'Saves appointment section');
       return saveSection(userId, 'symptoms', inputSymptoms);
+    })
+    .then(() =>
+      getSection(userId, 'additional'))
+    .then((data) => {
+      t.deepEqual(data, inputAdditional, 'Saves additional section');
+      return saveSection(userId, 'additional', inputAdditional);
     })
     .then(() =>
       getSection(userId, 'symptoms'))
