@@ -70,7 +70,8 @@ BEGIN;
         '',
         '091290382904',
         null,
-        '{text,email}'
+        '{text,email}',
+        null
     );
 
 COMMIT;

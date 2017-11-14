@@ -219,6 +219,7 @@ test('Get form from database', (t) => {
     therapies_helpful: null,
     keep_well: 'running',
     background: 'i went for a walk when i was born',
+    additional_info: null,
   };
 
   dbReset()
