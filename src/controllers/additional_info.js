@@ -1,7 +1,7 @@
 const { saveSection, getSection } = require('../model/form_queries');
 
 exports.get = (req, res) => {
-  getSection(req.session.id, 'additional_info')
+  getSection(req.session.id, 'additional')
     .then((data) => {
       res.render('additional_info', {
         activePage: { additional_info: true },
@@ -28,7 +28,8 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-  saveSection(req.session.id, 'additional_info', req.body)
+    console.log('req', req);
+  saveSection(req.session.id, 'additional', req.body)
     .then(() => {
       const buttonPressed = req.body.button;
       if (buttonPressed === 'next') {
@@ -41,7 +42,7 @@ exports.post = (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      req.flash('error', 'Sorry - the background section couldn\'t be saved');
+      req.flash('error', 'Sorry - the additional information section couldn\'t be saved');
       res.redirect('additional_info');
     });
 };

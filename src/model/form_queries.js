@@ -33,7 +33,7 @@ const fields = {
     'therapies_helpful',
     'keep_well',
   ],
-  additional_info: [
+  additional: [
     'additional_info',
   ],
 };
