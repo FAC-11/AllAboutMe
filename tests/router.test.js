@@ -132,8 +132,8 @@ test('Signup route when signup is NOT successful', t => {
     });
 });
 test('Restricted routes should respond with 401 when signed out', t => {
-  const routes = ['/home', '/info_page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish'];
-  t.plan(30);
+  const routes = ['/home', '/info_page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish', '/additional_info'];
+  t.plan(33);
   routes.forEach( (route) => {
     request(app)
       .get(route)

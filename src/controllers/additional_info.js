@@ -28,7 +28,6 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-    console.log('req', req);
   saveSection(req.session.id, 'additional', req.body)
     .then(() => {
       const buttonPressed = req.body.button;
