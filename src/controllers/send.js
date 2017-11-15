@@ -1,13 +1,12 @@
 
-const checkEmail = require('./check_email');
+const checkEmail = require('./helpers/check_email');
 const sendemail = require('sendemail');
 const env = require('env2')('config.env');
 
 const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
 const { getForm } = require('../model/form_queries');
-const { addData } = require('./helpers.js');
-const { validateSendEmail } = require('./validate');
+const { validateSendEmail } = require('./helpers/validate');
 
 exports.get = (req, res) => {
   res.render('send', {
