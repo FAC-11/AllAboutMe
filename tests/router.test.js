@@ -96,7 +96,7 @@ test('GET authenticated routes', (t) => {
     'background',
     'progress',
   ];
-  t.plan(authenticatedPages.length*2);
+  t.plan(authenticatedPages.length*3);
   // First login to get cookie
   request(app)
     .post('/login')
@@ -113,6 +113,7 @@ test('GET authenticated routes', (t) => {
           .expect(200)
           .end((err, res) => {
             t.equal(res.statusCode, 200, `${page} responds with 200`);
+            t.notok(res.redirect, `${page} doesn\t redirect`);
             t.error(err, 'No error');
           });
       });
