@@ -8,10 +8,10 @@
   fabric.Object.prototype.transparentCorners = false;
 
   var drawingModeEl = $('drawing-mode'),
-      drawingOptionsEl = $('drawing-mode-options'),
-      drawingColorEl = $('drawing-color'),
-      drawingLineWidthEl = $('drawing-line-width'),
-      clearEl = $('clear-canvas');
+    drawingOptionsEl = $('drawing-mode-options'),
+    drawingColorEl = $('drawing-color'),
+    drawingLineWidthEl = $('drawing-line-width'),
+    clearEl = $('clear-canvas');
 
   clearEl.onclick = function(e) { 
     e.preventDefault();
@@ -31,14 +31,16 @@
     e.preventDefault();
   };
 
-
-  $('drawing-mode-selector').onchange = function() {
-    canvas.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas);
-    if (canvas.freeDrawingBrush) {
-      canvas.freeDrawingBrush.color = drawingColorEl.value;
-      canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-    }
-  };
+  var brushOptions = document.getElementsByName('brush-options');
+  brushOptions.forEach(function(option) {
+    option.addEventListener('click', function(e) {
+      canvas.freeDrawingBrush = new fabric[this.value + 'Brush'](canvas);
+      if (canvas.freeDrawingBrush) {
+        canvas.freeDrawingBrush.color = drawingColorEl.value;
+        canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+      }
+    });
+  });
 
   drawingColorEl.onchange = function() {
     canvas.freeDrawingBrush.color = this.value;

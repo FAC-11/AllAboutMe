@@ -6,11 +6,10 @@
 
   <div id="drawing-mode-options">
     <label for="drawing-mode-selector">Mode:</label>
-    <select id="drawing-mode-selector">
-      <option>Pencil</option>
-      <option>Spray</option>
-      <option>Pattern</option>
-    </select><br>
+      <input type="radio" name="brush-options" value="Pencil">Pencil</input>
+      <input type="radio" name="brush-options" value="Spray">Spray</input>
+      <input type="radio" name="brush-options" value="Pattern">Pattern</input>
+      <br>
 
     <label for="drawing-line-width">Line width:</label>
     <span class="info">30</span><input type="range" value="30" min="0" max="150" id="drawing-line-width"><br>
