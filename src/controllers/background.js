@@ -9,7 +9,7 @@ exports.get = (req, res) => {
         successMessages: req.flash('success'),
         pageTitle: 'Your background',
         logoutButton: true,
-        progressPercentage: '80',
+        progressPercentage: '60',
         data,
       });
     })
@@ -21,7 +21,7 @@ exports.get = (req, res) => {
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
         pageTitle: 'Your background',
-        progressPercentage: '80%',
+        progressPercentage: '60',
         logoutButton: true,
       });
     });

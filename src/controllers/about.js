@@ -9,7 +9,7 @@ exports.get = (req, res) => {
         successMessages: req.flash('success'),
         pageTitle: 'About Me',
         logoutButton: true,
-        progressPercentage: '60',
+        progressPercentage: '40',
         data,
       });
     });

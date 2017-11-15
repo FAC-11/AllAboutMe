@@ -21,7 +21,7 @@ exports.get = (req, res) => {
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
         pageTitle: 'Additional Information',
-        progressPercentage: '80%',
+        progressPercentage: '80',
         logoutButton: true,
       });
     });
