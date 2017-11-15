@@ -16,9 +16,12 @@
       drawingShadowOffset = $('drawing-shadow-offset'),
       clearEl = $('clear-canvas');
 
-  clearEl.onclick = function() { canvas.clear() };
+  clearEl.onclick = function(e) { 
+    e.preventDefault();
+    canvas.clear()
+  };
 
-  drawingModeEl.onclick = function() {
+  drawingModeEl.onclick = function(e) {
     canvas.isDrawingMode = !canvas.isDrawingMode;
     if (canvas.isDrawingMode) {
       drawingModeEl.innerHTML = 'Cancel drawing mode';
@@ -28,6 +31,7 @@
       drawingModeEl.innerHTML = 'Enter drawing mode';
       drawingOptionsEl.style.display = 'none';
     }
+    e.preventDefault();
   };
 
   if (fabric.PatternBrush) {
