@@ -96,7 +96,7 @@ test('GET authenticated routes', (t) => {
     'background',
     'progress',
   ];
-  t.plan(authenticatedPages.length*4);
+  t.plan(authenticatedPages.length*2);
   // First login to get cookie
   request(app)
     .post('/login')
@@ -143,6 +143,7 @@ test('POST authenticated routes (form sections)', (t) => {
           .expect(302)
           .end((err, res) => {
             t.equal(res.statusCode, 302, `${page} responds with 302 (redirects)`);
+            t.ok(res.redirect, `${page} redirects`);
             t.error(err, 'No error');
           });
       });
