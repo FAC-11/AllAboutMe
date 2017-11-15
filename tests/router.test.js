@@ -217,11 +217,11 @@ test('Signup route when signup is NOT successful - user has already signed up', 
       request(app)
         .post('/signup')
         .type('form')
-        .expect(200)
+        .expect(302)
         .send({'name': 'jam', 'email': 'jam@gmail.com', 'password': 'password', 'confirmPassword': 'password' })
-        .expect('Content-Type', /text\/html/)
+        .expect('Content-Type', 'text/plain; charset=utf-8')
         .end((err, res) => {
-          t.equal(res.statusCode, 200, 'Responds with a 200');
+          t.equal(res.statusCode, 302, 'Responds with a 200');
           t.error(err, 'No error');
           t.end();
         });
