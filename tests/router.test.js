@@ -216,16 +216,9 @@ test('Signup route when signup is NOT successful - user has already signed up', 
         .send({'name': 'jam', 'email': 'jam@gmail.com', 'password': 'password', 'confirmPassword': 'password' })
         .expect('Content-Type', /text\/html/)
         .end((err, res) => {
-          t.equal(res.statusCode, 200, 'Account already exists');
+          t.equal(res.statusCode, 200, 'Responds with a 200');
+          t.error(err, 'No error');
+          t.end();
         });
-    })
-    .then(() => {
-      t.pass('User already exists in database');
-    })
-    .catch(() => {
-      t.fail('Returns error if user already exists');
-    })
-    .then(() => {
-      t.end();
     });
 });
