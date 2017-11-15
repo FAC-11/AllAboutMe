@@ -96,7 +96,7 @@ test('GET authenticated routes', (t) => {
     'background',
     'progress',
   ];
-  t.plan(authenticatedPages.length);
+  t.plan(authenticatedPages.length*4);
   // First login to get cookie
   request(app)
     .post('/login')
@@ -113,6 +113,7 @@ test('GET authenticated routes', (t) => {
           .expect(200)
           .end((err, res) => {
             t.equal(res.statusCode, 200, `${page} responds with 200`);
+            t.error(err, 'No error');
           });
       });
     });
@@ -125,7 +126,7 @@ test('POST authenticated routes (form sections)', (t) => {
     'background',
     'symptoms',
   ];
-  t.plan(authenticatedPages.length);
+  t.plan(authenticatedPages.length*3);
   // First login to get cookie
   request(app)
     .post('/login')
@@ -142,6 +143,7 @@ test('POST authenticated routes (form sections)', (t) => {
           .expect(302)
           .end((err, res) => {
             t.equal(res.statusCode, 302, `${page} responds with 302 (redirects)`);
+            t.error(err, 'No error');
           });
       });
     });
