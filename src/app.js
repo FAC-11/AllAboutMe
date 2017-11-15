@@ -5,7 +5,7 @@ const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const favicon = require('serve-favicon');
 const controllers = require('./controllers/index');
-const requireLogin = require('./controllers/requireLogin');
+const requireLogin = require('./controllers/require_login');
 
 const bodyParser = require('body-parser');
 require('env2')('config.env');
