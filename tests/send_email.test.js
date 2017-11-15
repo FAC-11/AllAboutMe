@@ -1,6 +1,5 @@
 const test = require('tape');
-const checkEmail = require('../src/controllers/check_email');
-const finish = require('../src/controllers/finish');
+const checkEmail = require('../src/controllers/helpers/check_email');
 
 
 // testing sendEmail function

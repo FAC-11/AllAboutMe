@@ -1,6 +1,6 @@
-const { hashPassword } = require('./passwordModule');
+const { hashPassword } = require('./helpers/passwordModule');
 const { getUser, addUser } = require('../model/user_queries');
-const { validateSignUp } = require('./validate');
+const { validateSignUp } = require('./helpers/validate');
 
 
 exports.get = (req, res) => {
