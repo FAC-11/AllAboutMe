@@ -25,7 +25,7 @@ exports.get = (req, res) => {
         pageTitle: 'Your appointment',
         data,
         checked,
-        progressPercentage: '0',
+        progressPercentage: '10',
         firstPage: true,
       });
     });
