@@ -7,22 +7,22 @@
   <form class="margin-0-auto w-90 mb5 w-60-ns w-80-m mw7" action="/appointments" method="post">
     <ol class="pa0">
 
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span>What's your Email Address?
-        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.email}}" type="text" name="email" placeholder="Your Email">
+        <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span><label for="appointments__email">What's your Email Address?</label>
+        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.email}}" type="text" name="email" id="appointments__email" placeholder="Your Email">
       </li>
 
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span>What's your Mobile number?
-        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.mobile}}" type="text" name="mobile" placeholder="Mobile number">
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span><label for="appointments__mobile">What's your Mobile number?</label>
+        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.mobile}}" type="text" id="appointments__mobile" name="mobile" placeholder="Mobile number">
       </li>
 
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span>What's your Home number?
-        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.telephone}}" type="text" name="telephone" placeholder="Home number">
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2 w2'>&rarr;</span><label for="appointments__phone">What's your Home number?</label>
+        <input class="input-reset ba b--black-20 pa2 mb2 db w-100 pa3 mt3 mw6" value="{{data.telephone}}" type="text" id="appointments__phone" name="telephone" placeholder="Home number">
       </li>
 
-      <li class="f5 black-60 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> How would you like us to contact you?
+      <li class="f5 black-60 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span><span id="appointments__contact">How would you like us to contact you?</span>
         <br>
-        <div class="dib">
-          <input id='sms' class="o-0 flex flex-auto-l" class="dib" type="checkbox" name="contact_preference" {{#if checked.contactBy.text}} checked {{/if}} aria-label="text" value='text'>
+        <div class="dib" role="group" aria-labelledby="appointments__contact">
+          <input id='sms' class="o-0 flex flex-auto-l" class="dib" type="checkbox" name="contact_preference" {{#if checked.contactBy.text}} checked {{/if}} aria-label="text message" value='text'>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="sms">
           <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="/img/mobile-phone.png" alt="sms">
               <div class="tc">Text</div>
@@ -49,9 +49,9 @@
         </div>
       </li>
 
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> Do you have a preference on your new support worker?
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span><span id="appointments__worker">Do you have a preference on your new support worker?</span>
         <br>
-        <div class="dib">
+        <div class="dib" role="group" aria-labelledby="appointments__worker">
           <input id='male' class="o-0 flex flex-auto-l" class="dib" type="radio" value="male" name="gender_preference" {{#if checked.worker.male}} checked {{/if}} aria-label="Male worker" value='Male'>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="male">
           <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="/img/male-face.png" alt="Male worker">
@@ -69,9 +69,9 @@
       </li>
 
 
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> Do you have a preferred appointment time?
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span><span id="appointments__time">Do you have a preferred appointment time?</span>
         <br>
-        <div class="dib">
+        <div class="dib" role="group" aria-labelledby="appointments__time">
           <input id='am' class="o-0 flex flex-auto-l" class="dib" type="radio" name="time_preference" aria-label="am" value='am' {{#if checked.time.am}} checked {{/if}}>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="am">
           <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="/img/sun.png" alt="sun">
@@ -88,9 +88,9 @@
         </div>
       </li>
 
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> Would you like a parent/guardian at the appointments?
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span><span id="appointments__parent">Would you like a parent/guardian at the appointments?</span>
         <br>
-        <div class="dib">
+        <div class="dib" role="group" aria-labelledby="appointments__parent">
           <input id='Yes' class="o-0 flex flex-auto-l" class="dib" type="radio" name="parent_involvement" aria-label="Yes" value='yes' {{#if checked.parent_involvement.yes}} checked {{/if}}>
           <label class="checkbox-label dib margin-0-auto grey-background br3 w4 mt3 h4 ba b--black-30" for="Yes">
           <img class="tc-ns w-50 h-50 margin-0-auto pb2 db mt3" src="/img/checkbox-tick.png" alt="Yes">
@@ -107,14 +107,14 @@
         </div>
       </li>
 
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> Do you have any concerns about moving to a different service and if so, what are they?
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span><label for="appointments__concerns">Do you have any concerns about moving to a different service and if so, what are they?</label>
         <br>
-        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="concerns" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your concerns'>{{data.concerns}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="concerns" rows="8" cols="80" placeholder="Write here please" id="appointments__concerns">{{data.concerns}}</textarea>
       </li>
 
-      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span> I hope that when I leave I am...
+      <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span><label for="appointments__hope">I hope that when I leave I am...</label>
         <br>
-        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="hope" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know what you hope happens when you leave'>{{data.hope}}</textarea>
+        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="hope" rows="8" cols="80" placeholder="Write here please" id="appointments__hope">{{data.hope}}</textarea>
       </li>
     </ol>
     {{> formnav}}
