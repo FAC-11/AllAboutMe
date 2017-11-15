@@ -1,5 +1,5 @@
 const test = require('tape');
-const validate = require('../src/controllers/validate');
+const validate = require('../src/controllers/helpers/validate');
 
 
 // testing validateName function
