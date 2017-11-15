@@ -19,16 +19,17 @@
   };
 
   drawingModeEl.onclick = function(e) {
+    e.preventDefault();
+    imgEl = drawingModeEl.getElementsByTagName('img')[0];
     canvas.isDrawingMode = !canvas.isDrawingMode;
     if (canvas.isDrawingMode) {
-      drawingModeEl.innerHTML = 'Cancel drawing mode';
+      imgEl.src = '/padlock-locked.png';
       drawingOptionsEl.style.display = '';
     }
     else {
-      drawingModeEl.innerHTML = 'Enter drawing mode';
+      imgEl.src = '/padlock-unlocked.png';
       drawingOptionsEl.style.display = 'none';
     }
-    e.preventDefault();
   };
 
   var brushOptions = document.getElementsByName('brush-options');

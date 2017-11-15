@@ -1,14 +1,16 @@
 <canvas id="c" width="500" height="500" style="border:1px solid #aaa"></canvas>
 
 <div style="display: inline-block; margin-left: 10px">
-  <button id="drawing-mode" class="btn btn-info">Cancel drawing mode</button><br>
-  <button id="clear-canvas" class="btn btn-info">Clear</button><br>
+    <button id="drawing-mode" class="btn btn-info bn bg-transparent w3 h3 pointer"><img src="/padlock-locked.png"></button><br>
+  <button id="clear-canvas" class="btn btn-info bn bg-transparent w3 h3 pointer"><img src="/x-icon.png"></button><br>
 
   <div id="drawing-mode-options">
-    <label for="drawing-mode-selector">Mode:</label>
-      <input type="radio" name="brush-options" value="Pencil">Pencil</input>
-      <input type="radio" name="brush-options" value="Spray">Spray</input>
-      <input type="radio" name="brush-options" value="Pattern">Pattern</input>
+      <input type="radio" name="brush-options" value="Pencil" id="brush-options__pencil">
+      <label for="brush-options__pencil">Pencil</label>
+      <input type="radio" name="brush-options" value="Spray" id="brush-options__spray">
+      <label for="brush-options__spray">Spray</label>
+      <input type="radio" name="brush-options" value="Pattern" id="brush-options__pattern">
+      <label for="brush-options__pattern">Pattern</label>
       <br>
 
     <label for="drawing-line-width">Line width:</label>
