@@ -40,6 +40,16 @@ test('Forgot route', t => {
       t.end();
     });
 });
+test('Unknown route', t => {
+  request(app)
+    .get('/nwonknu')
+    .expect(404)
+    .expect('Content-Type', /text\/html/)
+    .end((err, res) => {
+      t.equal(res.statusCode, 404, 'Status code is 404');
+      t.end();
+    });
+});
 test('Reset password route with an expired token', t => {
   request(app)
     .get('/reset/509abfd5-0000-8ebb-c52f-afacca822733')
