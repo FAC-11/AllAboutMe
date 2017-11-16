@@ -170,7 +170,7 @@ test('POST LOGOUT authenticated routes (form sections)', (t) => {
     'background',
     'symptoms',
   ];
-  t.plan(authenticatedPages.length*4);
+  t.plan(authenticatedPages.length * 4);
   // First login to get cookie
   request(app)
     .post('/login')
@@ -182,7 +182,7 @@ test('POST LOGOUT authenticated routes (form sections)', (t) => {
         // Then make requests to each authenticated route
         // setting cookie for each request
         request(app)
-          .post('/'+page)
+          .post(`/${page}`)
           .set('Cookie', cookies)
           .expect(302)
           .end((error, resB) => {
@@ -194,10 +194,10 @@ test('POST LOGOUT authenticated routes (form sections)', (t) => {
               .type('form')
               .expect(302)
               .end((err, res) => {
-              t.equal(res.statusCode, 302, 'Status code should be 302 for redirect');
-              t.equal(res.header['location'], '/', 'Should redirect to /');
-              t.notEqual(res.header['location'], locationBefore, 'Logout button redirects from any page to login')
-            });
+                t.equal(res.statusCode, 302, 'Status code should be 302 for redirect');
+                t.equal(res.header['location'], '/', 'Should redirect to /');
+                t.notEqual(res.header['location'], locationBefore, 'Logout button redirects from any page to login')
+              });
           });
       });
     });
