@@ -20,7 +20,6 @@
     var url = '/drawing';
     var params = {
       svg: canvas.toSVG(),
-      userId: saveEl.dataset.userId,
       fieldName: 'likes_svg',
     };
     xhr.onreadystatechange = function() {

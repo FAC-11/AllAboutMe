@@ -11,7 +11,6 @@ exports.get = (req, res) => {
         logoutButton: true,
         progressPercentage: '60',
         data,
-        userId: req.session.id,
       });
     });
 };
