@@ -28,7 +28,7 @@ test('Sign Up route loading (when not signed in)', t => {
       t.end();
     });
 });
-test('Forgot route', t => {
+test('Forgot route get', t => {
   request(app)
     .get('/forgot')
     .expect(200)
@@ -37,6 +37,19 @@ test('Forgot route', t => {
       t.equal(res.statusCode, 200, 'Status code is 200');
       t.error(err, 'No error');
       t.ok(res.text.includes('Forgotten password'), 'Forgot route responds with page containing title \'Forgotten password\' text');
+      t.end();
+    });
+});
+test('Forgot route post with invalid email', t => {
+  request(app)
+    .post('/forgot')
+    .type('form')
+    .send({'email': 'tom-cruise@gmail.com'})
+    .expect(302)
+    .expect('Content-Type', 'text/plain; charset=utf-8')
+    .end((err, res) => {
+      t.equal(res.statusCode, 302, 'Status code should be 302 for invalid email');
+      t.error(err, 'No error when entering invalid email in fogot page');
       t.end();
     });
 });
