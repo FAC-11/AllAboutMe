@@ -170,7 +170,7 @@ test('POST LOGOUT authenticated routes (form sections)', (t) => {
     'background',
     'symptoms',
   ];
-  t.plan(authenticatedPages.length);
+  t.plan(authenticatedPages.length*2);
   // First login to get cookie
   request(app)
     .post('/login')
@@ -193,6 +193,7 @@ test('POST LOGOUT authenticated routes (form sections)', (t) => {
               .expect(302)
               .end((err, res) => {
               t.equal(res.statusCode, 302, 'should redirect');
+               t.equal(res.header['location'], '/', 'Should redirect to /');
             });
           });
       });
