@@ -21,7 +21,7 @@
     var params = {
       svg: canvas.toSVG(),
       userId: saveEl.dataset.userId,
-      question: 'fieldname',
+      fieldName: 'likes_svg',
     };
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {

@@ -8,6 +8,7 @@ const fields = {
     'weaknesses',
     'uncomfortable',
     'safe',
+    'likes_svg',
   ],
   appointments: [
     'gender_preference',
@@ -57,8 +58,14 @@ const getForm = (userId) => {
   return dbConnection.one(query, [userId]);
 };
 
+const saveDrawing = (userId, fieldName, data) => {
+  const query = `UPDATE forms SET ${fieldName} = ($1) WHERE user_id = $2`;
+  return dbConnection.none(query, [data, userId]);
+};
+
 module.exports = {
   getSection,
   getForm,
   saveSection,
+  saveDrawing,
 };

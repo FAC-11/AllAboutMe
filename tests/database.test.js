@@ -66,6 +66,7 @@ test('Get section from database', (t) => {
     weaknesses: 'nothing!',
     uncomfortable: 'uncertainty',
     safe: 'bathing in jam',
+    likes_svg: null,
   };
 
   const expectedAppointment = {
@@ -126,6 +127,7 @@ test('Save section into database', (t) => {
     weaknesses: 'nothing!',
     uncomfortable: 'uncertainty',
     safe: 'bathing in jam',
+    likes_svg: null,
   };
 
   const inputAppointment = {
@@ -219,6 +221,7 @@ test('Get form from database', (t) => {
     therapies_helpful: null,
     keep_well: 'running',
     background: 'i went for a walk when i was born',
+    likes_svg: null,
   };
 
   dbReset()

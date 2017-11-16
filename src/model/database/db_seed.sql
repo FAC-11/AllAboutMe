@@ -37,7 +37,8 @@ BEGIN;
         telephone varchar(100),
         contact_preference varchar(100),
         concerns TEXT,
-        hope TEXT
+        hope TEXT,
+        likes_svg TEXT
     );
 
 
