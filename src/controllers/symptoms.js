@@ -15,7 +15,7 @@ exports.get = (req, res) => {
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
         pageTitle: 'Symptoms & Difficulties',
-        progressPercentage: '28',
+        progressPercentage: '25',
         data,
         checked,
       });
