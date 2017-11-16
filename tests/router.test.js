@@ -107,6 +107,7 @@ test('Login route when logging with correct password is successful', t => {
         .expect(302)
         .expect('Content-Type', 'text/plain; charset=utf-8')
         .end((err, res) => {
+          t.error(err, 'No error');
           t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
           t.equal(res.header['location'], 'home', 'Should redirect to home page if password is correct');
           t.end();
