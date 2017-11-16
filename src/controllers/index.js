@@ -21,6 +21,7 @@ const finish = require('./finish');
 const logout = require('./logout');
 const forgot = require('./forgot');
 const reset = require('./reset');
+const drawing = require('./drawing');
 
 router.get('/', login.get);
 router.get('/signup', signup.get);
@@ -49,6 +50,7 @@ router.post('/symptoms', symptoms.post);
 router.post('/logout', logout.post);
 router.post('/reset', reset.post);
 router.post('/send', send.post);
+router.post('/drawing', drawing.post);
 
 
 module.exports = router;

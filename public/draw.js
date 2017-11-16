@@ -11,7 +11,27 @@
     drawingOptionsEl = $('drawing-mode-options'),
     drawingColorEl = $('drawing-color'),
     drawingLineWidthEl = $('drawing-line-width'),
-    clearEl = $('clear-canvas');
+    clearEl = $('clear-canvas'),
+    saveEl = $('save-canvas');
+
+  saveEl.addEventListener('click', function(e) {
+    e.preventDefault();
+    var xhr = new XMLHttpRequest();
+    var url = '/drawing';
+    var params = {
+      svg: canvas.toSVG(),
+      userId: saveEl.dataset.userId,
+      question: 'fieldname',
+    };
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        
+      }
+    };
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(params));
+  });
 
   clearEl.onclick = function(e) { 
     e.preventDefault();
