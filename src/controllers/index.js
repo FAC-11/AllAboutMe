@@ -38,6 +38,7 @@ router.get('/forgot', forgot.get);
 router.get('/login', login.get);
 router.get('/reset/:token', reset.get);
 router.get('/finish', finish.get);
+router.get('/drawing', drawing.get);
 
 
 router.post('/forgot', forgot.post);

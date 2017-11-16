@@ -14,6 +14,25 @@
     clearEl = $('clear-canvas'),
     saveEl = $('save-canvas');
 
+  function getDrawing(fieldName) {
+    var xhr = new XMLHttpRequest();
+    var url = '/drawing';
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var svg = JSON.parse(xhr.response)[fieldName];
+        console.log(svg);
+        fabric.loadSVGFromString(svg, function(objects, options) {
+          var obj = fabric.util.groupSVGElements(objects, options);
+          canvas.add(obj).renderAll();
+        });
+      }
+    };
+    xhr.open('GET', url, true);
+    xhr.send();
+  }
+
+  getDrawing('likes_svg');
+
   saveEl.addEventListener('click', function(e) {
     e.preventDefault();
     var xhr = new XMLHttpRequest();
