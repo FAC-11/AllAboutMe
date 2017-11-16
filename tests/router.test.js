@@ -107,6 +107,10 @@ test('GET authenticated routes', (t) => {
     'appointments',
     'background',
     'progress',
+    'info-page',
+    'colour_scheme',
+    'send',
+    'finish',
   ];
   t.plan(authenticatedPages.length*4);
   // First login to get cookie
