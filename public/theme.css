@@ -17,42 +17,59 @@ html {
   background-image: url("/img/mountain-background.jpg");
 }
 
+a, button {
+    font-weight: bold;
+}
+
 /*********** GREEN/PURPLE ***************/
 .green-purple .main-background-overlay{
-    background-color: rgba(18, 192, 191, 0.67);
+    background-color: rgba(16, 165, 165, 0.67);
+    color: #fff;
 }
 
 .green-purple .main-background--solid{
-    background-color: rgba(18, 192, 191, 1);
+    background-color: rgba(16, 165, 165, 1);
+    color: #fff;
 }
 
 .green-purple li:before, .green-purple .li {
-    color: #15C26B;
+    color: rgb(16, 165, 165);
 }
 
 .green-purple .secondary-background--overlay {
-    background-color: rgba(165, 84, 236, 0.67);
+    background-color: rgba(159, 73, 235, 0.67);
+    color: #fff;
 }
 
 .green-purple .secondary-background--light-overlay {
-    background-color: rgba(165, 84, 236, 0.2);
+    background-color: rgba(159, 73, 235, 0.2);
 }
 
 .green-purple .secondary-background--solid {
-    background-color: rgba(165, 84, 236, 1);
+    background-color: rgba(159, 73, 235, 1);
+    color: #fff;
 }
 
 .green-purple input:checked + label{
-    background-color: rgba(165, 84, 236, 0.7);
+    background-color: rgba(159, 73, 235, 0.7);
+}
+.green-purple a {
+    color: #fff;
+}
+
+.green-purple .icon {
+    fill: #fff;
 }
 
 /*********** YELLOW/RED ***************/
 .yellow-red .main-background-overlay{
     background-color: rgba(255, 188, 10, 0.67);
+    color: #7c2727;
 }
 
 .yellow-red .main-background--solid{
     background-color: rgba(255, 188, 10, 1);
+    color: #7c2727;
 }
 
 .yellow-red li:before, .yellow-red .li {
@@ -61,27 +78,41 @@ html {
 
 .yellow-red .secondary-background--overlay {
     background-color: rgba(236, 8, 104, 0.67);
+    color: #fff;
 }
 
 .yellow-red .secondary-background--light-overlay {
     background-color: rgba(236, 8, 104, 0.2);
+    color: #fff;
 }
 
 .yellow-red .secondary-background--solid {
     background-color: rgba(236, 8, 104, 1);
+    color: #fff;
 }
 
 .yellow-red input:checked + label{
     background-color: rgba(236, 8, 104, 0.7);
 }
 
+.yellow-red a {
+    color: #7c2727;
+}
+
+.yellow-red .icon {
+    fill: #7c2727;
+}
+
+
 /*********** BLUE/GREEN ***************/
 .blue-green .main-background-overlay{
     background-color: rgba(46, 41, 78, 0.67);
+    color: #fff;
 }
 
 .blue-green .main-background--solid{
     background-color: rgba(46, 41, 78, 1);
+    color: #fff;
 }
 
 .blue-green li:before, .blue-green .li {
@@ -90,27 +121,40 @@ html {
 
 .blue-green .secondary-background--overlay {
     background-color: rgba(4, 167, 119, 0.67);
+    color: #fff;
 }
 
 .blue-green .secondary-background--light-overlay {
     background-color: rgba(4, 167, 119, 0.2);
+    color: #fff;
 }
 
 .blue-green .secondary-background--solid {
     background-color: rgba(4, 167, 119, 1);
+    color: #fff;
 }
 
 .blue-green input:checked + label{
     background-color: rgba(4, 167, 119, 0.7);
 }
 
+.blue-green a {
+    color: #fff;
+}
+
+.blue-green .icon {
+    fill: #fff;
+}
+
 /*********** ORANGE/YELLOW ***************/
 .orange-yellow .main-background-overlay{
     background-color: rgba(234, 80, 21, 0.67);
+    color: #fff;
 }
 
 .orange-yellow .main-background--solid{
     background-color: rgba(234, 80, 21, 1);
+    color: #fff;
 }
 
 .orange-yellow li:before, .orange-yellow .li {
@@ -119,27 +163,40 @@ html {
 
 .orange-yellow .secondary-background--overlay {
     background-color: rgba(255, 188, 10, 0.67);
+    color: #6d3131;
 }
 
 .orange-yellow .secondary-background--light-overlay {
     background-color: rgba(255, 188, 10, 0.2);
+    color: #6d3131;
 }
 
 .orange-yellow .secondary-background--solid {
     background-color: rgba(255, 188, 10, 1);
+    color: #6d3131;
 }
 
 .orange-yellow input:checked + label{
     background-color: rgba(255, 188, 10, 0.7);
 }
 
+.orange-yellow a {
+    color: #fff;
+}
+
+.orange-yellow .icon {
+    fill: #fff;
+}
+
 /*********** PINK/BLUE ***************/
 .pink-blue .main-background-overlay{
     background-color: rgba(247, 63, 142, 0.67);
+    color: #fff;
 }
 
 .pink-blue .main-background--solid{
     background-color: rgba(247, 63, 142, 1);
+    color: #fff;
 }
 
 .pink-blue li:before, .pink-blue .li {
@@ -148,19 +205,32 @@ html {
 
 .pink-blue .secondary-background--overlay {
     background-color: rgba(0, 98, 164, 0.67);
+    color: #fff;
 }
 
 .pink-blue .secondary-background--light-overlay {
     background-color: rgba(0, 98, 164, 0.2);
+    color: #fff;
 }
 
 .pink-blue .secondary-background--solid {
     background-color: rgba(0, 98, 164, 1);
+    color: #fff;
 }
 
 .pink-blue input:checked + label{
     background-color: rgba(0, 98, 164, 0.7);
 }
+
+.pink-blue a {
+    color: #fff;
+}
+
+.pink-blue .icon {
+    fill: #fff;
+}
+
+/*************************************/
 
 .grey-font{
     color: #4f4f4f;
@@ -245,11 +315,11 @@ label:hover {
 }
 
 .turquoise {
-    background-color: rgba(18, 192, 191, 0.67);
+    background-color: rgb(16, 165, 165);
 }
 
 .purple {
-    background-color: rgba(165, 84, 236, 1);
+    background-color: rgb(159, 73, 235);
 }
 .orangeYellow{
     background-color: #EA5015;
