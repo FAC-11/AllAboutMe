@@ -2,15 +2,15 @@
 
 <div class="background-image cover aspect-ratio--object">
   <div class="main-background-overlay cover aspect-ratio--object ">
-    <section class="white mt6 mw6 center">
+    <section class="mt6 mw6 center">
       {{> messages }}
       <form action="/reset" method="POST">
         <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="password" name="password" type="password" placeholder="Password" required>
         <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password"  required>
 
-        <button class="white secondary-background--overlay w-100 h3 pa1 bn mb2" type="submit" name="submit"> Submit </button>
+        <button class="secondary-background--overlay w-100 h3 pa1 bn mb2" type="submit" name="submit"> Submit </button>
       </form>
-        <p class="white tc"> Or <a class="no-underline" href="/signup">sign up!</a></p>
+        <p class="tc">Or <a href="/signup">sign up!</a></p>
     </section>
   </div>
 </div>
