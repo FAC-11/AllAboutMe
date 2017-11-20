@@ -9,10 +9,12 @@
     <ol class="pa0">
       <li class="f5 black-60 db mb2 tracked pt3 pb3"><span class='li mr2 w2'>&rarr;</span> What are some things you like? (including hobbies and interests)?
         <br>
-        <button class="js-text-button dual__button bn secondary-background--solid">Write</button>
-        <button class="js-drawing-button dual__button bn secondary-background--solid">Draw</button>
-        <div class="dual-input">
-            <textarea class="text-input js-text-input mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="likes" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your hobbies'>{{data.likes}}</textarea>
+        <div class="dual-input mt3">
+        <div class="tabs">
+        <button class="js-text-button dual__button bn pa2 tab active-tab secondary-background--overlay">Write</button>
+        <button class="js-drawing-button dual__button bn pa2 secondary-background--solid tab">Draw</button>
+        </div>
+            <textarea class="text-input input js-text-input w-100 vh-5 h4" type="text" name="likes" rows="8" cols="80" placeholder="Write here please" aria-label='please let us know your hobbies'>{{data.likes}}</textarea>
             {{>draw}}
         </div>
       </li>
