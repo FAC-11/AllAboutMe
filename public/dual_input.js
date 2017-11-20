@@ -1,9 +1,4 @@
 (function() {
-  var textButton = document.getElementsByClassName('js-text-button')[0];
-  var textInput = document.getElementsByClassName('js-text-input')[0];
-  var drawingButton = document.getElementsByClassName('js-drawing-button')[0];
-  var drawingInput = document.getElementsByClassName('js-drawing-input')[0];
-
   ['text', 'drawing'].forEach(function(mode) {
     var button = document.getElementsByClassName('js-' + mode + '-button')[0];
     button.addEventListener('click', function(e) {
