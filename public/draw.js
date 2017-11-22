@@ -8,27 +8,25 @@
   fabric.Object.prototype.transparentCorners = false;
 
   // make canvas responsive
-  function resizeCanvas(originalSize) {
-    var container = $('drawing-container');
+  function resizeCanvas(containerId, originalSize) {
+    var container = $(containerId);
     function getScaleFactor(originalSize) {
-      var container = $('drawing-container');
       var factor = 1;
       var availableWidth = container.offsetWidth;
       var availableHeight = container.clientHeight;
       var canvasWidth = originalSize.width;
       var canvasHeight = originalSize.height;
-      console.log('width: ', canvasWidth, availableWidth);
-      console.log('height: ', canvasHeight, availableHeight);
       if (availableHeight > 0 && availableWidth > 0 && canvasHeight > 0 && canvasWidth > 0) {
           factor = Math.min(availableWidth/canvasWidth, availableHeight/canvasHeight);
       }
       return factor;
     }
-    canvas.setZoom(getScaleFactor(originalSize));
+    if (originalSize) {
+      canvas.setZoom(getScaleFactor(originalSize));
+    }
     canvas.setWidth(container.offsetWidth);
     canvas.setHeight(container.clientHeight);
   }
-
 
     var drawingOptionsEl = $('drawing-mode-options'),
     drawingColorEl = $('drawing-color'),
@@ -37,22 +35,24 @@
     saveEl = $('save-canvas');
 
   // Retreive drawing from server
-  function getDrawing(fieldName) {
+  function getDrawing(containerId, fieldName) {
     var xhr = new XMLHttpRequest();
     var url = '/drawing';
     xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
+      if (xhr.readyState === 4 && xhr.status === 200 && xhr.response) {
         var savedImage = JSON.parse(xhr.response);
         var svg = savedImage.svg;
         fabric.loadSVGFromString(svg, function(objects, options) {
           var obj = fabric.util.groupSVGElements(objects, options);
           var originalSize = { width: savedImage.width, height: savedImage.height };
-          resizeCanvas(originalSize);
+          resizeCanvas(containerId, originalSize);
           canvas.add(obj).renderAll();
           window.addEventListener('resize', function() {
-            resizeCanvas(originalSize);
+            resizeCanvas(containerId, originalSize);
           }, true);
         });
+      } else {
+        resizeCanvas(containerId);
       }
     };
     xhr.open('GET', url, true);
@@ -112,7 +112,7 @@
 
       input.classList.remove('dn');
       otherInput.classList.add('dn');
-      getDrawing('likes_svg');
+      getDrawing('drawing-container', 'likes_svg');
 
       e.target.classList.add('secondary-background--overlay', 'active-tab');
       e.target.classList.remove('secondary-background--solid');
