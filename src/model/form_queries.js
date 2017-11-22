@@ -66,7 +66,8 @@ const saveDrawing = (userId, fieldName, data) => {
 const getDrawing = (userId, fieldName) => {
   const query = `SELECT ${fieldName} FROM forms WHERE user_id = $1`;
   return dbConnection.oneOrNone(query, [userId])
-    .then(svgObj => svgObj[fieldName]);
+    .then(svgObj => svgObj[fieldName])
+    .catch(console.log);
 };
 
 module.exports = {
