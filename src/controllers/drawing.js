@@ -4,7 +4,7 @@ const {
 } = require('../model/form_queries');
 
 exports.post = (req, res) => {
-  saveDrawing(req.session.id, req.body.fieldName, req.body.svg)
+  saveDrawing(req.session.id, req.body.fieldName, req.body)
     .then(() => {
       console.log('saved');
     })
@@ -15,9 +15,9 @@ exports.post = (req, res) => {
 
 exports.get = (req, res) => {
   getDrawing(req.session.id, 'likes_svg')
-    .then((svg) => {
+    .then((svgObj) => {
       res.setHeader('Content-Type', 'application/json');
-      res.send(svg);
+      res.send(svgObj);
     })
     .catch(console.log);
 };
