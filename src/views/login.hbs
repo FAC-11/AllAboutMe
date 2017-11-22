@@ -7,8 +7,8 @@
     <section class="center mw6">
       <form action="/login" method="POST">
          {{> messages }}
-        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 pl2" id="email" aria-label="email" type="email" placeholder="email" name="email"{{#if userData}}value={{userData.email}}{{/if}} required>
-        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 pl2" id="password" aria-label="password" name="password" type="password" placeholder="password" required>
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 pl2" id="email" aria-label="email" type="email" placeholder="Email" name="email"{{#if userData}}value={{userData.email}}{{/if}} required>
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb3 pl2" id="password" aria-label="password" name="password" type="password" placeholder="Password" required>
        <a href="/home"><button class="secondary-background--overlay w-100 h3 pa1 bn mb2" type="submit" name="submit"> Login </button></a>
       </form>
     </section>
