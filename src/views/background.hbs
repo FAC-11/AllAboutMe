@@ -4,20 +4,21 @@
 <section class="mb6">
 {{> messages }}
   <form class="margin-0-auto w-90 w-60-ns w-80-m mw7" action="/background" method="post">
-  <ol class="pa0">
-    <li class="f5 black-60 db mb2 tracked pt3 pb3"><span class='li mr2 w2'>&rarr;</span>
-      <div class="flex items-center justify-between h1 pa4">
-      Are there any significant life events that you feel may have contributed to your current difficulties? (eg bereavement, family break ups, trauma, bullying, criminal activity)
 
-        <button id ="arrowbutton" class='bn secondary-background--solid white ma2 h2 w3 br3 pa3' type="button" name="uparrow" class="uparrow">
+        <ol class="pa0">
+          <li class="f5 black-60 db mb2 tracked pt3 pb3"><span class='li mr2 w2'>&rarr;</span>
+      Are there any significant life events that you feel may have contributed to your current difficulties? (eg bereavement, family break ups, trauma, bullying, criminal activity)
+        </li>
+      </ol>
+      <div class="tc">
+        <button id ="arrowbutton" class='bn secondary-background--solid h2 w2 white br3' type="button" name="arrowbutton" class="arrowbutton">
         <img id = "upbutton" class="h1 w1 db center mt3" src="/img/uparrow.png" alt="uparrow">
         <img id = "downbutton" class="h1 w1 db center mt3 clip" src="/img/downarrow.png" alt="downarrow">
         </button>
       </div>
       <br>
       <textarea id = "backgroundtext" class="mt3 w-100 vh-5 ba b--black-30 br3 h4" name="background" placeholder="Please write your answer here" aria-label="significant life events that you feel may have contributed to your current difficulties">{{data.background}}</textarea>
-    </li>
-  </ol>
+
    {{> formnav}}
 </form>
 </section>
