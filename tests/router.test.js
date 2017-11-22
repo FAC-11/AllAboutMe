@@ -303,18 +303,17 @@ test('Signup route when signup is NOT successful -passwords dont match', t => {
       t.end();
     });
 });
-test('Restricted routes should respond with 401 when signed out', t => {
+test('Restricted routes should redirect to login when signed out', t => {
   const routes = ['/home', '/info_page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish'];
-  t.plan(30);
+  t.plan(routes.length * 2);
   routes.forEach( (route) => {
     request(app)
       .get(route)
-      .expect(401)
-      .expect('Content-Type', /text\/html/)
+      .expect(302)
+      .expect('Content-Type', 'text/plain; charset=utf-8')
       .end((err, res) => {
-        t.equal(res.statusCode, 401, `${route} should respond with a 401 status code when not logged in`);
+        t.equal(res.statusCode, 302, `${route} should redirect to login with status code 302`);
         t.error(err, 'No error');
-        t.ok(res.text.includes('Login'), `${route} route redirects to login page, containing \'Login\' text`);
      });
   });
 });
