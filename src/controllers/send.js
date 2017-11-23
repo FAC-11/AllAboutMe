@@ -1,10 +1,22 @@
 const sendemail = require('sendemail');
 const env = require('env2')('config.env');
+const path = require('path');
+const fs = require('fs');
 
 const email = sendemail.email;
 sendemail.set_template_directory('src/email_templates');
 const { getForm } = require('../model/form_queries');
 const { validateSendEmail } = require('./helpers/validate');
+
+const PDFDocument = require('pdfkit');
+
+
+const generateText = (answers) => {
+  return `
+    Things you like: ${answers.likes}\n 
+    Things you dislike: ${answers.dislikes}
+  `;
+};
 
 exports.get = (req, res) => {
   res.render('send', {
@@ -24,6 +36,14 @@ exports.post = (req, res) => {
     res.redirect('send');
   } else {
     getForm(req.session.id).then((data) => {
+      const doc = new PDFDocument();
+      const filePath = path.join(__dirname, '..', '..', 'assets', `form-${req.session.id}.pdf`);
+      doc.pipe(fs.createWriteStream(filePath));
+      console.log(JSON.parse(data.likes_svg).svg);
+      doc.text(generateText(data), 100, 100);
+      doc.image(JSON.parse(data.likes_svg).jpg, { width: 300 });
+      doc.end();
+      data.likes_svg = JSON.parse(data.likes_svg).svg;
       const context = Object.assign(data, { name: req.session.user });
       const options = {
         templateName: 'hello',
@@ -40,15 +60,16 @@ exports.post = (req, res) => {
       }
       return options;
     }).catch((error) => {
+      console.log(error);
       res.status(500).render('error', {
         layout: 'error',
         statusCode: 500,
         errorMessage: 'Internal server error'
       });
     }).then((options) => {
-      sendemail.sendMany(options, (error, result) => {
-        res.redirect('finish');
-      });
+      //sendemail.sendMany(options, (error, result) => {
+        //res.redirect('finish');
+      //});
     });
   }
 };

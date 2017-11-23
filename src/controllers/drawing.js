@@ -6,7 +6,7 @@ const {
 exports.post = (req, res) => {
   saveDrawing(req.session.id, req.body.fieldName, req.body)
     .then(() => {
-      console.log('saved');
+        console.log('saved');
     })
     .catch((err) => {
       console.log(err);

@@ -1,7 +1,6 @@
 (function() {
   var dualInputs = document.getElementsByClassName('js-dual-input');
   Array.from(dualInputs).forEach(function(dualInput, index) {
-    console.log(dualInput);
     var $ = function(className){return dualInput.getElementsByClassName(className)[0]};
     var canvasEl = dualInput.getElementsByTagName('canvas')[0];
     var canvasId = 'c' + index;
@@ -14,6 +13,7 @@
     var question = dualInput.id;
 
     fabric.Object.prototype.transparentCorners = false;
+    canvas.setBackgroundColor('#fff');
 
       // make canvas responsive
       function resizeCanvas(containerId, originalSize) {
@@ -44,7 +44,6 @@
 
       // Retreive drawing from server
       function getDrawing(containerId, fieldName) {
-      console.log(canvas);
         var xhr = new XMLHttpRequest();
         var url = '/drawing';
         xhr.onreadystatechange = function() {
@@ -74,11 +73,11 @@
         canvas.setZoom(1);
         var xhr = new XMLHttpRequest();
         var url = '/drawing';
-        console.log(question);
         var params = {
           width: canvas.width,
           height: canvas.height,
           svg: canvas.toSVG(),
+          jpg: canvas.toDataURL({ format: 'jpeg' }),
           fieldName: question + '_svg',
         };
         xhr.onreadystatechange = function() {
