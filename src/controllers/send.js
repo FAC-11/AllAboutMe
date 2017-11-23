@@ -26,7 +26,7 @@ exports.post = (req, res) => {
     getForm(req.session.id).then((data) => {
       const context = Object.assign(data, { name: req.session.user });
       const options = {
-        templateName: 'Hello',
+        templateName: 'hello',
         subject: 'All about me questionnaire',
         toAddresses: [req.body.email],
         htmlCharset: 'utf16',
