@@ -9,6 +9,7 @@ const fields = {
     'uncomfortable',
     'safe',
     'likes_svg',
+    'dislikes_svg',
   ],
   appointments: [
     'gender_preference',

@@ -14,7 +14,7 @@ exports.post = (req, res) => {
 };
 
 exports.get = (req, res) => {
-  getDrawing(req.session.id, 'likes_svg')
+  getDrawing(req.session.id, req.query.question + '_svg')
     .then((svgObj) => {
       res.setHeader('Content-Type', 'application/json');
       res.send(svgObj);

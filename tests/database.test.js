@@ -88,6 +88,7 @@ test('Get section from database', (t) => {
     uncomfortable: 'uncertainty',
     safe: 'bathing in jam',
     likes_svg: JSON.stringify(escapedSvg),
+    dislikes_svg: null,
   };
 
   const expectedAppointment = {
@@ -149,6 +150,7 @@ test('Save section into database', (t) => {
     uncomfortable: 'uncertainty',
     safe: 'bathing in jam',
     likes_svg: null,
+    dislikes_svg: null,
   };
 
   const inputAppointment = {
@@ -243,6 +245,7 @@ test('Get form from database', (t) => {
     keep_well: 'running',
     background: 'i went for a walk when i was born',
     likes_svg: JSON.stringify(escapedSvg),
+    dislikes_svg: null,
   };
 
   dbReset()
