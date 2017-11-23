@@ -15,3 +15,8 @@
     border-radius: 0.5em;
     border-top-left-radius: 0;
 }
+
+.dual-input svg, .dual-input button, .dual-input {
+    fill: #4f4f4f;
+    color: #4f4f4f;
+}
