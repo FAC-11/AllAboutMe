@@ -126,6 +126,7 @@ test('GET authenticated routes', (t) => {
     'colour_scheme',
     'send',
     'finish',
+    'additional_info',
   ];
   t.plan(authenticatedPages.length*4);
   // First login to get cookie
@@ -158,6 +159,7 @@ test('POST authenticated routes (form sections)', (t) => {
     'appointments',
     'background',
     'symptoms',
+    'additional_info',
   ];
   t.plan(authenticatedPages.length*3);
   // First login to get cookie
@@ -188,6 +190,7 @@ test('POST LOGOUT authenticated routes (form sections)', (t) => {
     'appointments',
     'background',
     'symptoms',
+    'additional_info',
   ];
   t.plan(authenticatedPages.length * 4);
   // First login to get cookie
