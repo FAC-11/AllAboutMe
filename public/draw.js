@@ -76,9 +76,9 @@
         var params = {
           width: canvas.width,
           height: canvas.height,
-          //svg: canvas.toSVG(),
+          svg: canvas.toSVG(),
           //jpg: canvas.toDataURL({ format: 'jpeg' }),
-          //fieldName: question + '_svg',
+          fieldName: question + '_svg',
         };
         xhr.onreadystatechange = function() {
           console.log(xhr.readyState, xhr.status);
