@@ -82,7 +82,7 @@
         };
         xhr.onreadystatechange = function() {
           if (xhr.readyState === 4 && xhr.status === 200) {
-
+            console.log('saved image');
           }
         };
         xhr.open('POST', url, true);
