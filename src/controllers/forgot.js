@@ -1,12 +1,8 @@
 const { URL } = require('url');
 const { getUser } = require('../model/user_queries');
 const redis = require('redis');
-const sendemail = require('sendemail');
 const { generateToken } = require('./helpers/generate_token');
 require('env2')('config.env');
-
-const email = sendemail.email;
-sendemail.set_template_directory('src/email_templates');
 
 exports.get = (req, res) => {
   res.render('forgot', {
