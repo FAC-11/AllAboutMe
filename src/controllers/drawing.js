@@ -4,7 +4,6 @@ const {
 } = require('../model/form_queries');
 
 exports.post = (req, res) => {
-  res.send('this is response:' + JSON.stringify(req.body));
   saveDrawing(req.session.id, req.body.fieldName, req.body)
     .then(() => {
       console.log('saved');
