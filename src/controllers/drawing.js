@@ -7,7 +7,6 @@ exports.post = (req, res) => {
   saveDrawing(req.session.id, req.body.fieldName, req.body)
     .then(() => {
       console.log('saved');
-      res.setHeader('Content-Length', '0');
       res.end();
     })
     .catch((err) => {
