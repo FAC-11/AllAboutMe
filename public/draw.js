@@ -81,12 +81,15 @@
           fieldName: question + '_svg',
         };
         xhr.onreadystatechange = function() {
+          console.log(xhr.readyState, xhr.status);
           if (xhr.readyState === 4 && xhr.status === 200) {
-
+            console.log(xhr.readyState, xhr.status);
+            console.log('saved image: ', xhr.responseText);
           }
         };
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
+        console.log(JSON.stringify(params).length);
         xhr.send(JSON.stringify(params));
       });
 
