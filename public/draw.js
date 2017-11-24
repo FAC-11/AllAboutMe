@@ -77,7 +77,6 @@
           width: canvas.width,
           height: canvas.height,
           svg: canvas.toSVG(),
-          jpg: canvas.toDataURL({ format: 'jpeg' }),
           fieldName: question + '_svg',
         };
         xhr.onreadystatechange = function() {
@@ -89,7 +88,6 @@
         };
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
-        console.log('befrore request', JSON.stringify(params));
         xhr.send(JSON.stringify(params));
       });
 
