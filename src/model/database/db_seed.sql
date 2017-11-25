@@ -37,7 +37,8 @@ BEGIN;
         telephone varchar(100),
         contact_preference varchar(100),
         concerns TEXT,
-        hope TEXT
+        hope TEXT,
+        additional_info TEXT
     );
 
 
@@ -69,7 +70,8 @@ BEGIN;
         '',
         '091290382904',
         null,
-        '{text,email}'
+        '{text,email}',
+        null
     );
 
 COMMIT;

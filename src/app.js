@@ -5,7 +5,7 @@ const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const favicon = require('serve-favicon');
 const controllers = require('./controllers/index');
-const requireLogin = require('./controllers/requireLogin');
+const requireLogin = require('./controllers/require_login');
 
 const bodyParser = require('body-parser');
 require('env2')('config.env');
@@ -45,6 +45,7 @@ app.use('/colour_scheme', requireLogin);
 app.use('/send', requireLogin);
 app.use('/progress', requireLogin);
 app.use('/finish', requireLogin);
+app.use('/additional_info', requireLogin);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
