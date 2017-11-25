@@ -108,11 +108,13 @@
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span><label for="appointments__concerns">Do you have any concerns about moving to a different service and if so, what are they?</label>
+        {{> hide_button}}
         <br>
         <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="concerns" rows="8" cols="80" placeholder="Write here please" id="appointments__concerns">{{data.concerns}}</textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"> <span class='li mr2'>&rarr;</span><label for="appointments__hope">I hope that when I leave I am...</label>
+        {{> hide_button}}
         <br>
         <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="hope" rows="8" cols="80" placeholder="Write here please" id="appointments__hope">{{data.hope}}</textarea>
       </li>
