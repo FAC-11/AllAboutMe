@@ -1,7 +1,8 @@
-document.getElementById('arrowbutton').addEventListener('click', function(){
-  document.getElementById("textarea").classList.toggle("clip");
+document.querySelectorAll('.hide-button').forEach( div => div.addEventListener('click', () => toggleClip(div)));
 
-
-  document.getElementById("upbutton").classList.toggle("clip");
-  document.getElementById("downbutton").classList.toggle("clip");
-})
+function toggleClip(div){
+  const textareadiv = div.parentElement.querySelector('.hide-button ~ textarea');
+  textareadiv.classList.toggle("clip");
+  div.querySelector('button > #upbutton').classList.toggle("clip");
+  div.querySelector('button > #downbutton').classList.toggle("clip");
+}
