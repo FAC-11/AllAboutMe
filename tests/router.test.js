@@ -184,6 +184,27 @@ test('POST authenticated routes (form sections)', (t) => {
       });
     });
 });
+test('POST send page with invalid email', (t) => {
+  request(app)
+    .post('/login')
+    .type('form')
+    .send({ email: 'jam@gmail.com', password: 'password' })
+    .end((getCookieErr, loginRes) => {
+      const cookies = loginRes.headers['set-cookie'];
+      request(app)
+        .post('/send')
+        .set('Cookie', cookies)
+        .send({ email: 'gmail.com'})
+        .expect(302)
+        .end((err, res) => {
+          t.equal(res.statusCode, 302, 'Send page responds with 302 (redirects)');
+          t.ok(res.redirect, 'send page redirects for invalid email');
+          t.equal(res.headers['location'], 'send', 'should redirect to send page for invalid email')
+          t.error(err, 'No error');
+          t.end();
+        });
+    });
+});
 test('POST LOGOUT authenticated routes (form sections)', (t) => {
   const authenticatedPages = [
     'about',
