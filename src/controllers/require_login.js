@@ -1,5 +1,5 @@
 const requireLogin = (req, res, next) => {
-  const authroutes = ['/home', '/info-page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish', '/additional_info'];
+  const authroutes = ['/home', '/info_page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish', '/additional_info'];
 
   if (authroutes.indexOf(req.url) !== -1 && !req.session.id) {
     // redirects user to login page
