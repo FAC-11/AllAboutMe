@@ -152,7 +152,6 @@ test('GET authenticated routes', (t) => {
       });
     });
 });
-
 test('POST authenticated routes (form sections)', (t) => {
   const authenticatedPages = [
     'about',
