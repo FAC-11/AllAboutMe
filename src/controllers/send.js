@@ -1,21 +1,11 @@
+const fs = require('fs');
 const nodemailer = require('nodemailer');
 const PDFDocument = require('pdfkit');
 require('env2')('config.env');
 
 const { getForm } = require('../model/form_queries');
 const { validateSendEmail } = require('./helpers/validate');
-
-const generatePdf = (doc, formData) => {
-  Object.keys(formData).forEach((field) => {
-    doc.text(`${field}: `);
-    if (field.includes('_svg') && formData[field]) {
-      const dataUri = JSON.parse(formData[field]).jpg;
-      doc.image(dataUri, { width: 300 });
-    } else {
-      doc.text(formData[field]);
-    }
-  });
-};
+const { populatePdf } = require('./helpers/send');
 
 exports.get = (req, res) => {
   res.render('send', {
@@ -63,17 +53,18 @@ exports.post = (req, res) => {
             },
           ],
         };
-        transporter.sendMail(message, (err, info) => {
-          if (err) {
-            console.log('transporter', err);
-          } else {
-            console.log(info);
-            res.redirect('finish');
-          }
-        });
+        fs.writeFile(__dirname + '/test.pdf', pdfData);
+        //transporter.sendMail(message, (err, info) => {
+          //if (err) {
+            //console.log('transporter', err);
+          //} else {
+            //console.log(info);
+            //res.redirect('finish');
+          //}
+        //});
         // end nodemailer
       });
-      generatePdf(doc, data);
+      populatePdf(doc, data);
       doc.end();
       // end pdfkit
     }).catch((error) => {
