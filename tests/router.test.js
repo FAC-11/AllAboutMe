@@ -122,7 +122,7 @@ test('GET authenticated routes', (t) => {
     'appointments',
     'background',
     'progress',
-    'info-page',
+    'info_page',
     'colour_scheme',
     'send',
     'finish',
@@ -248,7 +248,7 @@ test('POST LOGOUT authenticated routes', (t) => {
   const authenticatedPages = [
     'home',
     'progress',
-    'info-page',
+    'info_page',
     'colour_scheme',
     'send',
     'finish',
@@ -302,12 +302,12 @@ test('Signup route when signup is successful', t => {
     .post('/signup')
     .type('form')
     .send({'name': 'tom cruise', 'email': 'cruise@gmail.com', 'password': 'topguntopgun', 'confirmPassword': 'topguntopgun' })
-    .expect('Found. Redirecting to info-page')
+    .expect('Found. Redirecting to info_page')
     .expect(302)
     .expect('Content-Type', 'text/plain; charset=utf-8')
     .end((err, res) => {
       t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
-      t.equal(res.header['location'], '/info-page', 'Should redirect to info-page page if successfully logged in');
+      t.equal(res.header['location'], '/info_page', 'Should redirect to info_page page if successfully logged in');
       t.end();
     });
 });

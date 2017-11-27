@@ -22,12 +22,13 @@ const logout = require('./logout');
 const forgot = require('./forgot');
 const reset = require('./reset');
 const additional_info = require('./additional_info');
+const requireLogin = require('./require_login');
 
 router.get('/', login.get);
 router.get('/signup', signup.get);
 router.get('/home', home.get);
 router.get('/colour_scheme', colour_scheme.get);
-router.get('/info-page', info_page.get);
+router.get('/info_page', info_page.get);
 router.get('/progress', progress.get);
 router.get('/appointments', appointments.get);
 router.get('/symptoms', symptoms.get);

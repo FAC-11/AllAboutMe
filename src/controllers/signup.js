@@ -33,7 +33,7 @@ exports.post = (req, res) => {
             .then((id) => {
               req.session.user = userData.name;
               req.session.id = id;
-              res.redirect('/info-page');
+              res.redirect('/info_page');
             })
             .catch((err) => {
               console.log(err);
