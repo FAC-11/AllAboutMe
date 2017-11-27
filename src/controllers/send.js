@@ -7,12 +7,21 @@ require('env2')('config.env');
 const { getForm } = require('../model/form_queries');
 const { validateSendEmail } = require('./helpers/validate');
 
-const generateText = (answers) => {
-  return `
-    Things you like: ${answers.likes}\n 
-    Things you dislike: ${answers.dislikes}
-  `;
+const generatePdf = (filePath, formData) => {
+  const doc = new PDFDocument();
+  doc.pipe(fs.createWriteStream(filePath));
+
+  Object.keys(formData).forEach((field) => {
+    doc.text(`${field}: `);
+    if (field.includes('_svg')) {
+      doc.image(JSON.parse(formData[field]).jpg, { width: 300 });
+    } else {
+      doc.text(formData[field]);
+    }
+  });
+  doc.end();
 };
+
 
 exports.get = (req, res) => {
   res.render('send', {
@@ -32,13 +41,9 @@ exports.post = (req, res) => {
     res.redirect('send');
   } else {
     getForm(req.session.id).then((data) => {
-      const doc = new PDFDocument();
-      const filePath = path.join(__dirname, '..', '..', 'assets', `form-${req.session.id}.pdf`);
-      data.likes_svg = JSON.parse(data.likes_svg).svg;
-      doc.pipe(fs.createWriteStream(filePath));
-      doc.text(generateText(data), 100, 100);
-      doc.image(JSON.parse(data.likes_svg).jpg, { width: 300 });
-      doc.end();
+      const fileName = `form-${req.session.id}.pdf`;
+      const filePath = path.join(__dirname, '..', '..', 'assets');
+      generatePdf(path.join(filePath, fileName), data);
       //nodemailer
       let smtpConfig = {
         host: process.env.MAILGUN_SMTP_SERVER,
@@ -51,12 +56,18 @@ exports.post = (req, res) => {
       let message = {
         from: process.env.FROM_EMAIL,
         to: req.body.email,
-        subject: 'test',
-        text: 'do i send',
+        subject: 'Form submission',
+        text: `Answers from ${req.session.user}`,
+        attachments: [
+          {
+            filename: fileName,
+            path: path.join(filePath, fileName),
+          },
+        ],
       };
       transporter.sendMail(message, (err, info) => {
         if (err) {
-          console.log(err);
+          console.log('transporter', err);
         } else {
           console.log(info);
           res.redirect('finish');
@@ -64,7 +75,7 @@ exports.post = (req, res) => {
       });
       //end nodemailer
     }).catch((error) => {
-      console.log(error);
+      console.log('general', error);
       res.status(500).render('error', {
         layout: 'error',
         statusCode: 500,
