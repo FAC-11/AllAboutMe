@@ -1,5 +1,3 @@
-const path = require('path');
-const fs = require('fs');
 const nodemailer = require('nodemailer');
 const PDFDocument = require('pdfkit');
 require('env2')('config.env');
@@ -7,10 +5,7 @@ require('env2')('config.env');
 const { getForm } = require('../model/form_queries');
 const { validateSendEmail } = require('./helpers/validate');
 
-const generatePdf = (filePath, formData) => {
-  const doc = new PDFDocument();
-  doc.pipe(fs.createWriteStream(filePath));
-
+const generatePdf = (doc, formData) => {
   Object.keys(formData).forEach((field) => {
     doc.text(`${field}: `);
     if (field.includes('_svg') && formData[field]) {
@@ -20,9 +15,7 @@ const generatePdf = (filePath, formData) => {
       doc.text(formData[field]);
     }
   });
-  doc.end();
 };
-
 
 exports.get = (req, res) => {
   res.render('send', {
@@ -42,39 +35,47 @@ exports.post = (req, res) => {
     res.redirect('send');
   } else {
     getForm(req.session.id).then((data) => {
-      const fileName = `form-${req.session.id}.pdf`;
-      const filePath = path.join(__dirname, '..', '..', 'assets');
-      generatePdf(path.join(filePath, fileName), data);
-      //nodemailer
-      let smtpConfig = {
-        host: process.env.MAILGUN_SMTP_SERVER,
-        auth: {
-          user: process.env.MAILGUN_SMTP_LOGIN,
-          pass: process.env.MAILGUN_SMTP_PASSWORD,
-        },
-      };
-      let transporter = nodemailer.createTransport(smtpConfig);
-      let message = {
-        from: process.env.FROM_EMAIL,
-        to: req.body.email,
-        subject: 'Form submission',
-        text: `Answers from ${req.session.user}`,
-        attachments: [
-          {
-            filename: fileName,
-            path: path.join(filePath, fileName),
+      const fileName = `form-${req.session.user}.pdf`;
+      // pdfkit
+      const doc = new PDFDocument();
+      let buffers = [];
+      doc.on('data', buffers.push.bind(buffers));
+      doc.on('end', () => {
+        const pdfData = Buffer.concat(buffers);
+        // nodemailer
+        const smtpConfig = {
+          host: process.env.MAILGUN_SMTP_SERVER,
+          auth: {
+            user: process.env.MAILGUN_SMTP_LOGIN,
+            pass: process.env.MAILGUN_SMTP_PASSWORD,
           },
-        ],
-      };
-      transporter.sendMail(message, (err, info) => {
-        if (err) {
-          console.log('transporter', err);
-        } else {
-          console.log(info);
-          res.redirect('finish');
-        }
+        };
+        const transporter = nodemailer.createTransport(smtpConfig);
+        const message = {
+          from: process.env.FROM_EMAIL,
+          to: req.body.email,
+          subject: 'Form submission',
+          text: `Answers from ${req.session.user}`,
+          attachments: [
+            {
+              filename: fileName,
+              content: pdfData,
+            },
+          ],
+        };
+        transporter.sendMail(message, (err, info) => {
+          if (err) {
+            console.log('transporter', err);
+          } else {
+            console.log(info);
+            res.redirect('finish');
+          }
+        });
+        // end nodemailer
       });
-      //end nodemailer
+      generatePdf(doc, data);
+      doc.end();
+      // end pdfkit
     }).catch((error) => {
       console.log('general', error);
       res.status(500).render('error', {
