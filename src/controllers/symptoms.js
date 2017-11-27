@@ -19,6 +19,18 @@ exports.get = (req, res) => {
         data,
         checked,
       });
+    })
+    .catch((err) => {
+      console.log(err);
+      req.flash('error', 'Sorry - we couldn\'t load your saved answers for this section');
+      res.render('symptoms', {
+        activePage: { symptoms: true },
+        logoutButton: true,
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
+        pageTitle: 'Symptoms & Difficulties',
+        progressPercentage: '25',
+      });
     });
 };
 
