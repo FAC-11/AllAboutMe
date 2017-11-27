@@ -1,4 +1,4 @@
-const { comparePasswords } = require('./helpers/passwordModule');
+const { comparePasswords } = require('./helpers/password_module');
 const { getUser } = require('../model/user_queries');
 
 exports.get = (req, res) => {

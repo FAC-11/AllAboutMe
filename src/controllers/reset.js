@@ -1,8 +1,8 @@
 const redis = require('redis');
-const {URL} = require('url');
-const {validatePasswordUpdate} = require('./helpers/validate');
-const {hashPassword} = require('./helpers/passwordModule');
-const {updatePassword} = require('../model/user_queries');
+const { URL } = require('url');
+const { validatePasswordUpdate } = require('./helpers/validate');
+const { hashPassword } = require('./helpers/password_module');
+const { updatePassword } = require('../model/user_queries');
 
 exports.get = (req, res) => {
   const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';
