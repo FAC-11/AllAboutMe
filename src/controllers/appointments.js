@@ -28,6 +28,18 @@ exports.get = (req, res) => {
         progressPercentage: '10',
         firstPage: true,
       });
+    })
+    .catch((err) => {
+      req.flash('error', 'Sorry - we couldn\'t load your saved answers for this section');
+      res.render('appointments', {
+        activePage: { appointments: true },
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
+        logoutButton: true,
+        pageTitle: 'Your appointment',
+        progressPercentage: '10',
+        firstPage: true,
+      });
     });
 };
 
