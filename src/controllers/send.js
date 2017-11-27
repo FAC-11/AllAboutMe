@@ -47,8 +47,12 @@ exports.post = (req, res) => {
       });
     }).then((options) => {
       sendemail.sendMany(options, (error, result) => {
-        res.redirect('finish');
-      });
+        if (error){
+          req.flash('error', 'Sorry - email hasn\t been sent, please retry');
+          res.redirect('send');
+       } else {
+          res.redirect('finish');
+        }});
     });
   }
 };
