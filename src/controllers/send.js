@@ -13,8 +13,9 @@ const generatePdf = (filePath, formData) => {
 
   Object.keys(formData).forEach((field) => {
     doc.text(`${field}: `);
-    if (field.includes('_svg')) {
-      doc.image(JSON.parse(formData[field]).jpg, { width: 300 });
+    if (field.includes('_svg') && formData[field]) {
+      const dataUri = JSON.parse(formData[field]).jpg;
+      doc.image(dataUri, { width: 300 });
     } else {
       doc.text(formData[field]);
     }
