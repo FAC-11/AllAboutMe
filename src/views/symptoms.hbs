@@ -8,7 +8,9 @@
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
         <label for="symptoms__diagnosis">Do you have a mental health diagnosis and if so what is it?</label>
+
       <div class='black-60 mb2'>
+        {{> hide_button}}
       <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="diagnosis_other" rows="8" cols="80" placeholder="Write here please" id="symptoms__diagnosis">{{data.diagnosis_other}}</textarea>
     </div>
     </li>
@@ -35,24 +37,28 @@
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
         <label for="symptoms__medication">Current medication (if any)</label>
+        {{> hide_button}}
       <br>
         <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="medication" rows="8" cols="80" placeholder="Write here please" id="symptoms__medication">{{data.medication}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
         <label for="symptoms__therapies">What therapies have you used?</label>
+        {{> hide_button}}
       <br>
         <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="therapies_other" rows="8" cols="80" placeholder="e.g. talking therapies, cognitive behavioural therapy, pyschotherapy..." id="symptoms__therapies">{{data.therapies_other}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
         <label for="symptoms__helpful">Did you find these therapies helpful? Why?</label>
+        {{> hide_button}}
       <br>
       <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="therapies_helpful" rows="8" cols="80" placeholder="Write here please" id="symptoms__helpful">{{data.therapies_helpful}}</textarea>
     </li>
 
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
         <label for="symptoms__well">What helps you to keep well? (e.g friends, support from family?)</label>
+        {{> hide_button}}
       <br>
       <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="keep_well" rows="8" cols="80" placeholder="Write here please" id="symptoms__well">{{data.keep_well}}</textarea>
     </li>

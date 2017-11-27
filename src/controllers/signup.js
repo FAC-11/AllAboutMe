@@ -1,4 +1,4 @@
-const { hashPassword } = require('./helpers/passwordModule');
+const { hashPassword } = require('./helpers/password_module');
 const { getUser, addUser } = require('../model/user_queries');
 const { validateSignUp } = require('./helpers/validate');
 
