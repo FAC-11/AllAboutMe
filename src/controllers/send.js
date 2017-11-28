@@ -41,7 +41,7 @@ exports.post = (req, res) => {
         };
         const transporter = nodemailer.createTransport(smtpConfig);
         const message = {
-          from: process.env.FROM_EMAIL,
+          from: `<${process.env.FROM_EMAIL}>`,
           to: req.body.email,
           subject: 'Form submission',
           text: `Answers from ${req.session.user}`,
