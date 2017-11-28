@@ -33,10 +33,11 @@ exports.post = (req, res) => {
         const pdfData = Buffer.concat(buffers);
         // nodemailer
         const smtpConfig = {
-          host: process.env.MAILGUN_SMTP_SERVER,
+          host: 'smtp.sendgrid.net',
+          port: 587,
           auth: {
-            user: process.env.MAILGUN_SMTP_LOGIN,
-            pass: process.env.MAILGUN_SMTP_PASSWORD,
+            user: process.env.SENDGRID_USERNAME,
+            pass: process.env.SENDGRID_PASSWORD,
           },
         };
         const transporter = nodemailer.createTransport(smtpConfig);
