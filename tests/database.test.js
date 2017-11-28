@@ -87,8 +87,6 @@ test('Get section from database', (t) => {
     weaknesses: 'nothing!',
     uncomfortable: 'uncertainty',
     safe: 'bathing in jam',
-    likes_svg: JSON.stringify(escapedSvg),
-    dislikes_svg: null,
   };
 
   const expectedAppointment = {
@@ -157,8 +155,6 @@ test('Save section into database', (t) => {
     weaknesses: 'nothing!',
     uncomfortable: 'uncertainty',
     safe: 'bathing in jam',
-    likes_svg: null,
-    dislikes_svg: null,
   };
 
   const inputAppointment = {
