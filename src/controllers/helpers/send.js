@@ -23,21 +23,22 @@ const questionText = {
   hope: 'I hope that when I leave I am...',
 };
 
-const populatePdf = (doc, formData) => {
+const populatePdf = (doc, formData, user) => {
+  doc.fontSize(16)
+    .text(`Form submission from ${user}`);
   doc.fontSize(14);
   Object.keys(formData).forEach((field) => {
+    const imageField = `${field}_svg`;
     if (questionText[field]) {
-        doc.font('Times-Italic')
+      doc.font('Times-Italic')
         .text(`${questionText[field]}`);
-      if (formData[`${field}_svg`] && formData[field]) {
-          doc.font('Times-Roman')
+      if (formData[field]) {
+        doc.font('Times-Roman')
           .text(formData[field]);
-        const dataUri = JSON.parse(formData[`${field}_svg`]).jpg;
+      }
+      if (formData[imageField]) {
+        const dataUri = JSON.parse(formData[imageField]).jpg;
         doc.image(dataUri, { width: 300 })
-          .text('\n');
-      } else if (formData[field]) {
-          doc.font('Times-Roman')
-          .text(formData[field])
           .text('\n');
       }
     }

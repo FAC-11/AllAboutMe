@@ -62,7 +62,7 @@ exports.post = (req, res) => {
         });
         // end nodemailer
       });
-      populatePdf(doc, data);
+      populatePdf(doc, data, req.session.user);
       doc.end();
       // end pdfkit
     }).catch((error) => {
