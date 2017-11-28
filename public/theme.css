@@ -13,6 +13,10 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    overflow-y: hidden;
+}
+
 .background-image{
     background-image: url("/img/mountain-background.jpg");
     background-repeat: no-repeat;
