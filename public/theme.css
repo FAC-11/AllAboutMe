@@ -27,6 +27,14 @@ a, button {
     font-weight: bold;
 }
 
+.sent-image {
+    fill: #fff;
+    width: 20%;
+    margin: 5em auto;
+    margin-bottom: 0;
+    display: block;
+}
+
 /*********** GREEN/PURPLE ***************/
 .green-purple .main-background-overlay{
     background-color: rgba(16, 165, 165, 0.67);
