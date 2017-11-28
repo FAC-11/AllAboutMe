@@ -17,10 +17,10 @@ html {
     background-image: url("/img/mountain-background.jpg");
     background-repeat: no-repeat;
     position: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: 200% auto;
+    -moz-background-size: 200% auto;
+    -o-background-size: 200% auto;
+    background-size: 200% auto;
 }
 
 a, button {
