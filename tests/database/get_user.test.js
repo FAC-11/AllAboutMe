@@ -1,7 +1,5 @@
 const test = require('tape');
 const dbReset = require('../../src/model/database/db_seed');
-const dbConnection = require('../../src/model/database/db_connection');
-
 const { getUser } = require('../../src/model/user_queries');
 
 test('Get user from database', (t) => {
