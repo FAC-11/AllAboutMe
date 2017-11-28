@@ -1,6 +1,6 @@
 const test = require('tape');
-const dbReset = require('../../src/model/database/db_seed');
-const { getUser } = require('../../src/model/user_queries');
+const dbReset = require('../../../src/model/database/db_seed');
+const { getUser } = require('../../../src/model/user_queries');
 
 test('Get user from database', (t) => {
   const expected = {

@@ -1,7 +1,7 @@
 const test = require('tape');
-const dbReset = require('../../src/model/database/db_seed');
-const { addUser } = require('../../src/model/user_queries');
-const { getSection, saveSection } = require('../../src/model/form_queries');
+const dbReset = require('../../../src/model/database/db_seed');
+const { addUser } = require('../../../src/model/user_queries');
+const { getSection, saveSection } = require('../../../src/model/form_queries');
 
 test('Save section into database', (t) => {
   const inputAbout = {

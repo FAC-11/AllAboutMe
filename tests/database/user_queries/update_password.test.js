@@ -1,6 +1,6 @@
 const test = require('tape');
-const dbReset = require('../../src/model/database/db_seed');
-const { getUser, updatePassword } = require('../../src/model/user_queries');
+const dbReset = require('../../../src/model/database/db_seed');
+const { getUser, updatePassword } = require('../../../src/model/user_queries');
 
 test('Update password', (t) => {
   const expected = 'ilovepasswords';

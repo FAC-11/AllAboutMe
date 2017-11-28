@@ -1,6 +1,6 @@
 const test = require('tape');
-const dbReset = require('../../src/model/database/db_seed');
-const { getSection } = require('../../src/model/form_queries');
+const dbReset = require('../../../src/model/database/db_seed');
+const { getSection } = require('../../../src/model/form_queries');
 
 test('Get section from database', (t) => {
   const expectedAbout = {
