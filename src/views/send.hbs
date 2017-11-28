@@ -8,13 +8,13 @@
         <a class="no-underline" href="/progress"><button class="white bg-white-40 w-100 h3 pa1 bn mb2 center tracked grow" type="button" name="continue editing" aria-label="continue editing">CONTINUE EDITING</button></a>
         <form class="w-100" action="/send" method="post">
           <div class="tc">
-            <p class="test white mt4 mb1 pt2 pb2 f5 tl dib">Where should we send your form?</p>
+            <label class="test white mt4 mb1 pt2 pb2 f5 tl dib" for="emailAddress">Where should we send your form?</label>
           </div>
-          <input class="dark-gray bg-white-40 w-100 h3 pa1 bn mb2 tracked pl3" type="text" name="email" aria-label="please write your clinician's email" id="emailAddress" placeholder="Please enter email"></input>
+          <input class="dark-gray bg-white-40 w-100 h3 pa1 bn mb2 tracked pl3" type="text" id="send__email" name="email" id="emailAddress" placeholder="Please enter email"></input>
           {{> messages}}
           <div class="tc">
-            <p class="test white mt4 mb1 pt2 pb2 f5 tl dib">Would you like a copy sent to your own email address?</p>
-          <input class="mr2" type="checkbox" name="sendemailcopy" aria-label="checkbox">
+              <label class="test white mt4 mb1 pt2 pb2 f5 tl dib" for="send_copy">Would you like a copy sent to your own email address?</label>
+          <input class="mr2" type="checkbox" name="sendemailcopy" id="send_copy">
           </input>
         </div>
           <button class="white secondary-background--overlay w-100 h3 pa1 bn mb2 db center tracked grow" type="submit" name="send the information" aria-label="send the information" value="SEND">SEND</button>

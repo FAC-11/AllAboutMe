@@ -5,8 +5,8 @@
     <section class="mt6 mw6 center">
       {{> messages }}
       <form action="/reset" method="POST">
-        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="password" name="password" type="password" placeholder="Password" required>
-        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password"  required>
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="password" name="password" type="password" placeholder="Password" required aria-label="password">
+        <input class="darkgray bg-white-40 w-100 h3 pa1 bn mb2 pl2" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password"  required aria-label="confirm password">
 
         <button class="secondary-background--overlay w-100 h3 pa1 bn mb2" type="submit" name="submit"> Submit </button>
       </form>

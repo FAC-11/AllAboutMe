@@ -22,12 +22,14 @@ const logout = require('./logout');
 const forgot = require('./forgot');
 const reset = require('./reset');
 const drawing = require('./drawing');
+const additional_info = require('./additional_info');
+const requireLogin = require('./require_login');
 
 router.get('/', login.get);
 router.get('/signup', signup.get);
 router.get('/home', home.get);
 router.get('/colour_scheme', colour_scheme.get);
-router.get('/info-page', info_page.get);
+router.get('/info_page', info_page.get);
 router.get('/progress', progress.get);
 router.get('/appointments', appointments.get);
 router.get('/symptoms', symptoms.get);
@@ -39,7 +41,7 @@ router.get('/login', login.get);
 router.get('/reset/:token', reset.get);
 router.get('/finish', finish.get);
 router.get('/drawing', drawing.get);
-
+router.get('/additional_info', additional_info.get);
 
 router.post('/forgot', forgot.post);
 router.post('/signup', signup.post);
@@ -52,6 +54,6 @@ router.post('/logout', logout.post);
 router.post('/reset', reset.post);
 router.post('/send', send.post);
 router.post('/drawing', drawing.post);
-
+router.post('/additional_info', additional_info.post);
 
 module.exports = router;

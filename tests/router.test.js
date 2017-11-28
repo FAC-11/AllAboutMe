@@ -122,10 +122,11 @@ test('GET authenticated routes', (t) => {
     'appointments',
     'background',
     'progress',
-    'info-page',
+    'info_page',
     'colour_scheme',
     'send',
     'finish',
+    'additional_info',
   ];
   t.plan(authenticatedPages.length*4);
   // First login to get cookie
@@ -158,6 +159,7 @@ test('POST authenticated routes (form sections)', (t) => {
     'appointments',
     'background',
     'symptoms',
+    'additional_info',
   ];
   t.plan(authenticatedPages.length*3);
   // First login to get cookie
@@ -188,6 +190,7 @@ test('POST LOGOUT authenticated routes (form sections)', (t) => {
     'appointments',
     'background',
     'symptoms',
+    'additional_info',
   ];
   t.plan(authenticatedPages.length * 4);
   // First login to get cookie
@@ -225,7 +228,7 @@ test('POST LOGOUT authenticated routes', (t) => {
   const authenticatedPages = [
     'home',
     'progress',
-    'info-page',
+    'info_page',
     'colour_scheme',
     'send',
     'finish',
@@ -279,12 +282,12 @@ test('Signup route when signup is successful', t => {
     .post('/signup')
     .type('form')
     .send({'name': 'tom cruise', 'email': 'cruise@gmail.com', 'password': 'topguntopgun', 'confirmPassword': 'topguntopgun' })
-    .expect('Found. Redirecting to info-page')
+    .expect('Found. Redirecting to info_page')
     .expect(302)
     .expect('Content-Type', 'text/plain; charset=utf-8')
     .end((err, res) => {
       t.equal(res.statusCode, 302, 'Status code is 302 for redirecting');
-      t.equal(res.header['location'], '/info-page', 'Should redirect to info-page page if successfully logged in');
+      t.equal(res.header['location'], '/info_page', 'Should redirect to info_page page if successfully logged in');
       t.end();
     });
 });
@@ -304,7 +307,7 @@ test('Signup route when signup is NOT successful -passwords dont match', t => {
     });
 });
 test('Restricted routes should redirect to login when signed out', t => {
-  const routes = ['/home', '/info_page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish'];
+  const routes = ['/home', '/info_page', '/about', '/symptoms', '/appointments', '/background', '/colour_scheme', '/send', '/progress', '/finish', '/additional_info'];
   t.plan(routes.length * 2);
   routes.forEach( (route) => {
     request(app)

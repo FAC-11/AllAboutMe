@@ -118,6 +118,10 @@ test('Get section from database', (t) => {
     background: 'i went for a walk when i was born',
   };
 
+  const expectedAdditional = {
+    additional_info: null,
+  };
+
   dbReset()
     .then(() =>
       getSection(1, 'about'))
@@ -135,6 +139,10 @@ test('Get section from database', (t) => {
     })
     .then((data) => {
       t.deepEqual(data, expectedSymptoms, 'Returns correct data for symptoms section');
+      return getSection(1, 'additional');
+    })
+    .then((data) => {
+      t.deepEqual(data, expectedAdditional, 'Returns correct data for additional info section');
     })
     .then(() => {
       t.end();
@@ -180,6 +188,9 @@ test('Save section into database', (t) => {
     background: 'things and things',
   };
 
+  const inputAdditional = {
+    additional_info: null,
+  };
   let userId;
 
   dbReset()
@@ -200,6 +211,12 @@ test('Save section into database', (t) => {
     .then((data) => {
       t.deepEqual(data, inputAppointment, 'Saves appointment section');
       return saveSection(userId, 'symptoms', inputSymptoms);
+    })
+    .then(() =>
+      getSection(userId, 'additional'))
+    .then((data) => {
+      t.deepEqual(data, inputAdditional, 'Saves additional section');
+      return saveSection(userId, 'additional', inputAdditional);
     })
     .then(() =>
       getSection(userId, 'symptoms'))
@@ -246,6 +263,7 @@ test('Get form from database', (t) => {
     background: 'i went for a walk when i was born',
     likes_svg: JSON.stringify(escapedSvg),
     dislikes_svg: null,
+    additional_info: null,
   };
 
   dbReset()

@@ -39,7 +39,8 @@ BEGIN;
         concerns TEXT,
         hope TEXT,
         likes_svg TEXT,
-        dislikes_svg TEXT
+        dislikes_svg TEXT,
+        additional_info TEXT
     );
 
 
