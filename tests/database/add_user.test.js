@@ -28,3 +28,5 @@ test('Insert user into database', (t) => {
       t.end();
     });
 });
+
+test.onFinish(() => process.exit());
