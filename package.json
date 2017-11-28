@@ -10,7 +10,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "tape ./tests/*/*.test.js | tap-spec && tape ./tests/*/*/*.test.js | tap-spec",
+    "test": "tape ./tests/*/*/*.test.js | tap-spec && tape ./tests/*/*.test.js | tap-spec",
     "start": "node src/index.js",
     "buildDb": "node src/model/database/db_build.js",
     "devStart": "nodemon src/index.js",
