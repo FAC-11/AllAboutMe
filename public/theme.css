@@ -14,10 +14,14 @@ html {
 }
 
 .background-image{
-  background-image: url("/img/mountain-background.jpg");
-  background-repeat: no-repeat;
-  position: fixed;
-  background-size: 100;
+    background-image: url("/img/mountain-background.jpg");
+    background-repeat: no-repeat;
+    position: fixed;
+    background-size: 100% 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 a, button {
@@ -246,7 +250,7 @@ a, button {
     margin: 0 auto;
 }
 .finish-page-image{
-  background-image: url("/img/paper-plane-white.png");
+    background-image: url("/img/paper-plane-white.png");
 }
 .top-20-margin-auto{
     margin: 0 auto;
@@ -262,8 +266,8 @@ a, button {
 }
 
 ol {
-  list-style: none;
-  padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
 li {
     counter-increment: item;
@@ -353,16 +357,16 @@ label:hover {
 }
 
 .speech-triangle:before {
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 80px;
-  right: auto;
-  top: auto;
-	bottom: 80px;
-	border: 20px solid;
-	border-color: #666 transparent transparent #666;
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 80px;
+    right: auto;
+    top: auto;
+    bottom: 80px;
+    border: 20px solid;
+    border-color: #666 transparent transparent #666;
 }
 
 .speech-box {
