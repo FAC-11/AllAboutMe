@@ -1,7 +1,5 @@
 const test = require('tape');
 const dbReset = require('../../src/model/database/db_seed');
-const dbConnection = require('../../src/model/database/db_connection');
-
 const { getSection } = require('../../src/model/form_queries');
 
 test('Get section from database', (t) => {
