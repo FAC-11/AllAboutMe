@@ -33,8 +33,7 @@ exports.post = (req, res) => {
         const pdfData = Buffer.concat(buffers);
         // nodemailer
         const smtpConfig = {
-          host: 'smtp.sendgrid.net',
-          port: 587,
+          service: 'SendGrid',
           auth: {
             user: process.env.SENDGRID_USERNAME,
             pass: process.env.SENDGRID_PASSWORD,
