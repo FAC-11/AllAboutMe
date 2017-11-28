@@ -54,9 +54,10 @@ exports.post = (req, res) => {
         };
         transporter.sendMail(message, (err, info) => {
           if (err) {
-            console.log('transporter', err);
+            console.log(err);
+            req.flash('error', 'Email couldn\'t be sent. Please try again');
+            res.redirect('send');
           } else {
-            console.log(info);
             res.redirect('finish');
           }
         });
@@ -66,7 +67,7 @@ exports.post = (req, res) => {
       doc.end();
       // end pdfkit
     }).catch((error) => {
-      console.log('general', error);
+      console.log(error);
       res.status(500).render('error', {
         layout: 'error',
         statusCode: 500,
