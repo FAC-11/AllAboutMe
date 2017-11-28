@@ -1,7 +1,6 @@
 const test = require('tape');
 const request = require('supertest');
 const app = require('../../src/app');
-const dbReset = require('../../src/model/database/db_seed');
 
 test('Reset password route with an expired token', t => {
   request(app)
