@@ -16,11 +16,11 @@ html {
 .background-image{
     background-image: url("/img/mountain-background.jpg");
     background-repeat: no-repeat;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .main-background-overlay {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 a, button {
