@@ -1,4 +1,3 @@
-const fs = require('fs');
 const nodemailer = require('nodemailer');
 const PDFDocument = require('pdfkit');
 require('env2')('config.env');
@@ -53,16 +52,15 @@ exports.post = (req, res) => {
             },
           ],
         };
-        fs.writeFile(__dirname + '/test.pdf', pdfData);
-        //transporter.sendMail(message, (err, info) => {
-          //if (err) {
-            //console.log('transporter', err);
-          //} else {
-            //console.log(info);
-            //res.redirect('finish');
-          //}
-        //});
-        // end nodemailer
+        transporter.sendMail(message, (err, info) => {
+          if (err) {
+            console.log('transporter', err);
+          } else {
+            console.log(info);
+            res.redirect('finish');
+          }
+        });
+         end nodemailer
       });
       populatePdf(doc, data);
       doc.end();
