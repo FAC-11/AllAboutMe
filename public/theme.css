@@ -13,14 +13,18 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    overflow-y: hidden;
+}
+
 .background-image{
     background-image: url("/img/mountain-background.jpg");
     background-repeat: no-repeat;
-    position: fixed;
-    -webkit-background-size: 200% auto;
-    -moz-background-size: 200% auto;
-    -o-background-size: 200% auto;
-    background-size: 200% auto;
+    overflow-y: scroll;
+}
+
+.main-background-overlay {
+    overflow-y: scroll;
 }
 
 a, button {
