@@ -60,7 +60,7 @@ exports.post = (req, res) => {
             res.redirect('finish');
           }
         });
-         end nodemailer
+        // end nodemailer
       });
       populatePdf(doc, data);
       doc.end();
