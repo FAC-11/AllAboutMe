@@ -11,7 +11,6 @@ exports.get = (req, res, next) => {
         logoutButton: true,
         progressPercentage: '50',
         data,
-        firstPage: false,
       });
     })
     .catch((err) => {

@@ -13,9 +13,9 @@ exports.get = (req, res) => {
     errorMessages: req.flash('error'),
     successMessages: req.flash('success'),
     activePage: {
-      forgot: true
+      forgot: true,
     },
-    pageTitle: 'Forgotten password'
+    pageTitle: 'Forgotten password',
   });
 };
 

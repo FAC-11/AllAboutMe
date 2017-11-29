@@ -1,17 +1,17 @@
-const {saveSection, getSection} = require('../model/form_queries');
+const { saveSection, getSection } = require('../model/form_queries');
 
 exports.get = (req, res, next) => {
   getSection(req.session.id, 'background').then((data) => {
     res.render('background', {
       activePage: {
-        background: true
+        background: true,
       },
       errorMessages: req.flash('error'),
       successMessages: req.flash('success'),
       pageTitle: 'Your background',
       logoutButton: true,
       progressPercentage: '70',
-      data
+      data,
     });
   }).catch((err) => {
     next(err);

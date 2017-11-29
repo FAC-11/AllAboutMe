@@ -1,4 +1,4 @@
-const {saveSection, getSection} = require('../model/form_queries');
+const { saveSection, getSection } = require('../model/form_queries');
 
 exports.get = (req, res, next) => {
   getSection(req.session.id, 'symptoms').then((data) => {
@@ -6,12 +6,12 @@ exports.get = (req, res, next) => {
       agreement: {
         [data
             ? data.diagnosis_agreement
-            : '']: true
+            : '']: true,
       }
     };
     res.render('symptoms', {
       activePage: {
-        symptoms: true
+        symptoms: true,
       },
       logoutButton: true,
       errorMessages: req.flash('error'),
@@ -19,7 +19,7 @@ exports.get = (req, res, next) => {
       pageTitle: 'Symptoms & Difficulties',
       progressPercentage: '25',
       data,
-      checked
+      checked,
     });
   }).catch((err) => {
     next(err);

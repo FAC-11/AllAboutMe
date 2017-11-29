@@ -1,4 +1,4 @@
-const {saveSection, getSection} = require('../model/form_queries');
+const { saveSection, getSection } = require('../model/form_queries');
 
 exports.get = (req, res, next) => {
   getSection(req.session.id, 'appointments').then((data) => {

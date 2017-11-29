@@ -1,16 +1,16 @@
-const {hashPassword} = require('./helpers/password_module');
-const {getUser, addUser} = require('../model/user_queries');
-const {validateSignUp} = require('./helpers/validate');
+const { hashPassword } = require('./helpers/password_module');
+const { getUser, addUser } = require('../model/user_queries');
+const { validateSignUp } = require('./helpers/validate');
 
 exports.get = (req, res) => {
   res.render('signup', {
     errorMessages: req.flash('error'),
     successMessages: req.flash('success'),
     activePage: {
-      signup: true
+      signup: true,
     },
     pageTitle: 'Create an Account',
-    logoutButton: false
+    logoutButton: false,
   });
 };
 

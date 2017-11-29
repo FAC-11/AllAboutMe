@@ -21,9 +21,9 @@ exports.get = (req, res) => {
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
         activePage: {
-          reset: true
+          reset: true,
         },
-        pageTitle: 'Reset'
+        pageTitle: 'Reset',
       });
     }
   });
@@ -49,7 +49,7 @@ exports.post = (req, res, next) => {
       if (validator.isValid) {
         hashPassword(req.body.password)
           .then((hashedPassword) => {
-            updatePassword(hashedPassword, email)
+            updatePassword(hashedPassword, email);
           })
           .then(() =>{
             req.flash('success', 'Password is updated successfully.');
