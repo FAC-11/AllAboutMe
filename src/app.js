@@ -47,5 +47,24 @@ app.use((req, res) => {
     errorMessage: 'This page couldn\'t be found.',
   });
 });
+//Error handling middleware for development
+if (process.env.NODE_ENV !== 'production') {
+  app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.render('error', {
+      errorMessage: err.message,
+      error: err
+    });
+  });
+}
+//Error handling middleware for production
+app.use( (err, req, res, next) => {
+  res.status(err.status || 500);
+  res.render('error', {
+    layout: 'error',
+    errorMessage: 'Something went wrong.',
+    error: {}
+  });
+});
 
 module.exports = app;

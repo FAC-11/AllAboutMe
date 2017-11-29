@@ -1,6 +1,6 @@
 const {saveSection, getSection} = require('../model/form_queries');
 
-exports.get = (req, res) => {
+exports.get = (req, res, next) => {
   getSection(req.session.id, 'appointments').then((data) => {
     // for ticking correct checkbox based on previously saved answer
     if (data) {
@@ -47,24 +47,12 @@ exports.get = (req, res) => {
         pageTitle: 'Your appointment',
         progressPercentage: '10',
         firstPage: true
-      });
+      })
     }
   }).catch((err) => {
-    req.flash('error', 'Sorry - we couldn\'t load your saved answers for this section');
-    res.render('appointments', {
-      activePage: {
-        appointments: true
-      },
-      errorMessages: req.flash('error'),
-      successMessages: req.flash('success'),
-      logoutButton: true,
-      pageTitle: 'Your appointment',
-      progressPercentage: '10',
-      firstPage: true
-    });
+    next(err);
   });
 };
-
 exports.post = (req, res) => {
   saveSection(req.session.id, 'appointments', req.body).then(() => {
     const buttonPressed = req.body.button;
