@@ -19,7 +19,7 @@
         <br>
         <div class="dual-input js-dual-input mt3" id="dislikes">
             {{>draw}}
-        <textarea class="input js-text-input w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="dislikes" rows="8" cols="80" placeholder="Write here please" id="about__dislikes">{{data.dislikes}}</textarea>
+            <textarea class="input js-text-input w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="dislikes" rows="8" cols="80" placeholder="Write here please" id="about__dislikes">{{data.dislikes}}</textarea>
         </div>
       </li>
 
@@ -31,12 +31,18 @@
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__strengths">What are some of your strengths?</label>
         <br>
-        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="strengths" rows="8" cols="80" placeholder="Write here please" id="about__strengths">{{data.strengths}}</textarea>
+        <div class="dual-input js-dual-input mt3" id="strengths">
+            {{>draw}}
+            <textarea class="input js-text-input w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="strengths" rows="8" cols="80" placeholder="Write here please" id="about__strengths">{{data.strengths}}</textarea>
+        </div>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__improve">What would you like to be better at?</label>
         <br>
-        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="weaknesses" rows="8" cols="80" placeholder="Write here please" id="about__improve">{{data.weaknesses}}</textarea>
+        <div class="dual-input js-dual-input mt3" id="weaknesses">
+            {{>draw}}
+            <textarea class="input js-text-input w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="weaknesses" rows="8" cols="80" placeholder="Write here please" id="about__improve">{{data.weaknesses}}</textarea>
+        </div>
       </li>
 
       <div class="ideasbutton">
@@ -47,12 +53,18 @@
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__uncomfortable">What makes you feel uncomfortable or anxious?</label>
         <br>
-        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="uncomfortable" rows="8" cols="80" placeholder="Write here please" id="about__uncomfortable">{{data.uncomfortable}}</textarea>
+        <div class="dual-input js-dual-input mt3" id="uncomfortable">
+            {{>draw}}
+            <textarea class="input js-text-input w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="uncomfortable" rows="8" cols="80" placeholder="Write here please" id="about__uncomfortable">{{data.uncomfortable}}</textarea>
+        </div>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__safe">What helps you feel safe and calm?</label>
         <br>
-        <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="safe" rows="8" cols="80" placeholder="Write here please" id="about__safe">{{data.safe}}</textarea>
+        <div class="dual-input js-dual-input mt3" id="safe">
+            {{>draw}}
+            <textarea class="input js-text-input w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="safe" rows="8" cols="80" placeholder="Write here please" id="about__safe">{{data.safe}}</textarea>
+        </div>
       </li>
     </ol>
     {{>formnav}}
