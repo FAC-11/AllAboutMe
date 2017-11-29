@@ -1,4 +1,5 @@
 const { saveSection, getSection } = require('../model/form_queries');
+const { errorPost } = require('./error_handling');
 
 exports.get = (req, res) => {
   getSection(req.session.id, 'about')
@@ -11,9 +12,10 @@ exports.get = (req, res) => {
         logoutButton: true,
         progressPercentage: '50',
         data,
+        firstPage: false,
       });
     })
-    .catch((err) => {
+    .catch((err, req, res, errorPost) => {
       console.log(err);
       req.flash('error', 'Sorry - we couldn\'t load your saved answers for this section');
       res.render('about', {
@@ -23,6 +25,7 @@ exports.get = (req, res) => {
         pageTitle: 'About Me',
         logoutButton: true,
         progressPercentage: '50',
+        firstPage: false,
       });
     });
 };
