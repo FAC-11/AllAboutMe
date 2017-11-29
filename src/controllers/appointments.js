@@ -53,7 +53,7 @@ exports.get = (req, res, next) => {
     next(err);
   });
 };
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
   saveSection(req.session.id, 'appointments', req.body).then(() => {
     const buttonPressed = req.body.button;
     if (buttonPressed === 'next') {
@@ -62,8 +62,6 @@ exports.post = (req, res) => {
       res.redirect('appointments');
     }
   }).catch((err) => {
-    console.log(err);
-    req.flash('error', 'Sorry - the appointments section couldn\'t be saved');
-    res.redirect('appointments');
+    next(err);
   });
 };
