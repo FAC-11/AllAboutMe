@@ -29,7 +29,7 @@ exports.get = (req, res) => {
   });
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
 
   const myUrl = new URL(req.headers.referer);
   const token = myUrl.pathname.split('/reset/')[1];
@@ -56,12 +56,7 @@ exports.post = (req, res) => {
             res.redirect('/login');
           })
           .catch((err) => {
-            console.log('error from updatePassword query in reset.js', err);
-            res.status(500).render('error', {
-              layout: 'error',
-              statusCode: 500,
-              errorMessage: 'Internal server error'
-            });
+            next(err);
           });
         client.del(token, email);
       }else{
