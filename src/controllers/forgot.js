@@ -19,7 +19,7 @@ exports.get = (req, res) => {
   });
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
 
   getUser(req.body.email).then((userObj) => {
     if (userObj) {
@@ -55,11 +55,6 @@ exports.post = (req, res) => {
       res.redirect('/forgot');
     }
   }).catch((error) => {
-    console.log('error from getUser query in forgot.js', error);
-    res.status(500).render('error', {
-      layout: 'error',
-      statusCode: 500,
-      errorMessage: 'Internal server error'
-    });
+    next(error);
   });
 };
