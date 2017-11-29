@@ -13,7 +13,7 @@ exports.get = (req, res) => {
   });
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
   const inputData = req.body;
   getUser(inputData.email)
     .then((dbData) => {
@@ -35,11 +35,6 @@ exports.post = (req, res) => {
       }
     })
     .catch((err) => {
-      console.log(err);
-      res.status(500).render('error', {
-        layout: 'error',
-        statusCode: 500,
-        errorMessage: 'Internal server error',
-      });
+      next(err);
     });
 };
