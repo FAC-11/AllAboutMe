@@ -30,12 +30,7 @@ exports.post = (req, res, next) => {
           req.session.id = id;
           res.redirect('/info_page');
         }).catch((err) => {
-          console.log(err);
-          res.status(500).render('error', {
-            layout: 'error',
-            statusCode: 500,
-            errorMessage: 'Internal server error'
-          });
+          next(err);
         });
       } else {
         req.flash('error', `Account already exists for ${userData.email}`);
