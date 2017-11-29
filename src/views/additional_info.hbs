@@ -2,19 +2,21 @@
 {{> progress_bar }}
 
 <section class="mb6">
-{{> messages }}
-  <form class="margin-0-auto w-90 w-60-ns w-80-m mw7" action="/additional_info" method="post">
-  <ol class="pa0">
-    <li class="f5 black-60 db mb2 tracked pt3 pb3"><span class='li mr2 w2'>&rarr;</span>
-      <label for="additional"> Is there anything else you would like to add? </label>
+    {{> messages }}
+    <form class="margin-0-auto w-90 w-60-ns w-80-m mw7" action="/additional_info" method="post">
+        <ol class="pa0">
+            <li class="f5 black-60 db mb2 tracked pt3 pb3"><span class='li mr2 w2'>&rarr;</span>
+                <label for="additional"> Is there anything else you would like to add? </label>
 
-      <br>
-      <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" id="additional" name="additional_info" placeholder="Please write your answer here">{{data.additional_info}}</textarea>
-    </li>
-  </ol>
-
-   {{> formnav}}
-</form>
+                <br>
+                <div class="dual-input js-dual-input mt3" id="additional_info">
+                    {{>draw}}
+                    <textarea class="input js-text-input w-100 h4" id="additional" name="additional_info" placeholder="Please write your answer here">{{data.additional_info}}</textarea>
+                </div>
+            </li>
+        </ol>
+        {{> formnav}}
+    </form>
 </section>
 
 {{>navbar}}

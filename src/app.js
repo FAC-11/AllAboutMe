@@ -37,6 +37,7 @@ app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
 
 app.use(requireLogin);
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: '5mb' }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(controllers);
 

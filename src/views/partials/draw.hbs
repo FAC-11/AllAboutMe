@@ -1,0 +1,30 @@
+<div class="tabs">
+    <button class="js-text-button bn pa2 tab active-tab secondary-background--overlay">Write</button>
+    <button class="js-drawing-button bn pa2 secondary-background--solid tab">Draw</button>
+</div>
+<div class="js-drawing-input dn w-100">
+    <div class="drawing-container w-100 h5">
+        <canvas width="200" height="100" class="input"></canvas>
+    </div>
+
+    <div class="flex">
+        <button class="save-canvas btn btn-info bn bg-transparent w3 h3 f5 pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z"/></svg>
+            <span class="f6">Save</span>
+        </button><br>
+        <button class="clear-canvas btn btn-info bn bg-transparent w3 h3 f5 pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 3.752l-4.423-3.752-7.771 9.039-7.647-9.008-4.159 4.278c2.285 2.885 5.284 5.903 8.362 8.708l-8.165 9.447 1.343 1.487c1.978-1.335 5.981-4.373 10.205-7.958 4.304 3.67 8.306 6.663 10.229 8.006l1.449-1.278-8.254-9.724c3.287-2.973 6.584-6.354 8.831-9.245z"/></svg>
+            <span class="f6">Clear</span>
+        </button><br>
+
+        <div class="drawing-mode-options flex flex-column justify-center">
+            <label for="drawing-line-width" class="h-50 pa1 pb0">Line width:
+                <span class="info">30</span><input type="range" value="30" min="0" max="150" class="drawing-line-width">
+            </label>
+
+            <label for="drawing-color" class="h-50 pa1">Line color:
+                <input type="color" value="#005E7A" class="drawing-color">
+            </label>
+        </div>
+    </div>
+</div>

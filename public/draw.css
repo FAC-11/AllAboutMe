@@ -1,0 +1,22 @@
+.tab {
+    border-radius: 1em 1em 0 0;
+}
+.active-tab {
+    position: relative;
+    bottom: -1px;
+    z-index: 999;
+}
+.dual-input > textarea {
+    border-top-left-radius: 0;
+}
+
+.dual-input .input {
+    border: 1px solid #aaa;
+    border-radius: 0.5em;
+    border-top-left-radius: 0;
+}
+
+.dual-input svg, .dual-input button, .dual-input {
+    fill: #4f4f4f;
+    color: #4f4f4f;
+}

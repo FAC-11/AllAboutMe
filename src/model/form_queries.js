@@ -60,8 +60,22 @@ const getForm = (userId) => {
   return dbConnection.one(query, [userId]);
 };
 
+const saveDrawing = (userId, fieldName, data) => {
+  const query = `UPDATE forms SET ${fieldName} = ($1) WHERE user_id = $2`;
+  return dbConnection.none(query, [data, userId]);
+};
+
+const getDrawing = (userId, fieldName) => {
+  const query = `SELECT ${fieldName} FROM forms WHERE user_id = $1`;
+  return dbConnection.oneOrNone(query, [userId])
+    .then(svgObj => svgObj[fieldName])
+    .catch(console.log);
+};
+
 module.exports = {
   getSection,
   getForm,
   saveSection,
+  saveDrawing,
+  getDrawing,
 };

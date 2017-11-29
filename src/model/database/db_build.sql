@@ -38,6 +38,7 @@ BEGIN;
         contact_preference varchar(100),
         concerns TEXT,
         hope TEXT,
+        likes_svg TEXT,
         additional_info TEXT
     );
 

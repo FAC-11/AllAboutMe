@@ -4,7 +4,8 @@ Please see below my answers for the 'All about me' questionnaire:
 
    About Me
    Name: {{name}}
-   Things you like: (including hobbies and interests){{likes}}
+   Things you like: (including hobbies and interests hi){{likes}}
+<img src="https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3-700x525.jpg" alt="banana">
    Things you dislike: {{dislikes}}
    Strengths: (what you are good at) {{strengths}}
    Weaknesses: (what you are good at) {{weaknesses}}

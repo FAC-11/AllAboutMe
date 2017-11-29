@@ -1,10 +1,10 @@
-const sendemail = require('sendemail');
-const env = require('env2')('config.env');
+const nodemailer = require('nodemailer');
+const PDFDocument = require('pdfkit');
+require('env2')('config.env');
 
-const email = sendemail.email;
-sendemail.set_template_directory('src/email_templates');
 const { getForm } = require('../model/form_queries');
 const { validateSendEmail } = require('./helpers/validate');
+const { populatePdf } = require('./helpers/send');
 
 exports.get = (req, res) => {
   res.render('send', {
@@ -24,30 +24,54 @@ exports.post = (req, res) => {
     res.redirect('send');
   } else {
     getForm(req.session.id).then((data) => {
-      const context = Object.assign(data, { name: req.session.user });
-      const options = {
-        templateName: 'Hello',
-        subject: 'All about me questionnaire',
-        toAddresses: [req.body.email],
-        htmlCharset: 'utf16',
-        textCharset: 'utf16',
-        subjectCharset: 'utf8',
-        context,
-      };
-
-      if (req.body.sendemailcopy) {
-        options.bccAddresses = [data.email];
-      }
-      return options;
+      const fileName = `form-${req.session.user}.pdf`;
+      // pdfkit
+      const doc = new PDFDocument();
+      let buffers = [];
+      doc.on('data', buffers.push.bind(buffers));
+      doc.on('end', () => {
+        const pdfData = Buffer.concat(buffers);
+        // nodemailer
+        const smtpConfig = {
+          service: 'SendGrid',
+          auth: {
+            user: process.env.SENDGRID_USERNAME,
+            pass: process.env.SENDGRID_PASSWORD,
+          },
+        };
+        const transporter = nodemailer.createTransport(smtpConfig);
+        const message = {
+          from: `<${process.env.FROM_EMAIL}>`,
+          to: req.body.email,
+          subject: 'Form submission',
+          text: `Answers from ${req.session.user}`,
+          attachments: [
+            {
+              filename: fileName,
+              content: pdfData,
+            },
+          ],
+        };
+        transporter.sendMail(message, (err, info) => {
+          if (err) {
+            console.log(err);
+            req.flash('error', 'Email couldn\'t be sent. Please try again');
+            res.redirect('send');
+          } else {
+            res.redirect('finish');
+          }
+        });
+        // end nodemailer
+      });
+      populatePdf(doc, data, req.session.user);
+      doc.end();
+      // end pdfkit
     }).catch((error) => {
+      console.log(error);
       res.status(500).render('error', {
         layout: 'error',
         statusCode: 500,
         errorMessage: 'Internal server error'
-      });
-    }).then((options) => {
-      sendemail.sendMany(options, (error, result) => {
-        res.redirect('finish');
       });
     });
   }

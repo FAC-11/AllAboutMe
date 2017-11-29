@@ -3,7 +3,8 @@ const dbReset = require('../src/model/database/db_seed');
 const dbConnection = require('../src/model/database/db_connection');
 
 const { addUser, getUser, updatePassword } = require('../src/model/user_queries');
-const { getSection, saveSection, getForm } = require('../src/model/form_queries');
+const { getSection, saveSection, getForm, getDrawing, saveDrawing } = require('../src/model/form_queries');
+const escapedSvg = require('./mock_data/escaped_svg');
 
 test('Insert user into database', (t) => {
   dbReset()
@@ -54,6 +55,26 @@ test('Update password', (t) => {
     .then(() => getUser('jam@gmail.com'))
     .then((data) => {
       t.equal(data.password, expected, 'Password should be updated and hashed correctly');
+      t.end();
+    });
+});
+
+test('getDrawing from database', (t) => {
+  const expected = escapedSvg;
+  dbReset()
+    .then(() => getDrawing(1, 'likes_svg'))
+    .then((actual) => {
+      t.deepEqual(JSON.parse(actual), expected, 'Returns stringified JSON with correct values');
+      t.end();
+    });
+});
+
+test('saveDrawing into database', (t) => {
+  dbReset()
+    .then(() => saveDrawing(2, 'likes_svg', escapedSvg))
+    .then(() => getDrawing(2, 'likes_svg'))
+    .then((actual) => {
+      t.deepEqual(JSON.parse(actual), escapedSvg, 'Saves (escaped) stringified object into database');
       t.end();
     });
 });
@@ -236,6 +257,8 @@ test('Get form from database', (t) => {
     therapies_helpful: null,
     keep_well: 'running',
     background: 'i went for a walk when i was born',
+    likes_svg: JSON.stringify(escapedSvg),
+    dislikes_svg: null,
     additional_info: null,
   };
 
