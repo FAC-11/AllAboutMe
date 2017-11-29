@@ -12,6 +12,18 @@ exports.get = (req, res) => {
         progressPercentage: '50',
         data,
       });
+    })
+    .catch((err) => {
+      console.log(err);
+      req.flash('error', 'Sorry - we couldn\'t load your saved answers for this section');
+      res.render('about', {
+        activePage: { about: true },
+        errorMessages: req.flash('error'),
+        successMessages: req.flash('success'),
+        pageTitle: 'About Me',
+        logoutButton: true,
+        progressPercentage: '50',
+      });
     });
 };
 

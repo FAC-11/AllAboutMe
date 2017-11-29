@@ -8,11 +8,13 @@
 
     <ol class="pa0">
         <li class="f5 black-60 db mb2 tracked pt3 pb3"><span class='li mr2 w2'>&rarr;</span><label for="about__likes">What are some things you like? (including hobbies and interests)?</label>
+        {{> hide_button}}
         <br>
-        <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="likes" rows="8" cols="80" placeholder="Write here please" id="about__likes">{{data.likes}}</textarea>
+        <textarea class="hide-textarea mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="likes" rows="8" cols="80" placeholder="Write here please" id="about__likes">{{data.likes}}</textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__dislikes">Tell us what you don't like!</label>
+        {{> hide_button}}
         <br>
         <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="dislikes" rows="8" cols="80" placeholder="Write here please" id="about__dislikes">{{data.dislikes}}</textarea>
       </li>
@@ -24,11 +26,13 @@
       </div>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__strengths">What are some of your strengths?</label>
+        {{> hide_button}}
         <br>
         <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="strengths" rows="8" cols="80" placeholder="Write here please" id="about__strengths">{{data.strengths}}</textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__improve">What would you like to be better at?</label>
+        {{> hide_button}}
         <br>
         <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="weaknesses" rows="8" cols="80" placeholder="Write here please" id="about__improve">{{data.weaknesses}}</textarea>
       </li>
@@ -40,11 +44,13 @@
       </div>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__uncomfortable">What makes you feel uncomfortable or anxious?</label>
+        {{> hide_button}}
         <br>
         <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="uncomfortable" rows="8" cols="80" placeholder="Write here please" id="about__uncomfortable">{{data.uncomfortable}}</textarea>
       </li>
 
       <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span><label for="about__safe">What helps you feel safe and calm?</label>
+        {{> hide_button}}
         <br>
         <textarea class="mt3 w-100 mw7 vh-5 ba b--black-30 br3 h4" type="text" name="safe" rows="8" cols="80" placeholder="Write here please" id="about__safe">{{data.safe}}</textarea>
       </li>
