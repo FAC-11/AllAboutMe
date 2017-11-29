@@ -54,7 +54,10 @@
     <li class="f5 black-60 db mb2 tracked pt3 pb3 mr2"><span class='li mr2 w2'>&rarr;</span>
         <label for="symptoms__well">What helps you to keep well? (e.g friends, support from family?)</label>
       <br>
-      <textarea class="mt3 w-100 vh-5 ba b--black-30 br3 h4" type="text" name="keep_well" rows="8" cols="80" placeholder="Write here please" id="symptoms__well">{{data.keep_well}}</textarea>
+        <div class="dual-input js-dual-input mt3" id="keep_well">
+            {{>draw}}
+          <textarea class="input js-text-input w-100 h4" type="text" name="keep_well" rows="8" cols="80" placeholder="Write here please" id="symptoms__well">{{data.keep_well}}</textarea>
+        </div>
     </li>
   </ol>
   {{>formnav}}

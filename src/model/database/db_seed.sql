@@ -48,7 +48,8 @@ BEGIN;
         additional_info_svg TEXT,
         concerns_svg TEXT,
         hope_svg TEXT,
-        background_svg TEXT
+        background_svg TEXT,
+        keep_well_svg TEXT
     );
 
 
@@ -92,11 +93,13 @@ BEGIN;
         null,
         null,
         null,
+        null,
         null
     ),
     (
         DEFAULT,
         (SELECT id FROM users WHERE email = 'sam@gmail.com'),
+        null,
         null,
         null,
         null,
