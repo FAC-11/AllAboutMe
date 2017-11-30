@@ -17,7 +17,7 @@ exports.get = (req, res) => {
   });
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
   const validatedEmail = validateSendEmail(req.body);
   if (!validatedEmail.isValid) {
     req.flash('error', validatedEmail.message);
@@ -40,15 +40,15 @@ exports.post = (req, res) => {
       }
       return options;
     }).catch((error) => {
-      res.status(500).render('error', {
-        layout: 'error',
-        statusCode: 500,
-        errorMessage: 'Internal server error'
-      });
+      next(error);
     }).then((options) => {
       sendemail.sendMany(options, (error, result) => {
-        res.redirect('finish');
-      });
+        if (error){
+          req.flash('error', 'Sorry - email hasn\t been sent, please retry');
+          res.redirect('send');
+       } else {
+          res.redirect('finish');
+        }});
     });
   }
 };

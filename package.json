@@ -1,7 +1,8 @@
 {
   "name": "allaboutme",
   "version": "1.0.0",
-  "description": "A Founders & Coders project in collaboration with the Anna Freud Center. Made by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero)",
+  "description":
+    "A Founders & Coders project in collaboration with the Anna Freud Center. Made by [Constantina](https://github.com/polyccon), [Dak](https://github.com/dangerdak), [Jen](https://github.com/Jen-Harris) & [Rebeca](https://github.com/rebecacalvoquintero)",
   "main": "index.js",
   "engines": {
     "node": "8.1.4"
@@ -10,12 +11,13 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "tape ./tests/*.test.js | tap-spec",
+    "test": "tape ./tests/runner.js| tap-spec",
     "start": "node src/index.js",
     "seedDb": "node src/model/database/db_seed.js",
     "buildDb": "node src/model/database/db_build.js",
     "devStart": "nodemon src/index.js",
-    "coverage": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage":
+      "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
