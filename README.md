@@ -81,15 +81,14 @@ _*"As a user I want to be able to...:"*_
 - [ ] See sensible error pages/messages when something goes wrong
 - [ ] Include any additional information I feel is relevant
 
-## The MVP! :sparkles:
+## The product! :sparkles:
 
 Check it out [here](https://allaboutme-annafreud.herokuapp.com/) :eyes: 
 
 Or look at this short video that shows basic functionality of the app:  
 
-![app walkthrough gif](https://i.imgur.com/Ibg2ykx.gif)  
+![app walkthrough gif](demo.gif)  
 
-![](https://files.gitter.im/foundersandcoders/AllAboutMe/3bB8/image.png)
 ## Set up the app locally :computer: 
 
 First clone this repo:
