@@ -73,7 +73,7 @@ _*"As a user I want to be able to...:"*_
 
 
 #### Sprint 3
-- [x] Draw my answers - feature is almost ready but is not yet integrated with the rest of the app
+- [x] Draw my answers - feature is almost ready but is not yet tested or integrated with the rest of the app
 - [x] Be able to hide my answers
 - [x] Better styling on mobile
 - [x] Fix colour change bug
