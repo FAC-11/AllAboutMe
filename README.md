@@ -117,8 +117,8 @@ postgres://[user_name]:[password]@localhost:5432/[db_name]
 Next run the db_build.js file in terminal: 
 
 ```bash
-node src/model/database/db_build.js # to build the database
-node src/model/database/db_seed.js # to build the database and prepopulate with seed data
+npm run dbBuild # to build the database
+npm run dbSeed # to build the database and prepopulate with seed data
 ```
 
 This will create the tables in your database. The seed data adds a user with email `jam@gmail.com` and password `password`.
