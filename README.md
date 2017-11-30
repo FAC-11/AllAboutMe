@@ -114,6 +114,9 @@ _*"As a user I want to be able to...:"*_
 * [ ] Autosave answers to help users avoid losing their input
 * [ ] Customisable background image
 * [ ] See fun animations on the site
+* [ ] View the info page again (currently only shows on signup)
+* [ ] Answer questions using an interactive modal
+* [ ] Close their account should they choose to
 
 ## The product! :sparkles:
 
