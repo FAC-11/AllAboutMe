@@ -13,6 +13,7 @@
   "scripts": {
     "test": "tape ./tests/runner.js| tap-spec",
     "start": "node src/index.js",
+    "seedDb": "node src/model/database/db_seed.js",
     "buildDb": "node src/model/database/db_build.js",
     "devStart": "nodemon src/index.js",
     "coverage":
