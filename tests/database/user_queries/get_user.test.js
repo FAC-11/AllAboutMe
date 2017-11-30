@@ -17,5 +17,3 @@ test('Get user from database', t => {
       t.end();
     });
 });
-
-test.onFinish(() => process.exit());

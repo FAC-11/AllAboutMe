@@ -10,8 +10,14 @@ test('Login route loading (when not signed in)', t => {
     .end((err, res) => {
       t.equal(res.statusCode, 200, 'Status code is 200');
       t.error(err, 'No error');
-      t.ok(res.text.includes('Login'), 'Login route responds with page containing \'Login\' text');
-      t.ok(res.text.includes('All about me'), 'Login route responds with page containing title \'All about me\' text');
+      t.ok(
+        res.text.includes('Login'),
+        "Login route responds with page containing 'Login' text"
+      );
+      t.ok(
+        res.text.includes('All about me'),
+        "Login route responds with page containing title 'All about me' text"
+      );
       t.end();
     });
 });
@@ -23,7 +29,10 @@ test('Sign Up route loading (when not signed in)', t => {
     .end((err, res) => {
       t.equal(res.statusCode, 200, 'Status code is 200');
       t.error(err, 'No error');
-      t.ok(res.text.includes('Create an Account'), 'Signup route responds with page containing title \'Create an Account\' text');
+      t.ok(
+        res.text.includes('Create an Account'),
+        "Signup route responds with page containing title 'Create an Account' text"
+      );
       t.end();
     });
 });
@@ -35,7 +44,10 @@ test('Forgot route get', t => {
     .end((err, res) => {
       t.equal(res.statusCode, 200, 'Status code is 200');
       t.error(err, 'No error');
-      t.ok(res.text.includes('Forgotten password'), 'Forgot route responds with page containing title \'Forgotten password\' text');
+      t.ok(
+        res.text.includes('Forgotten password'),
+        "Forgot route responds with page containing title 'Forgotten password' text"
+      );
       t.end();
     });
 });

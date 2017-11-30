@@ -3,7 +3,7 @@ const dbReset = require('../../../src/model/database/db_seed');
 const { addUser } = require('../../../src/model/user_queries');
 const { getSection, saveSection } = require('../../../src/model/form_queries');
 
-test('Save section into database', (t) => {
+test('Save section into database', t => {
   const inputAbout = {
     likes: 'terrapins',
     dislikes: 'nothing',
@@ -46,42 +46,34 @@ test('Save section into database', (t) => {
   let userId;
 
   dbReset()
-    .then(() =>
-      addUser('billy', 'billy@gmail.com', 'longpassword'))
-    .then((id) => {
+    .then(() => addUser('billy', 'billy@gmail.com', 'longpassword'))
+    .then(id => {
       userId = id;
       return saveSection(userId, 'about', inputAbout);
     })
-    .then(() =>
-      getSection(userId, 'about'))
-    .then((data) => {
+    .then(() => getSection(userId, 'about'))
+    .then(data => {
       t.deepEqual(data, inputAbout, 'Saves about section');
       return saveSection(userId, 'appointments', inputAppointment);
     })
-    .then(() =>
-      getSection(userId, 'appointments'))
-    .then((data) => {
+    .then(() => getSection(userId, 'appointments'))
+    .then(data => {
       t.deepEqual(data, inputAppointment, 'Saves appointment section');
       return saveSection(userId, 'symptoms', inputSymptoms);
     })
-    .then(() =>
-      getSection(userId, 'additional'))
-    .then((data) => {
+    .then(() => getSection(userId, 'additional'))
+    .then(data => {
       t.deepEqual(data, inputAdditional, 'Saves additional section');
       return saveSection(userId, 'additional', inputAdditional);
     })
-    .then(() =>
-      getSection(userId, 'symptoms'))
-    .then((data) => {
+    .then(() => getSection(userId, 'symptoms'))
+    .then(data => {
       t.deepEqual(data, inputSymptoms, 'Saves symptoms section');
       return saveSection(userId, 'background', inputBackground);
     })
-    .then(() =>
-      getSection(userId, 'background'))
-    .then((data) => {
+    .then(() => getSection(userId, 'background'))
+    .then(data => {
       t.deepEqual(data, inputBackground, 'Saves background section');
       t.end();
     });
 });
-
-test.onFinish(() => process.exit());

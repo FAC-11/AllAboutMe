@@ -2,7 +2,7 @@ const test = require('tape');
 const dbReset = require('../../../src/model/database/db_seed');
 const { getForm } = require('../../../src/model/form_queries');
 
-test('Get form from database', (t) => {
+test('Get form from database', t => {
   // TODO hardcoding id may be brittle
   const expected = {
     id: 1,
@@ -35,12 +35,9 @@ test('Get form from database', (t) => {
   };
 
   dbReset()
-    .then(() =>
-      getForm(1))
-    .then((formObj) => {
+    .then(() => getForm(1))
+    .then(formObj => {
       t.deepEqual(formObj, expected, 'Returns correct object');
       t.end();
     });
 });
-
-test.onFinish(() => process.exit());
