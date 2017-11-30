@@ -21,15 +21,15 @@ exports.get = (req, res) => {
         errorMessages: req.flash('error'),
         successMessages: req.flash('success'),
         activePage: {
-          reset: true
+          reset: true,
         },
-        pageTitle: 'Reset'
+        pageTitle: 'Reset',
       });
     }
   });
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
 
   const myUrl = new URL(req.headers.referer);
   const token = myUrl.pathname.split('/reset/')[1];
@@ -49,19 +49,14 @@ exports.post = (req, res) => {
       if (validator.isValid) {
         hashPassword(req.body.password)
           .then((hashedPassword) => {
-            updatePassword(hashedPassword, email)
+            updatePassword(hashedPassword, email);
           })
           .then(() =>{
             req.flash('success', 'Password is updated successfully.');
             res.redirect('/login');
           })
           .catch((err) => {
-            console.log('error from updatePassword query in reset.js', err);
-            res.status(500).render('error', {
-              layout: 'error',
-              statusCode: 500,
-              errorMessage: 'Internal server error'
-            });
+            next(err);
           });
         client.del(token, email);
       }else{

@@ -1,6 +1,6 @@
 const { saveSection, getSection } = require('../model/form_queries');
 
-exports.get = (req, res) => {
+exports.get = (req, res, next) => {
   getSection(req.session.id, 'about')
     .then((data) => {
       res.render('about', {
@@ -14,20 +14,11 @@ exports.get = (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(err);
-      req.flash('error', 'Sorry - we couldn\'t load your saved answers for this section');
-      res.render('about', {
-        activePage: { about: true },
-        errorMessages: req.flash('error'),
-        successMessages: req.flash('success'),
-        pageTitle: 'About Me',
-        logoutButton: true,
-        progressPercentage: '50',
-      });
+      next(err);
     });
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
   saveSection(req.session.id, 'about', req.body)
     .then(() => {
       const buttonPressed = req.body.button;
@@ -40,9 +31,7 @@ exports.post = (req, res) => {
       }
     })
     .catch((err) => {
-      console.log(err);
-      req.flash('error', 'Sorry - the about me section couldn\'t be saved');
-      res.redirect('about');
+      next(err);
     });
 
 };

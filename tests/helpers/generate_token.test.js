@@ -1,5 +1,5 @@
 const test = require('tape');
-const { generateToken } = require('../src/controllers/helpers/generate_token');
+const { generateToken } = require('../../src/controllers/helpers/generate_token');
 
 test('generateToken', (t) => {
   const actual = generateToken();
