@@ -73,23 +73,32 @@ _*"As a user I want to be able to...:"*_
 
 
 #### Sprint 3
-- [ ] Draw my answers 
-- [ ] See fun animations on the site
-- [ ] Be able to hide my answers
-- [ ] Customise the background image
-- [ ] Have a child-friendly experience while using the app
-- [ ] See sensible error pages/messages when something goes wrong
-- [ ] Include any additional information I feel is relevant
+- [x] Draw my answers - feature is almost ready but is not yet tested or integrated with the rest of the app
+- [x] Be able to hide my answers
+- [x] Better styling on mobile
+- [x] Fix colour change bug
+- [x] See sensible error pages/messages when something goes wrong
+- [x] Include any additional information I feel is relevant
+- [ ] Autosave answers - moved to sprint 4
+- [ ] Have a child-friendly experience while using the app (animations) - moved to sprint 4
 
-## The MVP! :sparkles:
+#### Sprint 4
+- [ ] Integrate drawing capability
+- [ ] Add questions about current and previous medication
+- [ ] Improve user experience
+- [ ] Increase test coverage to ensure the app runs as smoothly as possible
+- [ ] Autosave answers to help users avoid losing their input
+- [ ] Customisable background image
+- [ ] See fun animations on the site
+
+## The product! :sparkles:
 
 Check it out [here](https://allaboutme-annafreud.herokuapp.com/) :eyes: 
 
 Or look at this short video that shows basic functionality of the app:  
 
-![app walkthrough gif](https://i.imgur.com/Ibg2ykx.gif)  
+![app walkthrough gif](demo.gif)  
 
-![](https://files.gitter.im/foundersandcoders/AllAboutMe/3bB8/image.png)
 ## Set up the app locally :computer: 
 
 First clone this repo:
