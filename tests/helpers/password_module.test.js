@@ -8,7 +8,6 @@ test('hashPassword', t => {
   const firsthash = hashPassword('password');
   const actual = hashPassword('password');
   Promise.all([firsthash, actual]).then(values => {
-    console.log(values);
     t.notEqual(
       values[0],
       values[1],
@@ -21,4 +20,18 @@ test('hashPassword', t => {
     );
     t.end();
   });
+});
+test('comparePasswords', t => {
+  const password = 'password';
+  hashPassword('password')
+    .then(hash => {
+      return comparePasswords(password, hash);
+    })
+    .then(result => {
+      t.ok(
+        result,
+        'Should return true for comparing hashes of the same string'
+      );
+      t.end();
+    });
 });
