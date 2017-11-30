@@ -21,7 +21,7 @@ test('hashPassword', t => {
     t.end();
   });
 });
-test('comparePasswords', t => {
+test('comparePasswords with correct password', t => {
   const password = 'password';
   hashPassword('password')
     .then(hash => {
@@ -30,12 +30,12 @@ test('comparePasswords', t => {
     .then(result => {
       t.ok(
         result,
-        'Should return true for comparing hashes of the same string'
+        'Should return true for comparing a hash of the correct string'
       );
       t.end();
     });
 });
-test('comparePasswords', t => {
+test('comparePasswords with wrong password', t => {
   const password = 'pass';
   hashPassword('password')
     .then(hash => {
@@ -44,7 +44,7 @@ test('comparePasswords', t => {
     .then(result => {
       t.notok(
         result,
-        'Should return true for comparing hashes of the same string'
+        'Should return false for comparing a hash of the wrong string'
       );
       t.end();
     });
