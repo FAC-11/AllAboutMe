@@ -35,3 +35,17 @@ test('comparePasswords', t => {
       t.end();
     });
 });
+test('comparePasswords', t => {
+  const password = 'pass';
+  hashPassword('password')
+    .then(hash => {
+      return comparePasswords(password, hash);
+    })
+    .then(result => {
+      t.notok(
+        result,
+        'Should return true for comparing hashes of the same string'
+      );
+      t.end();
+    });
+});
