@@ -105,7 +105,7 @@ In terminal type psql or pgcli if installed. Within psql/pcli enter the followin
 
 ```bash
 CREATE DATABASE [db_name];  
-CREATE USER [user_name] WITH PASSWORD [password];
+CREATE USER [user_name] WITH PASSWORD '[password]'; # (password in single quotes)
 ```
 
 Now you can set the database url in your config.env as follows (setting the values in square brackets to the values you defined in the steps above):
@@ -117,15 +117,16 @@ postgres://[user_name]:[password]@localhost:5432/[db_name]
 Next run the db_build.js file in terminal: 
 
 ```bash
-node src/database/db_build.js
+npm run dbBuild # to build the database
+npm run dbSeed # to build the database and prepopulate with seed data
 ```
 
-This will create the tables in your database.
+This will create the tables in your database. The seed data adds a user with email `jam@gmail.com` and password `password`.
 
 ### Environment Variables 
 Environment variables are one of the ways we keep our product safe. If you want to access our app locally you will need to add your own.
 
-First create a [config.env](https://github.com/dwyl/env2#create-a-env-file) file and add the following variables:
+First create a [config.env](https://github.com/dwyl/env2#create-a-env-file) file in the root directory of the project and add the following variables:
 ```
 DATABASE_URL
 SECRET
@@ -135,7 +136,7 @@ SESSION_SECRET
 and for sending emails you need the following:
 
 ```
-TEMPLATE_DIRECTORY
+TEMPLATE_DIRECTORY = ./src/email_templates
 SENDER_EMAIL_ADDRESS
 AWS_REGION
 AWS_ACCESS_KEY_ID

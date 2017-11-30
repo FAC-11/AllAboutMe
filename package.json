@@ -12,6 +12,7 @@
   "scripts": {
     "test": "tape ./tests/*.test.js | tap-spec",
     "start": "node src/index.js",
+    "seedDb": "node src/model/database/db_seed.js",
     "buildDb": "node src/model/database/db_build.js",
     "devStart": "nodemon src/index.js",
     "coverage": "nyc npm test && nyc report --reporter=html && nyc report --reporter=text-lcov > coverage.lcov && codecov"
