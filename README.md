@@ -22,7 +22,8 @@ Patients at [The Anna Freud Centre](http://www.annafreud.org/) were tired of
 being asked the same questions every time their clinician changed or when they
 went to a new centre. They wrote up the most commonly asked questions into one
 questionnaire which they could give to their clinicians, however it was still
-paper-based.
+paper-based, papers often get lost and they found themselves again in a
+distressing place where they would have to repeat answers to personal questions.
 
 ## Solution :bulb:
 
