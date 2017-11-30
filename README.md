@@ -73,13 +73,23 @@ _*"As a user I want to be able to...:"*_
 
 
 #### Sprint 3
-- [ ] Draw my answers 
+- [x] Draw my answers - feature is almost ready but is not yet integrated with the rest of the app
+- [x] Be able to hide my answers
+- [x] Better styling on mobile
+- [x] Fix colour change bug
+- [x] See sensible error pages/messages when something goes wrong
+- [x] Include any additional information I feel is relevant
+- [ ] Autosave answers - moved to sprint 4
+- [ ] Have a child-friendly experience while using the app (animations) - moved to sprint 4
+
+#### Sprint 4
+- [ ] Integrate drawing capability
+- [ ] Add questions about current and previous medication
+- [ ] Improve user experience
+- [ ] Increase test coverage to ensure the app runs as smoothly as possible
+- [ ] Autosave answers to help users avoid losing their input
+- [ ] Customisable background image
 - [ ] See fun animations on the site
-- [ ] Be able to hide my answers
-- [ ] Customise the background image
-- [ ] Have a child-friendly experience while using the app
-- [ ] See sensible error pages/messages when something goes wrong
-- [ ] Include any additional information I feel is relevant
 
 ## The product! :sparkles:
 
