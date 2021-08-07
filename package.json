@@ -54,7 +54,7 @@
     "nyc": "^15.1.0",
     "supertest": "^6.1.4",
     "tachyons-box-sizing": "^3.2.2",
-    "tap-spec": "^5.0.0",
+    "tap-spec": "^2.2.2",
     "tape": "^5.3.1"
   }
 }
