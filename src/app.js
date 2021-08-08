@@ -1,4 +1,5 @@
 const express = require('express');
+const sslRedirect = require('heroku-ssl-redirect').default;
 const path = require('path');
 const exphbs = require('express-handlebars');
 const cookieSession = require('cookie-session');
@@ -7,6 +8,7 @@ const favicon = require('serve-favicon');
 const controllers = require('./controllers/index');
 const bodyParser = require('body-parser');
 require('env2')('config.env');
+
 
 const flash = require('express-flash');
 const app = express();
@@ -31,6 +33,7 @@ app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000 * 3,
 }));
 
+app.use(sslRedirect());
 app.use(cookieParser());
 app.use(flash());
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.ico')));
